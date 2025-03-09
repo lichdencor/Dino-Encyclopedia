@@ -1,5 +1,5 @@
 import "./Encyclopedia.css";
-import { Nav } from "../../components";
+import { Nav } from "../../../components";
 
 export const Encyclopedia = () => {
   return (

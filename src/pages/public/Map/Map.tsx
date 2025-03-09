@@ -1,5 +1,5 @@
 import "./Map.css";
-import { Nav } from "../../components/";
+import { Nav } from "../../../components/";
 import { Link } from "react-router-dom";
 
 export const Map = () => {
