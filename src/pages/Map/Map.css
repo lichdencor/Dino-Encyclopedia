@@ -1,0 +1,144 @@
+.era-map {
+  width: 90vw;
+  height: 75vh;
+  background-color: lightcoral;
+  margin: 0 auto;
+  margin-top: 5vh;
+  background-image: url(../../public/assets/img/map-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.map-background {
+  background-image: url(../../public/assets/img/map-background.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.moving-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/assets/img/moving-sky.png");
+  background-size: 50% 50%;
+  background-position: 0 0;
+  background-repeat: repeat;
+  animation: travel 28s infinite linear;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+@keyframes travel {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.user-character {
+  background-color: blue;
+  width: 10%;
+  height: 20%;
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  transition: all 300ms ease-in-out;
+}
+
+.user-character:hover {
+  transform: scale(103%);
+}
+
+.period-btn {
+  width: 8%;
+  height: 16%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.period-btn a {
+  z-index: 999;
+  text-decoration: none;
+}
+
+.period-btn-bg {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.period-btn-bg:hover {
+  transform: scale(103%);
+  animation: rotate 15s linear infinite;
+}
+
+.stage-1-bg {
+  background-color: violet;
+}
+
+.stage-2-bg {
+  background-color: lightskyblue;
+}
+
+.stage-3-bg {
+  background-color: lightpink;
+}
+
+.stage-1 {
+  left: 20%;
+  bottom: 25%;
+}
+
+.stage-2 {
+  left: 25%;
+  bottom: 45%;
+}
+
+.stage-3 {
+  left: 35%;
+  bottom: 55%;
+}
+
+.stage-4 {
+  left: 44%;
+  bottom: 30%;
+}
+
+.stage-5 {
+  left: 55%;
+  bottom: 17%;
+}
+
+.stage-6 {
+  right: 30%;
+  bottom: 45%;
+}
+
+.stage-7 {
+  right: 18%;
+  bottom: 55%;
+}
+
+.stage-8 {
+  right: 10%;
+  bottom: 30%;
+}
