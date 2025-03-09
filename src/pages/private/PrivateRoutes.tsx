@@ -1,6 +1,6 @@
 import { Navigate, Route } from "react-router-dom";
-import { RoutesWithNotFound } from "../components/RoutesWithNotFound/RoutesWithNotFound";
-import { AppRoutes } from "../models";
+import { RoutesWithNotFound } from "../../components/";
+import { AppRoutes } from "../../models";
 
 export const PrivateRouter = () => {
   return (
