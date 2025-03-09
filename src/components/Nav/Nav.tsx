@@ -10,6 +10,7 @@ export const Nav: React.FC = () => {
         <Link to="/map">Map</Link>
         <Link to="/encyclopedia">Encyclopedia</Link>
         <Link to="/album">Album</Link>
+        <Link to="/login">Login</Link>
       </div>
     </nav>
   );

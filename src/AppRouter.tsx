@@ -8,6 +8,7 @@ import {
   Map,
   TriassicInferior,
   TriassicMedio,
+  Login,
 } from "./pages/";
 
 const AppRouter = () => {
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path="/map" element={<Map />} />
         <Route path="/triassic-inferior" element={<TriassicInferior />} />
         <Route path="/triassic-medio" element={<TriassicMedio />} />
+        <Route path="/login" element={<Login />} />
       </RoutesWithNotFound>
     </BrowserRouter>
   );

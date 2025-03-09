@@ -1,7 +1,7 @@
 export const AppRoutes = {
   login: "/login",
+  album: "/album",
   private: {
-    root: "/private",
-    dashboard: "/dashboard",
+    uploadGallery: "/album/upload",
   },
 };
