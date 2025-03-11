@@ -1,53 +1,26 @@
+body {
+  overflow: hidden;
+}
+
 .era-map {
   width: 90vw;
   height: 75vh;
-  background-color: lightcoral;
   margin: 0 auto;
   margin-top: 5vh;
-  background-image: url(../../public/assets/img/map-bg.png);
+  background-image: url(/public/assets/img/map/map.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-}
-
-.map-background {
-  background-image: url(../../public/assets/img/map-background.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.moving-sky {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../public/assets/img/moving-sky.png");
-  background-size: 50% 50%;
-  background-position: 0 0;
-  background-repeat: repeat;
-  animation: travel 28s infinite linear;
-  filter: blur(6px);
-  z-index: -1;
-}
-
-@keyframes travel {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
+  position: relative;
 }
 
 .user-character {
   background-color: blue;
-  width: 10%;
-  height: 20%;
+  width: 12%;
+  height: 25%;
   position: absolute;
-  bottom: 10%;
-  left: 8%;
+  bottom: -5%;
+  left: -2%;
   transition: all 300ms ease-in-out;
 }
 
@@ -56,25 +29,32 @@
 }
 
 .period-btn {
-  width: 8%;
-  height: 16%;
+  width: 10%;
+  height: 24%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "MedusaGothicD";
+  letter-spacing: 0.15vw;
+  font-size: 0.6vw;
+  filter: brightness(50%);
+  transition: all 300ms ease-in-out;
 }
 
 .period-btn a {
   z-index: 999;
   text-decoration: none;
+  color: rgb(61, 61, 47);
 }
 
 .period-btn-bg {
   width: 100%;
   height: 100%;
-  border: 1px solid black;
-  transition: all 300ms ease-in-out;
   position: absolute;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @keyframes rotate {
@@ -86,59 +66,99 @@
   }
 }
 
-.period-btn-bg:hover {
-  transform: scale(103%);
-  animation: rotate 15s linear infinite;
+.period-btn:hover {
+  transform: scale(105%);
+  animation: rotate 20s linear infinite;
+  filter: brightness(100%);
 }
 
 .stage-1-bg {
-  background-color: violet;
+  background-image: url(/public/assets/img/frames/title-era-1.png);
 }
 
 .stage-2-bg {
-  background-color: lightskyblue;
+  background-image: url(/public/assets/img/frames/title-era-2.png);
 }
 
 .stage-3-bg {
-  background-color: lightpink;
+  background-image: url(/public/assets/img/frames/title-era-3.png);
 }
 
 .stage-1 {
   left: 20%;
-  bottom: 25%;
+  bottom: 17%;
 }
 
 .stage-2 {
-  left: 25%;
-  bottom: 45%;
+  left: 10%;
+  bottom: 43%;
 }
 
 .stage-3 {
-  left: 35%;
-  bottom: 55%;
+  left: 25%;
+  bottom: 58%;
 }
 
 .stage-4 {
-  left: 44%;
-  bottom: 30%;
+  left: 40%;
+  bottom: 40%;
 }
 
 .stage-5 {
-  left: 55%;
-  bottom: 17%;
+  left: 53%;
+  bottom: 37%;
 }
 
 .stage-6 {
   right: 30%;
-  bottom: 45%;
+  bottom: 65%;
 }
 
+
 .stage-7 {
-  right: 18%;
-  bottom: 55%;
+  right: 12%;
+  bottom: 38%;
 }
 
 .stage-8 {
-  right: 10%;
-  bottom: 30%;
+  right: 11%;
+  bottom: 6%;
 }
+
+/* PERIOD FRAMES START */
+
+.period-title-frame {
+  background-image: url(/public/assets/img/frames/period-title.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 22%;
+  height: 18%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "MedusaGothicD";
+  text-align: center;
+  letter-spacing: 0.2vw;
+  font-size: 1vw;
+  color: rgb(70, 68, 54);
+}
+
+.period-1 {
+  top: 5%;
+  left: 3%;
+}
+
+.period-2 {
+  top: 68%;
+  left: 37%;
+}
+
+.period-3 {
+  top: 10%;
+  left: 75%;
+}
+
+
+/* PERIOD FRAMES END */

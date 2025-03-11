@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "MedusaGothicD";
+  src: url("/public/assets/font/MedusaGothic D.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url(/public/assets/img/bg/base.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
+  width: 30vw;
+  height: 12vh;
+  position: fixed;
+  left: 2vw;
+  top: 2vh;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  z-index: 999;
+  /* background-color: yellow; */
+  font-family: "MedusaGothicD",     sans-serif;
+}
+
+header {
+  width: 50%;
+  height: 10vh;
+  background-color: orange;
+  margin: 0;
+  margin-left: 43vw;
+  margin-top: 3vh;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.profile-container {
+  width: 11vw;
+  height: 11vw;
+  /* background-color: gray; */
+  background-image: url(/public/assets/img/frames/profile-frame.png);
+  background-size: 100% 100%;
+  margin-top: 6vh;
+  position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.routes {
+  width: 75%;
+  height: 80%;
+  background-image: url(/public/assets/img/nav-bg.png);
+  background-size: 100% 100%;
+  /* background-color: red; */
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 25%;
+  padding: 0 3vw;
+}
+
+.routes a {
+  text-decoration: none;
+  font-size: 0.7vw;
+  color: rgb(61, 59, 44);
 }

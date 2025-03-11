@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 header {
   width: 50%;
   height: 10vh;
@@ -11,52 +15,209 @@ header {
 }
 
 .periods-container {
-  width: 87vw;
-  height: 65vh;
-  background-color: rgb(128, 128, 128);
+  width: 90vw;
+  height: 80vh;
   margin: 0 auto;
-  margin-top: 5vh;
+  margin-top: 3vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  background-image: url(/public/assets/img/base-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /* background-color: red; */
+  align-items: center;
 }
 
 .period {
-  width: 31%;
-  height: 100%;
-  background-color: blue;
+  width: 25%;
+  height: 75%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  /* background-color: lightcoral; */
+  margin-bottom: 6vh;
 }
 
+.triassic,
+.jurassic,
+.cretaceous {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.triassic {
+  background-image: url(/public/assets/img/frames/period-frame-1.png);
+}
+
+.jurassic {
+  background-image: url(/public/assets/img/frames/period-frame-2.png);
+}
+
+.cretaceous {
+  background-image: url(/public/assets/img/frames/period-frame-3.png);
+}
+
+
+
 .title {
-  width: 80%;
-  height: 15%;
-  background-color: brown;
+  width: 45%;
+  height: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 0.7vw;
+  background-image: url(/public/assets/img/period-title-frame.png);
+  position: absolute;
+  bottom: -4vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: all 500ms ease-in-out;
+  color: rgb(99, 98, 89);
+  font-family: "MedusaGothicD",     sans-serif;
+}
+
+.title:hover {
+  transform: scale(103%);
+  color: rgb(44, 43, 41);
 }
 
 .description {
-  height: 70%;
-  width: 90%;
-  background-color: lightsalmon;
-  font-size: 1vw;
-  padding: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 60%;
+  /* background-color: lightsalmon; */
+  font-size: 0.80vw;
+  padding: 1vw;
+  text-align: center;
+  margin-top: 3vw;
 }
 
 .map-btn {
-  margin: 0 auto;
   background-color: red;
   width: 10vw;
   height: 8vh;
-  margin-top: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2vw;
+  position: absolute;
+  left: 45%;
+  bottom: 3vh;
+}
+
+@keyframes scaleYAnim {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1.05); /* Aumenta un 10% en altura */
+  }
+}
+
+.plant-1,
+.plant-2 {
+  position: absolute;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: scaleYAnim 1.5s infinite alternate ease-in-out;
+  transform-origin: bottom;
+}
+
+.plant-1 {
+  background-image: url(/public/assets/img/plant-1.png);
+  height: 12vw;
+  width: 7vw;
+  /* background-color: red; */
+  bottom: 0vh;
+}
+
+.plant-2 {
+  height: 12vw;
+  width: 8vw;
+  background-image: url(/public/assets/img/plant-2.png);
+  top: 0vh;
+  right: 0;
+  /* background-color: red; */
+}
+
+@keyframes fadeInOut {
+  0%, 50% {
+    opacity: 1; /* Visible */
+  }
+  51%, 100% {
+    opacity: 0; /* Invisible */
+  }
+}
+
+.paw-1,
+.paw-2,
+.paw-3,
+.paw-4,
+.paw-5,
+.paw-6,
+.paw-7 {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  transition: all 200ms ease-in-out;
+}
+
+.paw-1 {
+  top: 10vw;
+  left: 8vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw.png);
+  rotate: 30deg;
+  animation: fadeInOut 10s infinite;
+}
+
+.paw-2 {
+  top: 12vw;
+  left: 12vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw-2.png);
+  rotate: 50deg;
+  animation: fadeInOut 11s infinite
+}
+
+.paw-3 {
+  top: 12vw;
+  left: 17vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw.png);
+  rotate: 30deg;
+  animation: fadeInOut 12s infinite ease-in-out;
+}
+
+.paw-4 {
+  bottom: 4vw;
+  right: 5vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw.png);
+  rotate: 30deg;
+  animation: fadeInOut 8s infinite ease-in-out;
+}
+
+.paw-5 {
+  bottom: 5vw;
+  right: 9vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw-2.png);
+  rotate: 50deg;
+  animation: fadeInOut 7s infinite
+}
+
+.paw-6 {
+  bottom: 6vw;
+  right: 13vw;
+  background-image: url(/public/assets/img/paws/dinosaur-paw.png);
+  rotate: 30deg;
+  animation: fadeInOut 6s infinite ease-in-out;
 }

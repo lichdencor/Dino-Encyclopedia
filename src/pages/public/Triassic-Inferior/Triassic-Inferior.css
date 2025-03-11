@@ -1,0 +1,203 @@
+.bg-era {
+  height: 100%;
+  width: 100%;
+  background-image: url(/public/assets/img/bg/bg-rock.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.triassic-inferior-bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/public/assets/img/era-bg/bg-tr-1.png);
+  background-size: 110% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.genetic-bg-1,
+.genetic-bg-2,
+.genetic-bg-3 {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/public/assets/img/dinosaurs/genetic-bg.png);
+  width: 5vw;
+  height: 5vw;
+  /* background-color: red; */
+  position: absolute;
+  filter: brightness(50%);
+  transition: all 300ms ease-in-out;
+}
+
+.genetic-bg-1:hover,
+.genetic-bg-2:hover,
+.genetic-bg-3:hover {
+  transform: scale(103%);
+  filter: brightness(100%);
+}
+
+.genetic-bg-1 {
+  width: 10%;
+  height: 30%;
+  left: 15%;
+  bottom: 45%;
+}
+
+.genetic-bg-2 {
+  width: 25%;
+  height: 38%;
+  left: 37%;
+  bottom: 33%;
+}
+
+.genetic-bg-3 {
+  width: 28%;
+  height: 25%;
+  left: 65%;
+  bottom: 25%;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
+}
+
+.dinosaur-1,
+.dinosaur-2,
+.dinosaur-3 {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform-origin: bottom;
+}
+
+.dinosaur-1 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
+  animation: breathe 2s infinite ease-in-out;
+}
+
+.dinosaur-2 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
+  animation: breathe 4s infinite ease-in-out;
+}
+
+.dinosaur-3 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Postosuchus.png);
+  animation: breathe 3s infinite ease-in-out;
+}
+
+.name-frame {
+  width: 17%;
+  height: 9%;
+  position: absolute;
+  background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
+  background-position: center;
+  background-size: 100% 100%;
+  /* background-color: red; */
+  background-repeat: no-repeat;
+  font-family: "MedusaGothicD";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.2vw;
+  text-align: center;
+  color: rgb(44, 42, 40);
+}
+
+.name-frame-1 {
+  left: 9%;
+  top: 52%;
+}
+
+.name-frame-2 {
+  left: 30%;
+  top: 28%;
+}
+
+.name-frame-3 {
+  left: 63%;
+  top: 38%;
+}
+
+.arrow-previous,
+.arrow-next {
+  width: 4%;
+  height: 5%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 25%;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-previous:hover,
+.arrow-next:hover {
+  transform: scale(105%);
+}
+
+.arrow-previous {
+  left: 3%;
+  background-image: url(/public/assets/img/arrow-previous.png);
+}
+
+.arrow-next {
+  right: 3%;
+  background-image: url(/public/assets/img/arrow-next.png);
+}
+
+/* PLANTS */
+
+@keyframes sway {
+  0% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.plant-1,
+.plant-2,
+.plant-3 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  /* z-index: -1; */
+}
+
+.plant-1 {
+  width: 30%;
+  height: 30%;
+  left: 50%;
+  top: 0%;
+  background-image: url(/public/assets/img/plants/palm-tree.png);
+  transform-origin: top;
+  animation: sway 4s ease-in-out infinite alternate;
+}
+
+.plant-2 {
+  width: 40%;
+  height: 30%;
+  left: 60%;
+  bottom: 0%;
+  background-image: url(/public/assets/img/plants/bush.png);
+  transform-origin: bottom;
+  animation: breathe 4s ease-in-out infinite alternate;
+}
+
