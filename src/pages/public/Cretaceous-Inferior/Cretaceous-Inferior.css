@@ -44,24 +44,24 @@
 }
 
 .genetic-bg-1 {
-  width: 10%;
-  height: 30%;
-  left: 15%;
-  bottom: 45%;
+  width: 35%;
+  height: 40%;
+  left: 5%;
+  bottom: 25%;
 }
 
 .genetic-bg-2 {
-  width: 25%;
-  height: 38%;
+  width: 18%;
+  height: 18%;
   left: 37%;
-  bottom: 33%;
+  bottom: 30%;
 }
 
 .genetic-bg-3 {
-  width: 28%;
-  height: 25%;
-  left: 65%;
-  bottom: 25%;
+  width: 35%;
+  height: 40%;
+  left: 60%;
+  bottom: 30%;
 }
 
 @keyframes breathe {
@@ -119,17 +119,17 @@
 
 .name-frame-1 {
   left: 9%;
-  top: 52%;
+  top: 30%;
 }
 
 .name-frame-2 {
-  left: 30%;
-  top: 28%;
+  left: 48%;
+  top: 47%;
 }
 
 .name-frame-3 {
-  left: 63%;
-  top: 38%;
+  left: 60%;
+  top: 27%;
 }
 
 .arrow-previous,
