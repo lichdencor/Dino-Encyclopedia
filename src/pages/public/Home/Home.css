@@ -5,7 +5,8 @@ body {
 header {
   width: 50%;
   height: 10vh;
-  background-color: orange;
+  /* background-color: orange; */
+  background-color: transparent !important;
   margin: 0;
   margin-left: 43vw;
   margin-top: 3vh;
@@ -61,8 +62,6 @@ header {
   background-image: url(/public/assets/img/frames/period-frame-3.png);
 }
 
-
-
 .title {
   width: 45%;
   height: 25%;
@@ -80,6 +79,7 @@ header {
   transition: all 500ms ease-in-out;
   color: rgb(99, 98, 89);
   font-family: "MedusaGothicD",     sans-serif;
+  background-color: transparent !important;
 }
 
 .title:hover {
@@ -101,7 +101,7 @@ header {
 }
 
 .map-btn {
-  background-color: red;
+  /* background-color: red; */
   width: 10vw;
   height: 8vh;
   display: flex;
