@@ -7,9 +7,9 @@ export const Home = () => {
     <div>
       <Nav />
       <header>HEADER</header>
-      <div class="periods-container">
+      <div className="periods-container">
         <div class="period triassic">
-          <div class="title">Triassic<br />Period</div>
+          <div className="title">Triassic<br />Period</div>
           <div class="description">
             <i
             >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -67,8 +67,8 @@ export const Home = () => {
       <div className="map-btn">
         <Link to="/map">Go to Map</Link>
       </div>
-      <div class="plant-1"></div>
-      <div class="plant-2"></div>
+      {/* <div class="plant-1"></div>
+      <div class="plant-2"></div> */}
 
       <div class="paw-1"></div>
       <div class="paw-2"></div>
