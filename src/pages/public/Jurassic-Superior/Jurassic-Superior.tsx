@@ -7,28 +7,28 @@ export const JurassicSuperior = () => {
   return (
     <div>
       <Nav />
-        <div class="triassic-inferior-bg">
-            <div class="plant-1"></div>
-            <div class="plant-2"></div>
-            <div class="plant-3"></div>
-            <div class=" bg-era">
-                <div class="arrow-previous"><Link to="/map">.</Link></div>
+        <div className="triassic-inferior-bg">
+            <div className="plant-1"></div>
+            <div className="plant-2"></div>
+            <div className="plant-3"></div>
+            <div className=" bg-era">
+                <div className="arrow-previous"><Link to="/map">.</Link></div>
 
-                <div class="name-frame name-frame-1">Brachiosaurus</div>
-                <div class="name-frame name-frame-2">Diplodocus</div>
-                <div class="name-frame name-frame-3">Stegosaurus</div>
+                <div className="name-frame name-frame-1">Brachiosaurus</div>
+                <div className="name-frame name-frame-2">Diplodocus</div>
+                <div className="name-frame name-frame-3">Stegosaurus</div>
 
-                <div class="genetic-bg-1">
-                    <div class="dinosaur-1"></div>
+                <div className="genetic-bg-1">
+                    <div className="dinosaur-1"></div>
                 </div>
-                <div class="genetic-bg-2">
-                    <div class="dinosaur-2"></div>
+                <div className="genetic-bg-2">
+                    <div className="dinosaur-2"></div>
                 </div>
-                <div class="genetic-bg-3">
-                    <div class="dinosaur-3"></div>
+                <div className="genetic-bg-3">
+                    <div className="dinosaur-3"></div>
                 </div>
 
-                <div class="arrow-next"><Link to="/triassic-medio">.</Link></div>
+                <div className="arrow-next"><Link to="/triassic-medio">.</Link></div>
             </div>
         </div>
     </div>

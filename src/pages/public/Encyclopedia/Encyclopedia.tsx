@@ -6,26 +6,26 @@ export const Encyclopedia = () => {
   return (
     <div>
       <Nav />
-      <div class="encyclopedia-container">
-        <div class="arrow-previous"><Link to="/map">.</Link></div>
-        <div class="title">Triassic Period</div>
-        <div class="dino-card-container">
-          <div class="dino-card">
-            <div class="dinosaur dinosaur-1"></div>
+      <div className="encyclopedia-container">
+        <div className="arrow-previous"><Link to="/map">.</Link></div>
+        <div className="title">Triassic Period</div>
+        <div className="dino-card-container">
+          <div className="dino-card">
+            <div className="dinosaur dinosaur-1"></div>
           </div>
-          <div class="dino-card dinosaur-2"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
-          <div class="dino-card"></div>
+          <div className="dino-card dinosaur-2"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
+          <div className="dino-card"></div>
         </div>
-        <div class="arrow-next"><Link to="/triassic-medio">.</Link></div>
+        <div className="arrow-next"><Link to="/triassic-medio">.</Link></div>
       </div>
     </div>
   );
