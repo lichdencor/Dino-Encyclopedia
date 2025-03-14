@@ -1,9 +1,9 @@
-import "./Jurassic-Medio.css";
+import "./Cretaceous-Medium.css";
 
 import { Nav } from "../../../components";
 import {Link} from "react-router-dom";
 
-export const JurassicMedio = () => {
+export const CretaceousMedium = () => {
   return (
     <div>
       <Nav />
@@ -14,9 +14,9 @@ export const JurassicMedio = () => {
             <div className=" bg-era">
                 <div className="arrow-previous"><Link to="/map">.</Link></div>
 
-                <div className="name-frame name-frame-1">Allosaurus</div>
-                <div className="name-frame name-frame-2">Apatosaurus</div>
-                <div className="name-frame name-frame-3">Camarasaurus</div>
+                <div className="name-frame name-frame-1">Spinosaurus</div>
+                <div className="name-frame name-frame-2">Baryonyx</div>
+                <div className="name-frame name-frame-3">Irritator</div>
 
                 <div className="genetic-bg-1">
                     <div className="dinosaur-1"></div>

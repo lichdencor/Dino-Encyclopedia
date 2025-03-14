@@ -11,8 +11,7 @@ export const Home = () => {
         <div className="period triassic">
           <div className="title">Triassic<br />Period</div>
           <div className="description">
-            <i
-            >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            <i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
               ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
               aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -22,16 +21,14 @@ export const Home = () => {
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
               veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat."</i
-            >
+              ea commodo consequat."</i>
           </div>
           <div className="preiod-title"></div>
         </div>
         <div className="period jurassic">
           <div className="title">Jurassic<br />Period</div>
           <div className="description">
-            <i
-            >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            <i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
               ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
               aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -41,26 +38,23 @@ export const Home = () => {
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
               veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat."</i
-            >
+              ea commodo consequat."</i>
           </div>
         </div>
         <div className="period cretaceous">
           <div className="title">Cretaceous<br />Period</div>
           <div className="description">
-            <i
-            >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            <i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
               ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
               aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
               pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum."<br /><br />"Lorem
+              culpa qui officia deserunt mollit anim id est laborum."<br/><br/>"Lorem
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
               veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat."</i
-            >
+              ea commodo consequat."</i>
           </div>
         </div>
       </div>
