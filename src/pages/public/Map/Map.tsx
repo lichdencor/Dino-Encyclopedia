@@ -8,9 +8,21 @@ export const Map = () => {
       <Nav />
       <header>HEADER</header>
       <div className="era-map">
-        <div className="period-title-frame period-1">Triassic<br/>Period</div>
-        <div className="period-title-frame period-2">Jurassic<br/>Period</div>
-        <div className="period-title-frame period-3">Cretaceous<br/>Period</div>
+        <div className="period-title-frame period-1">
+          Triassic
+          <br />
+          Period
+        </div>
+        <div className="period-title-frame period-2">
+          Jurassic
+          <br />
+          Period
+        </div>
+        <div className="period-title-frame period-3">
+          Cretaceous
+          <br />
+          Period
+        </div>
 
         <div className="user-character"></div>
         <div className="period-btn stage-1">
@@ -20,7 +32,6 @@ export const Map = () => {
         <div className="period-btn stage-2">
           <Link to="/triassic-medio">medium</Link>
           <div className="period-btn-bg stage-1-bg"></div>
-
         </div>
         <div className="period-btn stage-3">
           <Link to="/triassic-superior">superior</Link>
