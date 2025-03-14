@@ -1,54 +1,133 @@
-# React + TypeScript + Vite
+# Proyecto: Dino-Encyclopedia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de React con TypeScript, construido utilizando Bun como runtime y gestor de paquetes.
 
-Currently, two official plugins are available:
+Repositorio en GitHub: [Dino-Encyclopedia](https://github.com/lichdencor/Dino-Encyclopedia)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
 
-## Expanding the ESLint configuration
+Para instalar Bun, sigue las instrucciones oficiales en el siguiente enlace:
+[Bun Installation](https://bun.sh/docs/installation)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Clonar el repositorio
+```sh
+git clone https://github.com/lichdencor/Dino-Encyclopedia.git
+cd Dino-Encyclopedia
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### Instalar dependencias
+```sh
+bun install
 ```
+
+### Instalar React Router (opcional, si se necesita en el proyecto)
+```sh
+bun install react-router-dom
+```
+
+### Ejecutar el proyecto
+```sh
+bun run dev
+```
+
+## Estructura del Proyecto
+```
+.
+├── bun.lock
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
+├── src
+│   ├── App.css
+│   ├── AppRouter.tsx
+│   ├── App.tsx
+│   ├── components
+│   │   ├── ImageUploader
+│   │   │   └── ImageUploader.tsx
+│   │   ├── index.ts
+│   │   ├── Nav
+│   │   │   ├── Nav.css
+│   │   │   └── Nav.tsx
+│   │   └── RoutesWithNotFound
+│   │       └── RoutesWithNotFound.tsx
+│   ├── context
+│   │   ├── Auth
+│   │   │   ├── AuthContext.tsx
+│   │   │   └── AuthProvider.tsx
+│   │   └── index.ts
+│   ├── guard
+│   │   └── PrivateGuard.tsx
+│   ├── hooks
+│   │   ├── index.ts
+│   │   └── useAuth.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── models
+│   │   ├── index.ts
+│   │   └── routes.model.ts
+│   ├── pages
+│   │   ├── index.ts
+│   │   ├── private
+│   │   │   └── PrivateRoutes.tsx
+│   │   └── public
+│   │       ├── Album
+│   │       │   └── Album.tsx
+│   │       ├── Cretaceous-Inferior
+│   │       │   ├── Cretaceous-Inferior.css
+│   │       │   └── Cretaceous-Inferior.tsx
+│   │       ├── Cretaceous-Medio
+│   │       │   ├── Cretaceous-Medio.css
+│   │       │   └── Cretaceous-Medio.tsx
+│   │       ├── Cretaceous-Superior
+│   │       │   ├── Cretaceous-Superior.css
+│   │       │   └── Cretaceous-Superior.tsx
+│   │       ├── Encyclopedia
+│   │       │   ├── Encyclopedia.css
+│   │       │   └── Encyclopedia.tsx
+│   │       ├── Era
+│   │       │   └── Era.css
+│   │       ├── Home
+│   │       │   ├── Home.css
+│   │       │   └── Home.tsx
+│   │       ├── Jurassic-Inferior
+│   │       │   ├── Jurassic-Inferior.css
+│   │       │   └── Jurassic-Inferior.tsx
+│   │       ├── Jurassic-Medio
+│   │       │   ├── Jurassic-Medio.css
+│   │       │   └── Jurassic-Medio.tsx
+│   │       ├── Jurassic-Superior
+│   │       │   ├── Jurassic-Superior.css
+│   │       │   └── Jurassic-Superior.tsx
+│   │       ├── Login
+│   │       │   └── Login.tsx
+│   │       ├── Map
+│   │       │   ├── Map.css
+│   │       │   └── Map.tsx
+│   │       ├── Triassic-Inferior
+│   │       │   ├── Triassic-Inferior.css
+│   │       │   └── Triassic-Inferior.tsx
+│   │       ├── Triassic-Medio
+│   │       │   ├── Triassic-Medio.css
+│   │       │   └── Triassic-Medio.tsx
+│   │       └── Triassic-Superior
+│   │           ├── Triassic-Superior.css
+│   │           └── Triassic-Superior.tsx
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
+## Contribuciones
+Crear pull requests dependiendo del feature a crear.
+
