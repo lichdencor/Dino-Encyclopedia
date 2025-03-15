@@ -1,4 +1,4 @@
-.bg-era {
+.bgEra {
   height: 100%;
   width: 100%;
   background-image: url(/public/assets/img/bg/bg-rock.png);
@@ -8,10 +8,10 @@
   z-index: -2;
 }
 
-.triassic-inferior-bg {
+.triassicInferiorBg {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/era-bg/bg-jur-3.png);
+  background-image: url(/public/assets/img/era-bg/bg-jur-2.png);
   background-size: 110% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,48 +21,46 @@
   padding: 0;
 }
 
-.genetic-bg-1,
-.genetic-bg-2,
-.genetic-bg-3 {
+.geneticBg1,
+.geneticBg2,
+.geneticBg3 {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(/public/assets/img/dinosaurs/genetic-bg.png);
   width: 5vw;
   height: 5vw;
-  /* background-color: red; */
   position: absolute;
   filter: brightness(50%);
   transition: all 300ms ease-in-out;
 }
 
-.genetic-bg-1:hover,
-.genetic-bg-2:hover,
-.genetic-bg-3:hover {
+.geneticBg1:hover,
+.geneticBg2:hover,
+.geneticBg3:hover {
   transform: scale(103%);
   filter: brightness(100%);
 }
 
-.genetic-bg-1 {
-  width: 40%;
-  height: 70%;
-  left: -2%;
-  bottom: 12%;
-}
-
-.genetic-bg-2 {
-  width: 40%;
+.geneticBg1 {
+  width: 30%;
   height: 60%;
-  left: 28%;
-  bottom: 6%;
-  /* background-color: red; */
+  left: 8%;
+  bottom: 19%;
 }
 
-.genetic-bg-3 {
+.geneticBg2 {
+  width: 35%;
+  height: 65%;
+  left: 32%;
+  bottom: 13%;
+}
+
+.geneticBg3 {
   width: 28%;
-  height: 40%;
-  left: 65%;
-  bottom: 28%;
+  height: 65%;
+  left: 68%;
+  bottom: 18%;
 }
 
 @keyframes breathe {
@@ -74,9 +72,9 @@
   }
 }
 
-.dinosaur-1,
-.dinosaur-2,
-.dinosaur-3 {
+.dinosaur1,
+.dinosaur2,
+.dinosaur3 {
   width: 100%;
   height: 100%;
   background-position: center;
@@ -85,29 +83,28 @@
   transform-origin: bottom;
 }
 
-.dinosaur-1 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
+.dinosaur1 {
+  background-image: url(/public/assets/img/dinosaurs/ju-2-Allosaurus.png);
   animation: breathe 2s infinite ease-in-out;
 }
 
-.dinosaur-2 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Diplodocus.png);
+.dinosaur2 {
+  background-image: url(/public/assets/img/dinosaurs/ju-2-Apatosaurus.png);
   animation: breathe 4s infinite ease-in-out;
 }
 
-.dinosaur-3 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Stegosaurus.png);
+.dinosaur3 {
+  background-image: url(/public/assets/img/dinosaurs/ju-2-Camarasaurus.png);
   animation: breathe 3s infinite ease-in-out;
 }
 
-.name-frame {
+.nameFrame {
   width: 17%;
   height: 9%;
   position: absolute;
   background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
   background-position: center;
   background-size: 100% 100%;
-  /* background-color: red; */
   background-repeat: no-repeat;
   font-family: "MedusaGothicD";
   display: flex;
@@ -118,23 +115,23 @@
   color: rgb(44, 42, 40);
 }
 
-.name-frame-1 {
-  left: 7%;
-  top: 38%;
+.nameFrame1 {
+  left: 3%;
+  top: 28%;
 }
 
-.name-frame-2 {
+.nameFrame2 {
   left: 40%;
   top: 30%;
 }
 
-.name-frame-3 {
-  left: 63%;
-  top: 23%;
+.nameFrame3 {
+  left: 68%;
+  top: 25%;
 }
 
-.arrow-previous,
-.arrow-next {
+.arrowPrevious,
+.arrowNext {
   width: 4%;
   height: 5%;
   background-position: center;
@@ -149,22 +146,20 @@
   align-items: center;
 }
 
-.arrow-previous:hover,
-.arrow-next:hover {
+.arrowPrevious:hover,
+.arrowNext:hover {
   transform: scale(105%);
 }
 
-.arrow-previous {
+.arrowPrevious {
   left: 3%;
   background-image: url(/public/assets/img/arrow-previous.png);
 }
 
-.arrow-next {
+.arrowNext {
   right: 3%;
   background-image: url(/public/assets/img/arrow-next.png);
 }
-
-/* PLANTS */
 
 @keyframes sway {
   0% { transform: rotate(3deg); }
@@ -172,17 +167,16 @@
   100% { transform: rotate(3deg); }
 }
 
-.plant-1,
-.plant-2,
-.plant-3 {
+.plant1,
+.plant2,
+.plant3 {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  /* z-index: -1; */
 }
 
-.plant-1 {
+.plant1 {
   width: 30%;
   height: 30%;
   left: 50%;
@@ -192,7 +186,7 @@
   animation: sway 4s ease-in-out infinite alternate;
 }
 
-.plant-2 {
+.plant2 {
   width: 40%;
   height: 30%;
   left: 60%;
@@ -201,4 +195,3 @@
   transform-origin: bottom;
   animation: breathe 4s ease-in-out infinite alternate;
 }
-
