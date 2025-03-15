@@ -40,7 +40,6 @@ export const Map = () => {
                     </div>
                     <button><Link to="/triassic-inferior">inferior</Link></button>
                   </div>
-
                 </div>
             )}
           </div>
