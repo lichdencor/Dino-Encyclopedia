@@ -7,13 +7,13 @@ import {
   Album,
   Map,
   TriassicInferior,
-  TriassicMedio,
+  TriassicMedium,
   TriassicSuperior,
   CretaceousInferior,
-  CretaceousMedio,
+  CretaceousMedium,
   CretaceousSuperior,
   JurassicInferior,
-  JurassicMedio,
+  JurassicMedium,
   JurassicSuperior,
   Login,
 } from "./pages/";
@@ -29,15 +29,15 @@ const AppRouter = () => {
         <Route path="/map" element={<Map />} />
 
         <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
-        <Route path="/cretaceous-medio" element={<CretaceousMedio />} />
+        <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
         <Route path="/cretaceous-superior" element={<CretaceousSuperior />} />
 
         <Route path="/jurassic-inferior" element={<JurassicInferior />} />
-        <Route path="/jurassic-medio" element={<JurassicMedio/>} />
+        <Route path="/jurassic-medio" element={<JurassicMedium/>} />
         <Route path="/jurassic-superior" element={<JurassicSuperior />} />
 
         <Route path="/triassic-inferior" element={<TriassicInferior />} />
-        <Route path="/triassic-medio" element={<TriassicMedio />} />
+        <Route path="/triassic-medio" element={<TriassicMedium />} />
         <Route path="/triassic-superior" element={<TriassicSuperior />} />
 
         <Route path="/login" element={<Login />} />
