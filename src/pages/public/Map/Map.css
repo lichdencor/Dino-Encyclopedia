@@ -239,7 +239,7 @@ body {
     transform: scaleY(1);
   }
   50% {
-    transform: scaleY(1.03);
+    transform: scaleY(0.98);
   }
 }
 
