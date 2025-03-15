@@ -21,10 +21,12 @@ export const Map = () => {
               onMouseEnter={() => setHoveredStage("stage-1")}
               onMouseLeave={() => setHoveredStage(null)}
           >
-            <Link to="/triassic-inferior">inferior</Link>
+            <div>inferior</div>
             <div className="period-btn-bg stage-1-bg"></div>
             {hoveredStage === "stage-1" && (
-                <div className="info-container fade-in">
+                <div className="info-container fade-in"
+                     onMouseEnter={() => setHoveredStage("stage-1")}
+                >
                   <div className="info-frame">
                     <span>Sala 1</span>
                     <p>Hacé click para conocer a los dinosaurios: Dino, Dino, Dino</p>
@@ -34,6 +36,7 @@ export const Map = () => {
                       <div className="info-triassic-dino-2"></div>
                       <div className="info-triassic-dino-3"></div>
                     </div>
+                    <button><Link to="/triassic-inferior">inferior</Link></button>
                   </div>
 
                 </div>
