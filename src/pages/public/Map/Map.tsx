@@ -28,13 +28,15 @@ export const Map = () => {
                      onMouseEnter={() => setHoveredStage("stage-1")}
                 >
                   <div className="info-frame">
+                    <div className="site-description">
                     <span>Sala 1</span>
                     <p>Hacé click para conocer a los dinosaurios: Dino, Dino, Dino</p>
-
+                    </div>
+        
                     <div className="info-triassic-dinos-container">
-                      <div className="info-triassic-dino-1"></div>
-                      <div className="info-triassic-dino-2"></div>
-                      <div className="info-triassic-dino-3"></div>
+                      <div className="info-triassic-dino-1 dinosaur-silhouette"></div>
+                      <div className="info-triassic-dino-2 dinosaur-silhouette"></div>
+                      <div className="info-triassic-dino-3 dinosaur-silhouette"></div>
                     </div>
                     <button><Link to="/triassic-inferior">inferior</Link></button>
                   </div>

@@ -44,7 +44,7 @@ body {
 }
 
 .period-btn a {
-  z-index: 999;
+  z-index: 99;
   text-decoration: none;
   color: rgb(61, 61, 47);
 }
@@ -63,57 +63,71 @@ body {
   filter: brightness(100%);
 }
 
-.stage-1-bg {
-  background-image: url(/public/assets/img/frames/title-era-1.png);
-}
-
-.stage-2-bg {
-  background-image: url(/public/assets/img/frames/title-era-2.png);
-}
-
-.stage-3-bg {
-  background-image: url(/public/assets/img/frames/title-era-3.png);
+.stage-1,
+.stage-2,
+.stage-3,
+.stage-4,
+.stage-5,
+.stage-6,
+.stage-7,
+.stage-8 {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .stage-1 {
   left: 20%;
   bottom: 17%;
+  background-image: url(/public/assets/img/buildings/bu-tri-1.png);
 }
 
 .stage-2 {
   left: 10%;
   bottom: 43%;
+  background-image: url(/public/assets/img/buildings/bu-tri-2.png);
 }
 
 .stage-3 {
   left: 25%;
   bottom: 58%;
+  background-image: url(/public/assets/img/buildings/bu-tri-3.png);
 }
 
 .stage-4 {
   left: 40%;
   bottom: 40%;
+  background-image: url(/public/assets/img/buildings/bu-jur-1.png);
 }
 
 .stage-5 {
   left: 53%;
   bottom: 37%;
+  background-image: url(/public/assets/img/buildings/bu-jur-2.png);
 }
 
 .stage-6 {
   right: 30%;
   bottom: 65%;
+  background-image: url(/public/assets/img/buildings/bu-jur-3.png);
 }
-
 
 .stage-7 {
   right: 12%;
   bottom: 38%;
+  background-image: url(/public/assets/img/buildings/bu-cre-1.png);
 }
 
 .stage-8 {
   right: 11%;
   bottom: 6%;
+  background-image: url(/public/assets/img/buildings/bu-cre-2.png);
+}
+
+.stage-9 {
+  right: 11%;
+  bottom: 6%;
+  background-image: url(/public/assets/img/buildings/bu-cre-3.png);
 }
 
 /* PERIOD FRAMES START */
@@ -159,29 +173,102 @@ body {
   transition: opacity 0.3s ease-in-out;
   position: absolute;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
   width: 20vh;
-  height: 25vh;
-  top: 50%;
-  left: calc(100%);
+  height: 30vh;
+  top: 25%;
+  left: calc(80%);
   transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/public/assets/img/era-bg/bg-cret-1.png);
+  background-image: url(/public/assets/img/building-descriptions/tri-frame-inferior.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 1000;
 }
 
 .info-frame {
+  margin-top: 10%;
+  width: 60%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-description {
+  height: 30%;
   width: 100%;
-  height: 100%;
-  background-image: url(/public/assets/img/frames/dinosaur-frame.png);
+  background-color: rgb(118, 159, 158);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-description span {
+  font-size: 0.6vw;
+  text-align: center;
+}
+
+.site-description p {
+  font-size: 0.3vw;
+  letter-spacing: 0.1vw;
+  text-align: center;
+}
+
+.info-triassic-dinos-container {
+  height: 20%;
+  width: 100%;
+  background-color: rgb(118, 159, 158);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.info-frame button {
+  position: absolute;
+}
+
+/* BUILDING DINOSAURS */
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
+}
+
+.dinosaur-silhouette {
+  filter: brightness(0);
   background-size: 100% 100%;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+}
+
+.info-triassic-dino-1 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
+  width: 25%;
+  height: 60%;
+  animation: breathe 2s infinite ease-in-out;
+}
+
+.info-triassic-dino-2 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
+  width: 30%;
+  height: 90%;
+  animation: breathe 3s infinite ease-in-out;
+}
+
+.info-triassic-dino-3 {
+  background-image: url(/public/assets/img/dinosaurs/tr-1-Postosuchus.png);
+  width: 32%;
+  height: 100%;
+  animation: breathe 4s infinite ease-in-out;
 }
 
 .fade-in {
