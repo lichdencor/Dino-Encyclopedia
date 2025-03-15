@@ -7,6 +7,7 @@ export const JurassicInferior = () => {
   return (
     <div>
       <Nav />
+
       <div className="triassic-inferior-bg">
         <div className="plant-1"></div>
         <div className="plant-2"></div>
