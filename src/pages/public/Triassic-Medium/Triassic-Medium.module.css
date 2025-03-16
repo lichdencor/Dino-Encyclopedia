@@ -1,22 +1,9 @@
-/* TriassicInferior.module.css */
-
-/* General Background */
-.bgEra {
-  height: 100%;
-  width: 100%;
-  background-image: url(/public/assets/img/bg/bg-rock.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: -2;
-}
-
 /* Triassic Inferior Background */
 .triassicInferiorBg {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/era-bg/bg-tr-2.png);
-  background-size: 110% 100%;
+  background-image: url(/public/assets/img/era-bg/room-bg-1.png);
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
