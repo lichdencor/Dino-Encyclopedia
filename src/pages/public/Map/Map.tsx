@@ -33,14 +33,19 @@ export const Map = () => {
                     <p>Hacé click para conocer a los dinosaurios: Dino, Dino, Dino</p>
                     </div>
         
-                    <div className="info-triassic-dinos-container">
+                    
+                    <button><Link to="/triassic-inferior">inferior</Link></button>
+                  </div>
+                  <div className="paper">
+                  <div className="info-triassic-dinos-container">
                       <div className="info-triassic-dino-1 dinosaur-silhouette"></div>
                       <div className="info-triassic-dino-2 dinosaur-silhouette"></div>
                       <div className="info-triassic-dino-3 dinosaur-silhouette"></div>
                     </div>
-                    <button><Link to="/triassic-inferior">inferior</Link></button>
                   </div>
                 </div>
+
+                
             )}
           </div>
           <div className="period-btn stage-2">
