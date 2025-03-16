@@ -239,14 +239,7 @@ body {
 
 /* BUILDING DINOSAURS */
 
-@keyframes breathe {
-  0%, 100% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(0.98);
-  }
-}
+
 
 .dinosaur-silhouette {
   filter: brightness(0);
@@ -274,6 +267,15 @@ body {
   width: 32%;
   height: 100%;
   animation: breathe 4s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scaleY(1.1);
+  }
+  50% {
+    transform: scaleY(0.98);
+  }
 }
 
 .fade-in {
