@@ -216,12 +216,14 @@ body {
 .site-description span {
   font-size: 0.6vw;
   text-align: center;
+  color: black;
 }
 
 .site-description p {
   font-size: 0.3vw;
   letter-spacing: 0.1vw;
   text-align: center;
+  color: black;
 }
 
 .info-triassic-dinos-container {
@@ -235,6 +237,7 @@ body {
 
 .info-frame button {
   position: absolute;
+  bottom: 1vw;
 }
 
 /* BUILDING DINOSAURS */
