@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface PeriodsButtonHoverProps {
@@ -27,20 +27,10 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
       <div>{label}</div>
       <div className={`period-btn-bg ${stage}-bg`}></div>
       {hovered && (
-        <div
+        [<div
           className="info-container fade-in"
           onMouseEnter={() => setHovered(true)}
         >
-          <div className="paper">
-            <div className="info-triassic-dinos-container">
-              {dinos.map((dino: string, index: number) => (
-                <div
-                  key={index}
-                  className={`${dino} dinosaur-silhouette`}
-                ></div>
-              ))}
-            </div>
-          </div>
           <div className="info-frame">
             <div className="site-description">
               <span>{label}</span>
@@ -51,9 +41,21 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
               <Link to={link}>{label}</Link> 
             </button>
           </div>
-          
-        </div>
+        </div>,
+          <div className="paper">
+            <div className="info-triassic-dinos-container">
+              {dinos.map((dino: string, index: number) => (
+                  <div
+                      key={index}
+                      className={`${dino} dinosaur-silhouette`}
+                  ></div>
+              ))}
+            </div>
+          </div>
+        ]
       )}
     </div>
   );
 };
+
+
