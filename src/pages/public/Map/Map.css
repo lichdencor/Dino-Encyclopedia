@@ -252,7 +252,7 @@ body {
   width: 6vw;
   height: 10vw;
   position: absolute;
-  left: calc(170%);
+  left: calc(90%);
   transform: translateY(-16%);
   display: flex;
   justify-content: flex-end;
