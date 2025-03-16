@@ -190,7 +190,6 @@ body {
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 0  ;
 }
 
 .info-frame {
@@ -201,6 +200,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  z-index: 9 !important;
+  position: relative;
+  transform: translateZ(0);
 }
 
 .site-description {
@@ -253,20 +255,18 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  z-index: -1;
+  z-index: 1 !important;
 }
 
 /* BUILDING DINOSAURS */
 
-
-
 .dinosaur-silhouette {
-  filter: brightness(0);
+  filter: brightness(0) opacity(70%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
   transform-origin: center bottom;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .info-triassic-dino-1 {

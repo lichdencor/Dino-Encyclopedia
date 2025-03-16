@@ -31,11 +31,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
           className="info-container fade-in"
           onMouseEnter={() => setHovered(true)}
         >
-          <div className="info-frame">
-            <div className="site-description">
-              <span>{label}</span>
-              <p>{description}</p>
-            </div>
+          <div className="paper">
             <div className="info-triassic-dinos-container">
               {dinos.map((dino: string, index: number) => (
                 <div
@@ -44,10 +40,18 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                 ></div>
               ))}
             </div>
+          </div>
+          <div className="info-frame">
+            <div className="site-description">
+              <span>{label}</span>
+              <p>{description}</p>
+            </div>
+
             <button>
-              <Link to={link}>{label}</Link>
+              <Link to={link}>{label}</Link> 
             </button>
           </div>
+          
         </div>
       )}
     </div>
