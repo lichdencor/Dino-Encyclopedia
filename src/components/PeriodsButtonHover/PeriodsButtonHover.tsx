@@ -38,20 +38,20 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
             </div>
 
             <button>
-              <Link to={link}>{label}</Link> 
+              <Link to={link}>{label}</Link>
             </button>
           </div>
         </div>,
-          <div className="paper">
-            <div className="info-triassic-dinos-container">
-              {dinos.map((dino: string, index: number) => (
-                  <div
-                      key={index}
-                      className={`${dino} dinosaur-silhouette`}
-                  ></div>
-              ))}
-            </div>
+        <div className="paper">
+          <div className="info-triassic-dinos-container">
+            {dinos.map((dino: string, index: number) => (
+              <div
+                key={index}
+                className={`${dino} dinosaur-silhouette`}
+              ></div>
+            ))}
           </div>
+        </div>
         ]
       )}
     </div>
