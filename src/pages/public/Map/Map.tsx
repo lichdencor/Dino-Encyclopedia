@@ -101,6 +101,7 @@ export const Map = () => {
               "info-triassic-dino-2",
               "info-triassic-dino-3",
             ]}
+            infoOrientation="left"
         />
         <PeriodsButtonHover
             stage="stage-8"
@@ -112,6 +113,7 @@ export const Map = () => {
               "info-triassic-dino-2",
               "info-triassic-dino-3",
             ]}
+            infoOrientation="left"
         />
 
       </div>
