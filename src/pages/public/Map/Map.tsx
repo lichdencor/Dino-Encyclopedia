@@ -36,34 +36,84 @@ export const Map = () => {
             "info-triassic-dino-3",
           ]}
         />
-        <div className="period-btn stage-2">
-          <Link to="/triassic-medio">medium</Link>
-          <div className="period-btn-bg stage-1-bg"></div>
-        </div>
-        <div className="period-btn stage-3">
-          <Link to="/triassic-superior">superior</Link>
-          <div className="period-btn-bg stage-1-bg"></div>
-        </div>
-        <div className="period-btn stage-4">
-          <Link to="/jurassic-inferior">inferior</Link>
-          <div className="period-btn-bg stage-2-bg"></div>
-        </div>
-        <div className="period-btn stage-5">
-          <Link to="/jurassic-medio">medium</Link>
-          <div className="period-btn-bg stage-2-bg"></div>
-        </div>
-        <div className="period-btn stage-6">
-          <Link to="/jurassic-superior">superior</Link>
-          <div className="period-btn-bg stage-2-bg"></div>
-        </div>
-        <div className="period-btn stage-7">
-          <Link to="/cretaceous-inferior">inferior</Link>
-          <div className="period-btn-bg stage-3-bg"></div>
-        </div>
-        <div className="period-btn stage-8">
-          <Link to="/cretaceous-medio">medium</Link>
-          <div className="period-btn-bg stage-3-bg"></div>
-        </div>
+        <PeriodsButtonHover
+            stage="stage-2"
+            label="medio"
+            link="/triassic-medio"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-3"
+            label="superior"
+            link="/triassic-superior"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-4"
+            label="inferior"
+            link="/jurassic-inferior"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-5"
+            label="medio"
+            link="/jurassic-medio"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-6"
+            label="superior"
+            link="/jurassic-superior"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-7"
+            label="inferior"
+            link="/cretaceous-inferior"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+        <PeriodsButtonHover
+            stage="stage-8"
+            label="inferior"
+            link="/cretaceous-medio"
+            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
+            dinos={[
+              "info-triassic-dino-1",
+              "info-triassic-dino-2",
+              "info-triassic-dino-3",
+            ]}
+        />
+
       </div>
     </div>
   );
