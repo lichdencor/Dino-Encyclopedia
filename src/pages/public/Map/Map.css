@@ -185,7 +185,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/public/assets/img/building-descriptions/tri-frame-inferior.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -211,6 +210,42 @@ body {
   z-index: 9 !important;
   position: relative;
   transform: translateZ(0);
+}
+
+.stage-1 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-tri-1.png);
+}
+
+.stage-2 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-tri-2.png);
+}
+
+.stage-3 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-tri-3.png);
+}
+
+.stage-4 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-jur-1.png);
+}
+
+.stage-5 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-jur-2.png);
+}
+
+.stage-6 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-jur-3.png);
+}
+
+.stage-7 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-cre-1.png);
+}
+
+.stage-8 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-cre-2.png);
+}
+
+.stage-9 .info-container {
+  background-image: url(/public/assets/img/building-descriptions/card-cre-3.png);
 }
 
 .site-description {
@@ -256,7 +291,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 6vw;
+  width: 9vw;
   height: 10vw;
   position: absolute;
   transform: translateY(-16%);
@@ -322,26 +357,26 @@ body {
 
 @keyframes movePaperRight {
   0% {
-    left: calc(90%);
+    left: calc(80%);
   }
   100% {
-    left: calc(160%);
+    left: calc(170%);
   }
 }
 
 @keyframes movePaperLeft {
   0% {
-    right: calc(90%);
+    right: calc(80%);
   }
   100% {
-    right: calc(160%);
+    right: calc(170%);
   }
 }
 
 .scaled .paper.right {
-  animation: movePaperRight 0.5s ease-in-out 0.6s forwards;
+  animation: movePaperRight 0.8s ease-in-out 0.6s forwards;
 }
 
 .scaled .paper.left {
-  animation: movePaperLeft 0.5s ease-in-out 0.6s forwards;
+  animation: movePaperLeft 0.8s ease-in-out 0.6s forwards;
 }
