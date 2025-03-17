@@ -37,22 +37,22 @@
 .geneticBg1 {
   width: 22%;
   height: 38%;
-  left: 35%;
-  bottom: 22%;
+  left: 5%;
+  bottom: 12%;
 }
 
 .geneticBg2 {
   width: 25%;
   height: 23%;
-  left: 8%;
-  bottom: 40%;
+  right: 3%;
+  bottom: 18%;
 }
 
 .geneticBg3 {
   width: 28%;
   height: 25%;
-  left: 65%;
-  bottom: 30%;
+  left: 40%;
+  bottom: 23%;
 }
 
 /* Breathe Animation */
@@ -243,39 +243,6 @@
   0% { transform: rotate(3deg); }
   50% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
-}
-
-.plant1,
-.plant2,
-.plant3 {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-}
-
-.plant1 {
-  width: 30%;
-  height: 30%;
-  left: 50%;
-  top: 0%;
-  background-image: url(/public/assets/img/plants/palm-tree.png);
-  transform-origin: top;
-  animation: sway 4s ease-in-out infinite alternate;
-}
-
-.plant2 {
-  width: 40%;
-  height: 30%;
-  left: 60%;
-  bottom: 0%;
-  background-image: url(/public/assets/img/plants/bush.png);
-  transform-origin: bottom;
-  animation: breathe 4s ease-in-out infinite alternate;
-}
-
-.triassicInferiorBg {
-  position: relative;
 }
 
 /* Modal: overlay semitransparente */

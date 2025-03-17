@@ -156,32 +156,3 @@
   50% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
 }
-
-.plant1,
-.plant2,
-.plant3 {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-}
-
-.plant1 {
-  width: 30%;
-  height: 30%;
-  left: 50%;
-  top: 0%;
-  background-image: url(/public/assets/img/plants/palm-tree.png);
-  transform-origin: top;
-  animation: sway 4s ease-in-out infinite alternate;
-}
-
-.plant2 {
-  width: 40%;
-  height: 30%;
-  left: 60%;
-  bottom: 0%;
-  background-image: url(/public/assets/img/plants/bush.png);
-  transform-origin: bottom;
-  animation: breathe 4s ease-in-out infinite alternate;
-}
