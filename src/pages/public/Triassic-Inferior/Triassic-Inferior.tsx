@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export const TriassicInferior = () => {
   const [cursorPos, setCursorPos] = useState({ x: "50%", y: "50%" });
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedDinosaur, setSelectedDinosaur] = useState<number | null>(null);
 
   const handleMouseMove = (
       mouseEvent: React.MouseEvent<HTMLDivElement>,
@@ -36,6 +38,16 @@ export const TriassicInferior = () => {
     setActiveDinosaur(null);
   };
 
+  const handleDinosaurClick = (index: number) => {
+    setSelectedDinosaur(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedDinosaur(null);
+  };
+
   return (
       <div>
         <Nav />
@@ -57,24 +69,43 @@ export const TriassicInferior = () => {
                   key={index}
                   className={bgClass}
                   onMouseMove={(e) => handleMouseMove(e, index)}
+                  onClick={() => handleDinosaurClick(index)}
               >
-                <div
-                    className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]} ${
-                        activeDinosaur === index ? styles.activeBone : ""
-                    }`}
-                >
-                  <div
-                      className={`${styles[`dinosaur${index + 1}Bone`]} ${
-                          activeDinosaur === index ? styles.activeBone : ""
-                      }`}
-                  ></div>
-                </div>
+                <div className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]}`}></div>
               </div>
           ))}
 
           <div className={styles.arrowNext}>
             <Link to="/triassic-medio">.</Link>
           </div>
+
+          {isModalOpen && (
+              <div className={styles.modalOverlay + " preview-scan-dino"} onClick={closeModal}>
+                <div
+                    className={styles.modalContent}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                  <h2>{`Dinosaurio ${selectedDinosaur !== null ? selectedDinosaur + 1 : ""}`}</h2>
+                  <div
+                      key={`preview-${selectedDinosaur}`}
+                      className={[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3][selectedDinosaur]}
+                      onMouseMove={(e) => handleMouseMove(e, selectedDinosaur!)}
+                  >
+                    <div
+                        className={`${styles.dinosaur} ${styles[`dinosaur${selectedDinosaur + 1}`]} ${
+                            activeDinosaur === selectedDinosaur ? styles.activeBone : ""
+                        }`}
+                    >
+                      <div
+                          className={`${styles[`dinosaur${selectedDinosaur + 1}Bone`]} ${
+                              activeDinosaur === selectedDinosaur ? styles.activeBone : ""
+                          }`}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          )}
         </div>
       </div>
   );

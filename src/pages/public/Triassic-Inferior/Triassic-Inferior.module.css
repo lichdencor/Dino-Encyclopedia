@@ -273,3 +273,60 @@
   transform-origin: bottom;
   animation: breathe 4s ease-in-out infinite alternate;
 }
+
+.triassicInferiorBg {
+  position: relative;
+}
+
+/* Modal: overlay semitransparente */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal: contenido centrado */
+.modalContent {
+  width: 60vh;
+  height: 60vh;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Botón de cerrar modal */
+.modalContent button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modalContent button:hover {
+  background-color: #666;
+}
+
+.modalContent .geneticBg1,
+.modalContent .geneticBg2,
+.modalContent .geneticBg3 {
+  width: 22vw;
+  height: 22vw;
+  position: unset;
+}
