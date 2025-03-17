@@ -43,38 +43,37 @@ export const TriassicInferior = () => {
           <div className={styles.plant1}></div>
           <div className={styles.plant2}></div>
           <div className={styles.plant3}></div>
-          <div className={styles.bgEra}>
-            <div className={styles.arrowPrevious}>
-              <Link to="/map">.</Link>
-            </div>
 
-            <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Postosuchus</div>
-            <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Eoraptor</div>
-            <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Herrerasaurus</div>
+          <div className={styles.arrowPrevious}>
+            <Link to="/map">.</Link>
+          </div>
 
-            {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => (
+          <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Postosuchus</div>
+          <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Eoraptor</div>
+          <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Herrerasaurus</div>
+
+          {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => (
+              <div
+                  key={index}
+                  className={bgClass}
+                  onMouseMove={(e) => handleMouseMove(e, index)}
+              >
                 <div
-                    key={index}
-                    className={bgClass}
-                    onMouseMove={(e) => handleMouseMove(e, index)}
+                    className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]} ${
+                        activeDinosaur === index ? styles.activeBone : ""
+                    }`}
                 >
                   <div
-                      className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]} ${
+                      className={`${styles[`dinosaur${index + 1}Bone`]} ${
                           activeDinosaur === index ? styles.activeBone : ""
                       }`}
-                  >
-                    <div
-                        className={`${styles[`dinosaur${index + 1}Bone`]} ${
-                            activeDinosaur === index ? styles.activeBone : ""
-                        }`}
-                    ></div>
-                  </div>
+                  ></div>
                 </div>
-            ))}
+              </div>
+          ))}
 
-            <div className={styles.arrowNext}>
-              <Link to="/triassic-medio">.</Link>
-            </div>
+          <div className={styles.arrowNext}>
+            <Link to="/triassic-medio">.</Link>
           </div>
         </div>
       </div>
