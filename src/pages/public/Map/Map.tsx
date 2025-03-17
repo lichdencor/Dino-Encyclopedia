@@ -101,9 +101,9 @@ export const Map = () => {
             label="medium gallery"
             link="/cretaceous-medio"
             dinos={[
-              "info-cretaceous-2-dino-1",
-              "info-cretaceous-2-dino-2",
-              "info-cretaceous-2-dino-3",
+              "info-cretaceous-2-dino-1 big-dino",
+              "info-cretaceous-2-dino-2 medium-dino",
+              "info-cretaceous-2-dino-3 small-dino",
             ]}
             infoOrientation="left"
         />
@@ -112,9 +112,9 @@ export const Map = () => {
             label="superior gallery"
             link="/cretaceous-medio"
             dinos={[
-              "info-cretaceous-3-dino-1",
-              "info-cretaceous-3-dino-2",
-              "info-cretaceous-3-dino-3",
+              "info-cretaceous-3-dino-1 medium-dino",
+              "info-cretaceous-3-dino-2 small-dino",
+              "info-cretaceous-3-dino-3 big-dino",
             ]}
             infoOrientation="left"
         />
