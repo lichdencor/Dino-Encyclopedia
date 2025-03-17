@@ -40,9 +40,9 @@ export const Map = () => {
             label="medium gallery"
             link="/triassic-medio"
             dinos={[
-              "info-triassic-2-dino-1",
-              "info-triassic-2-dino-2",
-              "info-triassic-2-dino-3",
+              "info-triassic-2-dino-1 small-dino",
+              "info-triassic-2-dino-2 medium-dino",
+              "info-triassic-2-dino-3 big-dino",
             ]}
         />
         <PeriodsButtonHover
@@ -50,9 +50,9 @@ export const Map = () => {
             label="superior gallery"
             link="/triassic-superior"
             dinos={[
-              "info-triassic-3-dino-1",
-              "info-triassic-3-dino-2",
-              "info-triassic-3-dino-3",
+              "info-triassic-3-dino-1 small-dino",
+              "info-triassic-3-dino-2 big-dino",
+              "info-triassic-3-dino-3 medium-dino",
             ]}
         />
         <PeriodsButtonHover
@@ -60,9 +60,9 @@ export const Map = () => {
             label="inferior gallery"
             link="/jurassic-inferior"
             dinos={[
-              "info-jurassic-1-dino-1",
-              "info-jurassic-1-dino-2",
-              "info-jurassic-1-dino-3",
+              "info-jurassic-1-dino-1 medium-dino",
+              "info-jurassic-1-dino-2 small-dino",
+              "info-jurassic-1-dino-3 big-dino",
             ]}
         />
         <PeriodsButtonHover
@@ -70,9 +70,9 @@ export const Map = () => {
             label="medium gallery"
             link="/jurassic-medio"
             dinos={[
-              "info-jurassic-2-dino-1",
-              "info-jurassic-2-dino-2",
-              "info-jurassic-2-dino-3",
+              "info-jurassic-2-dino-1 small-dino",
+              "info-jurassic-2-dino-2 big-dino",
+              "info-jurassic-2-dino-3 medium-dino",
             ]}
         />
         <PeriodsButtonHover
@@ -80,9 +80,9 @@ export const Map = () => {
             label="superior gallery"
             link="/jurassic-superior"
             dinos={[
-              "info-jurassic-3-dino-1",
-              "info-jurassic-3-dino-2",
-              "info-jurassic-3-dino-3",
+              "info-jurassic-3-dino-1 big-dino",
+              "info-jurassic-3-dino-2 medium-dino",
+              "info-jurassic-3-dino-3 small-dino",
             ]}
         />
         <PeriodsButtonHover
@@ -90,9 +90,9 @@ export const Map = () => {
             label="inferior gallery"
             link="/cretaceous-inferior"
             dinos={[
-              "info-cretaceous-1-dino-1",
-              "info-cretaceous-1-dino-2",
-              "info-cretaceous-1-dino-3",
+              "info-cretaceous-1-dino-1 big-dino",
+              "info-cretaceous-1-dino-2 small-dino",
+              "info-cretaceous-1-dino-3 medium-dino",
             ]}
             infoOrientation="left"
         />
