@@ -2,8 +2,8 @@
   width: 100vw;
   height: 100vh;
   background-image: url(/public/assets/img/era-bg/room-bg-8.png);
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: 100% 105%;
+  background-position: center top;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
@@ -35,22 +35,22 @@
 .geneticBg1 {
   width: 40%;
   height: 70%;
-  left: -2%;
-  bottom: 12%;
+  left: 35%;
+  bottom: 22%;
 }
 
 .geneticBg2 {
   width: 40%;
   height: 60%;
-  left: 28%;
-  bottom: 6%;
+  left: 1%;
+  bottom: 5%;
 }
 
 .geneticBg3 {
   width: 28%;
   height: 40%;
-  left: 65%;
-  bottom: 28%;
+  left: 70%;
+  bottom: 16%;
 }
 
 @keyframes breathe {
@@ -76,16 +76,19 @@
 .dinosaur1 {
   background-image: url(/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
   animation: breathe 2s infinite ease-in-out;
+  transform: scaleX(-1);
 }
 
 .dinosaur2 {
   background-image: url(/public/assets/img/dinosaurs/ju-3-Diplodocus.png);
   animation: breathe 4s infinite ease-in-out;
+  
 }
 
 .dinosaur3 {
   background-image: url(/public/assets/img/dinosaurs/ju-3-Stegosaurus.png);
   animation: breathe 3s infinite ease-in-out;
+  
 }
 
 .nameFrame {
@@ -155,33 +158,4 @@
   0% { transform: rotate(3deg); }
   50% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
-}
-
-.plant1,
-.plant2,
-.plant3 {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-}
-
-.plant1 {
-  width: 30%;
-  height: 30%;
-  left: 50%;
-  top: 0%;
-  background-image: url(/public/assets/img/plants/palm-tree.png);
-  transform-origin: top;
-  animation: sway 4s ease-in-out infinite alternate;
-}
-
-.plant2 {
-  width: 40%;
-  height: 30%;
-  left: 60%;
-  bottom: 0%;
-  background-image: url(/public/assets/img/plants/bush.png);
-  transform-origin: bottom;
-  animation: breathe 4s ease-in-out infinite alternate;
 }

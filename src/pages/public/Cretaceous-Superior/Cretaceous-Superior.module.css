@@ -33,24 +33,24 @@
 }
 
 .geneticBg1 {
-  width: 10%;
-  height: 30%;
-  left: 15%;
-  bottom: 45%;
+  width: 20%;
+  height: 35%;
+  left: 78%;
+  bottom: 13%;
 }
 
 .geneticBg2 {
   width: 25%;
   height: 38%;
-  left: 37%;
-  bottom: 33%;
+  left: 8%;
+  bottom: 14%;
 }
 
 .geneticBg3 {
-  width: 28%;
-  height: 25%;
-  left: 65%;
-  bottom: 25%;
+  width: 40%;
+  height: 35%;
+  left: 32%;
+  bottom: 23%;
 }
 
 @keyframes breathe {
@@ -84,7 +84,7 @@
 }
 
 .dinosaur3 {
-  background-image: url(/public/assets/img/dinosaurs/cr-3-Tyrannosaurus\ Rex.png);
+  background-image: url(/public/assets/img/dinosaurs/cr-3-Tyrannosaurus-Rex.png);
   animation: breathe 3s infinite ease-in-out;
 }
 
@@ -155,33 +155,4 @@
   0% { transform: rotate(3deg); }
   50% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
-}
-
-.plant1,
-.plant2,
-.plant3 {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-}
-
-.plant1 {
-  width: 30%;
-  height: 30%;
-  left: 50%;
-  top: 0%;
-  background-image: url(/public/assets/img/plants/palm-tree.png);
-  transform-origin: top;
-  animation: sway 4s ease-in-out infinite alternate;
-}
-
-.plant2 {
-  width: 40%;
-  height: 30%;
-  left: 60%;
-  bottom: 0%;
-  background-image: url(/public/assets/img/plants/bush.png);
-  transform-origin: bottom;
-  animation: breathe 4s ease-in-out infinite alternate;
 }

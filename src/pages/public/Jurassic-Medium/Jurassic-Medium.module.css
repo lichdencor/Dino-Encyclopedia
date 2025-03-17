@@ -35,22 +35,23 @@
 .geneticBg1 {
   width: 30%;
   height: 60%;
-  left: 8%;
-  bottom: 19%;
+  left: 36%;
+  bottom: 11%;
+  /* background-color: rebeccapurple; */
 }
 
 .geneticBg2 {
   width: 35%;
   height: 65%;
-  left: 32%;
-  bottom: 13%;
+  left: 3%;
+  bottom: 2%;
 }
 
 .geneticBg3 {
   width: 28%;
   height: 65%;
   left: 68%;
-  bottom: 18%;
+  bottom: 9%;
 }
 
 @keyframes breathe {

@@ -110,7 +110,7 @@ export const Map = () => {
                 <PeriodsButtonHover
             stage="stage-9"
             label="superior gallery"
-            link="/cretaceous-medio"
+            link="/cretaceous-superior"
             dinos={[
               "info-cretaceous-3-dino-1 medium-dino",
               "info-cretaceous-3-dino-2 small-dino",
