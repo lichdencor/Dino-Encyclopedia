@@ -5,7 +5,8 @@ interface PeriodsButtonHoverProps {
   stage: string;
   label: string;
   link: string;
-  dinos: string[];
+  dinoCCSClass: string[];
+  dinoNames: string[];
   infoOrientation?: string;
 }
 
@@ -13,7 +14,8 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
   stage,
   label,
   link,
-  dinos,
+  dinoCCSClass,
+  dinoNames,
   infoOrientation = "right",
 }) => {
   const [hovered, setHovered] = useState(false);
@@ -43,11 +45,17 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
             </div>,
             <div className={`paper ${infoOrientation}`}>
               <div className="info-triassic-dinos-container">
-                {dinos.map((dino: string, index: number) => (
-                    <div
-                        key={index}
-                        className={`${dino} dinosaur-silhouette`}
-                    ></div>
+                {dinoCCSClass.map((dino: string, index: number) => (
+                    <div className="paper-dinasaur-info-container">
+                      <div
+                          key={index}
+                          className={`dinosaur-name`}
+                      >${dinoNames[index]}</div>
+                      <div
+                          key={"dinosaur-silhouette-"+index}
+                          className={`${dino} dinosaur-silhouette`}
+                      ></div>
+                    </div>
                 ))}
               </div>
             </div>]
