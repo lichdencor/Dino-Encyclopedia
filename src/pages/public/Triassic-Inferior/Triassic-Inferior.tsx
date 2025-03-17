@@ -1,8 +1,41 @@
+import React, { useState } from "react";
 import styles from "./Triassic-Inferior.module.css";
 import { Nav } from "../../../components";
 import { Link } from "react-router-dom";
 
 export const TriassicInferior = () => {
+  const [cursorPos, setCursorPos] = useState({ x: "50%", y: "50%" });
+  const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
+
+  const handleMouseMove = (
+      mouseEvent: React.MouseEvent<HTMLDivElement>,
+      index: number
+  ) => {
+    const rect = mouseEvent.currentTarget.getBoundingClientRect();
+
+    const x = `${((mouseEvent.clientX - rect.left) / rect.width) * 100}%`;
+    const y = `${((mouseEvent.clientY - rect.top) / rect.height) * 100}%`;
+
+    mouseEvent.currentTarget.style.setProperty("--cursor-x", x);
+    mouseEvent.currentTarget.style.setProperty("--cursor-y", y);
+
+    const dinosaurElements = mouseEvent.currentTarget.getElementsByClassName(styles.dinosaur);
+    for (let i = 0; i < dinosaurElements.length; i++) {
+      const dinosaur = dinosaurElements[i] as HTMLElement;
+      const rect = dinosaur.getBoundingClientRect();
+      if (
+          mouseEvent.clientX >= rect.left &&
+          mouseEvent.clientX <= rect.right &&
+          mouseEvent.clientY >= rect.top &&
+          mouseEvent.clientY <= rect.bottom
+      ) {
+        setActiveDinosaur(index);
+        return;
+      }
+    }
+    setActiveDinosaur(null);
+  };
+
   return (
       <div>
         <Nav />
@@ -19,15 +52,25 @@ export const TriassicInferior = () => {
             <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Eoraptor</div>
             <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Herrerasaurus</div>
 
-            <div className={styles.geneticBg1}>
-              <div className={styles.dinosaur1}></div>
-            </div>
-            <div className={styles.geneticBg2}>
-              <div className={styles.dinosaur2}></div>
-            </div>
-            <div className={styles.geneticBg3}>
-              <div className={styles.dinosaur3}></div>
-            </div>
+            {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => (
+                <div
+                    key={index}
+                    className={bgClass}
+                    onMouseMove={(e) => handleMouseMove(e, index)}
+                >
+                  <div
+                      className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]} ${
+                          activeDinosaur === index ? styles.activeBone : ""
+                      }`}
+                  >
+                    <div
+                        className={`${styles[`dinosaur${index + 1}Bone`]} ${
+                            activeDinosaur === index ? styles.activeBone : ""
+                        }`}
+                    ></div>
+                  </div>
+                </div>
+            ))}
 
             <div className={styles.arrowNext}>
               <Link to="/triassic-medio">.</Link>
