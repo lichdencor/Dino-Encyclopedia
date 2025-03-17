@@ -5,7 +5,6 @@ interface PeriodsButtonHoverProps {
   stage: string;
   label: string;
   link: string;
-  description: string;
   dinos: string[];
   infoOrientation?: string;
 }
@@ -14,7 +13,6 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
   stage,
   label,
   link,
-  description,
   dinos,
   infoOrientation = "right",
 }) => {
@@ -26,7 +24,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
       >
-        <div>{label}</div>
+        
         <div className={`period-btn-bg ${stage}-bg`}></div>
         {hovered && (
             [<div
@@ -36,11 +34,10 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
               <div className="info-frame">
                 <div className="site-description">
                   <span>{label}</span>
-                  <p>{description}</p>
                 </div>
 
                 <button>
-                  <Link to={link}>{label}</Link>
+                  <Link to={link}>VISIT</Link>
                 </button>
               </div>
             </div>,

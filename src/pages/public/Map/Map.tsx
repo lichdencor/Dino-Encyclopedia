@@ -27,91 +27,94 @@ export const Map = () => {
         <div className="user-character"></div>
         <PeriodsButtonHover
           stage="stage-1"
-          label="inferior"
+          label="inferior gallery"
           link="/triassic-inferior"
-          description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
           dinos={[
-            "info-triassic-dino-1",
-            "info-triassic-dino-2",
-            "info-triassic-dino-3",
+            "info-triassic-1-dino-1 small-dino",
+            "info-triassic-1-dino-2 medium-dino",
+            "info-triassic-1-dino-3 big-dino",
           ]}
         />
         <PeriodsButtonHover
             stage="stage-2"
-            label="medio"
+            label="medium gallery"
             link="/triassic-medio"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-triassic-2-dino-1",
+              "info-triassic-2-dino-2",
+              "info-triassic-2-dino-3",
             ]}
         />
         <PeriodsButtonHover
             stage="stage-3"
-            label="superior"
+            label="superior gallery"
             link="/triassic-superior"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-triassic-3-dino-1",
+              "info-triassic-3-dino-2",
+              "info-triassic-3-dino-3",
             ]}
         />
         <PeriodsButtonHover
             stage="stage-4"
-            label="inferior"
+            label="inferior gallery"
             link="/jurassic-inferior"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-jurassic-1-dino-1",
+              "info-jurassic-1-dino-2",
+              "info-jurassic-1-dino-3",
             ]}
         />
         <PeriodsButtonHover
             stage="stage-5"
-            label="medio"
+            label="medium gallery"
             link="/jurassic-medio"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-jurassic-2-dino-1",
+              "info-jurassic-2-dino-2",
+              "info-jurassic-2-dino-3",
             ]}
         />
         <PeriodsButtonHover
             stage="stage-6"
-            label="superior"
+            label="superior gallery"
             link="/jurassic-superior"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-jurassic-3-dino-1",
+              "info-jurassic-3-dino-2",
+              "info-jurassic-3-dino-3",
             ]}
         />
         <PeriodsButtonHover
             stage="stage-7"
-            label="inferior"
+            label="inferior gallery"
             link="/cretaceous-inferior"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-cretaceous-1-dino-1",
+              "info-cretaceous-1-dino-2",
+              "info-cretaceous-1-dino-3",
             ]}
             infoOrientation="left"
         />
         <PeriodsButtonHover
             stage="stage-8"
-            label="inferior"
+            label="medium gallery"
             link="/cretaceous-medio"
-            description="Hacé click para conocer a los dinosaurios: Dino, Dino, Dino"
             dinos={[
-              "info-triassic-dino-1",
-              "info-triassic-dino-2",
-              "info-triassic-dino-3",
+              "info-cretaceous-2-dino-1",
+              "info-cretaceous-2-dino-2",
+              "info-cretaceous-2-dino-3",
+            ]}
+            infoOrientation="left"
+        />
+                <PeriodsButtonHover
+            stage="stage-9"
+            label="superior gallery"
+            link="/cretaceous-medio"
+            dinos={[
+              "info-cretaceous-3-dino-1",
+              "info-cretaceous-3-dino-2",
+              "info-cretaceous-3-dino-3",
             ]}
             infoOrientation="left"
         />
