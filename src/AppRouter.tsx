@@ -16,7 +16,9 @@ import {
   JurassicMedium,
   JurassicSuperior,
   Login,
+  PetSelection,
 } from "./pages/";
+import {AuthProvider} from "./hooks";
 
 const AppRouter = () => {
   return (
@@ -40,7 +42,8 @@ const AppRouter = () => {
         <Route path="/triassic-medio" element={<TriassicMedium />} />
         <Route path="/triassic-superior" element={<TriassicSuperior />} />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<AuthProvider><Login /></AuthProvider>} />
+        <Route path="/pet-selection" element={<PetSelection />} />
       </RoutesWithNotFound>
     </BrowserRouter>
   );
