@@ -15,10 +15,6 @@
 .geneticBg1,
 .geneticBg2,
 .geneticBg3 {
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/public/assets/img/dinosaurs/genetic-bg.png);
   width: 5vw;
   height: 5vw;
   position: absolute;
