@@ -11,9 +11,7 @@ export const TriassicSuperior = () => {
           <div className={styles.plant2}></div>
           <div className={styles.plant3}></div>
           <div className={styles.bgEra}>
-            <div className={styles.arrowPrevious}>
-              <Link to="/map">.</Link>
-            </div>
+            <Link to="/triassic-medio" className={styles.arrowPrevious}>.</Link>
 
             <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Shuvosaurus</div>
             <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Chindesaurus</div>
@@ -29,9 +27,7 @@ export const TriassicSuperior = () => {
               <div className={styles.dinosaur3}></div>
             </div>
 
-            <div className={styles.arrowNext}>
-              <Link to="/triassic-medio">.</Link>
-            </div>
+            <Link to="/jurassic-inferior" className={styles.arrowNext}>.</Link>
           </div>
         </div>
       </div>

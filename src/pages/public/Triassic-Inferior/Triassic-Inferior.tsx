@@ -56,9 +56,7 @@ export const TriassicInferior = () => {
           <div className={styles.plant2}></div>
           <div className={styles.plant3}></div>
 
-          <div className={styles.arrowPrevious}>
-            <Link to="/map">.</Link>
-          </div>
+          <Link to="/map" className={styles.arrowPrevious}>.</Link>
 
           <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Postosuchus</div>
           <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Eoraptor</div>
@@ -75,9 +73,7 @@ export const TriassicInferior = () => {
               </div>
           ))}
 
-          <div className={styles.arrowNext}>
-            <Link to="/triassic-medio">.</Link>
-          </div>
+          <Link to="/triassic-medio" className={styles.arrowNext}>.</Link>
 
           {isModalOpen && (
               <div className={styles.modalOverlay + " preview-scan-dino"} onClick={closeModal}>
