@@ -129,15 +129,15 @@
 }
 
 .avatar-orb.aerial {
-  background-image: url(/src/assets/img/orbs/orb-aerial.png);
+  background-image: url(/public/assets/img/pets/t-rex/pet-t-rex-1.png);
 }
 
 .avatar-orb.aquatic {
-  background-image: url(/src/assets/img/orbs/orb-aquatic.png);
+  background-image: url(/public/assets/img/pets/stegosaurus/pet-stegosaurus-1.png);
 }
 
 .avatar-orb.terrestrial {
-  background-image: url(/src/assets/img/orbs/orb-terrestrial.png);
+  background-image: url(/public/assets/img/pets/rauisuchus/pet-rauisuchus-1.png);
 }
 
 
