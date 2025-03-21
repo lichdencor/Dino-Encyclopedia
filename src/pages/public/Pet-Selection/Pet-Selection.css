@@ -9,15 +9,16 @@
   display: flex;
   justify-content: center;
   margin: 0;
-  font-size: 3.5vw;
+  font-size: 1.7vw;
   background-image: url(/src/assets/img/ornament.png);
   background-position: center;
   background-size: 80% 90%;
   background-repeat: no-repeat;
   color:rgb(243, 242, 233);
   font-weight: lighter;
-  font-family: 'BlackwoodCastleShallow', sans-serif;
+  font-family: "MedusaGothicD";
   text-shadow: 1px 1px 1px rgba(121, 124, 114, 0.3), -1px -1px 1px rgba(54, 55, 53, 0.3), 0 0 5px rgba(46, 50, 37, 0.2);
+  letter-spacing: 0.5vw;
 }
 
 
@@ -61,14 +62,13 @@
   height: 80%;
 }
 
-.avatar-item {
+.frame-dinosaur {
   width: 80%;
   height: 100%;
   border: 2px solid transparent;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background-image: url(/src/assets/img/frames/pet-selection.png);
   background-position: center;
   /* background-color: red; */
   background-size: 85% 85%;
@@ -79,6 +79,18 @@
   position: relative;
 }
 
+.frame-t-rex {
+  background-image: url(/public/assets/img/frames/period-frame-3.png);
+}
+
+.frame-stegosaurus {
+  background-image: url(/public/assets/img/frames/period-frame-2.png);
+}
+
+.frame-rauisuchus {
+  background-image: url(/public/assets/img/frames/period-frame-1.png);
+}
+
 @keyframes shake {
   0% { transform: rotate(0); }
   25% { transform: rotate(-1deg); }
@@ -87,15 +99,15 @@
   100% { transform: rotate(0); }
 }
 
-.avatar-item img {
-  width: 45%;
-  height: 50%;
+.frame-dinosaur img {
+  width: 40%;
+  height: 45%;
   filter: brightness(0);
   transition: all 500ms ease-in-out;
-  margin-bottom: 2vmax;
+  margin-top: 1vmax;
 }
 
-.avatar-item:hover {
+.frame-dinosaur:hover {
   transform: scale(1.05);
   img {
     filter:brightness(1);

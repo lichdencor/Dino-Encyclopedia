@@ -5,9 +5,9 @@ import './Pet-Selection.css';
 
 
 const avatars = [
-  { id: 1, src: '/src/assets/img/eggs/egg-terrestrial.png', alt: 'Caterpillar', name: 'caterpillar' },
-  { id: 2, src: '/src/assets/img/eggs/egg-aquatic.png', alt: 'Axolotl', name: 'axolotl' },
-  { id: 3, src: '/src/assets/img/eggs/egg-aerial.png', alt: 'Pterodactyl', name: 'pterodactyl' },
+  { id: 1, src: '/public/assets/img/eggs/egg-rauisuchus.png', alt: 'Rauisuchus', name: 'rauisuchus' },
+  { id: 2, src: '/public/assets/img/eggs/egg-stegosaurus.png', alt: 'Stegosaurus', name: 'stegosaurus' },
+  { id: 3, src: '/public/assets/img/eggs/egg-t-rex.png', alt: 'T-Rex', name: 't-rex' }
 ];
 
 export const PetSelection = () => {
@@ -36,11 +36,11 @@ export const PetSelection = () => {
           {avatars.map((avatar) => (
               <div
                   key={avatar.id}
-                  className={`avatar-item clickable ${selectedAvatar === avatar ? 'selected' : ''}`}
+                  className={`clickable frame-dinosaur ${avatar.name === 'rauisuchus' ? 'frame-rauisuchus' : avatar.name === 'stegosaurus' ? 'frame-stegosaurus' : "frame-t-rex"}`}
                   onClick={(e) => handleAvatarSelect(e, avatar)}
               >
                 <img src={avatar.src} alt={avatar.alt} />
-                <div className='avatar-orb-container'><div className={`avatar-orb ${avatar.name === 'axolotl' ? 'aquatic' : avatar.name === 'caterpillar' ? 'terrestrial' : 'aerial'}`}></div></div>
+               
               </div>
           ))}
         </div>
