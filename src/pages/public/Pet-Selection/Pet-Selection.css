@@ -1,26 +1,30 @@
-/* html {
-  overflow: hidden;
-} */
+.pet-header {
+  width: 100%;
+  height: 10%;
+  background-color: rgba(37, 40, 39, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-bottom: 4px solid rgb(142, 139, 119);
+}
 
 .avatar-selection-screen h1 {
   width: 45%;
-  height: 7%;
-  /* background-color: lightblue; */
+  height: auto;
   display: flex;
   justify-content: center;
   margin: 0;
   font-size: 1.7vw;
-  background-image: url(/src/assets/img/ornament.png);
-  background-position: center;
-  background-size: 80% 90%;
-  background-repeat: no-repeat;
   color:rgb(243, 242, 233);
   font-weight: lighter;
   font-family: "MedusaGothicD";
   text-shadow: 1px 1px 1px rgba(121, 124, 114, 0.3), -1px -1px 1px rgba(54, 55, 53, 0.3), 0 0 5px rgba(46, 50, 37, 0.2);
   letter-spacing: 0.5vw;
 }
-
 
 .avatar-selection-screen {
   height: 100vh;
@@ -30,12 +34,12 @@
 .avatar-moving-background {
   height: 100vh;
   width: 100vw;
-  background-image: url(/src/assets/img/bg/avatar-selection.png);
-  background-size: 50% 50%;
+  background-image: url(/src/assets/img/bg/avatar-selection.jpg);
+  background-size: 60% 100%;
   background-position: 0 0;
   background-repeat: repeat;
-  animation: travel 35s infinite linear;
-  filter: blur(6px) brightness(0.3);
+  animation: travel 20s infinite linear;
+  filter: blur(5px) brightness(0.7);
   z-index: -999;
   position: absolute;
 }
@@ -45,7 +49,7 @@
     background-position: 0 0;
   }
   50% {
-    background-position: 100% 0;
+    background-position: 30% 0;
   }
   100% {
     background-position: 0 0;
@@ -101,7 +105,7 @@
 
 .frame-dinosaur img {
   width: 40%;
-  height: 45%;
+  height: 40%;
   filter: brightness(0);
   transition: all 500ms ease-in-out;
   margin-top: 1vmax;
@@ -115,43 +119,6 @@
     transform-origin: bottom center;
   }
 }
-
-.avatar-orb-container {
-  width: 30%;
-  height: 20%;
-  /* background-color: red; */
-  position: absolute;
-  background-image: url(/src/assets/img/frames/character-frame.png);
-  background-size: 120% 100%;
-  background-position: top center;
-  background-repeat: no-repeat;
-  bottom: 0vmax;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatar-orb {
-  width: 70%;
-  height: 70%;
-  background-size: contain;
-  background-position: top center;
-  background-repeat: no-repeat;
-  animation: spin 30s linear infinite, subtle-glow 5s ease-in-out infinite;
-}
-
-.avatar-orb.aerial {
-  background-image: url(/public/assets/img/pets/t-rex/pet-t-rex-1.png);
-}
-
-.avatar-orb.aquatic {
-  background-image: url(/public/assets/img/pets/stegosaurus/pet-stegosaurus-1.png);
-}
-
-.avatar-orb.terrestrial {
-  background-image: url(/public/assets/img/pets/rauisuchus/pet-rauisuchus-1.png);
-}
-
 
 .avatar-selection-screen {
   display: flex;

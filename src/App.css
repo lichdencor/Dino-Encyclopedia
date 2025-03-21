@@ -30,7 +30,7 @@ nav {
   font-family: "MedusaGothicD",     sans-serif;
 }
 
-header {
+/* header {
   width: 50%;
   height: 10vh;
   background-color: orange;
@@ -40,7 +40,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .profile-container {
   width: 11vw;

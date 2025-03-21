@@ -31,7 +31,8 @@ export const PetSelection = () => {
   return (
       <div className="avatar-selection-screen">
         <div className='avatar-moving-background'></div>
-        <h1>Hatch your egg</h1>
+        <header className="pet-header"><h1>Hatch your egg</h1></header>
+        
         <div className="avatar-list">
           {avatars.map((avatar) => (
               <div

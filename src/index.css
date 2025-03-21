@@ -27,18 +27,6 @@ nav {
   z-index: 999;
 }
 
-header {
-  width: 50%;
-  height: 10vh;
-  /* background-color: orange; */
-  margin: 0;
-  margin-left: 43vw;
-  margin-top: 3vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .profile-container {
   width: 35%;
   height: 150%;
