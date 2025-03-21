@@ -14,19 +14,6 @@ code {
     monospace;
 }
 
-nav {
-  width: 26vw;
-  height: 12vh;
-  /* background-color: lightblue; */
-  position: fixed;
-  left: 2vw;
-  top: 2vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 999;
-}
-
 .profile-container {
   width: 35%;
   height: 150%;
