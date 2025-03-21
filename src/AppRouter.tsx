@@ -23,7 +23,6 @@ import { AuthProvider } from "./context";
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Nav />
       <RoutesWithNotFound>
         <Route path="/" element={<Home />} />
         <Route path="/encyclopedia" element={<Encyclopedia />} />

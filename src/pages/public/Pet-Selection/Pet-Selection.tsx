@@ -3,7 +3,6 @@ import {Link, useNavigate} from "react-router-dom";
 //import styles from "./Pet-Selection.module.css";
 import './Pet-Selection.css';
 
-
 const avatars = [
   { id: 1, src: '/public/assets/img/eggs/egg-rauisuchus.png', alt: 'Rauisuchus', name: 'rauisuchus' },
   { id: 2, src: '/public/assets/img/eggs/egg-stegosaurus.png', alt: 'Stegosaurus', name: 'stegosaurus' },
