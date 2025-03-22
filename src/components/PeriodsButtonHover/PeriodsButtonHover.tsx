@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 interface PeriodsButtonHoverProps {
   stage: string;
   label: string;
-  link: string;
+  link?: string;
   dinos?: string[];
   infoOrientation?: string;
 }
@@ -35,10 +35,12 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                         <div className="site-description">
                             <span>{label}</span>
                         </div>
-
-                        <button>
+                        {link &&
+                          <button>
                             <Link to={link}>VISIT</Link>
-                        </button>
+                          </button>
+                        }
+
                     </div>
                 </div>,
                     dinos && dinos.length > 0 ?
