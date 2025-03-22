@@ -13,3 +13,4 @@ export * from "./public/Jurassic-Medium/Jurassic-Medium.tsx";
 export * from "./public/Jurassic-Superior/Jurassic-Superior.tsx";
 export * from "./public/Login/Login.tsx";
 export * from "./public/Pet-Selection/Pet-Selection.tsx";
+export * from "./public/SignIn/SignIn.tsx";

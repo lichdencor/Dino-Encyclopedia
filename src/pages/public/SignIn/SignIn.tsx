@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../../hooks";
-import styles from "./Login.module.css";
+import styles from "./SignIn.module.css";
 import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
-  const { login } = useAuth();
+export const SignIn = () => {
+  const { register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -12,31 +12,41 @@ export const Login = () => {
   const [animate, setAnimate] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnimate(true), 100); // Delay de 100ms antes de la animación
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const handleRegister = async () => {
     setLoading(true);
     setError(null);
     try {
-      await login(email, password);
+      await register(email, password);
       navigate("/pet-selection");
     } catch (error) {
-      console.error("Error en login:", error);
-      setError("Error al iniciar sesión. Verifica tus credenciales.");
+      console.error("Error en registro:", error);
+      setError("No se pudo registrar el usuario.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleGoToSignIn = () => {
-    setAnimate(true);
+  const handleBackToLogin = () => {
+    setAnimate(false);
     setTimeout(() => {
-      navigate("/signin");
-    }, 500);
+      navigate("/login");
+    }, 300); // Coincide con la animación de salida
   };
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.card} ${animate ? styles.slideRight : ""}`}>
-        <h1>Login</h1>
+      <div
+        className={`${styles.card} ${animate ? styles.fadeIn : styles.fadeOut}`}
+      >
+        <button className={styles.backButton} onClick={handleBackToLogin}>
+          ← Volver al login
+        </button>
+        <h1>Sign In</h1>
         {error && <p className={styles.error}>{error}</p>}
         <input
           type="email"
@@ -53,15 +63,8 @@ export const Login = () => {
           disabled={loading}
         />
         <button
-          className={styles.loginButton}
-          onClick={handleLogin}
-          disabled={loading}
-        >
-          {loading ? "Cargando..." : "Login"}
-        </button>
-        <button
           className={styles.registerButton}
-          onClick={handleGoToSignIn}
+          onClick={handleRegister}
           disabled={loading}
         >
           {loading ? "Cargando..." : "Register"}
