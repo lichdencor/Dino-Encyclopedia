@@ -36,6 +36,14 @@ export const Login = () => {
   return (
     <div className={styles.container}>
       <div className={`${styles.card} ${animate ? styles.slideRight : ""}`}>
+        <button
+          className={styles.backButton}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          ← Home
+        </button>
         <h1>Login</h1>
         {error && <p className={styles.error}>{error}</p>}
         <input
