@@ -3,25 +3,41 @@ body {
 }
 
 .era-map {
-  width: 90vw;
-  height: 75vh;
+  width: 98vw;
+  height: 95vh;
   margin: 0 auto;
-  margin-top: 5vh;
+  margin-top: 2vh;
   background-image: url(/public/assets/img/map/map.png);
-  background-position: center;
+  background-position: top;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
+  /* background-color: red; */
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
 }
 
 .user-character {
-  background-color: blue;
+  /* background-color: blue; */
   width: 12%;
-  height: 25%;
+  height: 35%;
   position: absolute;
   bottom: -5%;
-  left: -2%;
+  left: 1%;
   transition: all 300ms ease-in-out;
+  background-image: url(/public/assets/img/pets/stegosaurus/pet-stegosaurus-1-R.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: breathe 2s infinite ease-in-out;
+  transform-origin: bottom;
 }
 
 .user-character:hover {
@@ -64,6 +80,33 @@ body {
   filter: brightness(100%);
 }
 
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.raptor-bites {
+  width: 15%;
+  height: 23%;
+  position: absolute;
+  /* background-color: red; */
+  background-image: url(/public/assets/img/map/raptor-bites.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 27%;
+  bottom: 10%;
+  animation: float 3s ease-in-out infinite;
+}
+
+
+.main-entrance,
+.entrance,
+.library,
+.store,
+.kids-room,
+.restroom,
 .stage-1,
 .stage-2,
 .stage-3,
@@ -76,6 +119,12 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.main-entrance {
+  left: 20%;
+  bottom: 17%;
+  background-image: url(/public/assets/img/buildings/bu-entrance.png);
 }
 
 .stage-1 {

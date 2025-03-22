@@ -6,7 +6,6 @@ export const Map = () => {
   return (
     <div className="map-background">
       <Nav />
-      <header>HEADER</header>
       <div className="era-map">
         <div className="period-title-frame period-1">
           Triassic
@@ -25,6 +24,8 @@ export const Map = () => {
         </div>
 
         <div className="user-character"></div>
+        <div className="raptor-bites"></div>
+        
         <PeriodsButtonHover
           stage="stage-1"
           label="inferior gallery"
