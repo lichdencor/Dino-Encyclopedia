@@ -21,6 +21,7 @@
   position: absolute;
   filter: brightness(50%);
   transition: all 300ms ease-in-out;
+  background-size: 100% 100%;
 }
 
 .geneticBg1:hover,
@@ -35,6 +36,7 @@
   height: 38%;
   left: 5%;
   bottom: 12%;
+  background-size: 100% 100%;
 }
 
 .geneticBg2 {
@@ -68,7 +70,6 @@
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size: contain;
   background-repeat: no-repeat;
   transform-origin: bottom;
   position: relative;
@@ -77,19 +78,21 @@
 
 .dinosaur1 {
   background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
-  animation: breathe 2s infinite ease-in-out;
+  /* animation: breathe 2s infinite ease-in-out; */
+  background-size: 100% 100%;
 }
 
 .dinosaur1Bone {
-  background-image: url(/public/assets/img/dinosaurs/bone/postosuchus-bone.png);
-  animation: breathe 2s infinite ease-in-out;
+  background-image: url(/public/assets/img/dinosaurs/skeleton/skeleton-tr-1-Eoraptor.png);
   width: 100%;
   height: 100%;
   margin: 0;
   -webkit-mask-repeat: no-repeat;
   object-fit: contain;
+  background-size: contain;
   cursor: none;
   visibility: hidden;
+  background-color: rgb(166, 161, 161);
 }
 
 .dinosaur2 {
@@ -152,9 +155,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: 100% 100%;
+  height: 95%;
+  background-position: bottom;
   background-repeat: no-repeat;
   pointer-events: none;
   visibility: hidden;
@@ -257,8 +259,8 @@
 
 /* Modal: contenido centrado */
 .modalContent {
-  width: 60vh;
-  height: 60vh;
+  width: 82vw;
+  height: 82vh;
   background-color: #000;
   color: #fff;
   padding: 20px;
@@ -289,7 +291,7 @@
 .modalContent .geneticBg1,
 .modalContent .geneticBg2,
 .modalContent .geneticBg3 {
-  width: 22vw;
-  height: 22vw;
+  width: 80%;
+  height: 80%;
   position: unset;
 }

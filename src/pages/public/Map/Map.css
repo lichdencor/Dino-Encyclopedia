@@ -45,8 +45,8 @@ body {
 }
 
 .period-btn {
-  width: 10%;
-  height: 24%;
+  width: 7%;
+  height: 19%;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -95,8 +95,8 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  left: 27%;
-  bottom: 10%;
+  left: 25%;
+  bottom: 11%;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -122,66 +122,123 @@ body {
 }
 
 .main-entrance {
-  left: 20%;
-  bottom: 17%;
+  width: 10%;
+  height: 22%;
+  left: 14%;
+  bottom: 20%;
+  background-image: url(/public/assets/img/buildings/bu-main-entrance.png);
+}
+
+.entrance {
+  width: 7%;
+  height: 19%;
+  right: 4%;
+  bottom: 12%;
   background-image: url(/public/assets/img/buildings/bu-entrance.png);
 }
 
-.stage-1 {
-  left: 20%;
-  bottom: 17%;
-  background-image: url(/public/assets/img/buildings/bu-tri-1.png);
+.library {
+  width: 5%;
+  height: 15%;
+  left: 59%;
+  bottom: 12%;
+  background-image: url(/public/assets/img/buildings/bu-library.png);
 }
+
+.store {
+  left: 6%;
+  bottom: 55%;
+  background-image: url(/public/assets/img/buildings/bu-store.png);
+  background-color: red;
+}
+
+.kids-room {
+  width: 16%;
+  height: 30%;
+  left: 43%;
+  bottom: 57%;
+  background-image: url(/public/assets/img/buildings/bu-kids.png);
+}
+
+.restroom {
+  width: 5%;
+  height: 9%;
+  background-image: url(/public/assets/img/buildings/bu-restroom.png);
+}
+
+.restroom-1 {
+  left: 39%;
+  bottom: 43%;
+}
+
+.restroom-2 {
+  left: 57%;
+  bottom: 80%;
+}
+
+.restroom-3 {
+  right: 7%;
+  bottom: 65%;
+  transform: scaleX(-1);
+}
+
+/* COMMON ROOMS */
 
 .scaled {
   z-index: 1000;
 }
 
+.stage-1 {
+  left: 18%;
+  bottom: 47%;
+  background-image: url(/public/assets/img/buildings/bu-tri-1.png);
+}
+
 .stage-2 {
-  left: 10%;
-  bottom: 43%;
+  left: 28%;
+  bottom: 51%;
   background-image: url(/public/assets/img/buildings/bu-tri-2.png);
 }
 
 .stage-3 {
-  left: 25%;
-  bottom: 58%;
+  left: 35%;
+  bottom: 69%;
   background-image: url(/public/assets/img/buildings/bu-tri-3.png);
 }
 
 .stage-4 {
-  left: 40%;
-  bottom: 40%;
+  left: 48%;
+  bottom: 31%;
   background-image: url(/public/assets/img/buildings/bu-jur-1.png);
 }
 
 .stage-5 {
-  left: 53%;
+  left: 59%;
   bottom: 37%;
   background-image: url(/public/assets/img/buildings/bu-jur-2.png);
 }
 
 .stage-6 {
-  right: 30%;
-  bottom: 65%;
+  right: 29%;
+  bottom: 60%;
   background-image: url(/public/assets/img/buildings/bu-jur-3.png);
 }
 
 .stage-7 {
-  right: 17%;
-  bottom: 50%;
+  right: 22%;
+  bottom: 32%;
   background-image: url(/public/assets/img/buildings/bu-cre-1.png);
 }
 
 .stage-8 {
-  right: 5%;
-  bottom: 30%;
+  right: 9%;
+  bottom: 36%;
   background-image: url(/public/assets/img/buildings/bu-cre-2.png);
 }
 
 .stage-9 {
-  right: 11%;
-  bottom: 6%;
+  right: 17%;
+  bottom: 56%;
   background-image: url(/public/assets/img/buildings/bu-cre-3.png);
 }
 
@@ -192,8 +249,8 @@ body {
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  width: 22%;
-  height: 18%;
+  width: 17%;
+  height: 13%;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -201,22 +258,22 @@ body {
   font-family: "MedusaGothicD";
   text-align: center;
   letter-spacing: 0.2vw;
-  font-size: 1vw;
+  font-size: 0.8vw;
   color: rgb(70, 68, 54);
 }
 
 .period-1 {
-  top: 5%;
-  left: 3%;
+  top: 15%;
+  left: 15%;
 }
 
 .period-2 {
-  top: 68%;
-  left: 37%;
+  bottom: 16%;
+  left: 40%;
 }
 
 .period-3 {
-  top: 10%;
+  top: 8%;
   left: 75%;
 }
 

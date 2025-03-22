@@ -25,7 +25,50 @@ export const Map = () => {
 
         <div className="user-character"></div>
         <div className="raptor-bites"></div>
+
+        {/* COMMON ROOMS */}
+        <PeriodsButtonHover
+          stage="main-entrance"
+          label="main entrance"
+        />
+
+        <PeriodsButtonHover
+          stage="entrance"
+          label="entrance"
+        />
         
+        <PeriodsButtonHover
+          stage="library"
+          label="library"
+        />
+
+        <PeriodsButtonHover
+          stage="store"
+          label="store"
+        />
+
+        <PeriodsButtonHover
+          stage="kids-room"
+          label="kids-room"
+        />
+
+        <PeriodsButtonHover
+          stage="restroom restroom-1"
+          label="restroom"
+        />
+
+        <PeriodsButtonHover
+          stage="restroom restroom-2" 
+          label="restroom"
+        />
+
+        <PeriodsButtonHover
+          stage="restroom restroom-3"
+          label="restroom"
+        />
+
+        {/* STAGES */}
+
         <PeriodsButtonHover
           stage="stage-1"
           label="inferior gallery"
