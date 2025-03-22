@@ -1,8 +1,13 @@
 import "./App.css";
 import AppRouter from "./AppRouter";
+import { SupabaseProvider } from "./context";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <SupabaseProvider>
+      <AppRouter />
+    </SupabaseProvider>
+  );
 }
 
 export default App;
