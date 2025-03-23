@@ -1,5 +1,4 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import { Nav } from "./components/";
 import { RoutesWithNotFound } from "./components/";
 import {
   Home,
@@ -17,6 +16,7 @@ import {
   JurassicSuperior,
   Login,
   PetSelection,
+  SignIn,
 } from "./pages/";
 import { AuthProvider } from "./context";
 
@@ -46,6 +46,15 @@ const AppRouter = () => {
           element={
             <AuthProvider>
               <Login />
+            </AuthProvider>
+          }
+        />
+
+        <Route
+          path="/signin"
+          element={
+            <AuthProvider>
+              <SignIn />
             </AuthProvider>
           }
         />
