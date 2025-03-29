@@ -26,12 +26,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
       console.log("Usuario logueado correctamente");
-      setAuthError(null); // Resetea error si fue exitoso
-    } catch (error) {
-      setAuthError("Error al iniciar sesión. Verifica tus credenciales.");
-      console.error("Error de login:", error);
+    } catch (error: any) {
+      console.error("Error en login:", error);
+      throw error; // 🔹 Lanza el error para que `handleLogin()` lo capture
     }
   };
+
 
   const register = async (email: string, password: string) => {
     try {
@@ -41,27 +41,28 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         password
       );
 
-      if (user) {
-        const { error } = await supabase.from("profiles").insert([
-          {
-            email: user.email,
-            created_at: new Date().toISOString(),
-          },
-        ]);
-
-        if (error) {
-          throw new Error("Error al crear perfil en Supabase: " + error.message);
-        } else {
-          console.log("Perfil de usuario registrado en Supabase");
-        }
+      if (!user) {
+        throw new Error("No se pudo crear el usuario en Firebase.");
       }
 
-      setAuthError(null);
-    } catch (error) {
-      setAuthError("Error al registrar usuario.");
-      console.error(error);
+      const { error } = await supabase.from("profiles").insert([
+        {
+          email: user.email,
+          created_at: new Date().toISOString(),
+        },
+      ]);
+
+      if (error) {
+        throw new Error("Error al crear perfil en Supabase: " + error.message);
+      }
+
+      console.log("Perfil de usuario registrado en Supabase");
+    } catch (error: any) {
+      console.error("Error en registro:", error);
+      throw error; // 🔹 Lanza el error para que `handleRegister()` lo capture
     }
   };
+
 
   const logout = async () => {
     try {
