@@ -12,6 +12,7 @@ import {
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
@@ -22,40 +23,61 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(firebaseAuth, email, password);
-    console.log("Usuario logueado correctamente");
+    try {
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+      console.log("Usuario logueado correctamente");
+      setAuthError(null); // Resetea error si fue exitoso
+    } catch (error) {
+      setAuthError("Error al iniciar sesión. Verifica tus credenciales.");
+      console.error("Error de login:", error);
+    }
   };
 
   const register = async (email: string, password: string) => {
-    const { user } = await createUserWithEmailAndPassword(
-      firebaseAuth,
-      email,
-      password,
-    );
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        email,
+        password
+      );
 
-    if (user) {
-      const { error } = await supabase.from("profiles").insert([
-        {
-          email: user.email, // Solo el email y created_at, Supabase se encargará del id autoincremental
-          created_at: new Date().toISOString(),
-        },
-      ]);
+      if (user) {
+        const { error } = await supabase.from("profiles").insert([
+          {
+            email: user.email,
+            created_at: new Date().toISOString(),
+          },
+        ]);
 
-      if (error) {
-        console.error("Error al crear perfil en Supabase:", error.message);
-      } else {
-        console.log("Perfil de usuario registrado en Supabase");
+        if (error) {
+          throw new Error("Error al crear perfil en Supabase: " + error.message);
+        } else {
+          console.log("Perfil de usuario registrado en Supabase");
+        }
       }
+
+      setAuthError(null);
+    } catch (error) {
+      setAuthError("Error al registrar usuario.");
+      console.error(error);
     }
   };
 
   const logout = async () => {
-    await signOut(firebaseAuth);
+    try {
+      await signOut(firebaseAuth);
+      setAuthError(null);
+    } catch (error) {
+      setAuthError("Error al cerrar sesión.");
+      console.error(error);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, authError }}>
       {children}
+      {authError && <p style={{ color: "red" }}>{authError}</p>}
     </AuthContext.Provider>
   );
 };
+
