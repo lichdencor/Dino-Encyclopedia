@@ -170,7 +170,6 @@
   visibility: visible;
 }
 
-
 /* Name Frames */
 .nameFrame {
   width: 17%;
@@ -261,7 +260,7 @@
 .modalContent {
   width: 82vw;
   height: 82vh;
-  background-color: #000;
+  /* background-color: #000; */
   color: #fff;
   padding: 20px;
   display: flex;
@@ -271,6 +270,10 @@
   text-align: center;
   border-radius: 8px;
   position: relative;
+  background-image: url(/public/assets/img/bg/x-ray-bg.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Botón de cerrar modal */
