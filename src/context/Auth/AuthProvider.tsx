@@ -12,6 +12,7 @@ import {
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
@@ -22,40 +23,62 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(firebaseAuth, email, password);
-    console.log("Usuario logueado correctamente");
+    try {
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+      console.log("Usuario logueado correctamente");
+    } catch (error: any) {
+      console.error("Error en login:", error);
+      throw error; // 🔹 Lanza el error para que `handleLogin()` lo capture
+    }
   };
 
-  const register = async (email: string, password: string) => {
-    const { user } = await createUserWithEmailAndPassword(
-      firebaseAuth,
-      email,
-      password,
-    );
 
-    if (user) {
+  const register = async (email: string, password: string) => {
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        email,
+        password
+      );
+
+      if (!user) {
+        throw new Error("No se pudo crear el usuario en Firebase.");
+      }
+
       const { error } = await supabase.from("profiles").insert([
         {
-          email: user.email, // Solo el email y created_at, Supabase se encargará del id autoincremental
+          email: user.email,
           created_at: new Date().toISOString(),
         },
       ]);
 
       if (error) {
-        console.error("Error al crear perfil en Supabase:", error.message);
-      } else {
-        console.log("Perfil de usuario registrado en Supabase");
+        throw new Error("Error al crear perfil en Supabase: " + error.message);
       }
+
+      console.log("Perfil de usuario registrado en Supabase");
+    } catch (error: any) {
+      console.error("Error en registro:", error);
+      throw error; // 🔹 Lanza el error para que `handleRegister()` lo capture
     }
   };
 
+
   const logout = async () => {
-    await signOut(firebaseAuth);
+    try {
+      await signOut(firebaseAuth);
+      setAuthError(null);
+    } catch (error) {
+      setAuthError("Error al cerrar sesión.");
+      console.error(error);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, authError }}>
       {children}
+      {authError && <p style={{ color: "red" }}>{authError}</p>}
     </AuthContext.Provider>
   );
 };
+
