@@ -17,6 +17,7 @@ import {
   Login,
   PetSelection,
   SignIn,
+  MemoDyn,
 } from "./pages/";
 import { AuthProvider } from "./context";
 
@@ -29,6 +30,8 @@ const AppRouter = () => {
           <Route path="/encyclopedia" element={<Encyclopedia />} />
           <Route path="/album" element={<Album />} />
           <Route path="/map" element={<Map />} />
+
+          <Route path="/memodyn" element={<MemoDyn />} />
 
           <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
           <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
