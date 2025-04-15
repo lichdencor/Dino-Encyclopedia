@@ -18,6 +18,7 @@ import {
   PetSelection,
   SignIn,
   MemoDyn,
+  Games,
 } from "./pages/";
 import { AuthProvider } from "./context";
 
@@ -27,7 +28,7 @@ const AppRouter = () => {
       <ErrorBoundary>
         <RoutesWithNotFound>
           <Route path="/" element={<Home />} />
-          <Route path="/encyclopedia" element={<Encyclopedia />} />
+          <Route path="/games" element={<Games />} />
           <Route path="/album" element={<Album />} />
           <Route path="/map" element={<Map />} />
 

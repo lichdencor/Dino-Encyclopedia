@@ -1,0 +1,10 @@
+.gamesPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgray;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+

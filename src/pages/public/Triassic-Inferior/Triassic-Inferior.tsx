@@ -4,7 +4,6 @@ import { Nav } from "../../../components";
 import { Link } from "react-router-dom";
 
 export const TriassicInferior = () => {
-  const [cursorPos, setCursorPos] = useState({ x: "50%", y: "50%" });
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDinosaur, setSelectedDinosaur] = useState<number | null>(null);
