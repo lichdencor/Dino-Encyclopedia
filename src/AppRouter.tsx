@@ -19,6 +19,7 @@ import {
   SignIn,
   MemoDyn,
   Games,
+  Puzzleaurus,
 } from "./pages/";
 import { AuthProvider } from "./context";
 
@@ -33,6 +34,7 @@ const AppRouter = () => {
           <Route path="/map" element={<Map />} />
 
           <Route path="/memodyn" element={<MemoDyn />} />
+          <Route path="/puzzleaurus" element={<Puzzleaurus />} />
 
           <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
           <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
