@@ -1,8 +1,8 @@
-body {
-  background-image: url(assets/Cards/BackgroundMemotest.jpg);
-  background-size: cover;
-  position: relative;
-}
+/*body {*/
+/*  background-image: url(assets/Cards/BackgroundMemotest.jpg);*/
+/*  background-size: cover;*/
+/*  position: relative;*/
+/*}*/
 
 .memoDyn-container {
   height: 100vh;
