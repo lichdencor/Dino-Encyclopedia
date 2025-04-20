@@ -19,6 +19,58 @@ header {
   flex-direction: column;
 }
 
+/* Modal: overlay semitransparente */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal: contenido centrado */
+.home-page .modalContent {
+  width: 38vw;
+  height: 60vh;
+  /* background-color: #000; */
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  background-color: pink;
+  /*background-image: url(/public/assets/img/bg/x-ray-bg.png);*/
+  /*background-size: 100% 100%;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+}
+
+.dynard-question-option {
+  cursor: pointer;
+  width: 5vw;
+  height: 5vh;
+}
+
+.dynard-question{
+  width: 20vw;
+  height: 6vh;
+}
+
+.dynardContainer {
+  position: absolute;
+  left: 6vh;
+  bottom: 5vh;
+}
+
 .logo-container,
 .logo,
 .header-title {

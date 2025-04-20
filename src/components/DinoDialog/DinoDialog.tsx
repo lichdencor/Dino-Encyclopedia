@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from './DinoDialog.module.css';
 
-export const DinoDialog = () => {
-    const fullText = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.";
+export const DinoDialog = ({onClick, text, looped, boldWords, dialogStyle}: any) => {
+    const fullText = text;
     const [displayText, setDisplayText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isDialogShowing, setIsDialogShowing] = useState(true);
+    const [isLooped, setIsLooped] = useState(false);
 
     useEffect(() => {
         if (currentIndex < fullText.length) {
@@ -15,12 +17,26 @@ export const DinoDialog = () => {
             }, typingSpeed);
 
             return () => clearTimeout(timer);
+        } else if(isLooped) {
+            setIsDialogShowing(false);
+            const pauseBeforeLoop = 3500;
+            const pauseTimer = setTimeout(() => {
+                setDisplayText("");
+                setCurrentIndex(0);
+                setIsDialogShowing(true);
+                setIsLooped(false);
+            }, pauseBeforeLoop);
+            return () => clearTimeout(pauseTimer);
+        } else {
+            if (looped) {
+                setTimeout(() => {
+                    setIsLooped(true);
+                }, 3500);
+            }
         }
-    }, [currentIndex, fullText]);
+    }, [currentIndex, fullText, isDialogShowing, isLooped]);
 
     const formatText = (text) => {
-        const boldWords = ["dolor", "Quisque faucibus"];
-
         let formattedText = text;
         boldWords.forEach(word => {
             const regex = new RegExp(`(${word})`, 'g');
@@ -31,18 +47,16 @@ export const DinoDialog = () => {
     };
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.dialogContainer}>
-                <div className={styles.logoContainer}>
-                    <div className={styles.logo}></div>
-                </div>
-                <div className={styles.dialog}>
-                    <div className={styles.typingContainer}>
-                        <div
-                            className={styles.typing}
-                            dangerouslySetInnerHTML={{ __html: displayText }}
-                        />
-                    </div>
+        <div className={styles.dialogContainer}>
+            <div className={styles.logoContainer} >
+                <div className={styles.logo} onClick={onClick}></div>
+            </div>
+            <div className={`${styles.dialog} ${isDialogShowing ? styles.dialogShow : ''}`} style={dialogStyle}>
+                <div className={styles.typingContainer} >
+                    <div
+                        className={styles.typing}
+                        dangerouslySetInnerHTML={{ __html: displayText }}
+                    />
                 </div>
             </div>
         </div>
