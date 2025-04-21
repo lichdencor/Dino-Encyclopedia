@@ -39,7 +39,6 @@ header {
   height: 60vh;
   /* background-color: #000; */
   color: #fff;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,22 +46,33 @@ header {
   text-align: center;
   border-radius: 8px;
   position: relative;
-  background-color: pink;
+  background-color: darkblue;
   /*background-image: url(/public/assets/img/bg/x-ray-bg.png);*/
   /*background-size: 100% 100%;*/
   /*background-position: center;*/
   /*background-repeat: no-repeat;*/
+  font-family: "MedusaGothicD", sans-serif;
+  font-family: "Black Chancery", serif;
+  font-size: 1.2vw;
+}
+
+.modal-logo-giph {
+  margin-bottom: 3%;
+  width: 25%;
 }
 
 .dynard-question-option {
   cursor: pointer;
-  width: 5vw;
-  height: 5vh;
+  width: 80%;
+  height: 6%;
+  font-size: 1.2vw;
 }
 
 .dynard-question{
-  width: 20vw;
-  height: 6vh;
+  width: 80%;
+  height: 12%;
+
+  font-size: 1.8vw;
 }
 
 .dynardContainer {
@@ -188,4 +198,34 @@ header {
   position: absolute;
   left: 45%;
   bottom: 3vh;
+}
+
+/* ARROWS */
+
+.left-arrow,
+.right-arrow {
+  width: 5vw;
+  height: 2vw;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60%;
+  transition: all 500ms;
+  cursor: pointer;
+}
+
+.left-arrow {
+  background-image: url(/public/assets/img/arrows/arrow-left.png);
+  left: 3%;
+}
+
+.right-arrow {
+  background-image: url(/public/assets/img/arrows/arrow-right.png);
+  right: 3%;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  scale: 108%;
 }

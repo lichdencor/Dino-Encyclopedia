@@ -98,6 +98,7 @@ nav {
   background-position: center;
   transform-origin: bottom;
   animation: breathing-pet 3s ease-in-out infinite;
+  cursor: pointer;
 }
 
 @keyframes breathing-pet {

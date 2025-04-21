@@ -8,105 +8,160 @@ const modalPages = [
         question: "¿En que puedo ayudarte?",
         options: [
             {
-                text: "opcion 1",
+                text: "Tutorial",
+                goesToPageIndex: 0
+            },
+            {
+                text: "Mi Cuenta",
                 goesToPageIndex: 1
             },
             {
-                text: "opcion 2",
+                text: "Explorar el Museo",
                 goesToPageIndex: 2
             },
             {
-                text: "opcion 3",
+                text: "Juegos",
                 goesToPageIndex: 3
             },
             {
-                text: "opcion 4",
+                text: "Tienda y Canjes",
+                goesToPageIndex: 4
+            },
+            {
+                text: "Contenido Interactivo",
+                goesToPageIndex: 5
+            }
+        ]
+    },
+    {
+        question: "¿En qué te puedo ayudar con tu cuenta?",
+        options: [
+            {
+                text: "Registro",
+                goesToPageIndex: 2
+            },
+            {
+                text: "Inicio de sesión",
+                goesToPageIndex: 4
+            },
+            {
+                text: "Perfil",
+                goesToPageIndex: 4
+            },
+            {
+                text: "Mascota",
+                goesToPageIndex: 4
+            },
+            {
+                text: "Tokens",
+                goesToPageIndex: 5
+            }
+        ]
+    },
+    {
+        question: "¿En qué te puedo ayudar con el registro?",
+        options: [
+            {
+                text: "¿Cómo me registro en la plataforma?",
+                goesToPageIndex: 4
+            },
+            {
+                text: "¿Qué actividades puedo hacer sin registrarme?",
+                goesToPageIndex: 4
+            },
+            {
+                text: "¿Cuál es el beneficio de registrarme?",
+                goesToPageIndex: 4
+            },
+            {
+                text: "¿Qué datos necesito para crear mi cuenta?",
+                goesToPageIndex: 4
+            },
+            {
+                text: "¿Puedo registrarme con una red social?",
+                goesToPageIndex: 5
+            }
+        ]
+    }
+    ,
+    {
+        question: "¿En qué te puedo ayudar con la exploración del museo?",
+        options: [
+            {
+                text: "Mapa",
+                goesToPageIndex: 1
+            },
+            {
+                text: "Galerías",
+                goesToPageIndex: 2
+            },
+            {
+                text: "X-Ray",
+                goesToPageIndex: 3
+            },
+            {
+                text: "Dinosaurios",
                 goesToPageIndex: 4
             },
         ]
     },
     {
-        question: "¿En que puedo ayudarte? [opcion 1]",
+        question: "¿En qué te puedo ayudar con los juegos?",
         options: [
             {
-                text: "opcion 1",
-                goesToPageIndex: 4
+                text: "Minijuegos",
+                goesToPageIndex: 1
             },
             {
-                text: "opcion 2",
-                goesToPageIndex: 4
+                text: "Logros",
+                goesToPageIndex: 2
             },
             {
-                text: "opcion 3",
-                goesToPageIndex: 4
+                text: "Álbum",
+                goesToPageIndex: 3
             },
             {
-                text: "opcion 4",
+                text: "Stickers",
                 goesToPageIndex: 4
             },
         ]
     },
     {
-        question: "¿En que puedo ayudarte? [opcion 2]",
+        question: "¿En qué te puedo ayudar con la tienda y los canjes?",
         options: [
             {
-                text: "opcion 1",
+                text: "Compras",
                 goesToPageIndex: 1
             },
             {
-                text: "opcion 2",
+                text: "Productos",
                 goesToPageIndex: 2
             },
             {
-                text: "opcion 3",
+                text: "Carrito",
                 goesToPageIndex: 3
             },
             {
-                text: "opcion 4",
+                text: "Wallet",
                 goesToPageIndex: 4
             },
+            {
+                text: "Historial",
+                goesToPageIndex: 4
+            }
         ]
     },
     {
-        question: "¿En que puedo ayudarte? [opcion 3]",
+        question: "¿En qué te puedo ayudar con el contenido interactivo?",
         options: [
             {
-                text: "opcion 1",
+                text: "Biblioteca",
                 goesToPageIndex: 1
             },
             {
-                text: "opcion 2",
+                text: "Cine",
                 goesToPageIndex: 2
-            },
-            {
-                text: "opcion 3",
-                goesToPageIndex: 3
-            },
-            {
-                text: "opcion 4",
-                goesToPageIndex: 4
-            },
-        ]
-    },
-    {
-        question: "¿En que puedo ayudarte? [opcion 4]",
-        options: [
-            {
-                text: "opcion 1",
-                goesToPageIndex: 1
-            },
-            {
-                text: "opcion 2",
-                goesToPageIndex: 2
-            },
-            {
-                text: "opcion 3",
-                goesToPageIndex: 3
-            },
-            {
-                text: "opcion 4",
-                goesToPageIndex: 4
-            },
+            }
         ]
     }
 ]
@@ -139,6 +194,10 @@ export const Home = () => {
         </div>
       </header>
       <div className="periods-container">
+
+        <div className="right-arrow"></div>
+        <div className="left-arrow"></div>
+
         <div className="period triassic">
 
         </div>
@@ -170,6 +229,7 @@ export const Home = () => {
                       className="modalContent"
                       onClick={(e) => e.stopPropagation()}
                   >
+                    <img src="assets/giph/logo.gif" alt="logo-giph" className="modal-logo-giph"/>
                     <div className="dynard-question">{modalPages[modalCurrentPage].question}</div>
                       {modalPages[modalCurrentPage].options.map((option, index) => (
                           <div key={index} className="dynard-question-option" onClick={() => changeModalPage(option.goesToPageIndex)}>{option.text}</div>
