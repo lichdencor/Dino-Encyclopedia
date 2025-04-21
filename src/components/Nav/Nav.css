@@ -207,10 +207,10 @@ nav {
 
 .token-container {
   position: absolute;
-  top: 1.5vw;
-  right: 10vw;
+  top: 1.1vw;
+  right: 8vw;
   /* background-color: red; */
-  width: 6%;
+  width: 7%;
   height: 65%;
   display: flex;
   justify-content: flex-start;
@@ -243,11 +243,13 @@ nav {
 .token-amount {
   height: 100%;
   width: 40%;
-  background-color: rebeccapurple;
-  color: white;
-}
+  /* background-color: rebeccapurple; */
+  font-size: 1.5vw;
+  color: rgb(237, 237, 204);
+  font-family: "Black Chancery", serif;
+  letter-spacing: 0.1vw;
 
-.token-amount span {
-  color: white;
-  font-family: "MedusaGothicD", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

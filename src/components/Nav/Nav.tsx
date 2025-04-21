@@ -38,7 +38,7 @@ export const Nav = () => {
 
         <div className="token-container">
           <div className="token-img"></div>
-          <div className="token-amount"><span>100</span></div>
+          <div className="token-amount">100</div>
         </div>
       </div>
 
