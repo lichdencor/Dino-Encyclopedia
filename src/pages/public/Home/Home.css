@@ -157,7 +157,7 @@ header {
 }
 
 .period {
-  width: 23%;
+  width: 21%;
   height: 85%;
   display: flex;
   justify-content: space-evenly;
@@ -176,15 +176,15 @@ header {
 }
 
 .triassic {
-  background-image: url(/public/assets/img/frames/period-frame-1.png);
+  background-image: url(/public/assets/img/frames/gallery-frame-triassic.png);
 }
 
 .jurassic {
-  background-image: url(/public/assets/img/frames/period-frame-2.png);
+  background-image: url(/public/assets/img/frames/gallery-frame-jurassic.png);
 }
 
 .cretaceous {
-  background-image: url(/public/assets/img/frames/period-frame-3.png);
+  background-image: url(/public/assets/img/frames/gallery-frame-cretacteous.png);
 }
 
 .map-btn {
