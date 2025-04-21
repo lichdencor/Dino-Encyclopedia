@@ -133,9 +133,6 @@ export const Home = () => {
     <div className="home-page">
       <Nav />
       <header>
-        <div className="logo-container">
-          <div className="logo"></div>
-        </div>
         <div className="text">
           <div className="header-title">ACADEMIA DEL DINO CULTO</div>
           <div className="header-subtitle">MUSEO INTERACTIVO DE PALEONTOLOGIA</div>

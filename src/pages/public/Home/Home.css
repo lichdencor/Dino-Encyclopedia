@@ -14,7 +14,7 @@ header {
   width: 100vw;
   margin: 0;
   position: absolute;
-  top: 1vw;
+  top: 10vw;
   display: flex;
   flex-direction: column;
 }
