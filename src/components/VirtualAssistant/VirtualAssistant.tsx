@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import styles from './DinoDialog.module.css';
+import './VirtualAssistant.css';
 
-export const DinoDialog = ({onClick, text, looped, boldWords, dialogStyle}: any) => {
+export const VirtualAssistant = ({onClick, text, looped, boldWords, dialogStyle}: any) => {
     const fullText = text;
     const [displayText, setDisplayText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,14 +47,15 @@ export const DinoDialog = ({onClick, text, looped, boldWords, dialogStyle}: any)
     };
 
     return (
-        <div className={styles.dialogContainer}>
-            <div className={styles.logoContainer} >
-                <div className={styles.logo} onClick={onClick}></div>
+        <div className='dialogueContainer'>
+            <div>
+                <img src="/public/assets/giph/logo.gif" className="virtual-assistant-giph" onClick={onClick}></img>
+                
             </div>
-            <div className={`${styles.dialog} ${isDialogShowing ? styles.dialogShow : ''}`} style={dialogStyle}>
-                <div className={styles.typingContainer} >
+            <div className={`${"dialogue"} ${isDialogShowing ? "dialogueShow" : ''}`} style={dialogStyle}>
+                <div className="typingContainer" >
                     <div
-                        className={styles.typing}
+                        className="typing"
                         dangerouslySetInnerHTML={{ __html: displayText }}
                     />
                 </div>
@@ -63,4 +64,4 @@ export const DinoDialog = ({onClick, text, looped, boldWords, dialogStyle}: any)
     );
 };
 
-export default DinoDialog;
+export default VirtualAssistant;

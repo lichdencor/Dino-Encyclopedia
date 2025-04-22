@@ -1,7 +1,7 @@
 import "./Home.css";
 import { Nav } from "../../../components/";
-import DinoDialog from "../../../components/DinoDialog/DinoDialog.tsx";
 import { useState } from "react";
+import VirtualAssistant from "../../../components/VirtualAssistant/VirtualAssistant";
 
 const modalPages = [
     // 0 - Menú Principal
@@ -209,17 +209,17 @@ export const Home = () => {
                 <div className="left-arrow"></div>
 
                 <div className="period triassic">
-
+                    <span className="gallery-name">INFERIOR GALLERY</span>
                 </div>
                 <div className="period jurassic">
-
+                    <span className="gallery-name">INFERIOR GALLERY</span>
                 </div>
                 <div className="period cretaceous">
-
+                    <span className="gallery-name">INFERIOR GALLERY</span>
                 </div>
 
                 <div className="dynardContainer">
-                    <DinoDialog
+                    <VirtualAssistant
                         onClick={openModal}
                         text="¿Necesitas Ayuda?"
                         boldWords={["Ayuda"]}

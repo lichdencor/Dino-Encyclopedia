@@ -157,13 +157,10 @@ header {
 }
 
 .period {
-  width: 21%;
-  height: 85%;
+  width: 20%;
+  height: 80%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
+  justify-content: center;
   /* background-color: lightcoral; */
 }
 
@@ -173,18 +170,44 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-}
-
-.triassic {
-  background-image: url(/public/assets/img/frames/gallery-frame-triassic.png);
+  transition: 500ms ease-in-out;
+  filter: brightness(60%);
+  /* background-color: blue; */
 }
 
 .jurassic {
-  background-image: url(/public/assets/img/frames/gallery-frame-jurassic.png);
+  background-size: 100% 105%;
+  background-position: 30% 10%;
+}
+
+.triassic:hover,
+.jurassic:hover,
+.cretaceous:hover {
+  scale: 105%;
+  filter: brightness(100%);
+}
+
+.triassic {
+  background-image: url(/public/assets/img/building-descriptions/tri-1.png);
+}
+
+.jurassic {
+  background-image: url(/public/assets/img/building-descriptions/jur-1.png);
 }
 
 .cretaceous {
-  background-image: url(/public/assets/img/frames/gallery-frame-cretacteous.png);
+  background-image: url(/public/assets/img/building-descriptions/cre-1.png);
+}
+
+.gallery-name {
+  width: 50%;
+  height: 10%;
+  font-family: "MedusaGothicD";
+  letter-spacing: 0.15vw;
+  color: rgb(234, 235, 221);
+  /* background-color: blue; */
+  text-align: center;
+  margin-top: 28%;
 }
 
 .map-btn {

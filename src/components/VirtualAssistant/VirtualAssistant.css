@@ -21,43 +21,31 @@
   max-width: 100%;
 }
 
-
-body {
-  text-align: center;
-}
-
 .info {
   position: absolute;
   bottom: 0;
   padding: 20px;
 }
 
-.logoContainer,
-.logo {
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
-.logoContainer {
-  width: 20vh;
-  height: 18vh;
+.dialogueContainer {
+  width: 15vw;
+  height: 25vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4vh;
+  justify-content: start;
+  align-items: end;
+  position: relative;
+  /* background-color: blue; */
 }
 
-.logo {
-  margin-top: 0.5vw;
-  width: 7vw;
-  height: 8vw;
-  background-image: url(/public/assets/giph/logo.gif);
+.virtual-assistant-giph {
+  width: 70%;
+  height: 70%;
   cursor: pointer;
 }
 
-.dialog {
-  background-color: white;
+.dialogue {
+  background-color: rgba(255, 252, 231, 0.88);
+  border: 3px double rgb(69, 7, 7);
   width: 35vh;
   height: 18vh;
   position: absolute;
@@ -71,17 +59,9 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   opacity: 0;
+  color: rgb(35, 0, 0);
 }
 
-.dialogShow {
+.dialogueShow {
   opacity: 1;
-}
-
-.dialogContainer {
-  width: 50vh;
-  height: 25vh;
-  display: flex;
-  justify-content: start;
-  align-items: end;
-  position: relative;
 }
