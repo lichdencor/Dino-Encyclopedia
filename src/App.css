@@ -12,6 +12,34 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Cinzel";
+  src: url("/public/assets/font/Cinzel-Regular.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cinzel-Bold";
+  src: url("/public/assets/font/Cinzel-Bold.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cinzel-Black";
+  src: url("/public/assets/font/Cinzel-Black.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/public/assets/font/Lato.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   width: 100vw;
   height: 100vh;

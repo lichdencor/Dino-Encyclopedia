@@ -8,7 +8,7 @@ const modalPages = [
     {
         question: "¿En qué puedo ayudarte?",
         options: [
-            { text: "Tutorial", goesToPageIndex: 0 },
+            { text: "Tutorial", goesToPageIndex: 126 },
             { text: "Mi Cuenta", goesToPageIndex: 1 },
             { text: "Explorar el Museo", goesToPageIndex: 2 },
             { text: "Minijuegos", goesToPageIndex: 3 },
@@ -231,10 +231,10 @@ const modalPages = [
     },
 
     // 49 a 53 - Subpáginas de X-Ray
-    { question: "¿Qué es la función X-Ray?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },                   
-    { question: "¿Dónde puedo usarla?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },                           
-    { question: "¿Cómo se usa?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },                    
-    { question: "¿Qué obtengo con el escaneo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },                  
+    { question: "¿Qué es la función X-Ray?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },
+    { question: "¿Dónde puedo usarla?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },
+    { question: "¿Cómo se usa?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },
+    { question: "¿Qué obtengo con el escaneo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },
     { question: "¿Cómo completo un escaneo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 48 }] },
 
     // 54. Dinosaurios
@@ -244,16 +244,16 @@ const modalPages = [
             { text: "¿Puedo interactuar con los dinosaurios?", goesToPageIndex: 56 },
             { text: "¿Qué puedo aprender de cada especie?", goesToPageIndex: 57 },
             { text: "¿Qué relación hay entre los dinosaurios de la galería?", goesToPageIndex: 58 },
-            { text: "¿Los dinosaurios de las galerías son los mismos que los de los museos?", goesToPageIndex: 59 },
+            { text: "¿Los dinosaurios de las galerías son los del museo?", goesToPageIndex: 59 },
             { text: "Back", goesToPageIndex: 2 }
         ]
     },
 
     // 55 a 59 - Subpáginas de Dinosaurios
-    { question: "¿Qué dinosaurios están disponibles?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },                      
-    { question: "¿Puedo interactuar con los dinosaurios?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },                           
-    { question: "¿Qué puedo aprender de cada especie?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },                      
-    { question: "¿Qué relación hay entre los dinosaurios de la galería?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },                 
+    { question: "¿Qué dinosaurios están disponibles?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },
+    { question: "¿Puedo interactuar con los dinosaurios?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },
+    { question: "¿Qué puedo aprender de cada especie?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },
+    { question: "¿Qué relación hay entre los dinosaurios de la galería?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },
     { question: "¿Los dinosaurios de las galerías son los mismos que los de los museos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 54 }] },
 
     // -------------------------------------- MINIJUEGOS --------------------------------------
@@ -271,10 +271,10 @@ const modalPages = [
     },
 
     // 55 a 59 - Subpáginas de Minijuegos
-    { question: "¿Dónde encuentro los minijuegos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },                      
-    { question: "¿Qué minijuegos hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },                           
-    { question: "¿Cómo se juega al Puzzleaurus?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },                      
-    { question: "¿Cómo se juega al Memodyn?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },                 
+    { question: "¿Dónde encuentro los minijuegos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },
+    { question: "¿Qué minijuegos hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },
+    { question: "¿Cómo se juega al Puzzleaurus?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },
+    { question: "¿Cómo se juega al Memodyn?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },
     { question: "¿Puedo ganar algo jugando?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 60 }] },
 
     // 66. Logros
@@ -290,10 +290,10 @@ const modalPages = [
     },
 
     // 67 a 71 - Subpáginas de Minijuegos
-    { question: "¿Cómo los desbloqueo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },                      
-    { question: "¿Para qué sirven?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },                           
-    { question: "¿Dónde los veo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },                      
-    { question: "¿Cuántos hay en total?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },                 
+    { question: "¿Cómo los desbloqueo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },
+    { question: "¿Para qué sirven?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },
+    { question: "¿Dónde los veo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },
+    { question: "¿Cuántos hay en total?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },
     { question: "¿Hay alguna meta específica?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 66 }] },
 
     // 72. Álbum
@@ -309,10 +309,10 @@ const modalPages = [
     },
 
     // 73 a 77 - Subpáginas de Álbum
-    { question: "¿Qué es?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },                      
-    { question: "¿Cómo accedo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },                           
-    { question: "¿Qué información contiene?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },                      
-    { question: "¿Qué pasa si lo completo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },                 
+    { question: "¿Qué es?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },
+    { question: "¿Cómo accedo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },
+    { question: "¿Qué información contiene?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },
+    { question: "¿Qué pasa si lo completo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },
     { question: "¿Qué es la funcionalidad <Dyno-Selfie>?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 72 }] },
 
     // 78. Stickers
@@ -328,10 +328,10 @@ const modalPages = [
     },
 
     // 79 a 83 - Subpáginas de Stickers
-    { question: "¿Cómo obtengo stickers?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },                      
-    { question: "¿Qué tipos de stickers hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },                           
-    { question: "¿Puedo intercambiar stickers?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },                      
-    { question: "¿Cómo coloco un sticker?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },                 
+    { question: "¿Cómo obtengo stickers?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },
+    { question: "¿Qué tipos de stickers hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },
+    { question: "¿Puedo intercambiar stickers?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },
+    { question: "¿Cómo coloco un sticker?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },
     { question: "¿Qué pasa si coloco un sticker incorrectamente?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 78 }] },
 
     // -------------------------------------- TIENDA Y CANJES --------------------------------------
@@ -349,10 +349,10 @@ const modalPages = [
     },
 
     // 85 a 89 - Subpáginas de compras
-    { question: "¿Qué puedo comprar con dinero?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                      
-    { question: "¿Hay productos digitales y físicos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                           
-    { question: "¿Cómo se realiza una compra?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                      
-    { question: "¿Es segura la compra online?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                 
+    { question: "¿Qué puedo comprar con dinero?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Hay productos digitales y físicos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Cómo se realiza una compra?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Es segura la compra online?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
     { question: "¿Qué métodos de págo acepta?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
 
     // 90. Productos
@@ -368,10 +368,10 @@ const modalPages = [
     },
 
     // 91 a 95 - Subpáginas de productos
-    { question: "¿Qué productos hay en la tienda?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                      
-    { question: "¿Hay merchandising del museo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                           
-    { question: "¿Puedo comprar entradas al museo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                      
-    { question: "¿Hay artículos solo por tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },                 
+    { question: "¿Qué productos hay en la tienda?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Hay merchandising del museo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Puedo comprar entradas al museo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
+    { question: "¿Hay artículos solo por tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
     { question: "¿Cómo veo los detalles de un producto?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 84 }] },
 
     // 96. Carrito
@@ -387,10 +387,10 @@ const modalPages = [
     },
 
     // 97 a 101 - Subpáginas de carrito
-    { question: "¿Cómo agrego un producto al carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },                      
-    { question: "¿Puedo modificar la cantidad?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },                           
-    { question: "¿Qué hago para finalizar la compra?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },                      
-    { question: "¿Puedo eliminar algo del carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },                 
+    { question: "¿Cómo agrego un producto al carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },
+    { question: "¿Puedo modificar la cantidad?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },
+    { question: "¿Qué hago para finalizar la compra?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },
+    { question: "¿Puedo eliminar algo del carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },
     { question: "¿El carrito guarda los artículos si salgo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 96 }] },
 
     // 102. Wallet
@@ -406,10 +406,10 @@ const modalPages = [
     },
 
     // 103 a 107 - Subpáginas de wallet
-    { question: "¿Cómo agrego un producto al carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },                      
-    { question: "¿Puedo modificar la cantidad?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },                           
-    { question: "Donde veo mi saldo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },                      
-    { question: "¿Cómo veo mis tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },                 
+    { question: "¿Cómo agrego un producto al carrito?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },
+    { question: "¿Puedo modificar la cantidad?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },
+    { question: "Donde veo mi saldo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },
+    { question: "¿Cómo veo mis tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },
     { question: "¿Cómo recargo mi wallet?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 102 }] },
 
 
@@ -426,10 +426,10 @@ const modalPages = [
     },
 
     // 109 a 113  - Subpáginas de historial
-    { question: "¿Dónde veo mis compras pasada?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },                      
-    { question: "También aparece lo que canjeé?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },                           
-    { question: "¿Puedo repetir una compra anterior?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },                      
-    { question: "¿Cómo reviso mi actividad en minijuegos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },                 
+    { question: "¿Dónde veo mis compras pasada?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },
+    { question: "También aparece lo que canjeé?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },
+    { question: "¿Puedo repetir una compra anterior?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },
+    { question: "¿Cómo reviso mi actividad en minijuegos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },
     { question: "El historial muestra mis tokens ganados?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 108 }] },
 
     // -------------------------------------- CONTENIDO INTERACTIVO --------------------------------------
@@ -447,11 +447,11 @@ const modalPages = [
     },
 
     // 115 a 119 - Biblioteca
-    { question: "¿Qué libros hay disponibles?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },                      
-    { question: "¿Puedo leer sin conexión?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },                           
-    { question: "Hay libros gratuitos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },                      
-    { question: "Qué pasa si cierro un libro sin terminarlo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },                 
-    { question: "¿Los libros también dan tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },    
+    { question: "¿Qué libros hay disponibles?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },
+    { question: "¿Puedo leer sin conexión?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },
+    { question: "Hay libros gratuitos?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },
+    { question: "Qué pasa si cierro un libro sin terminarlo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },
+    { question: "¿Los libros también dan tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 114 }] },
 
     // 120. Cine
     {
@@ -466,11 +466,17 @@ const modalPages = [
     },
 
     // 121 a 125 - Subpáginas de cine
-    { question: "¿Qué tipo de películas hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },                      
-    { question: "¿Cómo accedo al cine virtual?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },                           
-    { question: "¿Puedo ver películas sin tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },                      
-    { question: "¿Hay funciones especiales con contenido exclusivo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },                 
-    { question: "¿Gano tokens por ver pelis completas?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },   
+    { question: "¿Qué tipo de películas hay?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },
+    { question: "¿Cómo accedo al cine virtual?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },
+    { question: "¿Puedo ver películas sin tokens?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },
+    { question: "¿Hay funciones especiales con contenido exclusivo?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },
+    { question: "¿Gano tokens por ver pelis completas?", options: [{ text: "RESPUESTA" }, { text: "Back", goesToPageIndex: 120 }] },
+
+    // TUTORIAL
+    {
+        question: 'TUTORIAL', options: [{ text: 'Tutorial' }, { text: "Back", goesToPageIndex: 0 }],
+
+    }
 
 ];
 
@@ -534,20 +540,34 @@ export const Home = () => {
 
                 {isModalOpen && (
                     <div className={"modalOverlay"} onClick={closeModal}>
-                        <div
-                            className="modalContent"
-                            onClick={(e) => e.stopPropagation()}
-                        >
+                        <button className="dynard-modal-close-btn" onClick={closeModal}>×</button>
+                        <div className="modalContent" onClick={(e) => e.stopPropagation()}>
                             <img src="assets/giph/logo.gif" alt="logo-giph" className="modal-logo-giph" />
                             <div className="dynard-question">{modalPages[modalCurrentPage].question}</div>
-                            {modalPages[modalCurrentPage].options.map((option, index) => (                            
-                                option.goesToPageIndex ? 
-                                <div key={index} className="dynard-question-option" onClick={() => changeModalPage(option.goesToPageIndex)}>{option.text}</div> : 
-                                <div key={index} className="dynard-question-text"> {option.text}</div> 
-                            ))}
+                            <div className="dynard-options-wrapper">
+                                {modalPages[modalCurrentPage].options.map((option, index) => {
+                                    const isBack = option.text === "Back";
+                                    const isButton = option.goesToPageIndex !== undefined;
+                                    const className = isButton
+                                        ? `dynard-question-option ${isBack ? "dynard-btn-back" : ""}`
+                                        : "dynard-question-text";
+
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={className}
+                                            onClick={isButton ? () => changeModalPage(option.goesToPageIndex) : undefined}
+                                        >
+                                            {option.text}
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
+
                     </div>
                 )}
+
             </div>
         </div>
     );
