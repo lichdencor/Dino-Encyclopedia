@@ -22,9 +22,9 @@ import {
   Store,
   Book,
   Library,
+  Wallet
 } from "./pages/";
 import { AuthProvider } from "./context";
-import { Wallet } from "./pages/public/Wallet/wallet";
 
 const AppRouter = () => {
   return (

@@ -3,3 +3,5 @@ export * from "./ImageUploader/ImageUploader.tsx";
 export * from "./RoutesWithNotFound/RoutesWithNotFound.tsx";
 export * from "./PeriodsButtonHover/PeriodsButtonHover.tsx";
 export * from "./ErrorBoundary/ErrorBoundary.tsx";
+export * from "./Carousel/Carousel.tsx"
+export * from "./VirtualAssistant/VirtualAssistant.tsx"
