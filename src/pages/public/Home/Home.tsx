@@ -2,6 +2,7 @@ import "./Home.css";
 import { Nav } from "../../../components/";
 import { useState } from "react";
 import VirtualAssistant from "../../../components/VirtualAssistant/VirtualAssistant";
+import Carousel from "../../../components/Carousel/carousel";
 
 const modalPages = [
     // 0 - Menú Principal
@@ -510,6 +511,8 @@ export const Home = () => {
             </header>
             <div className="periods-container">
 
+                <Carousel/>
+{/* 
                 <div className="right-arrow"></div>
                 <div className="left-arrow"></div>
 
@@ -521,7 +524,7 @@ export const Home = () => {
                 </div>
                 <div className="period cretaceous">
                     <span className="gallery-name">INFERIOR GALLERY</span>
-                </div>
+                </div> */}
 
                 <div className="dynardContainer">
                     {!isModalOpen && (
