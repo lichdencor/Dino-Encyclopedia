@@ -2,7 +2,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { RoutesWithNotFound, ErrorBoundary } from "./components";
 import {
   Home,
-  Encyclopedia,
   Album,
   Map,
   TriassicInferior,
@@ -20,6 +19,7 @@ import {
   MemoDyn,
   Games,
   Puzzleaurus,
+  Store,
 } from "./pages/";
 import { AuthProvider } from "./context";
 
@@ -32,6 +32,7 @@ const AppRouter = () => {
           <Route path="/games" element={<Games />} />
           <Route path="/album" element={<Album />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/store" element={<Store />} />
 
           <Route path="/memodyn" element={<MemoDyn />} />
           <Route path="/puzzleaurus" element={<Puzzleaurus />} />
