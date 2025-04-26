@@ -3,6 +3,7 @@ import { Nav } from "../../../components/";
 import { useState } from "react";
 import VirtualAssistant from "../../../components/VirtualAssistant/VirtualAssistant";
 import Carousel from "../../../components/Carousel/carousel";
+import { useNavigate } from "react-router-dom";
 
 const modalPages = [
     // 0 - Menú Principal
@@ -485,6 +486,7 @@ const modalPages = [
 export const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [modalCurrentPage, setModalCurrentPage] = useState<number>(0);
+    const navigate = useNavigate();
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -499,6 +501,10 @@ export const Home = () => {
         setModalCurrentPage(page);
     }
 
+    const navigatePage = (route: string) => {
+        navigate(route);
+    };
+
 
     return (
         <div className="home-page">
@@ -511,11 +517,18 @@ export const Home = () => {
             </header>
             <div className="periods-container">
 
-                <Carousel/>
+                <Carousel />
 
                 <div className="ticket-purchase-container">
-                    <img src="assets/img/ticket/ticket.png" alt="tickets" />
+                    <img className="star" src="assets/img/ticket/star.png" alt="star" />
+
+                    <button className="ticket-wrapper" onClick={() => navigatePage("/triassic-inferior")}>
+                        <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets" />
+                    </button>
+
+                    <span>¡Comprá tus entradas!</span>
                 </div>
+
 
                 <div className="dynardContainer">
                     {!isModalOpen && (

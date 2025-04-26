@@ -23,7 +23,7 @@ export default function Carousel() {
     setCurrentIndex((prev) => (prev + 1) % TOTAL_CARDS);
   };
 
-  const navigateIndex = (route:string) => {
+  const navigatePage = (route:string) => {
     navigate(route);
   };
 
@@ -37,27 +37,27 @@ export default function Carousel() {
       <div className="carousel">
         <div className={`${getClass(0)} period triassic-1`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/triassic-inferior")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/triassic-inferior")}>VISIT</button>
         </div>
         <div className={`${getClass(1)} period jurassic-1`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/jurassic-inferior")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/jurassic-inferior")}>VISIT</button>
         </div>
         <div className={`${getClass(2)} period cretaceous-1`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/cretaceous-inferior")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/cretaceous-inferior")}>VISIT</button>
         </div>
         <div className={`${getClass(3)} period triassic-2`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/triassic-medium")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/triassic-medium")}>VISIT</button>
         </div>
         <div className={`${getClass(4)} period jurassic-2`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/jurassic-medium")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/jurassic-medium")}>VISIT</button>
         </div>
         <div className={`${getClass(5)} period cretaceous-2`}>
             <span className="gallery-name">INFERIOR GALLERY</span>
-            <button className='visit-gallery-btn' onClick={() => navigateIndex("/cretaceous-medium")}>VISIT</button>
+            <button className='visit-gallery-btn' onClick={() => navigatePage("/cretaceous-medium")}>VISIT</button>
         </div>
       </div>
 
