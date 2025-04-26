@@ -2,7 +2,7 @@ import "./Home.css";
 import { Nav } from "../../../components/";
 import { useState } from "react";
 import VirtualAssistant from "../../../components/VirtualAssistant/VirtualAssistant";
-import Carousel from "../../../components/Carousel/carousel";
+import Carousel from "../../../components/Carousel/Carousel";
 
 const modalPages = [
     // 0 - Menú Principal

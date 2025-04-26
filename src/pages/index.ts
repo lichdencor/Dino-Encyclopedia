@@ -17,3 +17,4 @@ export * from "./public/SignIn/SignIn.tsx";
 export * from "./public/MemoDyn/MemoDyn.tsx";
 export * from "./public/Games/Games.tsx";
 export * from "./public/Puzzleaurus/Puzzleaurus.tsx";
+export * from "./public/Store/Store.tsx";
