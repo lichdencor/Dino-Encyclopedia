@@ -36,10 +36,16 @@ export const Nav = () => {
           <Link to="/cinema">CINEMA</Link>
         </div>
 
-        <div className="token-container">
+        <Link to="/wallet" className="token-container">
           <div className="token-img"></div>
           <div className="token-amount">100</div>
-        </div>
+        </Link>
+
+
+        {/* <div className="token-container">
+          <div className="token-img"></div>
+          <div className="token-amount">100</div>
+        </div> */}
       </div>
 
     </nav>

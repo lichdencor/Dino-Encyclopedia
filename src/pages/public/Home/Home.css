@@ -1,7 +1,7 @@
 body {
   width: 100%;
   height: 100%;
-  background-image: url(/public/assets/img/landing-page/bg\ copy.png);
+  background-image: url(/public/assets/img/landing-page/bg.png);
   /* overflow: hidden; */
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -152,7 +152,7 @@ header {
 }
 
 .dynard-question{
-  font-family: "MedusaGothicD";
+  font-family: "MedusaGothic";
   width: 90%;
   height: 10%;
   font-size: 1.2vw;
@@ -187,7 +187,7 @@ header {
   background-color: rgb(76, 7, 39);
   border: 3px double rgb(222, 220, 209);
   border-radius: 10px;
-  font-family: 'MedusaGothicD';
+  font-family: 'MedusaGothic';
   font-size: 0.9vw;
   letter-spacing: 0.1vw;
   display: flex;
@@ -232,7 +232,7 @@ header {
 }
 
 .text {
-  font-family: "MedusaGothicD";
+  font-family: "MedusaGothic";
   width: 100%;
   height: 40%;
   /* background-color: beige; */
@@ -271,7 +271,7 @@ header {
 .gallery-name {
   width: 50%;
   height: 10%;
-  font-family: "MedusaGothicD";
+  font-family: "MedusaGothic";
   letter-spacing: 0.15vw;
   color: rgb(234, 235, 221);
   /* background-color: blue; */

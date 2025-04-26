@@ -1,300 +1,78 @@
-/* Triassic Inferior Background */
-.triassicInferiorBg {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(/public/assets/img/era-bg/room-bg-4.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-/* Genetic Backgrounds */
-.geneticBg1,
-.geneticBg2,
-.geneticBg3 {
-  width: 5vw;
-  height: 5vw;
-  position: absolute;
-  filter: brightness(50%);
-  transition: all 300ms ease-in-out;
-  background-size: 100% 100%;
-}
-
-.geneticBg1:hover,
-.geneticBg2:hover,
-.geneticBg3:hover {
-  transform: scale(103%);
-  filter: brightness(100%);
-}
-
-.geneticBg1 {
-  width: 22%;
-  height: 38%;
-  left: 5%;
-  bottom: 12%;
-  background-size: 100% 100%;
-}
-
-.geneticBg2 {
-  width: 25%;
-  height: 23%;
-  right: 3%;
-  bottom: 18%;
-}
-
-.geneticBg3 {
-  width: 28%;
-  height: 25%;
-  left: 40%;
-  bottom: 23%;
-}
-
-/* Breathe Animation */
-@keyframes breathe {
-  0%, 100% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(1.03);
-  }
-}
-
-/* Dinosaur Styles */
-.dinosaur1,
-.dinosaur2,
-.dinosaur3 {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform-origin: bottom;
-  position: relative;
-  margin: 0;
-}
-
-.dinosaur1 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
-  /* animation: breathe 2s infinite ease-in-out; */
-  background-size: 100% 100%;
-}
-
-.dinosaur1Bone {
-  background-image: url(/public/assets/img/dinosaurs/skeleton/skeleton-tr-1-Eoraptor.png);
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  -webkit-mask-repeat: no-repeat;
-  object-fit: contain;
-  background-size: contain;
-  cursor: none;
-  visibility: hidden;
-  background-color: rgb(166, 161, 161);
-}
-
-.dinosaur2 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
-  animation: breathe 4s infinite ease-in-out;
-}
-
-.dinosaur2Bone {
-  background-image: url(/public/assets/img/dinosaurs/bone/postosuchus-bone.png);
-  animation: breathe 2s infinite ease-in-out;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  -webkit-mask-repeat: no-repeat;
-  object-fit: contain;
-  cursor: none;
-  visibility: hidden;
-}
-
-.dinosaur3 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Postosuchus.png);
-  animation: breathe 3s infinite ease-in-out;
-}
-
-.dinosaur3Bone {
-  background-image: url(/public/assets/img/dinosaurs/bone/postosuchus-bone.png);
-  animation: breathe 2s infinite ease-in-out;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  -webkit-mask-repeat: no-repeat;
-  object-fit: contain;
-  cursor: none;
-  visibility: hidden;
-}
-
-/* Definimos las variables en el contenedor principal */
-.triassicInferiorBg {
-  --cursor-x: 50%;
-  --cursor-y: 50%;
-}
-
-/* Dinosaur Styles */
-.dinosaur {
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transform-origin: bottom;
-  position: relative;
-}
-
-
-/* X-Ray Effect */
-.dinosaur1Bone,
-.dinosaur2Bone,
-.dinosaur3Bone {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 95%;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  visibility: hidden;
-  mask-image: radial-gradient(circle 5vw at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
-  -webkit-mask-image: radial-gradient(circle 5vw at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
-  clip-path: circle(5vw at var(--cursor-x) var(--cursor-y));
-  will-change: clip-path, mask-image;
-}
-
-.activeBone {
-  visibility: visible;
-}
-
-/* Name Frames */
-.nameFrame {
-  width: 17%;
-  height: 9%;
-  position: absolute;
-  background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family: "MedusaGothicD";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.2vw;
-  text-align: center;
-  color: rgb(44, 42, 40);
-}
-
-.nameFrame1 {
-  left: 29%;
-  top: 32%;
-}
-
-.nameFrame2 {
-  left: 10%;
-  top: 62%;
-}
-
-.nameFrame3 {
-  left: 63%;
-  top: 33%;
-}
-
-/* Arrows */
-.arrowPrevious,
-.arrowNext {
-  width: 4%;
-  height: 5%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 25%;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrowPrevious:hover,
-.arrowNext:hover {
-  transform: scale(105%);
-}
-
-.arrowPrevious {
-  left: 3%;
-  background-image: url(/public/assets/img/arrow-previous.png);
-}
-
-.arrowNext {
-  right: 3%;
-  background-image: url(/public/assets/img/arrow-next.png);
-}
-
-/* Plants */
-@keyframes sway {
-  0% { transform: rotate(3deg); }
-  50% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
-}
-
-/* Modal: overlay semitransparente */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Modal: contenido centrado */
-.modalContent {
-  width: 82vw;
-  height: 82vh;
-  /* background-color: #000; */
-  color: #fff;
-  padding: 20px;
+.store_container {
+  width: 38%;
+  height: 27vw;
+  /* background-color: antiquewhite; */
+  /* border: 1px solid white; */
+  margin: 0 auto;
+  margin-top: 14vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  border-radius: 8px;
-  position: relative;
-  background-image: url(/public/assets/img/bg/x-ray-bg.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* Botón de cerrar modal */
-.modalContent button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #444;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.modalContent button:hover {
-  background-color: #666;
-}
-
-.modalContent .geneticBg1,
-.modalContent .geneticBg2,
-.modalContent .geneticBg3 {
-  width: 80%;
+.store_bg {
+  width: 100%;
   height: 80%;
-  position: unset;
+  margin: 0 auto;
+  /* background-color: white; */
+}
+
+.floating_tokens {
+  top: 27%;
+  position: absolute;
+  width: 35%;
+  height: 10%;
+  /* background-color: red; */
+  /* border: 1px solid white; */
+}
+
+.floating_token_1,
+.floating_token_2,
+.floating_token_3,
+.floating_token_4 {
+  position: absolute;
+}
+
+.floating_token_1 {
+  width: 8%;
+  height: 65%;
+  left: 8%;
+  /* background-color: red; */
+}
+
+.floating_token_2 {
+  width: 6%;
+  height: 50%;
+  left: 0%;
+  /* background-color: blue; */
+  transform: rotate(-15deg);
+}
+
+.floating_token_3 {
+  width: 7%;
+  height: 50%;
+  left: 13%;
+  top: 20%;
+  background-color: red;
+}
+
+.floating_token_4 {
+  width: 7%;
+  height: 50%;
+  right: 13%;
+  top: 3%;
+  background-color: white;
+}
+
+.coming_soon_txt {
+  /* background-color: blue; */
+  height: 15%;
+  font-size: 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "MedusaGothic";
+  letter-spacing: 0.5vw;
+  color: antiquewhite;
 }

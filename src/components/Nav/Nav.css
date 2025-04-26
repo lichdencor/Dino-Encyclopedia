@@ -8,7 +8,7 @@ nav {
   justify-content: flex-end;
   align-items: top;
   z-index: 999;
-  font-family: "MedusaGothicD", sans-serif;
+  font-family: "MedusaGothic", sans-serif;
   position: absolute;
   background-image: url(/public/assets/img/nav/nav-bg.png);
   background-size: 100% 100%;
@@ -205,18 +205,19 @@ nav {
   background-image: url(/public/assets/img/paws/level-paw-incomplete.png);
 }
 
-/* ------------------------------- WALLET ----------------------------------------- */
+/* ------------------------------- WALLET ---------------------------------------- */
 
-.token-container {
+.token-container{
   position: absolute;
   top: 40%;
   right: 10vw;
   /* background-color: red; */
-  width: 5.5%;
+  width: 6vw !important;
   height: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
+  cursor: pointer;
 }
 
 @keyframes token-float {

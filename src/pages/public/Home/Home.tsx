@@ -522,7 +522,7 @@ export const Home = () => {
                 <div className="ticket-purchase-container">
                     <img className="star" src="assets/img/ticket/star.png" alt="star" />
 
-                    <button className="ticket-wrapper" onClick={() => navigatePage("/triassic-inferior")}>
+                    <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
                         <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets" />
                     </button>
 
