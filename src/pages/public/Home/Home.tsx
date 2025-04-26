@@ -524,19 +524,21 @@ export const Home = () => {
                 </div>
 
                 <div className="dynardContainer">
-                    <VirtualAssistant
-                        onClick={openModal}
-                        text="¿Necesitas Ayuda?"
-                        boldWords={["Ayuda"]}
-                        looped={true}
-                        dialogStyle={{
-                            width: "20vh",
-                            height: "10vh",
-                            textAlign: "center",
-                            opacity: isModalOpen ? "0" : "1"
-                        }}
-                    />
+                    {!isModalOpen && (
+                        <VirtualAssistant
+                            onClick={openModal}
+                            text="¿Necesitas Ayuda?"
+                            boldWords={["Ayuda"]}
+                            looped={true}
+                            dialogStyle={{
+                                width: "20vh",
+                                height: "10vh",
+                                textAlign: "center"
+                            }}
+                        />
+                    )}
                 </div>
+
 
                 {isModalOpen && (
                     <div className={"modalOverlay"} onClick={closeModal}>
@@ -564,10 +566,8 @@ export const Home = () => {
                                 })}
                             </div>
                         </div>
-
                     </div>
                 )}
-
             </div>
         </div>
     );
