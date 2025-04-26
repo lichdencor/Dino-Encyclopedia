@@ -512,19 +512,10 @@ export const Home = () => {
             <div className="periods-container">
 
                 <Carousel/>
-{/* 
-                <div className="right-arrow"></div>
-                <div className="left-arrow"></div>
 
-                <div className="period triassic">
-                    <span className="gallery-name">INFERIOR GALLERY</span>
+                <div className="ticket-purchase-container">
+                    <img src="assets/img/ticket/ticket.png" alt="tickets" />
                 </div>
-                <div className="period jurassic">
-                    <span className="gallery-name">INFERIOR GALLERY</span>
-                </div>
-                <div className="period cretaceous">
-                    <span className="gallery-name">INFERIOR GALLERY</span>
-                </div> */}
 
                 <div className="dynardContainer">
                     {!isModalOpen && (
