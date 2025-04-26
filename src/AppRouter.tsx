@@ -20,6 +20,8 @@ import {
   Games,
   Puzzleaurus,
   Store,
+  Book,
+  Library,
 } from "./pages/";
 import { AuthProvider } from "./context";
 import { Wallet } from "./pages/public/Wallet/wallet";
@@ -34,6 +36,8 @@ const AppRouter = () => {
           <Route path="/album" element={<Album />} />
           <Route path="/map" element={<Map />} />
           <Route path="/store" element={<Store />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/book" element={<Book />} />
           <Route path="/wallet" element={<Wallet />} />
 
           <Route path="/memodyn" element={<MemoDyn />} />

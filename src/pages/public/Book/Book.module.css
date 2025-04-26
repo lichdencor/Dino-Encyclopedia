@@ -1,0 +1,126 @@
+.bookImage{
+  width: 100%;
+  height: 100%;
+}
+
+.frontPage{
+  position: relative;
+}
+
+.bookTitle{
+  position: absolute;
+  top: 0;
+}
+
+.book {
+  transition: opacity 0.4s 0.2s;
+  perspective: 250vw;
+  margin-top: 18vh;
+}
+
+.titleText {
+  margin-top: 8vw;
+  text-align: center;
+  font-size: 5vw;
+  color: #000000;
+}
+
+.pages {
+  width: 60vw;
+  height: 44vw;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  width: 30vw;
+  height: 34vw;
+  background-color: #111111;
+  background: left top no-repeat;
+  background-size: cover;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.7s;
+  z-index: 2;
+}
+
+.page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 10%);
+  background-position: right top;
+}
+
+.page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.page:nth-child(odd):hover::before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+  background-image: linear-gradient(to left, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 10%);
+}
+
+.page:nth-child(even)::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.page.grabbing {
+  transition: none;
+}
+
+.page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.page.flipped:nth-child(odd)::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.page.flipped:nth-child(even):hover::before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.page.flipped:nth-child(even)::before {
+  background: rgba(0, 0, 0, 0);
+}
