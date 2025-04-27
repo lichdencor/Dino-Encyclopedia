@@ -4,6 +4,9 @@ import { Nav, VirtualAssistant } from "../../../components";
 import { Link } from "react-router-dom";
 import { GalleryArrows } from "../../../components/GalleryArrows/GalleryArrows";
 import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/GalleryDinosaurNames";
+import galleries_data from "../../../context/data/galleries_data.json";
+
+// const dinosaurs = galleries_data["galleries"][0][]
 
 export const TriassicInferior = () => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
@@ -53,6 +56,8 @@ export const TriassicInferior = () => {
     <div>
       <Nav />
       <div className={styles.triassicInferiorBg}>
+
+        
 
         {/* <VirtualAssistant/> */}
         <GalleryArrows page1="map" page2="triassic-medio"/>
