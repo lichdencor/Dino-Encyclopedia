@@ -1,17 +1,5 @@
 body {
-  background-image: linear-gradient(
-  to right,
-  rgb(13, 12, 10) 0%,
-  rgb(13, 12, 10) 7%,
-  rgb(229, 229, 224) 10%,
-  rgb(229, 229, 224) 90%,
-  rgb(13, 12, 10) 96%,
-  rgb(13, 12, 10) 100%
-) !important;
   background-image: none !important;
-
-  background-color: white;
-  ;
 }
 
 /* Triassic Inferior Background */
@@ -21,10 +9,6 @@ body {
   background-image: url(/public/assets/img/era-bg/room-bg-4.png);
   background-image: url(/public/assets/img/gallery-bg/gallery-bg-triassic.png);
   background-size: 100% 100%;
-
-  /* background-image: url(/public/assets/img/bg/x-ray-bg.png);
-  background-size: 80% 90%;
-   */
   background-position: bottom;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -53,25 +37,27 @@ body {
 }
 
 .geneticBg1 {
-  width: 22%;
-  height: 38%;
-  left: 5%;
-  bottom: 12%;
+  width: 19%;
+  height: 30%;
+  left: 12%;
+  bottom: 20%;
   background-size: 100% 100%;
 }
 
 .geneticBg2 {
-  width: 25%;
+  width: 12%;
   height: 23%;
-  right: 3%;
-  bottom: 18%;
+  right: 16%;
+  bottom: 23%;
+  /* background-color: blue; */
 }
 
 .geneticBg3 {
-  width: 28%;
+  width: 16%;
   height: 25%;
-  left: 40%;
+  left: 42%;
   bottom: 23%;
+  /* background-color: red; */
 }
 
 /* Breathe Animation */
@@ -189,78 +175,6 @@ body {
 
 .activeBone {
   visibility: visible;
-}
-
-/* Name Frames */
-.nameFrame {
-  width: 17%;
-  height: 9%;
-  position: absolute;
-  background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family: "MedusaGothicD";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.2vw;
-  text-align: center;
-  color: rgb(44, 42, 40);
-}
-
-.nameFrame1 {
-  left: 29%;
-  top: 32%;
-}
-
-.nameFrame2 {
-  left: 10%;
-  top: 62%;
-}
-
-.nameFrame3 {
-  left: 63%;
-  top: 33%;
-}
-
-/* Arrows */
-.arrowPrevious,
-.arrowNext {
-  width: 4%;
-  height: 5%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 28%;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrowPrevious:hover,
-.arrowNext:hover {
-  transform: scale(105%);
-}
-
-.arrowPrevious {
-  left: 3%;
-  background-image: url(/public/assets/img/arrows/arrow-left.png);
-}
-
-.arrowNext {
-  right: 3%;
-  background-image: url(/public/assets/img/arrows/arrow-right.png);
-}
-
-/* Plants */
-@keyframes sway {
-  0% { transform: rotate(3deg); }
-  50% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
 }
 
 /* Modal: overlay semitransparente */

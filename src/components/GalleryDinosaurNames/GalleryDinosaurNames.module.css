@@ -1,0 +1,124 @@
+/* NAME FRAMES START */
+.dinosaurData {
+    top: 20%;
+    width: 22.5%;
+    height: 68%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+}
+
+/* .dinosaurData {
+    top: 72.2%;
+    width: 22.5%;
+    height: 15%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+} */
+
+.dinosaurData1 {
+    left: 10.5%;
+    /* background-color: pink; */
+}
+
+.dinosaurData2 {
+    left: 38.8%;
+    /* background-color: blue; */
+}
+
+.dinosaurData3 {
+    right: 10.5%;
+    /* background-color: violet; */
+}
+
+.progressContainer {
+    margin-top: 4%;
+    width: 75%;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.progressBarContainer {
+    width: 85%;
+    height: 80%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(/public/assets/img/gallery-progress/progressBarContainer-1.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.progressText {
+    color: black;
+    font-family: "Lato";
+    letter-spacing: 0.1vw;
+    font-weight: bold;
+    position: absolute;
+    right: 50%;
+}
+
+.progressBar {
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(135deg,#372715, #f4d5a6, #7b664d, #f4d5a6);
+    border-radius: 4px;
+    margin-left: 2%;
+}
+
+.puzzlePieceContainer {
+    width: 18%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 14%;
+    background-image: url(/public/assets/img/gallery-progress/puzzlePieceContainer-1.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.puzzlePiece {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/public/assets/img/puzzles/puzzle-piece.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.nameFrame {
+    width: 100%;
+    height: 8%;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: "MedusaGothic";
+    font-size: 0.9vw;
+    color: rgb(43, 23, 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.3vw;
+    text-align: center;
+    border: 4px double #5e4528;
+    background: linear-gradient(135deg,#5e4528, #f4d5a6,#f4d5a6, #5e4528);
+  }
+  /* NAME FRAMES END */

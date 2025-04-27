@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./Triassic-Inferior.module.css";
 import { Nav } from "../../../components";
 import { Link } from "react-router-dom";
+import { GalleryArrows } from "../../../components/GalleryArrows/GalleryArrows";
+import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/GalleryDinosaurNames";
 
 export const TriassicInferior = () => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
@@ -51,15 +53,9 @@ export const TriassicInferior = () => {
     <div>
       <Nav />
       <div className={styles.triassicInferiorBg}>
-        <div className={styles.plant1}></div>
-        <div className={styles.plant2}></div>
-        <div className={styles.plant3}></div>
 
-        <Link to="/map" className={styles.arrowPrevious}>.</Link>
-
-        <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Postosuchus</div>
-        <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Eoraptor</div>
-        <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Herrerasaurus</div>
+        <GalleryArrows page1="map" page2="triassic-medio"/>
+        <GalleryDinosaurNames dinosaurs={["Eoraptor","Postosuchus","Herrerasaurus"]}></GalleryDinosaurNames>
 
         {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => (
           <div
@@ -72,7 +68,7 @@ export const TriassicInferior = () => {
           </div>
         ))}
 
-        <Link to="/triassic-medio" className={styles.arrowNext}>.</Link>
+        
 
         {isModalOpen && (
           <div className={styles.modalOverlay + " preview-scan-dino"} onClick={closeModal}>
