@@ -29,3 +29,86 @@
     letter-spacing: 0.5vw;
     color: antiquewhite;
   }
+
+  /* FLOATING TOKENS START */
+
+.floating_tokens {
+    top: 24%;
+    position: absolute;
+    width: 35%;
+    height: 10%;
+    /* background-color: red; */
+    /* border: 1px solid white; */
+  }
+  
+  @keyframes float-soft {
+    0% { transform: translateY(1%); }
+    50% { transform: translateY(-5%); }
+    100% { transform: translateY(1%); }
+  }
+  
+  .floating_token_1,
+  .floating_token_2,
+  .floating_token_3,
+  .floating_token_4,
+  .floating_token_5,
+  .floating_token_6 {
+    position: absolute;
+  }
+  
+  .floating_token_1 {
+    width: 8%;
+    height: 65%;
+    left: 8%;
+    /* background-color: pink; */
+    animation: float-soft 5s ease-in-out infinite;
+  }
+  
+  .floating_token_2 {
+    width: 6%;
+    height: 50%;
+    left: 0%;
+    /* background-color: blue; */
+    transform: rotate(-15deg);
+    animation: float-soft 3s ease-in-out infinite;
+  }
+  
+  .floating_token_3 {
+    width: 5%;
+    height: 44%;
+    left: 3%;
+    bottom: 0%;
+    /* background-color: red; */
+    transform: rotate(20deg);
+    animation: float-soft 2s ease-in-out infinite;
+  }
+  
+  .floating_token_4 {
+    width: 6%;
+    height: 40%;
+    right: 13%;
+    top: 3%;
+    /* background-color: white; */
+    animation: float-soft 4s ease-in-out infinite;
+  }
+  
+  .floating_token_5 {
+    width: 5%;
+    height: 40%;
+    right: 3%;
+    top: 10%;
+    /* background-color: blue; */
+    transform: rotate(-45deg);
+    animation: float-soft 3s ease-in-out infinite;
+  }
+  
+  .floating_token_6 {
+    width: 8%;
+    height: 60%;
+    right: 7%;
+    bottom: 0%;
+    /* background-color: red; */
+    animation: float-soft 2s ease-in-out infinite;
+  }
+  
+  /* FLOATING TOKENS END */

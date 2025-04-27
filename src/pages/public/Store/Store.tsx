@@ -12,9 +12,11 @@ export const Store = () => {
         <img className={styles.floating_token_2} src="assets/img/token/composition-token-rotation.png" alt="floating token 2" />
         <img className={styles.floating_token_3} src="assets/img/token/composition-token-rotation.png" alt="floating token 3" />
         <img className={styles.floating_token_4} src="assets/img/token/composition-token-rotation.png" alt="floating token 4" />
-        
+        <img className={styles.floating_token_5} src="assets/img/token/composition-token.png" alt="floating token 5" />
+        <img className={styles.floating_token_6} src="assets/img/token/composition-token.png" alt="floating token 6" />
       </div>
-      <span className={styles.coming_soon_txt}>- COMING SOON -</span>
+
+      <span className={styles.coming_soon_txt}>- Próximamente -</span>
       <img className={styles.store_bg} src="assets/img/coming-soon/store-bg.png" alt="store-bg" />
     </div>
   );
