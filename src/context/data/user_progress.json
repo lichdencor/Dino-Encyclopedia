@@ -1,0 +1,291 @@
+{
+  "minigames": {
+    "puzzleaurus": {
+      "puzzles": [
+        {
+          "id": "Puzzle 1",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Puzzle 2",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Puzzle 3",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Puzzle 4",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Puzzle 5",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Puzzle 6",
+          "puzzle_pieces": {
+            "needed": 10,
+            "found": 0
+          },
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        }
+      ],
+      "available": true
+    },
+    "memodyn": {
+      "levels": [
+        {
+          "id": "Level 1",
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Level 2",
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        },
+        {
+          "id": "Level 3",
+          "progress": {
+            "total": 3,
+            "completed": 0
+          },
+          "best_time": 0
+        }
+      ],
+      "available": false
+    }
+  },
+  "galleries": [
+    {
+      "era_triassic": [
+        {
+          "name": "Triassic",
+          "period": "Late Triassic",
+          "dinosaurs": [
+            {
+              "id": "Postosuchus kirkpatricki",
+              "discovered": false
+            },
+            {
+              "id": "Eoraptor lunensis",
+              "discovered": false
+            },
+            {
+              "id": "Herrerasaurus ischigualastensis",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Triassic",
+          "period": "Medium Triassic",
+          "dinosaurs": [
+            {
+              "id": "Shuvosaurus inexpectatus",
+              "discovered": false
+            },
+            {
+              "id": "Chindesaurus bryansmalli",
+              "discovered": false
+            },
+            {
+              "id": "Fukuiraptor kitadaniensis",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Triassic",
+          "period": "Superior Triassic",
+          "dinosaurs": [
+            {
+              "id": "Coelophysis bauri",
+              "discovered": false
+            },
+            {
+              "id": "Plateosaurus engelhardti",
+              "discovered": false
+            },
+            {
+              "id": "Rauisuchus tiradentes",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        }
+      ],
+      "era_jurassic": [
+        {
+          "name": "Jurassic",
+          "period": "Early Jurassic",
+          "dinosaurs": [
+            {
+              "id": "Dilophosaurus wetherilli",
+              "discovered": false
+            },
+            {
+              "id": "Compsognathus longipes",
+              "discovered": false
+            },
+            {
+              "id": "Cryolophosaurus ellioti",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Jurassic",
+          "period": "Medium Jurassic",
+          "dinosaurs": [
+            {
+              "id": "Allosaurus fragilis",
+              "discovered": false
+            },
+            {
+              "id": "Apatosaurus louisae",
+              "discovered": false
+            },
+            {
+              "id": "Camarasaurus supremus",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Jurassic",
+          "period": "Superior Jurassic",
+          "dinosaurs": [
+            {
+              "id": "Brachiosaurus altithorax",
+              "discovered": false
+            },
+            {
+              "id": "Diplodocus longus",
+              "discovered": false
+            },
+            {
+              "id": "Stegosaurus stenops",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        }
+      ],
+      "era_cretaceous": [
+        {
+          "name": "Cretaceous",
+          "period": "Early Cretaceous",
+          "dinosaurs": [
+            {
+              "id": "Pachycephalosaurus wyomingensis",
+              "discovered": false
+            },
+            {
+              "id": "Microceratus gobiensis",
+              "discovered": false
+            },
+            {
+              "id": "Gallimimus bullatus",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Cretaceous",
+          "period": "Medium Cretaceous",
+          "dinosaurs": [
+            {
+              "id": "Spinosaurus aegyptiacus",
+              "discovered": false
+            },
+            {
+              "id": "Baryonyx walkeri",
+              "discovered": false
+            },
+            {
+              "id": "Irritator challengeri",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        },
+        {
+          "name": "Cretaceous",
+          "period": "Superior Cretaceous",
+          "dinosaurs": [
+            {
+              "id": "Triceratops horridus",
+              "discovered": false
+            },
+            {
+              "id": "Ankylosaurus magniventris",
+              "discovered": false
+            },
+            {
+              "id": "Tyrannosaurus rex",
+              "discovered": false
+            }
+          ],
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
