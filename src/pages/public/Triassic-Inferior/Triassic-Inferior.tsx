@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Triassic-Inferior.module.css";
-import { Nav } from "../../../components";
+import { Nav, VirtualAssistant } from "../../../components";
 import { Link } from "react-router-dom";
 import { GalleryArrows } from "../../../components/GalleryArrows/GalleryArrows";
 import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/GalleryDinosaurNames";
@@ -54,6 +54,7 @@ export const TriassicInferior = () => {
       <Nav />
       <div className={styles.triassicInferiorBg}>
 
+        {/* <VirtualAssistant/> */}
         <GalleryArrows page1="map" page2="triassic-medio"/>
         <GalleryDinosaurNames dinosaurs={["Eoraptor","Postosuchus","Herrerasaurus"]}></GalleryDinosaurNames>
 
