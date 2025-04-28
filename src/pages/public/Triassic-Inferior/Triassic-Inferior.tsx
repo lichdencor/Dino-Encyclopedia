@@ -12,6 +12,10 @@ export const TriassicInferior = () => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDinosaur, setSelectedDinosaur] = useState<number | null>(null);
+  const [curtain1IsHovered, setCurtain1IsHovered] = useState<boolean>(false);
+  const [curtain2IsHovered, setCurtain2IsHovered] = useState<boolean>(false);
+  const [curtain3IsHovered, setCurtain3IsHovered] = useState<boolean>(false);
+  const [secondPassed, setSecondPassed] = useState<boolean>(false);
 
   const handleMouseMove = (
     mouseEvent: React.MouseEvent<HTMLDivElement>,
@@ -55,26 +59,40 @@ export const TriassicInferior = () => {
   return (
     <div>
       <Nav />
-      <div className={styles.triassicInferiorBg}>
+      <div className={styles.triassicInferiorContainer}>
 
-        
+        <div
+          className={`${styles.courtains1} ${curtain1IsHovered && secondPassed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain1IsHovered(true);
+            setTimeout(() => setSecondPassed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain1IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain1IsHovered && styles.rightCurtainHover}`}></div>
+        </div>
+        <div className={styles.courtains2}></div>
+        <div className={styles.courtains3}></div>
+
+        <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
 
         {/* <VirtualAssistant/> */}
-        <GalleryArrows page1="map" page2="triassic-medio"/>
-        <GalleryDinosaurNames dinosaurs={["Eoraptor","Postosuchus","Herrerasaurus"]}></GalleryDinosaurNames>
+        <GalleryArrows page1="map" page2="triassic-medio" />
+        <GalleryDinosaurNames dinosaurs={["Eoraptor", "Postosuchus", "Herrerasaurus"]}></GalleryDinosaurNames>
 
-        {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => (
-          <div
-            key={index}
-            className={bgClass}
-            onMouseMove={(e) => handleMouseMove(e, index)}
-            onClick={() => handleDinosaurClick(index)}
-          >
-            <div className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]}`}></div>
-          </div>
-        ))}
+        {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => {
+          return (
+            <div
+              key={index}
+              className={bgClass}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onClick={() => handleDinosaurClick(index)}
+            >
+              <div className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]}`}></div>
+            </div>
+          );
+        })}
 
-        
 
         {isModalOpen && (
           <div className={styles.modalOverlay + " preview-scan-dino"} onClick={closeModal}>
