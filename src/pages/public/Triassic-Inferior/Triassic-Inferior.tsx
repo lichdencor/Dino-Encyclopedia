@@ -60,7 +60,6 @@ export const TriassicInferior = () => {
     <div>
       <Nav />
       <div className={styles.triassicInferiorContainer}>
-
         <div
           className={`${styles.courtains1} ${curtain1IsHovered && secondPassed ? styles.curtainHover : ""}`}
           onMouseEnter={() => {
