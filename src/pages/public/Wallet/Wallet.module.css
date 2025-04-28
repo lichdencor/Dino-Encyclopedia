@@ -1,114 +1,127 @@
-.wallet_container {
-    width: 38%;
-    height: 27vw;
-    /* background-color: antiquewhite; */
-    /* border: 1px solid white; */
-    margin: 0 auto;
-    margin-top: 14vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .wallet_bg {
-    width: 45%;
-    height: 80%;
-    margin: 0 auto;
-    /* background-color: white; */
-  }
-  
-  .coming_soon_txt {
-    /* background-color: blue; */
-    height: 15%;
-    font-size: 1.2vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: "MedusaGothic";
-    letter-spacing: 0.5vw;
-    color: antiquewhite;
-  }
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/public/assets/img/bg/base.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  /* FLOATING TOKENS START */
+.walletContainer {
+  
+  width: 38%;
+  height: 55%;
+  /* background-color: blue; */
+  /* border: 1px solid white; */
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.floating_tokens {
-    top: 24%;
-    position: absolute;
-    width: 35%;
-    height: 10%;
-    /* background-color: red; */
-    /* border: 1px solid white; */
-  }
-  
-  @keyframes float-soft {
-    0% { transform: translateY(1%); }
-    50% { transform: translateY(-5%); }
-    100% { transform: translateY(1%); }
-  }
-  
-  .floating_token_1,
-  .floating_token_2,
-  .floating_token_3,
-  .floating_token_4,
-  .floating_token_5,
-  .floating_token_6 {
-    position: absolute;
-  }
-  
-  .floating_token_1 {
-    width: 8%;
-    height: 65%;
-    left: 8%;
-    /* background-color: pink; */
-    animation: float-soft 5s ease-in-out infinite;
-  }
-  
-  .floating_token_2 {
-    width: 6%;
-    height: 50%;
-    left: 0%;
-    /* background-color: blue; */
-    transform: rotate(-15deg);
-    animation: float-soft 3s ease-in-out infinite;
-  }
-  
-  .floating_token_3 {
-    width: 5%;
-    height: 44%;
-    left: 3%;
-    bottom: 0%;
-    /* background-color: red; */
-    transform: rotate(20deg);
-    animation: float-soft 2s ease-in-out infinite;
-  }
-  
-  .floating_token_4 {
-    width: 6%;
-    height: 40%;
-    right: 13%;
-    top: 3%;
-    /* background-color: white; */
-    animation: float-soft 4s ease-in-out infinite;
-  }
-  
-  .floating_token_5 {
-    width: 5%;
-    height: 40%;
-    right: 3%;
-    top: 10%;
-    /* background-color: blue; */
-    transform: rotate(-45deg);
-    animation: float-soft 3s ease-in-out infinite;
-  }
-  
-  .floating_token_6 {
-    width: 8%;
-    height: 60%;
-    right: 7%;
-    bottom: 0%;
-    /* background-color: red; */
-    animation: float-soft 2s ease-in-out infinite;
-  }
-  
-  /* FLOATING TOKENS END */
+.walletBg {
+  width: 45%;
+  height: 75%;
+  margin: 0 auto;
+  /* background-color: white; */
+}
+
+/* FLOATING TOKENS START */
+
+.floatingTokens {
+  top: 24%;
+  position: absolute;
+  width: 35%;
+  height: 10%;
+  /* background-color: red; */
+  /* border: 1px solid white; */
+}
+
+@keyframes float-soft {
+  0% { transform: translateY(1%); }
+  50% { transform: translateY(-5%); }
+  100% { transform: translateY(1%); }
+}
+
+.floatingToken1,
+.floatingToken2,
+.floatingToken3,
+.floatingToken4,
+.floatingToken5,
+.floatingToken6 {
+  position: absolute;
+}
+
+.floatingToken1 {
+  width: 8%;
+  height: 65%;
+  left: 8%;
+  /* background-color: pink; */
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+.floatingToken2 {
+  width: 6%;
+  height: 50%;
+  left: 0%;
+  /* background-color: blue; */
+  transform: rotate(-15deg);
+  animation: float-soft 3s ease-in-out infinite;
+}
+
+.floatingToken3 {
+  width: 5%;
+  height: 44%;
+  left: 3%;
+  bottom: 0%;
+  /* background-color: red; */
+  transform: rotate(20deg);
+  animation: float-soft 2s ease-in-out infinite;
+}
+
+.floatingToken4 {
+  width: 6%;
+  height: 40%;
+  right: 13%;
+  top: 3%;
+  /* background-color: white; */
+  animation: float-soft 4s ease-in-out infinite;
+}
+
+.floatingToken5 {
+  width: 5%;
+  height: 40%;
+  right: 3%;
+  top: 10%;
+  /* background-color: blue; */
+  transform: rotate(-45deg);
+  animation: float-soft 3s ease-in-out infinite;
+}
+
+.floatingToken6 {
+  width: 8%;
+  height: 60%;
+  right: 7%;
+  bottom: 0%;
+  /* background-color: red; */
+  animation: float-soft 2s ease-in-out infinite;
+}
+
+/* FLOATING TOKENS END */
+
+.comingSoonTxt {
+  /* background-color: blue; */
+  height: 15%;
+  font-size: 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "MedusaGothic";
+  letter-spacing: 0.5vw;
+  color: antiquewhite;
+}

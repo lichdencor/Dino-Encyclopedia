@@ -210,7 +210,7 @@
 	height: 2.5vw;
 
 	bottom: -11%;
-	font-family: 'MedusaGothicD';
+	font-family: 'MedusaGothic';
 	letter-spacing: 0.2vw;
 	background: linear-gradient(135deg, #987B45, #ece2d2, #987145);
 	transition: all 1s ease-in-out;
@@ -223,7 +223,7 @@
 	height: 2.5vw;
 	width: 6vw;
 	bottom: -11%;
-	font-family: 'MedusaGothicD';
+	font-family: 'MedusaGothic';
 	letter-spacing: 0.2vw;
 	background: linear-gradient(135deg, #987B45, #ece2d2, #987145);
 	opacity: 1;

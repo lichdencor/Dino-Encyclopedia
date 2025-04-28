@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 
-.home-page {
+.homePage {
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -108,7 +108,7 @@ header {
   z-index: 9999;
 }
 
-.dynard-modal-close-btn {
+.dynardModalCloseBtn {
   position: absolute;
   width: 2vw;
   height: 2vw;
@@ -126,7 +126,7 @@ header {
 }
 
 /* Modal: contenido centrado */
-.home-page .modalContent {
+.homePage .modalContent {
   width: 34vw;
   height: 70vh;
   /* background-color: #000; */
@@ -141,13 +141,13 @@ header {
   border: 5px double rgb(230, 224, 198);
 }
 
-.modal-logo-giph {
+.modalLogoGiph {
   margin-top: 3%;
   width: 35%;
   /* background-color: red; */
 }
 
-.dynard-options-wrapper {
+.dynardOptionsWrapper {
   height: 29%;
   /* background-color: red; */
   display: flex;
@@ -156,7 +156,7 @@ header {
   align-items: center;
 }
 
-.dynard-question{
+.dynardQuestion{
   font-family: "MedusaGothic";
   width: 90%;
   height: 10%;
@@ -168,7 +168,7 @@ header {
   margin: 2%;
 }
 
-.dynard-question-option {
+.dynardQuestionOption {
   font-family: "Lato";
   cursor: pointer;
   width: 100%;
@@ -180,8 +180,8 @@ header {
   align-items: center;
 }
 
-.dynard-btn-back {
-  bottom: 10%;
+.dynardBtnBack {
+  bottom: 5%;
   width: 15%;
   height: 6%;
   /* background-color: red; */
