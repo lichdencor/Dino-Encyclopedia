@@ -11,9 +11,9 @@
   padding: 0;
 }
 
-.geneticBg1,
-.geneticBg2,
-.geneticBg3 {
+.dinosaurBg1,
+.dinosaurBg2,
+.dinosaurBg3 {
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -21,34 +21,34 @@
   transition: all 300ms ease-in-out;
 }
 
-.geneticBg1-higherIndex,
-.geneticBg2-higherIndex,
-.geneticBg3-higherIndex {
+.dinosaurBg1-higherIndex,
+.dinosaurBg2-higherIndex,
+.dinosaurBg3-higherIndex {
   z-index: 5;
 }
 
-.geneticBg1:hover,
-.geneticBg2:hover,
-.geneticBg3:hover {
+.dinosaurBg1:hover,
+.dinosaurBg2:hover,
+.dinosaurBg3:hover {
   transform: scale(103%);
   filter: brightness(100%);
 }
 
-.geneticBg1 {
+.dinosaurBg1 {
   width: 35%;
   height: 40%;
   left: 32%;
   bottom: 22%;
 }
 
-.geneticBg2 {
+.dinosaurBg2 {
   width: 18%;
   height: 18%;
   left: 9%;
   bottom: 18%;
 }
 
-.geneticBg3 {
+.dinosaurBg3 {
   width: 35%;
   height: 40%;
   left: 67%;

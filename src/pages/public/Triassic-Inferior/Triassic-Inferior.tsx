@@ -15,7 +15,9 @@ export const TriassicInferior = () => {
   const [curtain1IsHovered, setCurtain1IsHovered] = useState<boolean>(false);
   const [curtain2IsHovered, setCurtain2IsHovered] = useState<boolean>(false);
   const [curtain3IsHovered, setCurtain3IsHovered] = useState<boolean>(false);
-  const [secondPassed, setSecondPassed] = useState<boolean>(false);
+  const [second1Passed, setSecond1Passed] = useState<boolean>(false);
+  const [second2Passed, setSecond2Passed] = useState<boolean>(false);
+  const [second3Passed, setSecond3Passed] = useState<boolean>(false);
 
   const handleMouseMove = (
     mouseEvent: React.MouseEvent<HTMLDivElement>,
@@ -30,6 +32,9 @@ export const TriassicInferior = () => {
     mouseEvent.currentTarget.style.setProperty("--cursor-y", y);
 
     const dinosaurElements = mouseEvent.currentTarget.getElementsByClassName(styles.dinosaur);
+
+    console.log(dinosaurElements);
+
     for (let i = 0; i < dinosaurElements.length; i++) {
       const dinosaur = dinosaurElements[i] as HTMLElement;
       const rect = dinosaur.getBoundingClientRect();
@@ -61,17 +66,40 @@ export const TriassicInferior = () => {
       <Nav />
       <div className={styles.triassicInferiorContainer}>
         <div
-          className={`${styles.courtains1} ${curtain1IsHovered && secondPassed ? styles.curtainHover : ""}`}
+          className={`${styles.courtains1} ${curtain1IsHovered && second1Passed ? styles.curtainHover : ""}`}
           onMouseEnter={() => {
             setCurtain1IsHovered(true);
-            setTimeout(() => setSecondPassed(true), 1000);
+            setTimeout(() => setSecond1Passed(true), 1000);
           }}
         >
           <div className={`${styles.leftCurtain} ${curtain1IsHovered && styles.leftCurtainHover}`}></div>
           <div className={`${styles.rightCurtain} ${curtain1IsHovered && styles.rightCurtainHover}`}></div>
         </div>
-        <div className={styles.courtains2}></div>
-        <div className={styles.courtains3}></div>
+
+        {/* Curtain 2 */}
+        <div
+          className={`${styles.courtains2} ${curtain2IsHovered && second2Passed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain2IsHovered(true);
+            setTimeout(() => setSecond2Passed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain2IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain2IsHovered && styles.rightCurtainHover}`}></div>
+        </div>
+
+        {/* Curtain 3 */}
+        <div
+          className={`${styles.courtains3} ${curtain3IsHovered && second3Passed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain3IsHovered(true);
+            setTimeout(() => setSecond3Passed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain3IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain3IsHovered && styles.rightCurtainHover}`}></div>
+        </div>
+
 
         <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
 
@@ -79,7 +107,7 @@ export const TriassicInferior = () => {
         <GalleryArrows page1="map" page2="triassic-medio" />
         <GalleryDinosaurNames dinosaurs={["Eoraptor", "Postosuchus", "Herrerasaurus"]}></GalleryDinosaurNames>
 
-        {[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3].map((bgClass, index) => {
+        {[styles.dinosaurBg1, styles.dinosaurBg2, styles.dinosaurBg3].map((bgClass, index) => {
           return (
             <div
               key={index}
@@ -102,7 +130,7 @@ export const TriassicInferior = () => {
               <h2>{`Dinosaurio ${selectedDinosaur !== null ? selectedDinosaur + 1 : ""}`}</h2>
               <div
                 key={`preview-${selectedDinosaur}`}
-                className={[styles.geneticBg1, styles.geneticBg2, styles.geneticBg3][selectedDinosaur]}
+                className={[styles.dinosaurBg1, styles.dinosaurBg2, styles.dinosaurBg3][selectedDinosaur]}
                 onMouseMove={(e) => handleMouseMove(e, selectedDinosaur!)}
               >
                 <div

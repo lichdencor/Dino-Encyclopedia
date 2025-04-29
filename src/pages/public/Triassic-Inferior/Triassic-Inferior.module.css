@@ -80,10 +80,10 @@
   transition: transform 1s ease-in-out;
 }
 
-/* Genetic Backgrounds */
-.geneticBg1,
-.geneticBg2,
-.geneticBg3 {
+/* dinosaur Backgrounds */
+.dinosaurBg1,
+.dinosaurBg2,
+.dinosaurBg3 {
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -92,14 +92,14 @@
   background-size: 100% 100%;
 }
 
-.geneticBg1:hover,
-.geneticBg2:hover,
-.geneticBg3:hover {
+.dinosaurBg1:hover,
+.dinosaurBg2:hover,
+.dinosaurBg3:hover {
   transform: scale(103%);
   filter: brightness(100%);
 }
 
-.geneticBg1 {
+.dinosaurBg1 {
   width: 19%;
   height: 30%;
   left: 12%;
@@ -107,7 +107,7 @@
   background-size: 100% 100%;
 }
 
-.geneticBg2 {
+.dinosaurBg2 {
   width: 12%;
   height: 23%;
   right: 16%;
@@ -115,7 +115,7 @@
   /* background-color: blue; */
 }
 
-.geneticBg3 {
+.dinosaurBg3 {
   width: 16%;
   height: 25%;
   left: 42%;
@@ -289,9 +289,9 @@
   background-color: #666;
 }
 
-.modalContent .geneticBg1,
-.modalContent .geneticBg2,
-.modalContent .geneticBg3 {
+.modalContent .dinosaurBg1,
+.modalContent .dinosaurBg2,
+.modalContent .dinosaurBg3 {
   width: 80%;
   height: 80%;
   position: unset;

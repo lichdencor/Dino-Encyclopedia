@@ -4,29 +4,6 @@
   place-items: center;
 }
 
-.typingContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-}
-
-.typing {
-  font-family: monospace;
-  font-size: 1.2em;
-  word-wrap: break-word;
-  white-space: normal;
-  max-width: 100%;
-}
-
-.info {
-  position: absolute;
-  bottom: 0;
-  padding: 20px;
-}
-
 .dialogueContainer {
   width: 15vw;
   height: 25vh;
@@ -37,29 +14,57 @@
   /* background-color: blue; */
 }
 
-.virtualAssistantGiph {
-  width: 70%;
-  height: 70%;
-  cursor: pointer;
-}
-
 .dialogue {
   background-color: rgba(255, 252, 231, 0.88);
   border: 3px double rgb(69, 7, 7);
-  width: 35vh;
-  height: 18vh;
+  width: 9.5vw;
+  height: 5.5vh;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 2vh;
-  top: 0;
-  left: 15vh;
+  top: 12%;
+  left: 55%;
   padding: 12px;
   box-sizing: border-box;
   overflow: hidden;
   opacity: 0;
   color: rgb(35, 0, 0);
+}
+
+.typingContainer {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background-color: red; */
+  font-size: 0.9vw;
+  font-style: italic;
+  cursor: default;
+}
+
+.typing {
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  font-family: 'Lato' serif;
+  /* background-color: red; */
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+}
+
+.virtualAssistantGiph {
+  width: 70%;
+  height: 70%;
+  cursor: pointer;
 }
 
 .dialogueShow {

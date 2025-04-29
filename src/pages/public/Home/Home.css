@@ -149,6 +149,7 @@ header {
 
 .dynardOptionsWrapper {
   height: 29%;
+  width: 100%;
   /* background-color: red; */
   display: flex;
   flex-direction: column;
@@ -160,7 +161,7 @@ header {
   font-family: "MedusaGothic";
   width: 90%;
   height: 10%;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   /* background-color: yellowgreen; */
   display: flex;
   justify-content: center;
@@ -178,6 +179,16 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dynardQuestionText {
+  font-family: 'Lato';
+  font-size: 1vw;
+  letter-spacing: 0.08vw;
+  /* background-color: blue; */
+  width: 85%;
+  line-height: 1.3vw;
+  display: block;
 }
 
 .dynardBtnBack {
