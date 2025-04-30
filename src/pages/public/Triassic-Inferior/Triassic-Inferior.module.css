@@ -254,6 +254,21 @@
   z-index: 9999;
 }
 
+/* Botón de cerrar modal */
+.modalContent button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modalContent button:hover {
+  background-color: #666;
+}
+
 /* Modal: contenido centrado */
 .modalContent {
   width: 82vw;
@@ -274,25 +289,48 @@
   background-repeat: no-repeat;
 }
 
-/* Botón de cerrar modal */
-.modalContent button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #444;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
+.dinosaurContainer {
+  width: 90%;
+  height: 95%;
+  /* background-color: blue; */
+  border: 2px solid red;
 }
 
-.modalContent button:hover {
-  background-color: #666;
+.dinosaurContainer h2 {
+  background-color: rebeccapurple;
+  width: 100%;
 }
 
-.modalContent .dinosaurBg1,
-.modalContent .dinosaurBg2,
-.modalContent .dinosaurBg3 {
-  width: 80%;
-  height: 80%;
+/* XRAY DINOSAUR BG */
+.modalContent .dinosaurBoneBg1,
+.modalContent .dinosaurBoneBg2,
+.modalContent .dinosaurBoneBg3 {
+  width: 50%;
+  height: 70%;
   position: unset;
+  background-color: red;
+}
+
+.dinosaurBoneBg1 {
+  width: 19%;
+  height: 30%;
+  left: 12%;
+  bottom: 20%;
+  background-size: 100% 100%;
+}
+
+.dinosaurBoneBg2 {
+  width: 12%;
+  height: 23%;
+  right: 16%;
+  bottom: 23%;
+  /* background-color: blue; */
+}
+
+.dinosaurBoneBg3 {
+  width: 16%;
+  height: 25%;
+  left: 42%;
+  bottom: 23%;
+  /* background-color: red; */
 }
