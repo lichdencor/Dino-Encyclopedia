@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 // IMPORTA tus estilos
 import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css"; // <- Estilos de la página
@@ -31,17 +31,17 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const openAlert = () => {
     setIsPuzzlePieceHovered(true);
   };
-  
+
   const setPuzzlePiecePosition = (activeDinosaur: number | null) => {
-    if(activeDinosaur === 0) {
+    if (activeDinosaur === 0) {
       setPieceLeftPercent(0.8);
       setPieceTopPercent(0.5);
     }
-    if(activeDinosaur === 1) {
+    if (activeDinosaur === 1) {
       setPieceLeftPercent(0.8);
       setPieceTopPercent(0.3);
     }
-    if(activeDinosaur === 2) {
+    if (activeDinosaur === 2) {
       setPieceLeftPercent(0.4);
       setPieceTopPercent(0.5);
     }
@@ -60,7 +60,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   useEffect(() => {
     setPuzzlePiecePosition(activeDinosaur);
-  }, [activeDinosaur]); 
+  }, [activeDinosaur]);
 
   const handleMouseMove = (
     mouseEvent: React.MouseEvent<HTMLDivElement>,
@@ -117,43 +117,77 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   return (
     <div className={stylesContainer.modalOverlay + " preview-scan-dino"} onClick={onClose}>
       {showAlert && <Alert onClose={() => setShowAlert(false)} />}
-        
-      <div
-        className={stylesContainer.modalContent}
-        onClick={e => e.stopPropagation()}
-      >
-        <div className={stylesContainer.dinosaurContainer}>
-          <h2>{`Dinosaurio ${selectedDinosaur + 1}`}</h2>
-          <div
-            key={`preview-${selectedDinosaur}`}
-            className={dinosaurBoneBgClasses[selectedDinosaur]}
-            onMouseMove={e => handleMouseMove(e, selectedDinosaur)}
-          >
-            <div
-              className={
-                `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur${selectedDinosaur + 1}`]} ` +
-                `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
-              }
-            >
-              <div className={styles.containerPuzzlePiece}>
+
+      <div className={styles.modalBg}>
+        <div
+          className={stylesContainer.modalContent}
+          onClick={e => e.stopPropagation()}
+        >
+          <div className={styles.modalContent}>
+            <div className={styles.dinosaurContainer}>
+
+
               <div
-                className={
-                  `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
-                  `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
-                }
-              ></div>
-              {showPuzzlePiece && (
-                <img
-                className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
-                  src="../../../public/assets/img/puzzles/puzzle-piece.png"
-                  style={{
-                    top: `${pieceTopPercent * 100}%`,
-                    left: `${pieceLeftPercent * 100}%`
-                  }}
-                  alt="puzzle piece"
-                  onMouseEnter={openAlert}
-                />
-              )}                     
+                key={`preview-${selectedDinosaur}`}
+                className={dinosaurBoneBgClasses[selectedDinosaur]}
+                onMouseMove={e => handleMouseMove(e, selectedDinosaur)}
+              >
+                <div
+                  className={
+                    `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur${selectedDinosaur + 1}`]} ` +
+                    `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
+                  }
+                >
+                  <div className={styles.containerPuzzlePiece}>
+                    <div
+                      className={
+                        `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
+                        `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
+                      }
+                    ></div>
+                    {showPuzzlePiece && (
+                      <img
+                        className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
+                        src="../../../public/assets/img/puzzles/puzzle-piece.png"
+                        style={{
+                          top: `${pieceTopPercent * 100}%`,
+                          left: `${pieceLeftPercent * 100}%`
+                        }}
+                        alt="puzzle piece"
+                        onMouseEnter={openAlert}
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.informationContainer}>
+              <h2 className={styles.xRayNameFrame}>{`Dinosaurio ${selectedDinosaur + 1}`}</h2>
+              <div className={styles.information}>
+                <ul className={styles.infoList}>
+                  <li><span>Nombre científico:</span> Eoraptor lunensis</li>
+                  <li><span>Altura:</span> 50 cm</li>
+                  <li><span>Peso:</span> 9–10 kg</li>
+                  <li><span>Clasificación:</span> Saurisquio, Herrerasáurido</li>
+                  <li><span>Dieta:</span> Omnívoro (animales, insectos, plantas)</li>
+                  <li><span>Velocidad:</span> Hasta 40 km/h</li>
+                  <li><span>Características:</span> Ágil, liviano, con garras y mordida rápida</li>
+                  <li><span>Naturaleza:</span> Dientes afilados y garras prensiles</li>
+                  <li><span>Fósiles:</span> Argentina, Formación Ischigualasto</li>
+                  <li><span>Sociabilidad:</span> Solitario o grupos pequeños</li>
+                  <li><span>Relación evolutiva:</span> Primitivo, cercano a terópodos y saurópodos</li>
+                </ul>
+
+
+              </div>
+              <div className={styles.progressContainer}>
+                <div className={styles.progressBarContainer}>
+                  <span className={styles.progressText}>62%</span>
+                  <div className={styles.progressBar}></div>
+                </div>
+                <div className={styles.puzzlePieceContainer}>
+                  <div className={styles.puzzlePieceBar}></div>
+                </div>
               </div>
             </div>
           </div>

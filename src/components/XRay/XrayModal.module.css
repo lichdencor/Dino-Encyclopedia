@@ -1,3 +1,37 @@
+.modalBg {
+  width: 95%;
+  height: 90%;
+  background: linear-gradient(45deg, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.modalContent {
+  width: 93%;
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid rebeccapurple; */
+}
+
+.dinosaurContainer {
+  width: 50%;
+  height: 100%;
+  /* background-color: blue; */
+  background-image: url(/public/assets/img/x-ray/platform.png);
+  background-size: 100% 18%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+h2 {
+  text-align: center;
+  background-color: blue;
+}
+
 .containerPuzzlePiece {
   position: relative;
   width: 100%;
@@ -40,4 +74,159 @@
   .puzzlePiece:hover {
     animation: scalePuzzlePiece 3s linear;
   }
+
+  /* INFORMATION START */
+
+  /* X-RAY */
+.xRayNameFrame {
+  position: absolute;
+  top: 6%;
+  width: 18vw !important;
+  height: 4vh;
+  font-family: "MedusaGothic";
+  font-size: 0.9vw;
+  color: rgb(43, 23, 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.3vw;
+  text-align: center;
+  border: 4px double #5e4528;
+  background: linear-gradient(135deg,#5e4528, #f4d5a6,#f4d5a6, #5e4528);
+  z-index: 2;
+  border-radius: 8px;
+}
   
+  .informationContainer {
+    width: 45%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: pink; */
+  }
+
+  .information {
+    position: relative;
+    width: 100%;
+    height: 95%;
+    background-color: rgb(47, 2, 2);
+    border-radius: 20px;
+    border: 3px solid #a19e78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .infoList {
+    width: 88%;
+    height: 85%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .infoList li span {
+    font-family: "MedusaGothic";
+    font-size: 0.8vw;
+  }
+  
+  .infoList li {
+    margin-bottom: 0.5rem;
+    padding-left: 2rem;
+    position: relative;
+    font-family: "Lato";
+    font-size: 1vw;
+  }
+  
+  .infoList li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 23px;
+    height: 23px;
+    background-image: url('/public/assets/img/paws/level-paw-complete.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }  
+
+  /* PROGRESS BAR START */
+
+  .progressContainer {
+    bottom: 6%;
+    right: 5%;
+    position: absolute;
+    width: 37%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.progressBarContainer {
+    width: 85%;
+    height: 70%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(/public/assets/img/gallery-progress/progressBarContainer-1.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.progressText {
+    color: black;
+    font-family: "Lato";
+    letter-spacing: 0.1vw;
+    font-weight: bold;
+    position: absolute;
+    right: 50%;
+}
+
+.progressBar {
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(135deg,#372715, #f4d5a6, #7b664d, #f4d5a6);
+    border-radius: 4px;
+    margin-left: 2%;
+}
+
+.puzzlePieceContainer {
+    width: 15%;
+    height: 160%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    background-image: url(/public/assets/img/gallery-progress/puzzlePieceContainer-1.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-color: red; */
+}
+
+.puzzlePieceBar {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/public/assets/img/puzzles/puzzle-piece.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: brightness(20%);
+}
+
+/* PROGRESS BAR END */

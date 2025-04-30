@@ -1,9 +1,10 @@
 .alertPage {
     width: 100vw;
     height: 88vh;
-    background-image:
-    linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0.8));
-    background-blend-mode: multiply;
+    background-image: url(/public/assets/img/alert/raysBg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: 16;
     position: absolute;
     left: 0;
