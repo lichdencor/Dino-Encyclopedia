@@ -47,9 +47,9 @@ export const VirtualAssistant = ({onClick, text, looped, boldWords, dialogStyle}
     };
 
     return (
-        <div className='dialogueContainer'>
+        <div className="dialogueContainer">
             <div>
-                <img src="/public/assets/giph/logo.gif" className="virtual-assistant-giph" onClick={onClick}></img>
+                <img src="/public/assets/giph/logo.gif" className="virtualAssistantGiph" onClick={onClick}></img>
                 
             </div>
             <div className={`${"dialogue"} ${isDialogShowing ? "dialogueShow" : ''}`} style={dialogStyle}>

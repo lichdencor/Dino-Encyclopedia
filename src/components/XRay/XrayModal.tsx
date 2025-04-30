@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // IMPORTA tus estilos
 import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css"; // <- Estilos de la página
-import styles from "./XrayModal.module.css";
+import styles from "./XRayModal.module.css";
 import { Alert } from "../Alert/Alert";
 
 type XRayModalProps = {

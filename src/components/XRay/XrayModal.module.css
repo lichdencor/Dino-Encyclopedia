@@ -1,0 +1,43 @@
+.containerPuzzlePiece {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.puzzlePiece {
+    position: absolute;
+    width: 50px;
+    z-index: 10;
+    transform: scale(1) translate(-50%, -50%);
+    transition: all 1s linear;
+    transform-origin: top;
+  }
+  
+  @keyframes scalePuzzlePiece {
+    0% {
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+    25% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    50% {
+        filter: opacity(100%);
+    }
+  
+    75% {
+      transform: scale(1.25) translate(-50%, -50%);
+      filter: opacity(0%);
+    }
+
+    100% {
+        transform: scale(1.25) translate(-50%, -50%);
+        filter: opacity(0%);
+      }
+  }
+  
+  .puzzlePiece:hover {
+    animation: scalePuzzlePiece 3s linear;
+  }
+  

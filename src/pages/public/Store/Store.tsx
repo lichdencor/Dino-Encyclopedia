@@ -4,20 +4,20 @@ import { Nav } from "../../../components";
 
 export const Store = () => {
   return (
-    <div className={styles.store_container}>
+    <div className={styles.pageContainer}>
       <Nav />
-
-      <div className={styles.floating_tokens}>
-        <img className={styles.floating_token_1} src="assets/img/token/composition-token.png" alt="floating token 1" />
-        <img className={styles.floating_token_2} src="assets/img/token/composition-token-rotation.png" alt="floating token 2" />
-        <img className={styles.floating_token_3} src="assets/img/token/composition-token-rotation.png" alt="floating token 3" />
-        <img className={styles.floating_token_4} src="assets/img/token/composition-token-rotation.png" alt="floating token 4" />
-        <img className={styles.floating_token_5} src="assets/img/token/composition-token.png" alt="floating token 5" />
-        <img className={styles.floating_token_6} src="assets/img/token/composition-token.png" alt="floating token 6" />
+      <div className={styles.storeContainer}>
+        <div className={styles.floatingTokens}>
+          <img className={styles.floatingToken1} src="assets/img/token/composition-token.png" alt="floating token 1" />
+          <img className={styles.floatingToken2} src="assets/img/token/composition-token-rotation.png" alt="floating token 2" />
+          <img className={styles.floatingToken3} src="assets/img/token/composition-token-rotation.png" alt="floating token 3" />
+          <img className={styles.floatingToken4} src="assets/img/token/composition-token-rotation.png" alt="floating token 4" />
+          <img className={styles.floatingToken5} src="assets/img/token/composition-token.png" alt="floating token 5" />
+          <img className={styles.floatingToken6} src="assets/img/token/composition-token.png" alt="floating token 6" />
+        </div>
+        <span className={styles.comingSoonTxt}>- Próximamente -</span>
+        <img className={styles.storeBg} src="assets/img/coming-soon/store-bg.png" alt="store-bg" />
       </div>
-
-      <span className={styles.coming_soon_txt}>- Próximamente -</span>
-      <img className={styles.store_bg} src="assets/img/coming-soon/store-bg.png" alt="store-bg" />
     </div>
   );
 };

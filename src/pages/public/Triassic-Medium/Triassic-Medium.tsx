@@ -17,13 +17,13 @@ export const TriassicMedium = () => {
                     <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Chindesaurus</div>
                     <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Fukuiraptor</div>
 
-                    <div className={styles.geneticBg1}>
+                    <div className={styles.dinosaurBg1}>
                         <div className={styles.dinosaur1}></div>
                     </div>
-                    <div className={styles.geneticBg2}>
+                    <div className={styles.dinosaurBg2}>
                         <div className={styles.dinosaur2}></div>
                     </div>
-                    <div className={styles.geneticBg3}>
+                    <div className={styles.dinosaurBg3}>
                         <div className={styles.dinosaur3}></div>
                     </div>
 

@@ -4,7 +4,7 @@ import { VirtualAssistantDialogue } from "../../../data/"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const modalPagesLoaded = VirtualAssistantDialogue;
+const modalPages = VirtualAssistantDialogue;
 
 
 export const Home = () => {
@@ -31,7 +31,7 @@ export const Home = () => {
 
 
   return (
-    <div className="home-page">
+    <div className="homePage">
       <Nav />
       <header>
         <div className="text">
@@ -61,11 +61,6 @@ export const Home = () => {
               text="¿Necesitas Ayuda?"
               boldWords={["Ayuda"]}
               looped={true}
-              dialogStyle={{
-                width: "20vh",
-                height: "10vh",
-                textAlign: "center"
-              }}
             />
           )}
         </div>
@@ -73,17 +68,17 @@ export const Home = () => {
 
         {isModalOpen && (
           <div className={"modalOverlay"} onClick={closeModal}>
-            <button className="dynard-modal-close-btn" onClick={closeModal}>×</button>
+            <button className="dynardModalCloseBtn" onClick={closeModal}>×</button>
             <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-              <img src="assets/giph/logo.gif" alt="logo-giph" className="modal-logo-giph" />
-              <div className="dynard-question">{modalPagesLoaded[modalCurrentPage].question}</div>
-              <div className="dynard-options-wrapper">
-                {modalPagesLoaded[modalCurrentPage].options.map((option, index) => {
+              <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph" />
+              <div className="dynardQuestion">{modalPages[modalCurrentPage].question}</div>
+              <div className="dynardOptionsWrapper">
+                {modalPages[modalCurrentPage].options.map((option, index) => {
                   const isBack = option.text === "Back";
                   const isButton = option.goesToPageIndex !== undefined;
                   const className = isButton
-                    ? `dynard-question-option ${isBack ? "dynard-btn-back" : ""}`
-                    : "dynard-question-text";
+                    ? `dynardQuestionOption ${isBack ? "dynardBtnBack" : ""}`
+                    : "dynardQuestionText";
 
                   return (
                     <div
@@ -91,7 +86,7 @@ export const Home = () => {
                       className={className}
                       onClick={isButton ? () => changeModalPage(option.goesToPageIndex) : undefined}
                     >
-                      {option.text}
+                      <p>{option.text}</p>
                     </div>
                   );
                 })}

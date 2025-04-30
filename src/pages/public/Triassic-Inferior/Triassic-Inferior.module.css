@@ -1,21 +1,89 @@
-/* Triassic Inferior Background */
-.triassicInferiorBg {
+.triassicInferiorContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/era-bg/room-bg-4.png);
+}
+
+.triassicInferiorBg {
+  width: 100%;
+  height: 100%;
+  background-image: url(/public/assets/img/gallery-bg/gallery-bg-triassic.png);
   background-size: 100% 100%;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
   margin: 0;
   padding: 0;
+  z-index: 2;
+
 }
 
-/* Genetic Backgrounds */
-.geneticBg1,
-.geneticBg2,
-.geneticBg3 {
+.courtains1,
+.courtains2,
+.courtains3 {
+  position: absolute;
+  /* background-color: rebeccapurple; */
+  width: 23%;
+  height: 47%;
+  z-index: 1;
+  top: 33%;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: all;
+}
+
+.courtains1 {
+  left: 10%;
+}
+
+.courtains2 {
+  left: 39%;
+}
+
+.courtains3 {
+  right: 10%;
+}
+
+.curtainHover {
+  z-index: -1;
+}
+
+.leftCurtainHover {
+  transform: scaleX(0);
+}
+
+.rightCurtainHover {
+  transform: scaleX(0);
+}
+
+.leftCurtain,
+.rightCurtain {
+  width: 50%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.leftCurtain {
+  background-image: url(/public/assets/img/gallery-bg/courtains/left-courtain-triassic.png);
+  transform-origin: left;
+  transition: transform 1s ease-in-out;
+}
+
+.rightCurtain {
+  background-image: url(/public/assets/img/gallery-bg/courtains/right-courtain-triassic.png);
+  transform-origin: right;
+  transition: transform 1s ease-in-out;
+}
+
+/* dinosaur Backgrounds */
+.dinosaurBg1,
+.dinosaurBg2,
+.dinosaurBg3 {
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -24,33 +92,35 @@
   background-size: 100% 100%;
 }
 
-.geneticBg1:hover,
-.geneticBg2:hover,
-.geneticBg3:hover {
+.dinosaurBg1:hover,
+.dinosaurBg2:hover,
+.dinosaurBg3:hover {
   transform: scale(103%);
   filter: brightness(100%);
 }
 
-.geneticBg1 {
-  width: 22%;
-  height: 38%;
-  left: 5%;
-  bottom: 12%;
+.dinosaurBg1 {
+  width: 19%;
+  height: 30%;
+  left: 12%;
+  bottom: 20%;
   background-size: 100% 100%;
 }
 
-.geneticBg2 {
-  width: 25%;
+.dinosaurBg2 {
+  width: 12%;
   height: 23%;
-  right: 3%;
-  bottom: 18%;
+  right: 16%;
+  bottom: 23%;
+  /* background-color: blue; */
 }
 
-.geneticBg3 {
-  width: 28%;
+.dinosaurBg3 {
+  width: 16%;
   height: 25%;
-  left: 40%;
+  left: 42%;
   bottom: 23%;
+  /* background-color: red; */
 }
 
 /* Breathe Animation */
@@ -170,78 +240,6 @@
   visibility: visible;
 }
 
-/* Name Frames */
-.nameFrame {
-  width: 17%;
-  height: 9%;
-  position: absolute;
-  background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family: "MedusaGothicD";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.2vw;
-  text-align: center;
-  color: rgb(44, 42, 40);
-}
-
-.nameFrame1 {
-  left: 29%;
-  top: 32%;
-}
-
-.nameFrame2 {
-  left: 10%;
-  top: 62%;
-}
-
-.nameFrame3 {
-  left: 63%;
-  top: 33%;
-}
-
-/* Arrows */
-.arrowPrevious,
-.arrowNext {
-  width: 4%;
-  height: 5%;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 25%;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrowPrevious:hover,
-.arrowNext:hover {
-  transform: scale(105%);
-}
-
-.arrowPrevious {
-  left: 3%;
-  background-image: url(/public/assets/img/arrow-previous.png);
-}
-
-.arrowNext {
-  right: 3%;
-  background-image: url(/public/assets/img/arrow-next.png);
-}
-
-/* Plants */
-@keyframes sway {
-  0% { transform: rotate(3deg); }
-  50% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
-}
-
 /* Modal: overlay semitransparente */
 .modalOverlay {
   position: fixed;
@@ -253,7 +251,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 15;
+}
+
+/* Botón de cerrar modal */
+.modalContent button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modalContent button:hover {
+  background-color: #666;
 }
 
 /* Modal: contenido centrado */
@@ -276,25 +289,48 @@
   background-repeat: no-repeat;
 }
 
-/* Botón de cerrar modal */
-.modalContent button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #444;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
+.dinosaurContainer {
+  width: 90%;
+  height: 95%;
+  /* background-color: blue; */
+  border: 2px solid red;
 }
 
-.modalContent button:hover {
-  background-color: #666;
+.dinosaurContainer h2 {
+  background-color: rebeccapurple;
+  width: 100%;
 }
 
-.modalContent .geneticBg1,
-.modalContent .geneticBg2,
-.modalContent .geneticBg3 {
-  width: 80%;
-  height: 80%;
+/* XRAY DINOSAUR BG */
+.modalContent .dinosaurBoneBg1,
+.modalContent .dinosaurBoneBg2,
+.modalContent .dinosaurBoneBg3 {
+  width: 50%;
+  height: 70%;
   position: unset;
+  background-color: red;
+}
+
+.dinosaurBoneBg1 {
+  width: 19%;
+  height: 30%;
+  left: 12%;
+  bottom: 20%;
+  background-size: 100% 100%;
+}
+
+.dinosaurBoneBg2 {
+  width: 12%;
+  height: 23%;
+  right: 16%;
+  bottom: 23%;
+  /* background-color: blue; */
+}
+
+.dinosaurBoneBg3 {
+  width: 16%;
+  height: 25%;
+  left: 42%;
+  bottom: 23%;
+  /* background-color: red; */
 }

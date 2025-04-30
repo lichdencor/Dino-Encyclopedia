@@ -1,0 +1,34 @@
+/* Arrows */
+
+.arrowPrevious,
+.arrowNext {
+  width: 4vw;
+  height: 20vw;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blue; */
+  top: 20vw;
+  z-index: 3;
+}
+
+.arrowPrevious:hover,
+.arrowNext:hover {
+  transform: scale(105%);
+}
+
+.arrowPrevious {
+  background-image: url(/public/assets/img/arrows/arrow-left.png);
+  left: 2vw;
+}
+
+.arrowNext {
+  background-image: url(/public/assets/img/arrows/arrow-right.png);
+  right: 2vw;
+}
