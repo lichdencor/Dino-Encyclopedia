@@ -171,7 +171,7 @@
 }
 
 .dinosaur2Bone {
-  background-image: url(/public/assets/img/dinosaurs/bone/postosuchus-bone.png);
+  background-image: url(/public/assets/img/dinosaurs/skeleton/skeleton-tr-1-Herrerasaurus.png);
   animation: breathe 2s infinite ease-in-out;
   width: 100%;
   height: 100%;
@@ -188,7 +188,7 @@
 }
 
 .dinosaur3Bone {
-  background-image: url(/public/assets/img/dinosaurs/bone/postosuchus-bone.png);
+  background-image: url(/public/assets/img/dinosaurs/skeleton/skeleton-tr-1-Postosuchus.png);
   animation: breathe 2s infinite ease-in-out;
   width: 100%;
   height: 100%;

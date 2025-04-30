@@ -20,7 +20,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   activeDinosaur,
   setActiveDinosaur
 }) => {
-  const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
+  const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
   const [pieceLeftPercent, setPieceLeftPercent] = useState(0.8);
   const [pieceTopPercent, setPieceTopPercent] = useState(0.5);
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
@@ -32,19 +32,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     setIsPuzzlePieceHovered(true);
   };
 
-  const setPuzzlePiecePosition = (activeDinosaur: number | null) => {
-    if (activeDinosaur === 0) {
-      setPieceLeftPercent(0.8);
-      setPieceTopPercent(0.5);
-    }
-    if (activeDinosaur === 1) {
-      setPieceLeftPercent(0.8);
-      setPieceTopPercent(0.3);
-    }
-    if (activeDinosaur === 2) {
-      setPieceLeftPercent(0.4);
-      setPieceTopPercent(0.5);
-    }
+  const setPuzzlePiecePosition = () => {
+    setPieceLeftPercent(Math.random()); // Valor entre 0 y 1
+    setPieceTopPercent(Math.random());  // Valor entre 0 y 1
   }
 
   useEffect(() => {
@@ -59,8 +49,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   }, [isPuzzlePieceHovered]);
 
   useEffect(() => {
-    setPuzzlePiecePosition(activeDinosaur);
-  }, [activeDinosaur]);
+    setPuzzlePiecePosition();
+  }, []);
 
   const handleMouseMove = (
     mouseEvent: React.MouseEvent<HTMLDivElement>,
@@ -125,8 +115,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         >
           <div className={styles.modalContent}>
             <div className={styles.dinosaurContainer}>
-
-
               <div
                 key={`preview-${selectedDinosaur}`}
                 className={dinosaurBoneBgClasses[selectedDinosaur]}
@@ -177,8 +165,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   <li><span>Sociabilidad:</span> Solitario o grupos pequeños</li>
                   <li><span>Relación evolutiva:</span> Primitivo, cercano a terópodos y saurópodos</li>
                 </ul>
-
-
               </div>
               <div className={styles.progressContainer}>
                 <div className={styles.progressBarContainer}>

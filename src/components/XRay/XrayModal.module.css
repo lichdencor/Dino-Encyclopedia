@@ -25,6 +25,7 @@
   background-size: 100% 18%;
   background-position: bottom center;
   background-repeat: no-repeat;
+  cursor: url('/public/assets/img/scanner/scanner.png') 0 0, auto;
 }
 
 h2 {
