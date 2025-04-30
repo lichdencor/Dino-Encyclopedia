@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 
 // IMPORTA tus estilos
 import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css"; // <- Estilos de la página
-import styles from "./XRayModal.module.css"; // <- Estilos del componente
+import styles from "./XRayModal.module.css";
+import { Alert } from "../Alert/Alert";
 
 type XRayModalProps = {
   isOpen: boolean;
@@ -22,9 +23,15 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
   const [pieceLeftPercent, setPieceLeftPercent] = useState(0.8);
   const [pieceTopPercent, setPieceTopPercent] = useState(0.5);
+  const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   if (!isOpen || selectedDinosaur === null) return null;
 
+  const openAlert = () => {
+    setIsPuzzlePieceHovered(true);
+  };
+  
   const setPuzzlePiecePosition = (activeDinosaur: number | null) => {
     if(activeDinosaur === 0) {
       setPieceLeftPercent(0.8);
@@ -39,6 +46,17 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       setPieceTopPercent(0.5);
     }
   }
+
+  useEffect(() => {
+    if (isPuzzlePieceHovered) {
+      const timeout = setTimeout(() => {
+        setShowAlert(true);
+      }, 2500);
+      return () => clearTimeout(timeout);
+    } else {
+      setShowAlert(false);
+    }
+  }, [isPuzzlePieceHovered]);
 
   useEffect(() => {
     setPuzzlePiecePosition(activeDinosaur);
@@ -59,11 +77,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     // Coordenadas del mouse dentro del contenedor
     const mouseX = mouseEvent.clientX - rect.left;
     const mouseY = mouseEvent.clientY - rect.top;
-
-    // Por ejemplo: centro del dinosaurio,
-    // o cámbialo por cualquier coordenada objetivo de tu "hueso"
-    const targetX = rect.width / 2;
-    const targetY = rect.height / 2;
 
     const pieceX = rect.width * pieceLeftPercent;
     const pieceY = rect.height * pieceTopPercent;
@@ -103,6 +116,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   return (
     <div className={stylesContainer.modalOverlay + " preview-scan-dino"} onClick={onClose}>
+      {showAlert && <Alert onClose={() => setShowAlert(false)} />}
+        
       <div
         className={stylesContainer.modalContent}
         onClick={e => e.stopPropagation()}
@@ -120,7 +135,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                 `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
               }
             >
-              <div className={styles.ContainerPuzzlePiece}>
+              <div className={styles.containerPuzzlePiece}>
               <div
                 className={
                   `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
@@ -129,19 +144,16 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               ></div>
               {showPuzzlePiece && (
                 <img
-                  className={styles.PuzzlePiece}
+                className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
                   src="../../../public/assets/img/puzzles/puzzle-piece.png"
                   style={{
-                    pointerEvents: 'none',
-                    position: 'absolute',
                     top: `${pieceTopPercent * 100}%`,
-                    left: `${pieceLeftPercent * 100}%`,
-                    transform: 'translate(-50%, -50%)',                
-                    zIndex: 10
+                    left: `${pieceLeftPercent * 100}%`
                   }}
                   alt="puzzle piece"
+                  onMouseEnter={openAlert}
                 />
-              )}
+              )}                     
               </div>
             </div>
           </div>
