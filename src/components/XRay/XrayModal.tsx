@@ -110,9 +110,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const dinosaurBoneBgClasses = [
-    stylesContainer.dinosaurBoneBg1,
-    stylesContainer.dinosaurBoneBg2,
-    stylesContainer.dinosaurBoneBg3,
+    stylesContainer.scannerCursorBg,
+    stylesContainer.scannerCursorBg,
+    stylesContainer.scannerCursorBg,
   ];
 
   return (
@@ -138,32 +138,35 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   }
                 >
                   <div className={styles.containerPuzzlePiece}>
-                    <div
-                      className={
-                        `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
-                        `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
-                      }
-                    ></div>
-                    {showPuzzlePiece && (
-                      <img
-                        className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
-                        src="/assets/img/puzzles/puzzle-piece.png"
-                        style={{
-                          top: `${pieceTopPercent * 100}%`,
-                          left: `${pieceLeftPercent * 100}%`
-                        }}
-                        alt="puzzle piece"
-                        onMouseEnter={openAlert}
-                      />
-                    )}
-                  </div>
+                  {showPuzzlePiece && (
+                    <img
+                      className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
+                      src="/assets/img/puzzles/puzzle-piece.png"
+                      style={{
+                        top: `${pieceTopPercent * 100}%`,
+                        left: `${pieceLeftPercent * 100}%`,
+                        margin: "5px"
+                      }}
+                      alt="puzzle piece"
+                      onMouseEnter={openAlert}
+                    />
+                  )}
                 </div>
+                  <div
+                  className={
+                    `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
+                    `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
+                  }
+                ></div>
+                </div>
+                
+
               </div>
             </div>
             <div className={styles.informationContainer}>
               <h2 className={styles.xRayNameFrame}>{`Dinosaurio ${selectedDinosaur + 1}`}</h2>
               <div className={styles.information}>
-                <ul className={styles.infoList}>
+                {/* <ul className={styles.infoList}>
                   <li><span>Nombre científico:</span> {dinosaurInfo.nombreCientifico}</li>
                   <li><span>Altura:</span> {dinosaurInfo.altura}</li>
                   <li><span>Peso:</span> {dinosaurInfo.peso}</li>
@@ -175,7 +178,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   <li><span>Fósiles:</span> {dinosaurInfo.fosiles}</li>
                   <li><span>Sociabilidad:</span> {dinosaurInfo.sociabilidad}</li>
                   <li><span>Relación evolutiva:</span> {dinosaurInfo.relacionEvolutiva}</li>
-                </ul>
+                </ul> */}
               </div>
               <div className={styles.progressContainer}>
                 <div className={styles.progressBarContainer}>
