@@ -2,27 +2,34 @@ import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import './Pet-Selection.css';
 
-const avatars = [
+interface Avatar {
+  id: number;
+  src: string;
+  alt: string;
+  name: string;
+}
+
+const avatars: Avatar[] = [
   { id: 1, src: "/assets/img/eggs/egg-rauisuchus.png", alt: 'Rauisuchus', name: 'rauisuchus' },
   { id: 2, src: "/assets/img/eggs/egg-stegosaurus.png", alt: 'Stegosaurus', name: 'stegosaurus' },
   { id: 3, src: "/assets/img/eggs/egg-t-rex.png", alt: 'T-Rex', name: 't-rex' }
 ];
 
 export const PetSelection = () => {
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState<Avatar | null>(null);
   const navigate = useNavigate();
-  const handleAvatarSelect = async (e, avatar) => {
+  const handleAvatarSelect = async (e: React.MouseEvent<HTMLDivElement>, avatar: Avatar) => {
     e.preventDefault();
     try {
       setSelectedAvatar(avatar);
-
-      //localStorage.setItem('userProfile', JSON.stringify(response.data));
 
       setTimeout(() => {
         navigate('/map');
       }, 500);
     } catch (error) {
-      console.error("Error logging in:", error.message);
+      if (error instanceof Error) {
+        console.error("Error logging in:", error.message);
+      }
     }
   };
 
@@ -39,7 +46,6 @@ export const PetSelection = () => {
                   onClick={(e) => handleAvatarSelect(e, avatar)}
               >
                 <img src={avatar.src} alt={avatar.alt} />
-               
               </div>
           ))}
         </div>

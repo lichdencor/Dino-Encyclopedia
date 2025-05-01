@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import styles from './AdDisplay.module.css';
 
 interface AdDisplayProps {
   adCode: string;
@@ -12,7 +11,13 @@ declare global {
   }
 }
 
-const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+interface ImportMetaEnv {
+  DEV: boolean;
+}
+
+const isDevelopment = import.meta.env?.DEV ?? false;
+const ADSENSE_TEST_ID = 'ca-pub-3940256099942544';
+const ADSENSE_PROD_ID = 'ca-pub-7349615633982189';
 
 export const AdDisplay = ({ adCode, sourceId }: AdDisplayProps) => {
   const adContainerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +32,7 @@ export const AdDisplay = ({ adCode, sourceId }: AdDisplayProps) => {
       const loadGoogleAds = () => {
         if (!document.querySelector('script[src*="pagead2.googlesyndication.com"]')) {
           const script = document.createElement('script');
-          script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940256099942544';
+          script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${isDevelopment ? ADSENSE_TEST_ID : ADSENSE_PROD_ID}`;
           script.async = true;
           script.crossOrigin = 'anonymous';
           
@@ -67,7 +72,10 @@ export const AdDisplay = ({ adCode, sourceId }: AdDisplayProps) => {
 
   if (isDevelopment && sourceId === 'google') {
     return (
-      <div className={styles.adContainer} style={{ 
+      <div style={{ 
+        width: '728px',
+        height: '90px',
+        margin: '0 auto',
         border: '2px dashed #ccc',
         display: 'flex',
         justifyContent: 'center',
@@ -81,13 +89,24 @@ export const AdDisplay = ({ adCode, sourceId }: AdDisplayProps) => {
         }}>
           <p style={{ margin: 0 }}>Ad Placeholder (Development Mode)</p>
           <p style={{ margin: '5px 0 0 0', fontSize: '12px' }}>728 x 90</p>
+          <p style={{ margin: '5px 0 0 0', fontSize: '10px', color: '#999' }}>
+            {isDevelopment ? 'Using Test ID' : 'Using Production ID'}
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={styles.adContainer}>
+    <div style={{
+      width: '728px',
+      height: '90px',
+      margin: '0 auto',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'transparent'
+    }}>
       <div
         ref={adContainerRef}
         dangerouslySetInnerHTML={{ __html: adCode }}

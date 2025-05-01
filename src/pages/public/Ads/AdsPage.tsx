@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useAds, Banner } from '../../context';
-import { Nav } from '../../components';
-import { AdDisplay } from '../../components/AdDisplay/AdDisplay';
+import { useAds, Banner } from '../../../context';
+import { Nav } from '../../../components';
+import { AdDisplay } from '../../../components/AdDisplay/AdDisplay';
 import styles from './AdsPage.module.css';
 
-export const AdsPage = () => {
+const AdsPage = () => {
   const { banners, addBanner, removeBanner, toggleBannerStatus, availableAdSources } = useAds();
   const [selectedPosition, setSelectedPosition] = useState<Banner['position']>('position1');
   const [selectedSourceId, setSelectedSourceId] = useState<string>(availableAdSources[0]?.id || '');
@@ -114,4 +114,7 @@ export const AdsPage = () => {
       </div>
     </div>
   );
-}; 
+};
+
+export default AdsPage;
+export { AdsPage }; 

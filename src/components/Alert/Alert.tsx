@@ -7,7 +7,7 @@ type AlertProps = {
 
 export const Alert = ({ onClose }: AlertProps) => {
     const handleClick = (e: React.MouseEvent) => {
-        e.stopPropagation(); // ✋ Evita cerrar el modal por accidente
+        e.stopPropagation();
         onClose();
     };
 

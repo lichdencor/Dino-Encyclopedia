@@ -20,4 +20,4 @@ export * from "./public/Puzzleaurus/Puzzleaurus.tsx";
 export * from "./public/Store/Store.tsx";
 export * from "./public/Library/Library.tsx";
 export * from "./public/Wallet/Wallet.tsx";
-export { AdsPage } from './Ads/AdsPage';
+export { default as AdsPage } from "./public/Ads/AdsPage";

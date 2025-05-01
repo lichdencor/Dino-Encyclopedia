@@ -36,10 +36,8 @@ export const AdsProvider = ({ children }: { children: ReactNode }) => {
     const source = adService.getAdSourceById(sourceId);
     if (!source) return;
 
-    // Verificar si ya existe un banner en esa posición
     const existingBanner = banners.find(banner => banner.position === position);
     if (existingBanner) {
-      // Reemplazar el banner existente
       setBanners(prev => prev.map(banner => 
         banner.position === position
           ? {
@@ -53,7 +51,6 @@ export const AdsProvider = ({ children }: { children: ReactNode }) => {
           : banner
       ));
     } else {
-      // Agregar nuevo banner
       const newBanner: Banner = {
         id: crypto.randomUUID(),
         adCode: source.getAdCode(),
