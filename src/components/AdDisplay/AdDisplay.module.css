@@ -1,0 +1,9 @@
+.adContainer {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+} 

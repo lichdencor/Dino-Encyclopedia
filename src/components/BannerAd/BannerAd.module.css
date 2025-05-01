@@ -1,0 +1,22 @@
+.bannerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo específico para la posición 1 */
+.bannerContainer[data-position="position1"] {
+  position: fixed;
+  bottom: 1vh;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.bannerImage {
+  width: 728px;
+  height: 90px;
+  object-fit: contain;
+  background-color: transparent;
+} 

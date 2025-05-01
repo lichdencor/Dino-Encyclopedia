@@ -20,9 +20,9 @@ export const Album: React.FC = () => {
     ]);
 
     const [stickers, setStickers] = useState<Sticker[]>([
-        { id: 'Card01', image: '/public/assets/Cards/Card01.png' },
-        { id: 'Card02', image: '/public/assets/Cards/Card02.png' },
-        { id: 'Card03', image: '/public/assets/Cards/Card03.png' },
+        { id: 'Card01', image: "/assets/Cards/Card01.png" },
+        { id: 'Card02', image: "/assets/Cards/Card02.png" },
+        { id: 'Card03', image: "/assets/Cards/Card03.png" },
     ]);
 
     const [draggingSticker, setDraggingSticker] = useState<Sticker | null>(null);
@@ -75,7 +75,7 @@ export const Album: React.FC = () => {
 
     const getStickerImageById = (id: string) => {
         const foundSticker = stickers.find((s) => s.id === id);
-        return foundSticker ? foundSticker.image : `/public/assets/Cards/${id}.png`;
+        return foundSticker ? foundSticker.image : `/assets/Cards/${id}.png`;
     };
 
     function createGhostSticker() {
@@ -107,7 +107,7 @@ export const Album: React.FC = () => {
                         src={sticker.image}
                         alt={sticker.id}
                         onMouseDown={(e) => {
-                            e.preventDefault(); // evita seleccionar texto o imágenes
+                            e.preventDefault();
                             setDraggingSticker(sticker);
                             setMousePos({ x: e.clientX, y: e.clientY });
                         }}

@@ -21,11 +21,11 @@
   width: 50%;
   height: 100%;
   /* background-color: blue; */
-  background-image: url(/public/assets/img/x-ray/platform.png);
+  background-image: url(/assets/img/x-ray/platform.png);
   background-size: 100% 18%;
   background-position: bottom center;
   background-repeat: no-repeat;
-  cursor: url('/public/assets/img/scanner/scanner.png') 0 0, auto;
+  cursor: url(/assets/img/scanner/scanner.png') 0 0, auto;
 }
 
 h2 {
@@ -153,7 +153,7 @@ h2 {
     left: 0;
     width: 23px;
     height: 23px;
-    background-image: url('/public/assets/img/paws/level-paw-complete.png');
+    background-image: url(/assets/img/paws/level-paw-complete.png');
     background-size: contain;
     background-repeat: no-repeat;
   }  
@@ -179,7 +179,7 @@ h2 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-image: url(/public/assets/img/gallery-progress/progressBarContainer-1.png);
+    background-image: url(/assets/img/gallery-progress/progressBarContainer-1.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -210,7 +210,7 @@ h2 {
     align-items: center;
     position: absolute;
     right: 5%;
-    background-image: url(/public/assets/img/gallery-progress/puzzlePieceContainer-1.png);
+    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-1.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -223,7 +223,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/public/assets/img/puzzles/puzzle-piece.png);
+    background-image: url(/assets/img/puzzles/puzzle-piece.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

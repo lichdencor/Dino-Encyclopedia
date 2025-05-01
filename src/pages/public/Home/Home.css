@@ -7,7 +7,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/landing-page/bg.png);
+  background-image: url(/assets/img/landing-page/bg.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -235,7 +235,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/public/assets/img/landing-page/logo-bg.png);
+  background-image: url(/assets/img/landing-page/logo-bg.png);
   background-position: bottom;
 }
 
@@ -243,7 +243,7 @@ header {
   margin-top: 0.5vw;
   width: 7vw;
   height: 8vw;
-  background-image: url(/public/assets/giph/logo.gif);
+  background-image: url(/assets/giph/logo.gif);
   /* background-color: rebeccapurple; */
 }
 
@@ -262,7 +262,7 @@ header {
   height: 75%;
   width: 50%;
   /* background-color: aquamarine; */
-  background-image: url(/public/assets/img/landing-page/title-bg.png);
+  background-image: url(/assets/img/landing-page/title-bg.png);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,6 +306,10 @@ header {
   position: absolute;
   left: 45%;
   bottom: 3vh;
+}
+
+.periods-container {
+  padding-bottom: calc(90px + 8vh); /* Altura del banner (90px) + margen (4vh) * 2 */
 }
 
 

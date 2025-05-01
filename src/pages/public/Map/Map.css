@@ -7,7 +7,7 @@ body {
   height: 95vh;
   margin: 0 auto;
   margin-top: 2vh;
-  background-image: url(/public/assets/img/map/map.png);
+  background-image: url(/assets/img/map/map.png);
   background-position: top;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@ body {
   bottom: -5%;
   left: 1%;
   transition: all 300ms ease-in-out;
-  background-image: url(/public/assets/img/pets/stegosaurus/pet-stegosaurus-1-R.png);
+  background-image: url(/assets/img/pets/stegosaurus/pet-stegosaurus-1-R.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -91,7 +91,7 @@ body {
   height: 23%;
   position: absolute;
   /* background-color: red; */
-  background-image: url(/public/assets/img/map/raptor-bites.png);
+  background-image: url(/assets/img/map/raptor-bites.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -126,7 +126,7 @@ body {
   height: 22%;
   left: 14%;
   bottom: 20%;
-  background-image: url(/public/assets/img/buildings/bu-main-entrance.png);
+  background-image: url(/assets/img/buildings/bu-main-entrance.png);
 }
 
 .entrance {
@@ -134,7 +134,7 @@ body {
   height: 19%;
   right: 4%;
   bottom: 12%;
-  background-image: url(/public/assets/img/buildings/bu-entrance.png);
+  background-image: url(/assets/img/buildings/bu-entrance.png);
 }
 
 .library {
@@ -142,13 +142,13 @@ body {
   height: 15%;
   left: 59%;
   bottom: 12%;
-  background-image: url(/public/assets/img/buildings/bu-library.png);
+  background-image: url(/assets/img/buildings/bu-library.png);
 }
 
 .store {
   left: 6%;
   bottom: 55%;
-  background-image: url(/public/assets/img/buildings/bu-store.png);
+  background-image: url(/assets/img/buildings/bu-store.png);
   background-color: red;
 }
 
@@ -157,13 +157,13 @@ body {
   height: 30%;
   left: 43%;
   bottom: 57%;
-  background-image: url(/public/assets/img/buildings/bu-kids.png);
+  background-image: url(/assets/img/buildings/bu-kids.png);
 }
 
 .restroom {
   width: 5%;
   height: 9%;
-  background-image: url(/public/assets/img/buildings/bu-restroom.png);
+  background-image: url(/assets/img/buildings/bu-restroom.png);
 }
 
 .restroom-1 {
@@ -191,61 +191,61 @@ body {
 .stage-1 {
   left: 18%;
   bottom: 47%;
-  background-image: url(/public/assets/img/buildings/bu-tri-1.png);
+  background-image: url(/assets/img/buildings/bu-tri-1.png);
 }
 
 .stage-2 {
   left: 28%;
   bottom: 51%;
-  background-image: url(/public/assets/img/buildings/bu-tri-2.png);
+  background-image: url(/assets/img/buildings/bu-tri-2.png);
 }
 
 .stage-3 {
   left: 35%;
   bottom: 69%;
-  background-image: url(/public/assets/img/buildings/bu-tri-3.png);
+  background-image: url(/assets/img/buildings/bu-tri-3.png);
 }
 
 .stage-4 {
   left: 48%;
   bottom: 31%;
-  background-image: url(/public/assets/img/buildings/bu-jur-1.png);
+  background-image: url(/assets/img/buildings/bu-jur-1.png);
 }
 
 .stage-5 {
   left: 59%;
   bottom: 37%;
-  background-image: url(/public/assets/img/buildings/bu-jur-2.png);
+  background-image: url(/assets/img/buildings/bu-jur-2.png);
 }
 
 .stage-6 {
   right: 29%;
   bottom: 60%;
-  background-image: url(/public/assets/img/buildings/bu-jur-3.png);
+  background-image: url(/assets/img/buildings/bu-jur-3.png);
 }
 
 .stage-7 {
   right: 22%;
   bottom: 32%;
-  background-image: url(/public/assets/img/buildings/bu-cre-1.png);
+  background-image: url(/assets/img/buildings/bu-cre-1.png);
 }
 
 .stage-8 {
   right: 9%;
   bottom: 36%;
-  background-image: url(/public/assets/img/buildings/bu-cre-2.png);
+  background-image: url(/assets/img/buildings/bu-cre-2.png);
 }
 
 .stage-9 {
   right: 17%;
   bottom: 56%;
-  background-image: url(/public/assets/img/buildings/bu-cre-3.png);
+  background-image: url(/assets/img/buildings/bu-cre-3.png);
 }
 
 /* PERIOD FRAMES START */
 
 .period-title-frame {
-  background-image: url(/public/assets/img/frames/period-title.png);
+  background-image: url(/assets/img/frames/period-title.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -320,39 +320,39 @@ body {
 }
 
 .stage-1 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-tri-1.png);
+  background-image: url(/assets/img/building-descriptions/card-tri-1.png);
 }
 
 .stage-2 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-tri-2.png);
+  background-image: url(/assets/img/building-descriptions/card-tri-2.png);
 }
 
 .stage-3 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-tri-3.png);
+  background-image: url(/assets/img/building-descriptions/card-tri-3.png);
 }
 
 .stage-4 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-jur-1.png);
+  background-image: url(/assets/img/building-descriptions/card-jur-1.png);
 }
 
 .stage-5 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-jur-2.png);
+  background-image: url(/assets/img/building-descriptions/card-jur-2.png);
 }
 
 .stage-6 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-jur-3.png);
+  background-image: url(/assets/img/building-descriptions/card-jur-3.png);
 }
 
 .stage-7 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-cre-1.png);
+  background-image: url(/assets/img/building-descriptions/card-cre-1.png);
 }
 
 .stage-8 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-cre-2.png);
+  background-image: url(/assets/img/building-descriptions/card-cre-2.png);
 }
 
 .stage-9 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/card-cre-3.png);
+  background-image: url(/assets/img/building-descriptions/card-cre-3.png);
 }
 
 .site-description {
@@ -409,7 +409,7 @@ body {
 }
 
 .paper {
-  background-image: url(/public/assets/img/paper.png);
+  background-image: url(/assets/img/paper.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 85% 100%;
@@ -458,163 +458,163 @@ body {
 }
 
 .info-triassic-1-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Eoraptor.png);
   width: 28%;
   height: 15%;
 }
 
 .info-triassic-1-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
   width: 35%;
   height: 24%;
 }
 
 .info-triassic-1-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/tr-1-Postosuchus.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Postosuchus.png);
   width: 40%;
   height: 25%;
 }
 
 .info-triassic-2-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/tr-2-Chindesaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-2-Chindesaurus.png);
   width: 30%;
   height: 15%;
 }
 
 .info-triassic-2-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/tr-2-Fukuiraptor.png);
+  background-image: url(/assets/img/dinosaurs/tr-2-Fukuiraptor.png);
   width: 45%;
   height: 20%;
 }
 
 .info-triassic-2-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/tr-2-Shuvosaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-2-Shuvosaurus.png);
   width: 50%;
   height: 15%;
 }
 
 .info-triassic-3-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/tr-3-Coelophysis.png);
+  background-image: url(/assets/img/dinosaurs/tr-3-Coelophysis.png);
   width: 25%;
   height: 20%;
 }
 
 .info-triassic-3-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/tr-3-Plateosaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-3-Plateosaurus.png);
   width: 50%;
   height: 28%;
 }
 
 .info-triassic-3-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/tr-3-Rauisuchus.png);
+  background-image: url(/assets/img/dinosaurs/tr-3-Rauisuchus.png);
   width: 45%;
   height: 15%;
 }
 
 .info-jurassic-1-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/ju-1-Compsognathus.png);
+  background-image: url(/assets/img/dinosaurs/ju-1-Compsognathus.png);
   width: 30%;
   height: 20%;
 }
 
 .info-jurassic-1-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/ju-1-Cryolophosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-1-Cryolophosaurus.png);
   width: 50%;
   height: 24%;
 }
 
 .info-jurassic-1-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/ju-1-Dilophosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-1-Dilophosaurus.png);
   width: 40%;
   height: 20%;
 }
 
 .info-jurassic-2-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/ju-2-Allosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-2-Allosaurus.png);
   width: 40%;
   height: 30%;
 }
 
 .info-jurassic-2-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/ju-2-Apatosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-2-Apatosaurus.png);
   width: 60%;
   height: 45%;
 }
 
 .info-jurassic-2-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/ju-2-Camarasaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-2-Camarasaurus.png);
   width: 55%;
   height: 35%;
 }
 
 .info-jurassic-3-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
   width: 60%;
   height: 30%;
 }
 
 .info-jurassic-3-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Diplodocus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Diplodocus.png);
   width: 65%;
   height: 28%;
 }
 
 .info-jurassic-3-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Stegosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Stegosaurus.png);
   width: 35%;
   height: 20%;
 }
 
 .info-cretaceous-1-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/cr-1-Gallimimus.png);
+  background-image: url(/assets/img/dinosaurs/cr-1-Gallimimus.png);
   width: 60%;
   height: 25%;
 }
 
 .info-cretaceous-1-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/cr-1-Microceratus.png);
+  background-image: url(/assets/img/dinosaurs/cr-1-Microceratus.png);
   width: 20%;
   height: 10%;
 }
 
 .info-cretaceous-1-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png);
+  background-image: url(/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png);
   width: 28%;
   height: 20%;
 }
 
 .info-cretaceous-2-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/cr-2-Baryonyx.png);
+  background-image: url(/assets/img/dinosaurs/cr-2-Baryonyx.png);
   width: 35%;
   height: 30%;
 }
 
 .info-cretaceous-2-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/cr-2-Irritator.png);
+  background-image: url(/assets/img/dinosaurs/cr-2-Irritator.png);
   width: 50%;
   height: 12%;
 }
 
 .info-cretaceous-2-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/cr-2-Spinosaurus.png);
+  background-image: url(/assets/img/dinosaurs/cr-2-Spinosaurus.png);
   width: 50%;
   height: 12%;
 }
 
 .info-cretaceous-3-dino-1 {
-  background-image: url(/public/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
   width: 40%;
   height: 20%;
 }
 
 .info-cretaceous-3-dino-2 {
-  background-image: url(/public/assets/img/dinosaurs/cr-3-Triceratops.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Triceratops.png);
   width: 32%;
   height: 12%;
 }
 
 .info-cretaceous-3-dino-3 {
-  background-image: url(/public/assets/img/dinosaurs/cr-3-Tyrannosaurus\ Rex.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Tyrannosaurus\ Rex.png);
   width: 55%;
   height: 27%;
 }

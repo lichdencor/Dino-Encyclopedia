@@ -1,7 +1,7 @@
 .alertPage {
     width: 100vw;
     height: 88vh;
-    background-image: url(/public/assets/img/alert/raysBg.png);
+    background-image: url(/assets/img/alert/raysBg.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* background-color: pink; */
+    background-image: url('/assets/img/alert/alertBorder.png');
 }
 
 .puzzleImgContainer {
@@ -40,7 +40,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../../../public/assets/img/alert/alertBorder.png');
+    background-image: url('/assets/img/alert/alertBorder.png');
     background-size: contain;
     animation: rotateBackground 40s linear infinite;
     z-index: 1;

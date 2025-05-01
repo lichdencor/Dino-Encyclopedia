@@ -1,7 +1,7 @@
 .pageContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/bg/base.png);
+  background-image: url(/assets/img/bg/base.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;

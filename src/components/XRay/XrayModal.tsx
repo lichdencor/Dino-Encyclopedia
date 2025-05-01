@@ -63,7 +63,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     mouseEvent.currentTarget.style.setProperty("--cursor-x", `${x_percent}%`);
     mouseEvent.currentTarget.style.setProperty("--cursor-y", `${y_percent}%`);
 
-    // Lógica de “proximidad”
+    // Lógica de "proximidad"
     // Coordenadas del mouse dentro del contenedor
     const mouseX = mouseEvent.clientX - rect.left;
     const mouseY = mouseEvent.clientY - rect.top;
@@ -136,7 +136,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                     {showPuzzlePiece && (
                       <img
                         className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
-                        src="../../../public/assets/img/puzzles/puzzle-piece.png"
+                        src="/assets/img/puzzles/puzzle-piece.png"
                         style={{
                           top: `${pieceTopPercent * 100}%`,
                           left: `${pieceLeftPercent * 100}%`

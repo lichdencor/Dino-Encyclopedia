@@ -20,60 +20,62 @@ import {
   Games,
   Puzzleaurus,
   Store,
-  Book,
   Library,
+  AdsPage,
   Wallet
 } from "./pages/";
-import { AuthProvider } from "./context";
+import { AuthProvider, AdsProvider } from "./context";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-        <RoutesWithNotFound>
-          <Route path="/" element={<Home />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/album" element={<Album />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/book" element={<Book />} />
-          <Route path="/wallet" element={<Wallet />} />
+        <AdsProvider>
+          <RoutesWithNotFound>
+            <Route path="/" element={<Home />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/album" element={<Album />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/ads" element={<AdsPage />} />
 
-          <Route path="/memodyn" element={<MemoDyn />} />
-          <Route path="/puzzleaurus" element={<Puzzleaurus />} />
+            <Route path="/memodyn" element={<MemoDyn />} />
+            <Route path="/puzzleaurus" element={<Puzzleaurus />} />
 
-          <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
-          <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
-          <Route path="/cretaceous-superior" element={<CretaceousSuperior />} />
+            <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
+            <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
+            <Route path="/cretaceous-superior" element={<CretaceousSuperior />} />
 
-          <Route path="/jurassic-inferior" element={<JurassicInferior />} />
-          <Route path="/jurassic-medio" element={<JurassicMedium />} />
-          <Route path="/jurassic-superior" element={<JurassicSuperior />} />
+            <Route path="/jurassic-inferior" element={<JurassicInferior />} />
+            <Route path="/jurassic-medio" element={<JurassicMedium />} />
+            <Route path="/jurassic-superior" element={<JurassicSuperior />} />
 
-          <Route path="/triassic-inferior" element={<TriassicInferior />} />
-          <Route path="/triassic-medio" element={<TriassicMedium />} />
-          <Route path="/triassic-superior" element={<TriassicSuperior />} />
+            <Route path="/triassic-inferior" element={<TriassicInferior />} />
+            <Route path="/triassic-medio" element={<TriassicMedium />} />
+            <Route path="/triassic-superior" element={<TriassicSuperior />} />
 
-          <Route
-            path="/login"
-            element={
-              <AuthProvider>
-                <Login />
-              </AuthProvider>
-            }
-          />
+            <Route
+              path="/login"
+              element={
+                <AuthProvider>
+                  <Login />
+                </AuthProvider>
+              }
+            />
 
-          <Route
-            path="/signin"
-            element={
-              <AuthProvider>
-                <SignIn />
-              </AuthProvider>
-            }
-          />
-          <Route path="/pet-selection" element={<PetSelection />} />
-        </RoutesWithNotFound>
+            <Route
+              path="/signin"
+              element={
+                <AuthProvider>
+                  <SignIn />
+                </AuthProvider>
+              }
+            />
+            <Route path="/pet-selection" element={<PetSelection />} />
+          </RoutesWithNotFound>
+        </AdsProvider>
       </ErrorBoundary>
     </BrowserRouter>
   );

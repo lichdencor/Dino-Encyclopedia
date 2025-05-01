@@ -1,5 +1,5 @@
 import "./Home.css";
-import { Nav, Carousel, VirtualAssistant } from "../../../components/";
+import { Nav, Carousel, VirtualAssistant, BannerAd } from "../../../components/";
 import { VirtualAssistantDialogue } from "../../../data/"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -94,6 +94,9 @@ export const Home = () => {
             </div>
           </div>
         )}
+
+        {/* Banner de publicidad en la parte baja */}
+        <BannerAd position="position1" />
       </div>
     </div>
   );

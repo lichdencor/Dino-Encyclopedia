@@ -18,6 +18,6 @@ export * from "./public/MemoDyn/MemoDyn.tsx";
 export * from "./public/Games/Games.tsx";
 export * from "./public/Puzzleaurus/Puzzleaurus.tsx";
 export * from "./public/Store/Store.tsx";
-export * from "./public/Book/Book.tsx";
 export * from "./public/Library/Library.tsx";
 export * from "./public/Wallet/Wallet.tsx";
+export { AdsPage } from './Ads/AdsPage';

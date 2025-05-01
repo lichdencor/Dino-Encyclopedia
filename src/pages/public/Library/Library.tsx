@@ -14,19 +14,19 @@ enum BookType {
 const books = [
     {
         title: "Book 1",
-        image: "/public/assets/img/bg/base.png",
+        image: "/assets/img/bg/base.png",
         pages: [
             {
                 type: BookType.templateImageLeftDown,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-                imageLeftDownSrc: "/public/assets/img/cards/1.png",
+                imageLeftDownSrc: "/assets/img/cards/1.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
             },
             {
                 type: BookType.templateImageLeftDownAndTopRight,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-                imageLeftDownSrc: "/public/assets/img/cards/2.png",
-                imageRightUpSrc: "/public/assets/img/cards/3.png",
+                imageLeftDownSrc: "/assets/img/cards/2.png",
+                imageRightUpSrc: "/assets/img/cards/3.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
             },
             {
@@ -36,7 +36,7 @@ const books = [
             {
                 type: BookType.templateImageTopRight,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-                imageRightUpSrc: "/public/assets/img/cards/3.png",
+                imageRightUpSrc: "/assets/img/cards/3.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
             }
         ]

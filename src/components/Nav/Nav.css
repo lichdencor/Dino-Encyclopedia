@@ -10,7 +10,7 @@ nav {
   z-index: 999;
   font-family: "MedusaGothic", sans-serif;
   position: absolute;
-  background-image: url(/public/assets/img/nav/nav-bg.png);
+  background-image: url(/assets/img/nav/nav-bg.png);
   background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
@@ -79,7 +79,7 @@ nav {
   width: 6.5vw;
   height: 6.5vw;
   /* background-color: gray; */
-  background-image: url(/public/assets/img/frames/profile-frame.png);
+  background-image: url(/assets/img/frames/profile-frame.png);
   background-size: 100% 100%;
   position: absolute;
   margin: 0;
@@ -93,7 +93,7 @@ nav {
   height: 105%;
   width: 110%;
   /* background-color: blue; */
-  background-image: url(/public/assets/img/evolutions/profile/profile-t-rex-1.png);
+  background-image: url(/assets/img/evolutions/profile/profile-t-rex-1.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -198,11 +198,11 @@ nav {
 }
 
 .complete {
-  background-image: url(/public/assets/img/paws/level-paw-complete.png);
+  background-image: url(/assets/img/paws/level-paw-complete.png);
 }
 
 .incomplete {
-  background-image: url(/public/assets/img/paws/level-paw-incomplete.png);
+  background-image: url(/assets/img/paws/level-paw-incomplete.png);
 }
 
 /* ------------------------------- WALLET ---------------------------------------- */
@@ -236,7 +236,7 @@ nav {
   height: 90%;
   width: 60%;
   /* background-color: blue; */
-  background-image: url(/public/assets/img/token/token.png);
+  background-image: url(/assets/img/token/token.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
