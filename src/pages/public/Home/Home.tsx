@@ -44,11 +44,13 @@ export const Home = () => {
         <Carousel />
 
         <div className="ticket-purchase-container">
-          <img className="ticketBackground" src="assets/img/alert/alertBorder.png" alt="ticket background" />
+          <div className="ticketImgContainer">
+            <img className="ticketBackground" src="assets/img/alert/alertBorder.png" alt="ticket background" />
 
-          <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
-            <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets" />
-          </button>
+            <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
+              <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets" />
+            </button>
+          </div>
 
           <span>¡Comprá tus entradas!</span>
         </div>

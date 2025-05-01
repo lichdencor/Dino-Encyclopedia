@@ -23,7 +23,7 @@ type XRayModalProps = {
   selectedDinosaur: number | null;
   activeDinosaur: number | null;
   setActiveDinosaur: (index: number | null) => void;
-  dinosaurInfo: DinosaurInfo | null;
+  dinosaurInfo: DinosaurInfo;
 };
 
 export const XRayModal: React.FC<XRayModalProps> = ({

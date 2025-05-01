@@ -25,15 +25,16 @@ header {
 }
 
 .ticket-purchase-container {
-  /* background-color: red; */
+  /* background-color: green; */
   position: absolute;
-  width: 14vw;
+  width: 19vw;
   height: 10vw;
-  right: 4%;
+  right: 2%;
   bottom: 5%;
   transition: all 500ms ease-in-out;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .ticket-purchase-container .ticket:hover {
@@ -55,28 +56,38 @@ header {
   100% { transform: rotate(0deg); }
 }
 
+.ticketImgContainer {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+
 .ticket-wrapper {
-  width: 50%;
+  width: 100%;
   height: 100%;
   transition: all 500ms ease-in-out;
   background-color: transparent;
+  /* background-color: blueviolet; */
 }
 
 .ticket-wrapper:hover {
-  transform: scale(1.05);
+  transform: scale(1.3);
 }
 
 .ticket {
-  width: 80%;
+  width: 40%;
   height: 80%;
   animation: balanceo 5s ease-in-out infinite;
-  background-color: red;
+  /* background-color: white; */
 }
 
 .ticketBackground {
   position: absolute;
-  width: 60%;
-  height: 80%;
+  width: 10vw;
+  height: 10vw;
   animation: rotation 15s linear infinite;
   display: flex;
   justify-content: center;
