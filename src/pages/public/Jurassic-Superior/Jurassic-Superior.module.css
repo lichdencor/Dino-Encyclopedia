@@ -1,7 +1,7 @@
 .triassicInferiorBg {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/era-bg/room-bg-8.png);
+  background-image: url(/assets/img/era-bg/room-bg-8.png);
   background-size: 100% 105%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -70,19 +70,19 @@
 }
 
 .dinosaur1 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
   animation: breathe 2s infinite ease-in-out;
   transform: scaleX(-1);
 }
 
 .dinosaur2 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Diplodocus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Diplodocus.png);
   animation: breathe 4s infinite ease-in-out;
   
 }
 
 .dinosaur3 {
-  background-image: url(/public/assets/img/dinosaurs/ju-3-Stegosaurus.png);
+  background-image: url(/assets/img/dinosaurs/ju-3-Stegosaurus.png);
   animation: breathe 3s infinite ease-in-out;
   
 }
@@ -91,7 +91,7 @@
   width: 17%;
   height: 9%;
   position: absolute;
-  background-image: url(/public/assets/img/dinosaurs/dinosaur-name-frame.png);
+  background-image: url(/assets/img/dinosaurs/dinosaur-name-frame.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -142,12 +142,12 @@
 
 .arrowPrevious {
   left: 3%;
-  background-image: url(/public/assets/img/arrow-previous.png);
+  background-image: url(/assets/img/arrow-previous.png);
 }
 
 .arrowNext {
   right: 3%;
-  background-image: url(/public/assets/img/arrow-next.png);
+  background-image: url(/assets/img/arrow-next.png);
 }
 
 @keyframes sway {

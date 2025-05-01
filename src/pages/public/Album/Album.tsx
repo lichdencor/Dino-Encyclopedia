@@ -20,9 +20,9 @@ export const Album: React.FC = () => {
     ]);
 
     const [stickers, setStickers] = useState<Sticker[]>([
-        { id: 'Card01', image: '/public/assets/Cards/Card01.png' },
-        { id: 'Card02', image: '/public/assets/Cards/Card02.png' },
-        { id: 'Card03', image: '/public/assets/Cards/Card03.png' },
+        { id: 'Card01', image: "/assets/Cards/Card01.png" },
+        { id: 'Card02', image: "/assets/Cards/Card02.png" },
+        { id: 'Card03', image: "/assets/Cards/Card03.png" },
     ]);
 
     const [draggingSticker, setDraggingSticker] = useState<Sticker | null>(null);
@@ -48,11 +48,13 @@ export const Album: React.FC = () => {
         };
     }, [draggingSticker]);
 
-    function isSlotAvailable(slot: Slot | undefined) {
-        return slot && !slot.occupied;
+    function isSlotAvailable(slot: Slot | undefined): boolean {
+        return slot ? !slot.occupied : false;
     }
 
     function putStickerOnSlot(slotId: string) {
+        if (!draggingSticker) return;
+        
         setSlots((prevSlots) =>
             prevSlots.map((slot) =>
                 slot.id === slotId ? {...slot, occupied: true, stickerId: draggingSticker.id} : slot
@@ -73,28 +75,32 @@ export const Album: React.FC = () => {
         }
     };
 
-    const getStickerImageById = (id: string) => {
+    const getStickerImageById = (id: string): string => {
         const foundSticker = stickers.find((s) => s.id === id);
-        return foundSticker ? foundSticker.image : `/public/assets/Cards/${id}.png`;
+        return foundSticker ? foundSticker.image : `/assets/Cards/${id}.png`;
     };
 
     function createGhostSticker() {
-        return <img
-            src={draggingSticker.image}
-            alt="ghost-sticker"
-            style={{
-                position: 'fixed',
-                top: mousePos.y,
-                left: mousePos.x,
-                width: 80,
-                height: 80,
-                pointerEvents: 'none',
-                opacity: 0.8,
-                transform: 'translate(-50%, -50%) scale(1.1)',
-                transition: 'transform 0.1s ease',
-                zIndex: 1000,
-            }}
-        />;
+        if (!draggingSticker) return null;
+        
+        return (
+            <img
+                src={draggingSticker.image}
+                alt="ghost-sticker"
+                style={{
+                    position: 'fixed',
+                    top: mousePos.y,
+                    left: mousePos.x,
+                    width: 80,
+                    height: 80,
+                    pointerEvents: 'none',
+                    opacity: 0.8,
+                    transform: 'translate(-50%, -50%) scale(1.1)',
+                    transition: 'transform 0.1s ease',
+                    zIndex: 1000,
+                }}
+            />
+        );
     }
 
     return (
@@ -107,7 +113,7 @@ export const Album: React.FC = () => {
                         src={sticker.image}
                         alt={sticker.id}
                         onMouseDown={(e) => {
-                            e.preventDefault(); // evita seleccionar texto o imágenes
+                            e.preventDefault();
                             setDraggingSticker(sticker);
                             setMousePos({ x: e.clientX, y: e.clientY });
                         }}

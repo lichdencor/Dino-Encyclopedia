@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './Carousel.css';
-// import './Carousel.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const TOTAL_CARDS = 6;

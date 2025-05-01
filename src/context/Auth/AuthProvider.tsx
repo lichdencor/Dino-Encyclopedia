@@ -28,10 +28,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.log("Usuario logueado correctamente");
     } catch (error: any) {
       console.error("Error en login:", error);
-      throw error; // 🔹 Lanza el error para que `handleLogin()` lo capture
+      throw error;
     }
   };
-
 
   const register = async (email: string, password: string) => {
     try {
@@ -59,10 +58,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.log("Perfil de usuario registrado en Supabase");
     } catch (error: any) {
       console.error("Error en registro:", error);
-      throw error; // 🔹 Lanza el error para que `handleRegister()` lo capture
+      throw error;
     }
   };
-
 
   const logout = async () => {
     try {

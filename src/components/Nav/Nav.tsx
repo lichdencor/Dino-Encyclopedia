@@ -24,6 +24,7 @@ export const Nav = () => {
 
       <div className="routes">
         <div className="routes-left">
+          <Link to="/ads">ADS</Link>
           <Link to="/">HOME</Link>
           <Link to="/map">MAP</Link>
           <Link to="/store">STORE</Link>

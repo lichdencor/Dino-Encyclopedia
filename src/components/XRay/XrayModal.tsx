@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-// IMPORTA tus estilos
-import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css"; // <- Estilos de la página
+import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css";
 import styles from "./XrayModal.module.css";
-import { Alert } from "../../components/";
+import { Alert } from "../../components";
 
 type DinosaurInfo = {
   nombreCientifico: string;
@@ -49,8 +47,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const setPuzzlePiecePosition = () => {
-    setPieceLeftPercent(Math.random()); // Valor entre 0 y 1
-    setPieceTopPercent(Math.random());  // Valor entre 0 y 1
+    setPieceLeftPercent(Math.random());
+    setPieceTopPercent(Math.random());
   }
 
   useEffect(() => {
@@ -79,8 +77,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     mouseEvent.currentTarget.style.setProperty("--cursor-x", `${x_percent}%`);
     mouseEvent.currentTarget.style.setProperty("--cursor-y", `${y_percent}%`);
 
-    // Lógica de “proximidad”
-    // Coordenadas del mouse dentro del contenedor
     const mouseX = mouseEvent.clientX - rect.left;
     const mouseY = mouseEvent.clientY - rect.top;
 
@@ -91,7 +87,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       Math.pow(mouseX - pieceX, 2) + Math.pow(mouseY - pieceY, 2)
     );
 
-    // si la distancia del mouse es menor a 20px, se activa el estado para mostrar la piece
     if (distance < 22) {
       setShowPuzzlePiece(true);
     } else {
@@ -152,7 +147,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                     {showPuzzlePiece && (
                       <img
                         className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
-                        src="../../../public/assets/img/puzzles/puzzle-piece.png"
+                        src="/assets/img/puzzles/puzzle-piece.png"
                         style={{
                           top: `${pieceTopPercent * 100}%`,
                           left: `${pieceLeftPercent * 100}%`

@@ -13,7 +13,7 @@ export const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timeout = setTimeout(() => setAnimate(true), 100); // Delay de 100ms antes de la animación
+    const timeout = setTimeout(() => setAnimate(true), 100);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -35,7 +35,7 @@ export const SignIn = () => {
     setAnimate(false);
     setTimeout(() => {
       navigate("/login");
-    }, 300); // Coincide con la animación de salida
+    }, 300);
   };
 
   return (

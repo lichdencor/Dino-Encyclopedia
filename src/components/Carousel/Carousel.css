@@ -39,27 +39,27 @@
   }
   
   .triassic-1 {
-	background-image: url(/public/assets/img/building-descriptions/tri-1.png);
+	background-image: url(/assets/img/building-descriptions/tri-1.png);
   }
 
   .triassic-2 {
-	background-image: url(/public/assets/img/building-descriptions/tri-2.png);
+	background-image: url(/assets/img/building-descriptions/tri-2.png);
   }
   
   .jurassic-1 {
-	background-image: url(/public/assets/img/building-descriptions/jur-1.png);
+	background-image: url(/assets/img/building-descriptions/jur-1.png);
   }
 
   .jurassic-2 {
-	background-image: url(/public/assets/img/building-descriptions/jur-2.png);
+	background-image: url(/assets/img/building-descriptions/jur-2.png);
   }
   
   .cretaceous-1 {
-	background-image: url(/public/assets/img/building-descriptions/cre-1.png);
+	background-image: url(/assets/img/building-descriptions/cre-1.png);
   }  
 
   .cretaceous-2 {
-	background-image: url(/public/assets/img/building-descriptions/cre-2.png);
+	background-image: url(/assets/img/building-descriptions/cre-2.png);
   } 
 
 .carousel {
@@ -246,12 +246,12 @@
 }
 
 .left-arrow {
-  background-image: url(/public/assets/img/arrows/arrow-left.png);
+  background-image: url(/assets/img/arrows/arrow-left.png);
   left: 4%;
 }
 
 .right-arrow {
-  background-image: url(/public/assets/img/arrows/arrow-right.png);
+  background-image: url(/assets/img/arrows/arrow-right.png);
   right: 4%;
 }
 

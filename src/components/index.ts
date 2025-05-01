@@ -10,3 +10,4 @@ export * from "./PeriodsButtonHover/PeriodsButtonHover.tsx";
 export * from "./RoutesWithNotFound/RoutesWithNotFound.tsx";
 export * from "./VirtualAssistant/VirtualAssistant.tsx";
 export * from "./XRay/XrayModal.tsx";
+export * from './BannerAd/BannerAd';

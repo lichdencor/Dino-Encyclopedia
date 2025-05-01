@@ -84,15 +84,15 @@
 }
 
 .frame-t-rex {
-  background-image: url(/public/assets/img/frames/period-frame-3.png);
+  background-image: url(/assets/img/frames/period-frame-3.png);
 }
 
 .frame-stegosaurus {
-  background-image: url(/public/assets/img/frames/period-frame-2.png);
+  background-image: url(/assets/img/frames/period-frame-2.png);
 }
 
 .frame-rauisuchus {
-  background-image: url(/public/assets/img/frames/period-frame-1.png);
+  background-image: url(/assets/img/frames/period-frame-1.png);
 }
 
 @keyframes shake {

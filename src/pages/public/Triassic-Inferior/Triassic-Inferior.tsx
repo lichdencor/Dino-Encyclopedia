@@ -7,8 +7,6 @@ import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/G
 import galleries_data from "../../../context/data/galleries_data.json";
 import { XRayModal } from "../../../components/XRay/XrayModal";
 
-// const dinosaurs = galleries_data["galleries"][0][]
-
 export const TriassicInferior = () => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -87,7 +85,6 @@ export const TriassicInferior = () => {
           <div className={`${styles.rightCurtain} ${curtain1IsHovered && styles.rightCurtainHover}`}></div>
         </div>
 
-        {/* Curtain 2 */}
         <div
           className={`${styles.courtains2} ${curtain2IsHovered && second2Passed ? styles.curtainHover : ""}`}
           onMouseEnter={() => {
@@ -99,7 +96,6 @@ export const TriassicInferior = () => {
           <div className={`${styles.rightCurtain} ${curtain2IsHovered && styles.rightCurtainHover}`}></div>
         </div>
 
-        {/* Curtain 3 */}
         <div
           className={`${styles.courtains3} ${curtain3IsHovered && second3Passed ? styles.curtainHover : ""}`}
           onMouseEnter={() => {
@@ -111,10 +107,8 @@ export const TriassicInferior = () => {
           <div className={`${styles.rightCurtain} ${curtain3IsHovered && styles.rightCurtainHover}`}></div>
         </div>
 
-
         <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
 
-        {/* <VirtualAssistant/> */}
         <GalleryArrows page1="map" page2="triassic-medio" />
         <GalleryDinosaurNames dinosaurs={["Eoraptor", "Postosuchus", "Herrerasaurus"]}></GalleryDinosaurNames>
 
@@ -123,7 +117,6 @@ export const TriassicInferior = () => {
             <div
               key={index}
               className={bgClass}
-              // onMouseMove={(e) => handleMouseMove(e, index)}
               onClick={() => handleDinosaurClick(index)}
             >
               <div className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]}`}></div>

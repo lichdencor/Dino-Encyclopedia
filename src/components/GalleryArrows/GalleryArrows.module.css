@@ -24,11 +24,11 @@
 }
 
 .arrowPrevious {
-  background-image: url(/public/assets/img/arrows/arrow-left.png);
+  background-image: url(/assets/img/arrows/arrow-left.png);
   left: 2vw;
 }
 
 .arrowNext {
-  background-image: url(/public/assets/img/arrows/arrow-right.png);
+  background-image: url(/assets/img/arrows/arrow-right.png);
   right: 2vw;
 }

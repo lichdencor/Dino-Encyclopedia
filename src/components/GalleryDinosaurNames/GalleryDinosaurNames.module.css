@@ -57,7 +57,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-image: url(/public/assets/img/gallery-progress/progressBarContainer-1.png);
+    background-image: url(/assets/img/gallery-progress/progressBarContainer-1.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@
     align-items: center;
     position: absolute;
     right: 14%;
-    background-image: url(/public/assets/img/gallery-progress/puzzlePieceContainer-1.png);
+    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-1.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -100,7 +100,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/public/assets/img/puzzles/puzzle-piece.png);
+    background-image: url(/assets/img/puzzles/puzzle-piece.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

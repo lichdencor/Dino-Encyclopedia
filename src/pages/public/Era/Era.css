@@ -11,7 +11,7 @@
 .dinosaur-card {
   height: 45vh;
   width: 15vw;
-  background-image: url(/public/assets/img/frames/dinosaur-card-frame.png);
+  background-image: url(/assets/img/frames/dinosaur-card-frame.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -62,10 +62,10 @@
 
 .arrow-previous {
   left: 3%;
-  background-image: url(/public/assets/img/arrow-previous.png);
+  background-image: url(/assets/img/arrow-previous.png);
 }
 
 .arrow-next {
   right: 3%;
-  background-image: url(/public/assets/img/arrow-next.png);
+  background-image: url(/assets/img/arrow-next.png);
 }

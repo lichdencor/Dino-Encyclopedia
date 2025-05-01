@@ -8,7 +8,7 @@
   /* background-color: lightcoral; */
   margin: 0 auto;
   margin-top: 18vh;
-  /* background-image: url(/public/assets/img/map-bg.png); */
+  /* background-image: url(/assets/img/map-bg.png); */
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -41,12 +41,12 @@
 
 .arrow-previous {
   left: 3%;
-  background-image: url(/public/assets/img/arrow-previous.png);
+  background-image: url(/assets/img/arrow-previous.png);
 }
 
 .arrow-next {
   right: 3%;
-  background-image: url(/public/assets/img/arrow-next.png);
+  background-image: url(/assets/img/arrow-next.png);
 }
 
 .title {
@@ -74,7 +74,7 @@
   border: solid 2px black; */
   margin: 1.2vw;
 
-  background-image: url(/public/assets/img/frames/dinosaur-frame.png);
+  background-image: url(/assets/img/frames/dinosaur-frame.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -94,5 +94,5 @@
 }
 
 .dinosaur-1 {
-  background-image: url(/public/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
 }
