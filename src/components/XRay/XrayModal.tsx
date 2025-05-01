@@ -5,12 +5,27 @@ import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Infer
 import styles from "./XrayModal.module.css";
 import { Alert } from "../../components/";
 
+type DinosaurInfo = {
+  nombreCientifico: string;
+  altura: string;
+  peso: string;
+  clasificacion: string;
+  dieta: string;
+  velocidad: string;
+  caracteristicas: string;
+  naturaleza: string;
+  fosiles: string;
+  sociabilidad: string;
+  relacionEvolutiva: string;
+};
+
 type XRayModalProps = {
   isOpen: boolean;
   onClose: () => void;
   selectedDinosaur: number | null;
   activeDinosaur: number | null;
   setActiveDinosaur: (index: number | null) => void;
+  dinosaurInfo: DinosaurInfo | null;
 };
 
 export const XRayModal: React.FC<XRayModalProps> = ({
@@ -18,9 +33,10 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   onClose,
   selectedDinosaur,
   activeDinosaur,
-  setActiveDinosaur
+  setActiveDinosaur,
+  dinosaurInfo
 }) => {
-  const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
+  const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
   const [pieceLeftPercent, setPieceLeftPercent] = useState(0.8);
   const [pieceTopPercent, setPieceTopPercent] = useState(0.5);
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
@@ -153,17 +169,17 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               <h2 className={styles.xRayNameFrame}>{`Dinosaurio ${selectedDinosaur + 1}`}</h2>
               <div className={styles.information}>
                 <ul className={styles.infoList}>
-                  <li><span>Nombre científico:</span> Eoraptor lunensis</li>
-                  <li><span>Altura:</span> 50 cm</li>
-                  <li><span>Peso:</span> 9–10 kg</li>
-                  <li><span>Clasificación:</span> Saurisquio, Herrerasáurido</li>
-                  <li><span>Dieta:</span> Omnívoro (animales, insectos, plantas)</li>
-                  <li><span>Velocidad:</span> Hasta 40 km/h</li>
-                  <li><span>Características:</span> Ágil, liviano, con garras y mordida rápida</li>
-                  <li><span>Naturaleza:</span> Dientes afilados y garras prensiles</li>
-                  <li><span>Fósiles:</span> Argentina, Formación Ischigualasto</li>
-                  <li><span>Sociabilidad:</span> Solitario o grupos pequeños</li>
-                  <li><span>Relación evolutiva:</span> Primitivo, cercano a terópodos y saurópodos</li>
+                  <li><span>Nombre científico:</span> {dinosaurInfo.nombreCientifico}</li>
+                  <li><span>Altura:</span> {dinosaurInfo.altura}</li>
+                  <li><span>Peso:</span> {dinosaurInfo.peso}</li>
+                  <li><span>Clasificación:</span> {dinosaurInfo.clasificacion}</li>
+                  <li><span>Dieta:</span> {dinosaurInfo.dieta}</li>
+                  <li><span>Velocidad:</span> {dinosaurInfo.velocidad}</li>
+                  <li><span>Características:</span> {dinosaurInfo.caracteristicas}</li>
+                  <li><span>Naturaleza:</span> {dinosaurInfo.naturaleza}</li>
+                  <li><span>Fósiles:</span> {dinosaurInfo.fosiles}</li>
+                  <li><span>Sociabilidad:</span> {dinosaurInfo.sociabilidad}</li>
+                  <li><span>Relación evolutiva:</span> {dinosaurInfo.relacionEvolutiva}</li>
                 </ul>
               </div>
               <div className={styles.progressContainer}>

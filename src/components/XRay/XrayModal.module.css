@@ -6,6 +6,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+
+  .dinosaur1{
+    animation: none;
+  }
+  .dinosaur2{
+    animation: none;
+  }
+  .dinosaurBoneBg3{
+    animation: none;
+  }
 }
 
 .modalContent {

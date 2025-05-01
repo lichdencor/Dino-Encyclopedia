@@ -12,7 +12,7 @@ import { XRayModal } from "../../../components/XRay/XrayModal";
 export const TriassicInferior = () => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDinosaur, setSelectedDinosaur] = useState<number | null>(null);
+  const [selectedDinosaur, setSelectedDinosaur] = useState<number>(0);
   const [curtain1IsHovered, setCurtain1IsHovered] = useState<boolean>(false);
   const [curtain2IsHovered, setCurtain2IsHovered] = useState<boolean>(false);
   const [curtain3IsHovered, setCurtain3IsHovered] = useState<boolean>(false);
@@ -27,8 +27,50 @@ export const TriassicInferior = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedDinosaur(null);
+    setSelectedDinosaur(0);
   };
+
+  const dinosaursInfo = [
+    {
+      nombreCientifico: "Eoraptor lunensis",
+      altura: "50 cm",
+      peso: "9–10 kg",
+      clasificacion: "Saurisquio, Herrerasáurido",
+      dieta: "Omnívoro (animales, insectos, plantas)",
+      velocidad: "Hasta 40 km/h",
+      caracteristicas: "Ágil, liviano, con garras y mordida rápida",
+      naturaleza: "Dientes afilados y garras prensiles",
+      fosiles: "Argentina, Formación Ischigualasto",
+      sociabilidad: "Solitario o grupos pequeños",
+      relacionEvolutiva: "Primitivo, cercano a terópodos y saurópodos"
+    },
+    {
+      nombreCientifico: "Herrerasaurus",
+      altura: "1,0–1,3 metros (a la cadera)",
+      peso: "180–210 kg",
+      clasificacion: "Saurisquio, Herrerasáurido",
+      dieta: "Carnívoro (principalmente pequeños vertebrados y posiblemente otros dinosaurios)",
+      velocidad: "Hasta 30–40 km/h (estimado)",
+      caracteristicas: "Ágil, cuerpo alargado, extremidades fuertes, cráneo largo, dientes aserrados",
+      naturaleza: "Dientes afilados y garras grandes en las manos",
+      fosiles: "Argentina, Formación Ischigualasto",
+      sociabilidad: "Probablemente solitario",
+      relacionEvolutiva: "Uno de los dinosaurios más primitivos, relacionado con los saurópodos y terópodos"
+    },
+    {
+      nombreCientifico: "Postosuchus",
+      altura: "1,2 metros (a la cadera)",
+      peso: "250–300 kg",
+      clasificacion: "Arcosaurio, Rauisuquio",
+      dieta: "Carnívoro (principalmente otros reptiles y dinosaurios primitivos)",
+      velocidad: "Hasta 40 km/h (estimado)",
+      caracteristicas: "Cuerpo robusto, fuerte mordida, extremidades potentes, placas óseas en la espalda",
+      naturaleza: "Dientes afilados y garras curvas",
+      fosiles: "Estados Unidos, Texas y Nuevo México (Formación Cooper Canyon)",
+      sociabilidad: "Posiblemente solitario",
+      relacionEvolutiva: "Arcosaurio primitivo, más cercano a cocodrilos modernos que a dinosaurios"
+    },
+  ];
 
   return (
     <div>
@@ -96,7 +138,7 @@ export const TriassicInferior = () => {
               selectedDinosaur={selectedDinosaur}
               activeDinosaur={activeDinosaur}
               setActiveDinosaur={setActiveDinosaur}
-              
+              dinosaurInfo={dinosaursInfo[selectedDinosaur]}
             />
         }
       </div>

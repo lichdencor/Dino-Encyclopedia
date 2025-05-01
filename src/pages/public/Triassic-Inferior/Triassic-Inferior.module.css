@@ -148,7 +148,7 @@
 
 .dinosaur1 {
   background-image: url(/public/assets/img/dinosaurs/tr-1-Eoraptor.png);
-  /* animation: breathe 2s infinite ease-in-out; */
+  animation: breathe 2s infinite ease-in-out;
   background-size: 100% 100%;
 }
 
@@ -174,16 +174,18 @@
   background-image: url(/public/assets/img/dinosaurs/skeleton/skeleton-tr-1-Herrerasaurus.png);
   animation: breathe 2s infinite ease-in-out;
   width: 100%;
-  height: 100%;
+  height: 20%;
   margin: 0;
   -webkit-mask-repeat: no-repeat;
   object-fit: contain;
   cursor: none;
   visibility: hidden;
+  background-color: orange;
 }
 
 .dinosaur3 {
   background-image: url(/public/assets/img/dinosaurs/tr-1-Postosuchus.png);
+  background-position-y: 100%;
   animation: breathe 3s infinite ease-in-out;
 }
 
@@ -197,6 +199,7 @@
   object-fit: contain;
   cursor: none;
   visibility: hidden;
+  background-color: rebeccapurple;
 }
 
 /* Definimos las variables en el contenedor principal */
@@ -234,6 +237,7 @@
   -webkit-mask-image: radial-gradient(circle 5vw at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
   clip-path: circle(5vw at var(--cursor-x) var(--cursor-y));
   will-change: clip-path, mask-image;
+  background-color: rgb(166, 161, 161);
 }
 
 .activeBone {
@@ -303,26 +307,3 @@
   /* background-color: red; */
 }
 
-.dinosaurBoneBg1 {
-  width: 19%;
-  height: 30%;
-  left: 12%;
-  bottom: 20%;
-  background-size: 100% 100%;
-}
-
-.dinosaurBoneBg2 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
-  bottom: 23%;
-  /* background-color: blue; */
-}
-
-.dinosaurBoneBg3 {
-  width: 16%;
-  height: 25%;
-  left: 42%;
-  bottom: 23%;
-  /* background-color: red; */
-}
