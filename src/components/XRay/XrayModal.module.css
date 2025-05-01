@@ -35,7 +35,7 @@
   background-size: 100% 18%;
   background-position: bottom center;
   background-repeat: no-repeat;
-  cursor: url(/assets/img/scanner/scanner.png') 0 0, auto;
+  cursor: url(/assets/img/scanner/scanner.png) 0 0, auto;
 }
 
 h2 {
@@ -163,7 +163,7 @@ h2 {
     left: 0;
     width: 23px;
     height: 23px;
-    background-image: url(/assets/img/paws/level-paw-complete.png');
+    background-image: url(/assets/img/paws/level-paw-complete.png);
     background-size: contain;
     background-repeat: no-repeat;
   }  

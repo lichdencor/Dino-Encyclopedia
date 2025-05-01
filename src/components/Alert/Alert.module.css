@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('/assets/img/alert/alertBorder.png');
 }
 
 .puzzleImgContainer {

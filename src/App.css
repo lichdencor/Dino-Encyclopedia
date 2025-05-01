@@ -1,41 +1,41 @@
 @font-face {
   font-family: "MedusaGothic";
-  src: url(/assets/font/MedusaGothicFinal.ttf") format("opentype");
+  src: url(/assets/font/MedusaGothicFinal.ttf) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Black Chancery";
-  src: url(/assets/font/BlackChancery.TTF") format("opentype");
+  src: url(/assets/font/BlackChancery.TTF) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Cinzel";
-  src: url(/assets/font/Cinzel-Regular.ttf") format("opentype");
+  src: url(/assets/font/Cinzel-Regular.ttf) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Cinzel-Bold";
-  src: url(/assets/font/Cinzel-Bold.ttf") format("opentype");
+  src: url(/assets/font/Cinzel-Bold.ttf) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Cinzel-Black";
-  src: url(/assets/font/Cinzel-Black.ttf") format("opentype");
+  src: url(/assets/font/Cinzel-Black.ttf) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Lato";
-  src: url(/assets/font/Lato.ttf") format("opentype");
+  src: url(/assets/font/Lato.ttf) format("opentype");
   font-weight: normal;
   font-style: normal;
 }
