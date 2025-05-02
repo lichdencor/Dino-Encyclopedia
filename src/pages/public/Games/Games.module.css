@@ -9,8 +9,8 @@
   justify-content: center;
   align-items: center;
   background-image: url(/public/assets/img/gamesPage/gamePageBg.png);
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: 95% 85%;
+  background-position: bottom;
   background-color: black;
 }
 
