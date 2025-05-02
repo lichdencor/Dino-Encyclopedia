@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css";
 import styles from "./XrayModal.module.css";
 import { Alert } from "../../components";
 
 type DinosaurInfo = {
+  name: string;
   nombreCientifico: string;
   altura: string;
   peso: string;
@@ -39,6 +40,27 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const [pieceTopPercent, setPieceTopPercent] = useState(0.5);
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [scanProgress, setScanProgress] = useState(0);
+  const progressTimerRef = useRef<number | null>(null);
+  const lastMoveTimeRef = useRef<number>(Date.now());
+
+  const getItemVisibility = (index: number) => {
+    const percentages = [
+      0,    
+      6,    
+      12,   
+      18,   
+      24,   
+      30,   
+      36,   
+      42,   
+      51,   
+      60,   
+      70    
+    ];
+
+    return scanProgress >= percentages[index];
+  };
 
   if (!isOpen || selectedDinosaur === null) return null;
 
@@ -64,6 +86,11 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   useEffect(() => {
     setPuzzlePiecePosition();
+    return () => {
+      if (progressTimerRef.current) {
+        window.clearInterval(progressTimerRef.current);
+      }
+    };
   }, []);
 
   const handleMouseMove = (
@@ -76,6 +103,26 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     const y_percent = ((mouseEvent.clientY - rect.top) / rect.height) * 100;
     mouseEvent.currentTarget.style.setProperty("--cursor-x", `${x_percent}%`);
     mouseEvent.currentTarget.style.setProperty("--cursor-y", `${y_percent}%`);
+
+    lastMoveTimeRef.current = Date.now();
+
+    if (!progressTimerRef.current) {
+      progressTimerRef.current = window.setInterval(() => {
+        const currentTime = Date.now();
+        if (currentTime - lastMoveTimeRef.current > 100) {
+          if (progressTimerRef.current) {
+            window.clearInterval(progressTimerRef.current);
+            progressTimerRef.current = null;
+          }
+          return;
+        }
+
+        setScanProgress(prev => {
+          const newProgress = prev + (100 / (30 * 10));
+          return Math.min(100, newProgress);
+        });
+      }, 100);
+    }
 
     const mouseX = mouseEvent.clientX - rect.left;
     const mouseY = mouseEvent.clientY - rect.top;
@@ -159,31 +206,55 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   }
                 ></div>
                 </div>
-                
-
               </div>
             </div>
+            
             <div className={styles.informationContainer}>
-              <h2 className={styles.xRayNameFrame}>{`Dinosaurio ${selectedDinosaur + 1}`}</h2>
+              <h2 className={styles.xRayNameFrame}>{dinosaurInfo.name}</h2>
               <div className={styles.information}>
-                {/* <ul className={styles.infoList}>
-                  <li><span>Nombre científico:</span> {dinosaurInfo.nombreCientifico}</li>
-                  <li><span>Altura:</span> {dinosaurInfo.altura}</li>
-                  <li><span>Peso:</span> {dinosaurInfo.peso}</li>
-                  <li><span>Clasificación:</span> {dinosaurInfo.clasificacion}</li>
-                  <li><span>Dieta:</span> {dinosaurInfo.dieta}</li>
-                  <li><span>Velocidad:</span> {dinosaurInfo.velocidad}</li>
-                  <li><span>Características:</span> {dinosaurInfo.caracteristicas}</li>
-                  <li><span>Naturaleza:</span> {dinosaurInfo.naturaleza}</li>
-                  <li><span>Fósiles:</span> {dinosaurInfo.fosiles}</li>
-                  <li><span>Sociabilidad:</span> {dinosaurInfo.sociabilidad}</li>
-                  <li><span>Relación evolutiva:</span> {dinosaurInfo.relacionEvolutiva}</li>
-                </ul> */}
+                 <ul className={styles.infoList}>
+                  <li className={getItemVisibility(0) ? styles.animate : ''}>
+                    <span>Nombre científico:</span> {dinosaurInfo.nombreCientifico}
+                  </li>
+                  <li className={getItemVisibility(1) ? styles.animate : ''}>
+                    <span>Altura:</span> {dinosaurInfo.altura}
+                  </li>
+                  <li className={getItemVisibility(2) ? styles.animate : ''}>
+                    <span>Peso:</span> {dinosaurInfo.peso}
+                  </li>
+                  <li className={getItemVisibility(3) ? styles.animate : ''}>
+                    <span>Clasificación:</span> {dinosaurInfo.clasificacion}
+                  </li>
+                  <li className={getItemVisibility(4) ? styles.animate : ''}>
+                    <span>Dieta:</span> {dinosaurInfo.dieta}
+                  </li>
+                  <li className={getItemVisibility(5) ? styles.animate : ''}>
+                    <span>Velocidad:</span> {dinosaurInfo.velocidad}
+                  </li>
+                  <li className={getItemVisibility(6) ? styles.animate : ''}>
+                    <span>Características:</span> {dinosaurInfo.caracteristicas}
+                  </li>
+                  <li className={getItemVisibility(7) ? styles.animate : ''}>
+                    <span>Naturaleza:</span> {dinosaurInfo.naturaleza}
+                  </li>
+                  <li className={getItemVisibility(8) ? styles.animate : ''}>
+                    <span>Fósiles:</span> {dinosaurInfo.fosiles}
+                  </li>
+                  <li className={getItemVisibility(9) ? styles.animate : ''}>
+                    <span>Sociabilidad:</span> {dinosaurInfo.sociabilidad}
+                  </li>
+                  <li className={getItemVisibility(10) ? styles.animate : ''}>
+                    <span>Relación evolutiva:</span> {dinosaurInfo.relacionEvolutiva}
+                  </li>
+                </ul>
               </div>
               <div className={styles.progressContainer}>
                 <div className={styles.progressBarContainer}>
-                  <span className={styles.progressText}>62%</span>
-                  <div className={styles.progressBar}></div>
+                  <span className={styles.progressText}>{Math.round(scanProgress)}%</span>
+                  <div 
+                    className={styles.progressBar}
+                    style={{ width: `${scanProgress}%` }}
+                  ></div>
                 </div>
                 <div className={styles.puzzlePieceContainer}>
                   <div className={styles.puzzlePieceBar}></div>

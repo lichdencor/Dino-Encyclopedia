@@ -143,17 +143,18 @@ h2 {
     justify-content: space-between;
   }
 
-  .infoList li span {
-    font-family: "MedusaGothic";
-    font-size: 0.8vw;
-  }
-  
   .infoList li {
     margin-bottom: 0.5rem;
     padding-left: 2rem;
     position: relative;
     font-family: "Lato";
     font-size: 1vw;
+    opacity: 0;
+  }
+  
+  .infoList li span {
+    font-family: "MedusaGothic";
+    font-size: 0.8vw;
   }
   
   .infoList li::before {
@@ -167,6 +168,34 @@ h2 {
     background-size: contain;
     background-repeat: no-repeat;
   }  
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .infoList li.animate {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  /* Animation delays for each item */
+  .infoList li:nth-child(1).animate { animation-delay: 0s; }
+  .infoList li:nth-child(2).animate { animation-delay: 0s; }
+  .infoList li:nth-child(3).animate { animation-delay: 0s; }
+  .infoList li:nth-child(4).animate { animation-delay: 0s; }
+  .infoList li:nth-child(5).animate { animation-delay: 0s; }
+  .infoList li:nth-child(6).animate { animation-delay: 0s; }
+  .infoList li:nth-child(7).animate { animation-delay: 0s; }
+  .infoList li:nth-child(8).animate { animation-delay: 0s; }
+  .infoList li:nth-child(9).animate { animation-delay: 0s; }
+  .infoList li:nth-child(10).animate { animation-delay: 0s; }
+  .infoList li:nth-child(11).animate { animation-delay: 0s; }
 
   /* PROGRESS BAR START */
 
