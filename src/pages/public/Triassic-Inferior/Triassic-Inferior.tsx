@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Triassic-Inferior.module.css";
-import { Nav, VirtualAssistant } from "../../../components";
-import { Link } from "react-router-dom";
+import { Nav } from "../../../components";
 import { GalleryArrows } from "../../../components/GalleryArrows/GalleryArrows";
 import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/GalleryDinosaurNames";
 import galleries_data from "../../../context/data/galleries_data.json";
@@ -18,6 +17,25 @@ export const TriassicInferior = () => {
   const [second2Passed, setSecond2Passed] = useState<boolean>(false);
   const [second3Passed, setSecond3Passed] = useState<boolean>(false);
 
+  const lateTriassicData = galleries_data.galleries[0].era_triassic.find(
+    (era) => era.period === "Late Triassic"
+  );
+
+  const dinosaursInfo = lateTriassicData?.dinosaurs.map(dino => ({
+    name: dino.name,
+    nombreCientifico: dino.scientific_name,
+    altura: dino.height,
+    peso: dino.weight,
+    clasificacion: dino.clasification,
+    dieta: dino.diet_type,
+    velocidad: dino.speed,
+    caracteristicas: dino.special_features,
+    naturaleza: dino.defense_attack_mechanism,
+    fosiles: dino.fossils_found_in,
+    sociabilidad: dino.social_behaviour,
+    relacionEvolutiva: dino.evolutionary_relationship
+  })) || [];
+
   const handleDinosaurClick = (index: number) => {
     setSelectedDinosaur(index);
     setIsModalOpen(true);
@@ -27,48 +45,6 @@ export const TriassicInferior = () => {
     setIsModalOpen(false);
     setSelectedDinosaur(0);
   };
-
-  const dinosaursInfo = [
-    {
-      nombreCientifico: "Eoraptor lunensis",
-      altura: "50 cm",
-      peso: "9–10 kg",
-      clasificacion: "Saurisquio, Herrerasáurido",
-      dieta: "Omnívoro (animales, insectos, plantas)",
-      velocidad: "Hasta 40 km/h",
-      caracteristicas: "Ágil, liviano, con garras y mordida rápida",
-      naturaleza: "Dientes afilados y garras prensiles",
-      fosiles: "Argentina, Formación Ischigualasto",
-      sociabilidad: "Solitario o grupos pequeños",
-      relacionEvolutiva: "Primitivo, cercano a terópodos y saurópodos"
-    },
-    {
-      nombreCientifico: "Herrerasaurus",
-      altura: "1,0–1,3 metros (a la cadera)",
-      peso: "180–210 kg",
-      clasificacion: "Saurisquio, Herrerasáurido",
-      dieta: "Carnívoro (principalmente pequeños vertebrados y posiblemente otros dinosaurios)",
-      velocidad: "Hasta 30–40 km/h (estimado)",
-      caracteristicas: "Ágil, cuerpo alargado, extremidades fuertes, cráneo largo, dientes aserrados",
-      naturaleza: "Dientes afilados y garras grandes en las manos",
-      fosiles: "Argentina, Formación Ischigualasto",
-      sociabilidad: "Probablemente solitario",
-      relacionEvolutiva: "Uno de los dinosaurios más primitivos, relacionado con los saurópodos y terópodos"
-    },
-    {
-      nombreCientifico: "Postosuchus",
-      altura: "1,2 metros (a la cadera)",
-      peso: "250–300 kg",
-      clasificacion: "Arcosaurio, Rauisuquio",
-      dieta: "Carnívoro (principalmente otros reptiles y dinosaurios primitivos)",
-      velocidad: "Hasta 40 km/h (estimado)",
-      caracteristicas: "Cuerpo robusto, fuerte mordida, extremidades potentes, placas óseas en la espalda",
-      naturaleza: "Dientes afilados y garras curvas",
-      fosiles: "Estados Unidos, Texas y Nuevo México (Formación Cooper Canyon)",
-      sociabilidad: "Posiblemente solitario",
-      relacionEvolutiva: "Arcosaurio primitivo, más cercano a cocodrilos modernos que a dinosaurios"
-    },
-  ];
 
   return (
     <div>
@@ -110,7 +86,7 @@ export const TriassicInferior = () => {
         <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
 
         <GalleryArrows page1="map" page2="triassic-medio" />
-        <GalleryDinosaurNames dinosaurs={["Eoraptor", "Postosuchus", "Herrerasaurus"]}></GalleryDinosaurNames>
+        <GalleryDinosaurNames dinosaurs={lateTriassicData?.dinosaurs.map(dino => dino.name) || []}></GalleryDinosaurNames>
 
         {[styles.dinosaurBg1, styles.dinosaurBg2, styles.dinosaurBg3].map((bgClass, index) => {
           return (
@@ -124,14 +100,14 @@ export const TriassicInferior = () => {
           );
         })}
 
-        {isModalOpen &&
+        {isModalOpen && dinosaursInfo[selectedDinosaur] &&
             <XRayModal
               isOpen={isModalOpen}
               onClose={closeModal}
               selectedDinosaur={selectedDinosaur}
               activeDinosaur={activeDinosaur}
               setActiveDinosaur={setActiveDinosaur}
-              
+              dinosaurInfo={dinosaursInfo[selectedDinosaur]}
             />
         }
       </div>
