@@ -88,7 +88,7 @@ header {
   position: absolute;
   width: 10vw;
   height: 10vw;
-  animation: rotation 15s linear infinite;
+  animation: rotation 20s linear infinite;
   display: flex;
   justify-content: center;
   align-items: center;
