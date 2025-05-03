@@ -28,7 +28,7 @@ export const Encyclopedia = () => {
           <div className="dino-card"></div>
         </div>
         <div className="arrow-next">
-          <Link to="/triassic-medio">.</Link>
+          <Link to="/triassic-medium">.</Link>
         </div>
       </div>
     </div>

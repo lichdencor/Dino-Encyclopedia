@@ -2,16 +2,27 @@ body {
   overflow: hidden;
 }
 
-.era-map {
-  width: 98vw;
-  height: 95vh;
+.mapPage {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/public/assets/img/bg/rockBg.png);
+  background-position: bottom;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map {
+  width: 90%;
+  height: 75%;
   margin: 0 auto;
-  margin-top: 2vh;
-  background-image: url(/assets/img/map/map.png);
+  margin-top: 5%;
+  background-image: url(/public/assets/img/map/map.png);
   background-position: top;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  position: relative;
   /* background-color: red; */
 }
 
@@ -22,26 +33,6 @@ body {
   50% {
     transform: scaleY(1.03);
   }
-}
-
-.user-character {
-  /* background-color: blue; */
-  width: 12%;
-  height: 35%;
-  position: absolute;
-  bottom: -5%;
-  left: 1%;
-  transition: all 300ms ease-in-out;
-  background-image: url(/assets/img/pets/stegosaurus/pet-stegosaurus-1-R.png);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: breathe 2s infinite ease-in-out;
-  transform-origin: bottom;
-}
-
-.user-character:hover {
-  transform: scale(103%);
 }
 
 .period-btn {

@@ -3,9 +3,9 @@ import { Nav, PeriodsButtonHover } from "../../../components/";
 
 export const Map = () => {
   return (
-    <div className="map-background">
+    <div className="mapPage">
       <Nav />
-      <div className="era-map">
+      <div className="map">
         <div className="period-title-frame period-1">
           Triassic
           <br />
@@ -21,8 +21,6 @@ export const Map = () => {
           <br />
           Period
         </div>
-
-        <div className="user-character"></div>
         <div className="raptor-bites"></div>
 
         {/* COMMON ROOMS */}
@@ -57,7 +55,7 @@ export const Map = () => {
         <PeriodsButtonHover
           stage="stage-2"
           label="medium gallery"
-          link="/triassic-medio"
+          link="/triassic-medium"
           dinos={[
             "info-triassic-2-dino-1 small-dino",
             "info-triassic-2-dino-2 medium-dino",
@@ -87,7 +85,7 @@ export const Map = () => {
         <PeriodsButtonHover
           stage="stage-5"
           label="medium gallery"
-          link="/jurassic-medio"
+          link="/jurassic-medium"
           dinos={[
             "info-jurassic-2-dino-1 small-dino",
             "info-jurassic-2-dino-2 big-dino",
@@ -118,7 +116,7 @@ export const Map = () => {
         <PeriodsButtonHover
           stage="stage-8"
           label="medium gallery"
-          link="/cretaceous-medio"
+          link="/cretaceous-medium"
           dinos={[
             "info-cretaceous-2-dino-1 big-dino",
             "info-cretaceous-2-dino-2 medium-dino",

@@ -84,9 +84,9 @@ bun run dev
 │   │       ├── Cretaceous-Inferior
 │   │       │   ├── Cretaceous-Inferior.css
 │   │       │   └── Cretaceous-Inferior.tsx
-│   │       ├── Cretaceous-Medio
-│   │       │   ├── Cretaceous-Medio.css
-│   │       │   └── Cretaceous-Medio.tsx
+│   │       ├── Cretaceous-medium
+│   │       │   ├── Cretaceous-medium.css
+│   │       │   └── Cretaceous-medium.tsx
 │   │       ├── Cretaceous-Superior
 │   │       │   ├── Cretaceous-Superior.css
 │   │       │   └── Cretaceous-Superior.tsx
@@ -101,9 +101,9 @@ bun run dev
 │   │       ├── Jurassic-Inferior
 │   │       │   ├── Jurassic-Inferior.css
 │   │       │   └── Jurassic-Inferior.tsx
-│   │       ├── Jurassic-Medio
-│   │       │   ├── Jurassic-Medio.css
-│   │       │   └── Jurassic-Medio.tsx
+│   │       ├── Jurassic-medium
+│   │       │   ├── Jurassic-medium.css
+│   │       │   └── Jurassic-medium.tsx
 │   │       ├── Jurassic-Superior
 │   │       │   ├── Jurassic-Superior.css
 │   │       │   └── Jurassic-Superior.tsx
@@ -115,9 +115,9 @@ bun run dev
 │   │       ├── Triassic-Inferior
 │   │       │   ├── Triassic-Inferior.css
 │   │       │   └── Triassic-Inferior.tsx
-│   │       ├── Triassic-Medio
-│   │       │   ├── Triassic-Medio.css
-│   │       │   └── Triassic-Medio.tsx
+│   │       ├── Triassic-medium
+│   │       │   ├── Triassic-medium.css
+│   │       │   └── Triassic-medium.tsx
 │   │       └── Triassic-Superior
 │   │           ├── Triassic-Superior.css
 │   │           └── Triassic-Superior.tsx

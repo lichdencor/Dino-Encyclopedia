@@ -45,15 +45,15 @@ const AppRouter = () => {
             <Route path="/puzzleaurus" element={<Puzzleaurus />} />
 
             <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
-            <Route path="/cretaceous-medio" element={<CretaceousMedium />} />
+            <Route path="/cretaceous-medium" element={<CretaceousMedium />} />
             <Route path="/cretaceous-superior" element={<CretaceousSuperior />} />
 
             <Route path="/jurassic-inferior" element={<JurassicInferior />} />
-            <Route path="/jurassic-medio" element={<JurassicMedium />} />
+            <Route path="/jurassic-medium" element={<JurassicMedium />} />
             <Route path="/jurassic-superior" element={<JurassicSuperior />} />
 
             <Route path="/triassic-inferior" element={<TriassicInferior />} />
-            <Route path="/triassic-medio" element={<TriassicMedium />} />
+            <Route path="/triassic-medium" element={<TriassicMedium />} />
             <Route path="/triassic-superior" element={<TriassicSuperior />} />
 
             <Route
