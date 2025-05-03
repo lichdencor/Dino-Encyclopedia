@@ -49,7 +49,7 @@ export const CretaceousSuperior = () => {
   return (
     <div>
       <Nav />
-      <div className={styles.triassicInferiorContainer}>
+      <div className={styles.cretaceousSuperiorContainer}>
         <div
           className={`${styles.courtains1} ${curtain1IsHovered && second1Passed ? styles.curtainHover : ""}`}
           onMouseEnter={() => {
@@ -83,7 +83,7 @@ export const CretaceousSuperior = () => {
           <div className={`${styles.rightCurtain} ${curtain3IsHovered && styles.rightCurtainHover}`}></div>
         </div>
 
-        <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
+        <div className={styles.cretaceousSuperiorBg} style={{ pointerEvents: "none" }}></div>
 
         <GalleryArrows page1="cretaceous-medium" page2="map" />
         <GalleryDinosaurNames dinosaurs={superiorCretaceousData?.dinosaurs.map(dino => dino.name) || []}></GalleryDinosaurNames>
