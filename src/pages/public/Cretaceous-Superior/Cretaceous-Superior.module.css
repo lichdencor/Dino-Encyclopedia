@@ -1,16 +1,86 @@
-.triassicInferiorBg {
+.triassicInferiorContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url(/assets/img/era-bg/room-bg-5.png);
+}
+
+.triassicInferiorBg {
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/img/gallery-bg/gallery-bg-triassic.png);
   background-size: 100% 100%;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   overflow: hidden;
   position: relative;
   margin: 0;
   padding: 0;
+  z-index: 2;
+
 }
 
+.courtains1,
+.courtains2,
+.courtains3 {
+  position: absolute;
+  /* background-color: rebeccapurple; */
+  width: 23%;
+  height: 47%;
+  z-index: 1;
+  top: 33%;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: all;
+}
+
+.courtains1 {
+  left: 10%;
+}
+
+.courtains2 {
+  left: 39%;
+}
+
+.courtains3 {
+  right: 10%;
+}
+
+.curtainHover {
+  z-index: -1;
+}
+
+.leftCurtainHover {
+  transform: scaleX(0);
+}
+
+.rightCurtainHover {
+  transform: scaleX(0);
+}
+
+.leftCurtain,
+.rightCurtain {
+  width: 50%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.leftCurtain {
+  background-image: url(/assets/img/gallery-bg/courtains/left-courtain-triassic.png);
+  transform-origin: left;
+  transition: transform 1s ease-in-out;
+}
+
+.rightCurtain {
+  background-image: url(/assets/img/gallery-bg/courtains/right-courtain-triassic.png);
+  transform-origin: right;
+  transition: transform 1s ease-in-out;
+}
+
+/* dinosaur Backgrounds */
 .dinosaurBg1,
 .dinosaurBg2,
 .dinosaurBg3 {
@@ -19,6 +89,7 @@
   position: absolute;
   filter: brightness(50%);
   transition: all 300ms ease-in-out;
+  background-size: 100% 100%;
 }
 
 .dinosaurBg1:hover,
@@ -29,26 +100,30 @@
 }
 
 .dinosaurBg1 {
-  width: 20%;
-  height: 35%;
-  left: 78%;
-  bottom: 13%;
+  width: 19%;
+  height: 30%;
+  left: 12%;
+  bottom: 24%;
+  background-size: 100% 100%;
 }
 
 .dinosaurBg2 {
-  width: 25%;
-  height: 38%;
-  left: 8%;
-  bottom: 14%;
+  width: 12%;
+  height: 23%;
+  right: 16%;
+  bottom: 23%;
+  /* background-color: blue; */
 }
 
 .dinosaurBg3 {
-  width: 40%;
-  height: 35%;
-  left: 32%;
+  width: 16%;
+  height: 25%;
+  left: 42%;
   bottom: 23%;
+  /* background-color: red; */
 }
 
+/* Breathe Animation */
 @keyframes breathe {
   0%, 100% {
     transform: scaleY(1);
@@ -58,97 +133,149 @@
   }
 }
 
+/* Dinosaur Styles */
 .dinosaur1,
 .dinosaur2,
 .dinosaur3 {
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size: contain;
   background-repeat: no-repeat;
   transform-origin: bottom;
+  position: relative;
+  margin: 0;
 }
 
 .dinosaur1 {
-  background-image: url(/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Triceratops.png);
   animation: breathe 2s infinite ease-in-out;
+  background-size: 100% 100%;
 }
 
 .dinosaur2 {
-  background-image: url(/assets/img/dinosaurs/cr-3-Triceratops.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
   animation: breathe 4s infinite ease-in-out;
 }
 
 .dinosaur3 {
-  background-image: url(/assets/img/dinosaurs/cr-3-Tyrannosaurus-Rex.png);
+  background-image: url(/assets/img/dinosaurs/cr-3-Tyrannosaurus.png);
+  background-position-y: 100%;
   animation: breathe 3s infinite ease-in-out;
 }
 
-.nameFrame {
-  width: 17%;
-  height: 9%;
-  position: absolute;
-  background-image: url(/assets/img/dinosaurs/dinosaur-name-frame.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family: "MedusaGothicD";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.2vw;
-  text-align: center;
-  color: rgb(44, 42, 40);
+/* Definimos las variables en el contenedor principal */
+.triassicInferiorBg {
+  --cursor-x: 50%;
+  --cursor-y: 50%;
 }
 
-.nameFrame1 {
-  left: 9%;
-  top: 52%;
-}
-
-.nameFrame2 {
-  left: 30%;
-  top: 28%;
-}
-
-.nameFrame3 {
-  left: 63%;
-  top: 38%;
-}
-
-.arrowPrevious,
-.arrowNext {
-  width: 4%;
-  height: 5%;
-  background-position: center;
+/* Dinosaur Styles */
+.dinosaur {
+  width: 100%;
+  height: 100%;
+  background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 25%;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transform-origin: bottom;
+  position: relative;
+}
+
+.dinosaur1Bone {
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-cr-3-Triceratops.png);
+}
+
+.dinosaur2Bone {
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-cr-3-Ankylosaurus.png);
+}
+
+.dinosaur3Bone {
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-cr-3-Tyrannosaurus.png);
+}
+
+/* X-Ray Effect */
+.dinosaur1Bone,
+.dinosaur2Bone,
+.dinosaur3Bone {
   position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  visibility: hidden;
+  mask-image: radial-gradient(circle 5vw at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 1) 30%, rgba(255, 255, 255, 0) 70%);
+  -webkit-mask-image: radial-gradient(circle 5vw at var(--cursor-x) var(--cursor-y), rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+  clip-path: circle(5vw at var(--cursor-x) var(--cursor-y));
+  will-change: clip-path, mask-image;
+  background-color: rgb(161, 161, 161);
+  transform-origin: bottom;
+  cursor: none;
+}
+
+.activeBone {
+  visibility: visible;
+}
+
+/* Modal: overlay semitransparente */
+.modalOverlay {
+  position: fixed;
+  bottom: 0%;
+  left: 0;
+  width: 100vw;
+  height: 88vh;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 15;
 }
 
-.arrowPrevious:hover,
-.arrowNext:hover {
-  transform: scale(105%);
+/* Botón de cerrar modal */
+.modalContent button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.arrowPrevious {
-  left: 3%;
-  background-image: url(/assets/img/arrow-previous.png);
+.modalContent button:hover {
+  background-color: #666;
 }
 
-.arrowNext {
-  right: 3%;
-  background-image: url(/assets/img/arrow-next.png);
+/* Modal: contenido centrado */
+.modalContent {
+  width: 98.8%;
+  height: 97.80%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
 }
 
-@keyframes sway {
-  0% { transform: rotate(3deg); }
-  50% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
+.dinosaurContainer h2 {
+  background-color: rebeccapurple;
+  width: 50%;
 }
+
+/* XRAY DINOSAUR BG */
+.modalContent .scannerCursorBg {
+  width: 100%;
+  height: 88%;
+  position: unset;
+  /* background-color: red; */
+}
+

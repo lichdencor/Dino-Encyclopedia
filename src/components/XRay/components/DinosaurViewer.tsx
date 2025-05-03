@@ -8,7 +8,9 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
   activeDinosaur,
   onMouseMove,
   onMouseLeave,
-  children
+  children,
+  dinosaurImage,
+  dinosaurBone
 }) => {
   return (
     <div className={styles.dinosaurContainer}>
@@ -23,6 +25,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
             `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur${selectedDinosaur + 1}`]} ` +
             `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
           }
+          style={{ backgroundImage: `url(${dinosaurImage})` }}
         >
           <div className={styles.containerPuzzlePiece}>
             {children}
@@ -32,6 +35,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
               `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
               `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
             }
+            style={{ backgroundImage: `url(${dinosaurBone})` }}
           />
         </div>
       </div>

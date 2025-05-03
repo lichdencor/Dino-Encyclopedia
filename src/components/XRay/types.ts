@@ -20,6 +20,8 @@ export type XRayModalProps = {
   activeDinosaur: number | null;
   setActiveDinosaur: (index: number | null) => void;
   dinosaurInfo: DinosaurInfo;
+  dinosaurImage: string;
+  dinosaurBone: string;
 };
 
 export interface PuzzlePieceProps {
@@ -35,6 +37,8 @@ export interface DinosaurViewerProps {
   onMouseMove: (event: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: () => void;
   children: React.ReactNode;
+  dinosaurImage: string;
+  dinosaurBone: string;
 }
 
 export interface InfoListProps {

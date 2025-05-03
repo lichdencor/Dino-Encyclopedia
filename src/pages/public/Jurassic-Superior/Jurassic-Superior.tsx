@@ -1,36 +1,118 @@
-import React from "react";
-import { Nav } from "../../../components";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Jurassic-Superior.module.css";
+import { Nav } from "../../../components";
+import { GalleryArrows } from "../../../components/GalleryArrows/GalleryArrows";
+import { GalleryDinosaurNames } from "../../../components/GalleryDinosaurNames/GalleryDinosaurNames";
+import galleries_data from "../../../context/data/galleries_data.json";
+import { XRayModal } from "../../../components/XRay/XrayModal";
 
 export const JurassicSuperior = () => {
+  const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedDinosaur, setSelectedDinosaur] = useState<number>(0);
+  const [curtain1IsHovered, setCurtain1IsHovered] = useState<boolean>(false);
+  const [curtain2IsHovered, setCurtain2IsHovered] = useState<boolean>(false);
+  const [curtain3IsHovered, setCurtain3IsHovered] = useState<boolean>(false);
+  const [second1Passed, setSecond1Passed] = useState<boolean>(false);
+  const [second2Passed, setSecond2Passed] = useState<boolean>(false);
+  const [second3Passed, setSecond3Passed] = useState<boolean>(false);
+
+  const superiorJurassicData = galleries_data.galleries[0].era_jurassic.find(
+    (era) => era.period === "Superior Jurassic"
+  );
+
+  const dinosaursInfo = superiorJurassicData?.dinosaurs.map(dino => ({
+    name: dino.name,
+    nombreCientifico: dino.scientific_name,
+    altura: dino.height,
+    peso: dino.weight,
+    clasificacion: dino.clasification,
+    dieta: dino.diet_type,
+    velocidad: dino.speed,
+    caracteristicas: dino.special_features,
+    naturaleza: dino.defense_attack_mechanism,
+    fosiles: dino.fossils_found_in,
+    sociabilidad: dino.social_behaviour,
+    relacionEvolutiva: dino.evolutionary_relationship
+  })) || [];
+
+  const handleDinosaurClick = (index: number) => {
+    setSelectedDinosaur(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedDinosaur(0);
+  };
+
   return (
-      <div>
-        <Nav />
-        <div className={styles.triassicInferiorBg}>
-          <div className={styles.plant1}></div>
-          <div className={styles.plant2}></div>
-          <div className={styles.plant3}></div>
-          <div className={styles.bgEra}>
-            <Link to="/jurassic-medio" className={styles.arrowPrevious}>.</Link>
-
-            <div className={`${styles.nameFrame} ${styles.nameFrame1}`}>Brachiosaurus</div>
-            <div className={`${styles.nameFrame} ${styles.nameFrame2}`}>Diplodocus</div>
-            <div className={`${styles.nameFrame} ${styles.nameFrame3}`}>Stegosaurus</div>
-
-            <div className={styles.dinosaurBg1}>
-              <div className={styles.dinosaur1}></div>
-            </div>
-            <div className={styles.dinosaurBg2}>
-              <div className={styles.dinosaur2}></div>
-            </div>
-            <div className={styles.dinosaurBg3}>
-              <div className={styles.dinosaur3}></div>
-            </div>
-
-            <Link to="/cretaceous-inferior" className={styles.arrowNext}>.</Link>
-          </div>
+    <div>
+      <Nav />
+      <div className={styles.triassicInferiorContainer}>
+        <div
+          className={`${styles.courtains1} ${curtain1IsHovered && second1Passed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain1IsHovered(true);
+            setTimeout(() => setSecond1Passed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain1IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain1IsHovered && styles.rightCurtainHover}`}></div>
         </div>
+
+        <div
+          className={`${styles.courtains2} ${curtain2IsHovered && second2Passed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain2IsHovered(true);
+            setTimeout(() => setSecond2Passed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain2IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain2IsHovered && styles.rightCurtainHover}`}></div>
+        </div>
+
+        <div
+          className={`${styles.courtains3} ${curtain3IsHovered && second3Passed ? styles.curtainHover : ""}`}
+          onMouseEnter={() => {
+            setCurtain3IsHovered(true);
+            setTimeout(() => setSecond3Passed(true), 1000);
+          }}
+        >
+          <div className={`${styles.leftCurtain} ${curtain3IsHovered && styles.leftCurtainHover}`}></div>
+          <div className={`${styles.rightCurtain} ${curtain3IsHovered && styles.rightCurtainHover}`}></div>
+        </div>
+
+        <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
+
+        <GalleryArrows page1="jurassic-medium" page2="cretaceous-inferior" />
+        <GalleryDinosaurNames dinosaurs={superiorJurassicData?.dinosaurs.map(dino => dino.name) || []}></GalleryDinosaurNames>
+
+        {[styles.dinosaurBg1, styles.dinosaurBg2, styles.dinosaurBg3].map((bgClass, index) => {
+          return (
+            <div
+              key={index}
+              className={bgClass}
+              onClick={() => handleDinosaurClick(index)}
+            >
+              <div className={`${styles.dinosaur} ${styles[`dinosaur${index + 1}`]}`}></div>
+            </div>
+          );
+        })}
+
+        {isModalOpen && dinosaursInfo[selectedDinosaur] &&
+            <XRayModal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              selectedDinosaur={selectedDinosaur}
+              activeDinosaur={activeDinosaur}
+              setActiveDinosaur={setActiveDinosaur}
+              dinosaurInfo={dinosaursInfo[selectedDinosaur]}
+              dinosaurImage={`/assets/img/dinosaurs/ju-3-${dinosaursInfo[selectedDinosaur].name}.png`}
+              dinosaurBone={`/assets/img/dinosaurs/skeleton/skeleton-jur-3-${dinosaursInfo[selectedDinosaur].name}.png`}
+            />
+        }
       </div>
+    </div>
   );
 };
