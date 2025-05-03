@@ -37,6 +37,12 @@ export const Games = () => {
         <div className={styles.gamesPage}>
             <Nav />
             <div className={styles.gamesContainer}>
+                <div className={styles.sparkle1}></div>
+                <div className={styles.sparkle2}></div>
+                <div className={styles.sparkle3}></div>
+                <div className={styles.sparkle4}></div>
+                <div className={styles.sparkle5}></div>
+
                 {juegos.map((juego)=><Game nombre={juego.nombre} cuadro={juego.cuadro} imagen={juego.imagen} simbolo={juego.simbolo} link={juego.link}></Game>)}
             </div>
         </div>
