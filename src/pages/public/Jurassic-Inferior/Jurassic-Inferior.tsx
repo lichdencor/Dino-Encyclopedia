@@ -85,7 +85,7 @@ export const JurassicInferior = () => {
 
         <div className={styles.triassicInferiorBg} style={{ pointerEvents: "none" }}></div>
 
-        <GalleryArrows page1="map" page2="jurassic-inferior" />
+        <GalleryArrows page1="triassic-superior" page2="jurassic-medium" />
         <GalleryDinosaurNames dinosaurs={inferiorJurassicData?.dinosaurs.map(dino => dino.name) || []}></GalleryDinosaurNames>
 
         {[styles.dinosaurBg1, styles.dinosaurBg2, styles.dinosaurBg3].map((bgClass, index) => {
