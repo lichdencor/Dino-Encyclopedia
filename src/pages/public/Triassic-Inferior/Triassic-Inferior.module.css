@@ -147,18 +147,18 @@
 }
 
 .dinosaur1 {
-  background-image: url(/assets/img/dinosaurs/tr-1-Eoraptor.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Postosuchus.png);
   animation: breathe 2s infinite ease-in-out;
   background-size: 100% 100%;
 }
 
 .dinosaur2 {
-  background-image: url(/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Eoraptor.png);
   animation: breathe 4s infinite ease-in-out;
 }
 
 .dinosaur3 {
-  background-image: url(/assets/img/dinosaurs/tr-1-Postosuchus.png);
+  background-image: url(/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
   background-position-y: 100%;
   animation: breathe 3s infinite ease-in-out;
 }
@@ -181,15 +181,15 @@
 }
 
 .dinosaur1Bone {
-  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Eoraptor.png);
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Postosuchus.png);
 }
 
 .dinosaur2Bone {
-  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Herrerasaurus.png);
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Eoraptor.png);
 }
 
 .dinosaur3Bone {
-  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Postosuchus.png);
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-1-Herrerasaurus.png);
 }
 
 /* X-Ray Effect */
