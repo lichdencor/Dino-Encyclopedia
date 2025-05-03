@@ -108,6 +108,8 @@ export const TriassicInferior = () => {
               activeDinosaur={activeDinosaur}
               setActiveDinosaur={setActiveDinosaur}
               dinosaurInfo={dinosaursInfo[selectedDinosaur]}
+              dinosaurImage={`/assets/img/dinosaurs/tr-1-${dinosaursInfo[selectedDinosaur].name}.png`}
+              dinosaurBone={`/assets/img/dinosaurs/skeleton/skeleton-tr-1-${dinosaursInfo[selectedDinosaur].name}.png`}
             />
         }
       </div>

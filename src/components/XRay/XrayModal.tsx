@@ -16,7 +16,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   selectedDinosaur,
   activeDinosaur,
   setActiveDinosaur,
-  dinosaurInfo
+  dinosaurInfo,
+  dinosaurImage,
+  dinosaurBone
 }) => {
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
   const [piecePosition, setPiecePosition] = useState({ left: 0.8, top: 0.5 });
@@ -157,6 +159,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                 setIsMouseOver(false);
                 setActiveDinosaur(null);
               }}
+              dinosaurImage={dinosaurImage}
+              dinosaurBone={dinosaurBone}
             >
               <PuzzlePiece
                 position={piecePosition}

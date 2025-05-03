@@ -108,6 +108,8 @@ export const JurassicMedium = () => {
               activeDinosaur={activeDinosaur}
               setActiveDinosaur={setActiveDinosaur}
               dinosaurInfo={dinosaursInfo[selectedDinosaur]}
+              dinosaurImage={`/assets/img/dinosaurs/ju-2-${dinosaursInfo[selectedDinosaur].name}.png`}
+              dinosaurBone={`/assets/img/dinosaurs/skeleton/skeleton-jur-2-${dinosaursInfo[selectedDinosaur].name}.png`}
             />
         }
       </div>

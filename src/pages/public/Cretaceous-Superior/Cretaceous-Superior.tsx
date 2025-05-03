@@ -108,6 +108,8 @@ export const CretaceousSuperior = () => {
               activeDinosaur={activeDinosaur}
               setActiveDinosaur={setActiveDinosaur}
               dinosaurInfo={dinosaursInfo[selectedDinosaur]}
+              dinosaurImage={`/assets/img/dinosaurs/cr-3-${dinosaursInfo[selectedDinosaur].name}.png`}
+              dinosaurBone={`/assets/img/dinosaurs/skeleton/skeleton-cr-3-${dinosaursInfo[selectedDinosaur].name}.png`}
             />
         }
       </div>
