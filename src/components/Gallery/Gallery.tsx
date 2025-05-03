@@ -19,8 +19,6 @@ interface DinosaurInfo {
 }
 
 interface GalleryProps {
-  era: "triassic" | "jurassic" | "cretaceous";
-  period: "Early" | "Medium" | "Superior" | "Late";
   page1: string;
   page2: string;
   customStyles: {
@@ -48,8 +46,6 @@ interface GalleryProps {
 }
 
 export const Gallery = ({
-  era,
-  period,
   page1,
   page2,
   customStyles,

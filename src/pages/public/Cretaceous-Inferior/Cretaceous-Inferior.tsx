@@ -44,8 +44,6 @@ export const CretaceousInferior = () => {
 
   return (
     <Gallery
-      era="cretaceous"
-      period="Early"
       page1="jurassic-superior"
       page2="cretaceous-medium"
       customStyles={customStyles}

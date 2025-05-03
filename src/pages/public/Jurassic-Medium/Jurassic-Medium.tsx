@@ -44,8 +44,6 @@ export const JurassicMedium = () => {
 
   return (
     <Gallery
-      era="jurassic"
-      period="Medium"
       page1="jurassic-inferior"
       page2="jurassic-superior"
       customStyles={customStyles}

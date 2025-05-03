@@ -44,8 +44,6 @@ export const TriassicMedium = () => {
 
   return (
     <Gallery
-      era="triassic"
-      period="Medium"
       page1="triassic-inferior"
       page2="triassic-superior"
       customStyles={customStyles}
