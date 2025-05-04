@@ -45,7 +45,11 @@ export const Gallery = ({
     <div>
       <Nav />
       <div className={customStyles.containerClass}>
-        <GalleryCurtains customStyles={customStyles} />
+        <GalleryCurtains 
+          customStyles={customStyles}
+          era={era}
+          period={period}
+        />
         
         <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 

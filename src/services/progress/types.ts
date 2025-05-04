@@ -1,3 +1,21 @@
+type PeriodData = {
+  name: string;
+  period: string;
+  dinosaurs: Array<{
+    id: string;
+    discovered: boolean;
+    scanProgress: number;
+    visibleInfo: string[];
+    elapsedTime: number;
+  }>;
+  completed: boolean;
+  hoveredCurtains: {
+    curtain1: boolean;
+    curtain2: boolean;
+    curtain3: boolean;
+  };
+};
+
 export type ProgressData = {
   minigames: {
     puzzleaurus: {
@@ -28,42 +46,9 @@ export type ProgressData = {
     };
   };
   galleries: Array<{
-    era_triassic: Array<{
-      name: string;
-      period: string;
-      dinosaurs: Array<{
-        id: string;
-        discovered: boolean;
-        scanProgress: number;
-        visibleInfo: string[];
-        elapsedTime: number;
-      }>;
-      completed: boolean;
-    }>;
-    era_jurassic: Array<{
-      name: string;
-      period: string;
-      dinosaurs: Array<{
-        id: string;
-        discovered: boolean;
-        scanProgress: number;
-        visibleInfo: string[];
-        elapsedTime: number;
-      }>;
-      completed: boolean;
-    }>;
-    era_cretaceous: Array<{
-      name: string;
-      period: string;
-      dinosaurs: Array<{
-        id: string;
-        discovered: boolean;
-        scanProgress: number;
-        visibleInfo: string[];
-        elapsedTime: number;
-      }>;
-      completed: boolean;
-    }>;
+    era_triassic: Array<PeriodData>;
+    era_jurassic: Array<PeriodData>;
+    era_cretaceous: Array<PeriodData>;
   }>;
 }
 
