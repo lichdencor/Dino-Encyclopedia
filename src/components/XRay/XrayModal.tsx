@@ -329,10 +329,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               dinosaurImage={dinosaurImage}
               dinosaurBone={dinosaurBone}
             >
-              {!hasPieceBeenFound && (
+              {!hasPieceBeenFound && showPuzzlePiece && (
                 <PuzzlePiece
                   position={piecePosition}
-                  isVisible={showPuzzlePiece}
                   showAlert={showAlert}
                   onMouseEnter={handlePuzzlePieceHover}
                 />

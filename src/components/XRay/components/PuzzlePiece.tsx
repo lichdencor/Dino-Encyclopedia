@@ -4,12 +4,9 @@ import { PuzzlePieceProps } from '../types';
 
 export const PuzzlePiece: React.FC<PuzzlePieceProps> = ({
   position,
-  isVisible,
   showAlert,
   onMouseEnter
 }) => {
-  if (!isVisible) return null;
-
   return (
     <img
       className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
