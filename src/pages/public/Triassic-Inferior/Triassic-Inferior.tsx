@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import styles from "./Triassic-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { TransitionScreen } from '../../../components/TransitionScreen';
 
-export const TriassicInferior = () => {
+export const TriassicInferior: React.FC = () => {
+  const [showTransition, setShowTransition] = useState(true);
+
   const customStyles = {
     containerClass: styles.triassicInferiorContainer,
     backgroundClass: styles.triassicInferiorBg,
@@ -42,16 +46,30 @@ export const TriassicInferior = () => {
     relacionEvolutiva: dino.evolutionary_relationship
   })) || [];
 
+  const handleTransitionEnd = () => {
+    setShowTransition(false);
+  };
+
   return (
-    <Gallery
-      previousPage="map"
-      nextPage="triassic-medium"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/tr-1-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-1-"
-      dinosaursInfo={dinosaursInfo}
-      era="triassic"
-      period="Late"
-    />
+    <>
+      {showTransition && (
+        <TransitionScreen 
+          eraName="Triassic Period" 
+          onTransitionEnd={handleTransitionEnd} 
+        />
+      )}
+      <Gallery
+        previousPage="map"
+        nextPage="triassic-medium"
+        customStyles={customStyles}
+        imagePrefix="/assets/img/dinosaurs/tr-1-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-1-"
+        dinosaursInfo={dinosaursInfo}
+        era="triassic"
+        period="Late"
+      />
+    </>
   );
 };
+
+export default TriassicInferior;
