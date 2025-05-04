@@ -12,16 +12,19 @@ type ProgressContextType = {
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
 
 export const ProgressProvider = ({ children }: { children: ReactNode }) => {
-    const [progress, updateProgress] = useState<ProgressData>(initialProgress as ProgressData);
+    const [progress, updateProgress] = useState<ProgressData>(initialProgress as unknown as ProgressData);
     const progressService = ProgressServiceFactory.getInstance().getService();
 
     useEffect(() => {
         const loadProgress = async () => {
             try {
                 const savedProgress = await progressService.getProgress();
-                updateProgress(savedProgress);
+                if (savedProgress) {
+                    updateProgress(savedProgress);
+                }
             } catch (error) {
-                await progressService.saveProgress(initialProgress as ProgressData);
+                console.error("Error loading progress:", error);
+                // Keep using initial progress if loading fails
             }
         };
         loadProgress();
@@ -33,6 +36,7 @@ export const ProgressProvider = ({ children }: { children: ReactNode }) => {
             updateProgress(newProgress);
         } catch (error) {
             console.error("Error saving progress:", error);
+            // Still update state even if save fails
             updateProgress(newProgress);
         }
     };

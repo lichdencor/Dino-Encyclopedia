@@ -1,4 +1,5 @@
 import { IProgressService, ProgressData } from "./types";
+import initialProgress from "../../context/data/user_progress.json";
 
 const PROGRESS_STORAGE_KEY = "dino_encyclopedia_progress";
 
@@ -7,12 +8,16 @@ export class LocalStorageProgressService implements IProgressService {
     try {
       const storedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
       if (!storedProgress) {
-        throw new Error("No progress found");
+        // Initialize with default progress
+        const defaultProgress = initialProgress as unknown as ProgressData;
+        await this.saveProgress(defaultProgress);
+        return defaultProgress;
       }
       return JSON.parse(storedProgress) as ProgressData;
     } catch (error) {
       console.error("Error getting progress from localStorage:", error);
-      throw error;
+      // Return initial progress as fallback
+      return initialProgress as unknown as ProgressData;
     }
   }
 

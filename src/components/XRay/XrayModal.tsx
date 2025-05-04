@@ -176,7 +176,13 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       savePuzzlePieceFound(dinosaur.id);
       setShowAlert(true);
       setHasPieceBeenFound(true);
+      stopProgressTimer();
     }
+  };
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
+    startProgressTimer();
   };
 
   const handlePuzzlePieceHover = () => {
@@ -304,7 +310,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   return (
     <div className={stylesContainer.modalOverlay + " preview-scan-dino"} onClick={onClose}>
-      {showAlert && <Alert onClose={() => setShowAlert(false)} />}
+      {showAlert && <Alert onClose={handleAlertClose} />}
 
       <div className={styles.modalBg}>
         <div
