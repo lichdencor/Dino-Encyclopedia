@@ -158,7 +158,7 @@
 }
 
 .dinosaur3 {
-  background-image: url(/assets/img/dinosaurs/tr-2-Fukuiraptor.png);
+  background-image: url(/assets/img/dinosaurs/tr-2-Chindesaurus.png);
   background-position-y: 100%;
   animation: breathe 3s infinite ease-in-out;
 }
