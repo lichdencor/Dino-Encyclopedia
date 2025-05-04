@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import styles from "./Jurassic-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { TransitionScreen } from '../../../components/TransitionScreen';
 
-export const JurassicInferior = () => {
+export const JurassicInferior: React.FC = () => {
+  const [showTransition, setShowTransition] = useState(true);
+
   const customStyles = {
     containerClass: styles.jurassicInferiorContainer,
     backgroundClass: styles.jurassicInferiorBg,
@@ -42,14 +46,30 @@ export const JurassicInferior = () => {
     relacionEvolutiva: dino.evolutionary_relationship
   })) || [];
 
-  return [<Gallery
-    previousPage="triassic-superior"
-    nextPage="jurassic-medium"
-    customStyles={customStyles}
-    imagePrefix="/assets/img/dinosaurs/ju-1-"
-    skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jur-1-"
-    dinosaursInfo={dinosaursInfo}
-    era="jurassic"
-    period="Early"
-  />];
+  const handleTransitionEnd = () => {
+    setShowTransition(false);
+  };
+
+  return (
+    <>
+      {showTransition && (
+        <TransitionScreen 
+          eraName="Jurassic Period" 
+          onTransitionEnd={handleTransitionEnd} 
+        />
+      )}
+      <Gallery
+        previousPage="triassic-superior"
+        nextPage="jurassic-medium"
+        customStyles={customStyles}
+        imagePrefix="/assets/img/dinosaurs/ju-1-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jur-1-"
+        dinosaursInfo={dinosaursInfo}
+        era="jurassic"
+        period="Early"
+      />
+    </>
+  );
 };
+
+export default JurassicInferior;

@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import styles from "./Cretaceous-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { TransitionScreen } from '../../../components/TransitionScreen';
 
-export const CretaceousInferior = () => {
+export const CretaceousInferior: React.FC = () => {
+  const [showTransition, setShowTransition] = useState(true);
+
   const customStyles = {
     containerClass: styles.cretaceousInferiorContainer,
     backgroundClass: styles.cretaceousInferiorBg,
@@ -42,16 +46,30 @@ export const CretaceousInferior = () => {
     relacionEvolutiva: dino.evolutionary_relationship
   })) || [];
 
+  const handleTransitionEnd = () => {
+    setShowTransition(false);
+  };
+
   return (
-    <Gallery
-      previousPage="jurassic-superior"
-      nextPage="cretaceous-medium"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/cr-1-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-1-"
-      dinosaursInfo={dinosaursInfo}
-      era="cretaceous"
-      period="Early"
-    />
+    <>
+      {showTransition && (
+        <TransitionScreen 
+          eraName="Cretaceous Period" 
+          onTransitionEnd={handleTransitionEnd} 
+        />
+      )}
+      <Gallery
+        previousPage="jurassic-superior"
+        nextPage="cretaceous-medium"
+        customStyles={customStyles}
+        imagePrefix="/assets/img/dinosaurs/cr-1-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-1-"
+        dinosaursInfo={dinosaursInfo}
+        era="cretaceous"
+        period="Early"
+      />
+    </>
   );
 };
+
+export default CretaceousInferior;

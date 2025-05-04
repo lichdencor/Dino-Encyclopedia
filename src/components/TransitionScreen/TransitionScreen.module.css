@@ -1,0 +1,54 @@
+.transitionScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: transitionFadeIn 0.5s ease-in forwards, transitionFadeOut 0.5s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+.eraTitle {
+  font-size: 5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  animation: transitionScaleUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes transitionFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes transitionFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes transitionScaleUp {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+} 
