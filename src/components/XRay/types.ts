@@ -1,3 +1,11 @@
+export type DinosaurProgress = {
+  id: string;
+  discovered: boolean;
+  scanProgress: number;
+  visibleInfo: string[];
+  elapsedTime: number;
+};
+
 export type DinosaurInfo = {
   name: string;
   nombreCientifico: string;
@@ -22,6 +30,10 @@ export type XRayModalProps = {
   dinosaurInfo: DinosaurInfo;
   dinosaurImage: string;
   dinosaurBone: string;
+  era: "triassic" | "jurassic" | "cretaceous";
+  period: "Early" | "Medium" | "Superior" | "Late";
+  scanThreshold?: number;
+  onScanComplete?: (dinosaurInfo: DinosaurInfo) => void;
 };
 
 export interface PuzzlePieceProps {
@@ -44,6 +56,8 @@ export interface DinosaurViewerProps {
 export interface InfoListProps {
   dinosaurInfo: DinosaurInfo;
   elapsedTime: number;
+  visibleInfo: string[];
+  onInfoVisibilityChange: (newVisibleInfo: string[]) => void;
 }
 
 export interface ProgressBarProps {

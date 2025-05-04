@@ -44,12 +44,14 @@ export const TriassicMedium = () => {
 
   return (
     <Gallery
-      page1="triassic-inferior"
-      page2="triassic-superior"
+      previousPage="triassic-inferior"
+      nextPage="triassic-superior"
       customStyles={customStyles}
       imagePrefix="/assets/img/dinosaurs/tr-2-"
       skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-2-"
       dinosaursInfo={dinosaursInfo}
+      era="triassic"
+      period="Medium"
     />
   );
 };

@@ -19,8 +19,8 @@ interface DinosaurInfo {
 }
 
 interface GalleryProps {
-  page1: string;
-  page2: string;
+  previousPage: string;
+  nextPage: string;
   customStyles: {
     containerClass: string;
     backgroundClass: string;
@@ -43,15 +43,19 @@ interface GalleryProps {
   imagePrefix: string;
   skeletonPrefix: string;
   dinosaursInfo: DinosaurInfo[];
+  era: "triassic" | "jurassic" | "cretaceous";
+  period: "Early" | "Medium" | "Superior" | "Late";
 }
 
 export const Gallery = ({
-  page1,
-  page2,
+  previousPage,
+  nextPage,
   customStyles,
   imagePrefix,
   skeletonPrefix,
-  dinosaursInfo
+  dinosaursInfo,
+  era,
+  period
 }: GalleryProps) => {
   const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -112,7 +116,7 @@ export const Gallery = ({
 
         <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
-        <GalleryArrows page1={page1} page2={page2} />
+        <GalleryArrows page1={previousPage} page2={nextPage} />
         <GalleryDinosaurNames dinosaurs={dinosaursInfo.map(dino => dino.name) || []}></GalleryDinosaurNames>
 
 
@@ -139,6 +143,8 @@ export const Gallery = ({
             dinosaurInfo={dinosaursInfo[selectedDinosaur]}
             dinosaurImage={`${imagePrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
             dinosaurBone={`${skeletonPrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
+            era={era}
+            period={period}
           />
         }
       </div>
