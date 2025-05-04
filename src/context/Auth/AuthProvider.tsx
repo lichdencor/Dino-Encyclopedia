@@ -1,82 +1,95 @@
-import React, { useState, useEffect } from "react";
-import { AuthContext } from "./AuthContext";
-import { firebaseAuth } from "../../lib";
-import { supabase } from "../../lib";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  User,
-} from "firebase/auth";
+import { createContext, useContext, useState, ReactNode } from 'react';
+import { authService } from '../../services/auth.service';
+import { useNavigate } from 'react-router-dom';
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+interface User {
+  id: string;
+  email: string;
+  full_name: string;
+}
+
+interface AuthContextType {
+  user: User | null;
+  isAuthenticated: boolean;
+  login: (email: string, password: string) => Promise<void>;
+  register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
+  logout: () => void;
+  resetPassword: (email: string) => Promise<void>;
+  registrationSuccess: boolean;
+  clearRegistrationSuccess: () => void;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth debe ser usado dentro de un AuthProvider');
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [authError, setAuthError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    return () => unsubscribe();
-  }, []);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const login = async (email: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(firebaseAuth, email, password);
-      console.log("Usuario logueado correctamente");
-    } catch (error: any) {
-      console.error("Error en login:", error);
+      const response = await authService.login({ email, password });
+      setUser(response.profile);
+      navigate('/');
+    } catch (error) {
+      console.error('Error de login:', error);
       throw error;
     }
   };
 
-  const register = async (email: string, password: string) => {
+  const register = async (data: { email: string; password: string; full_name: string }) => {
     try {
-      const { user } = await createUserWithEmailAndPassword(
-        firebaseAuth,
-        email,
-        password
-      );
+      const response = await authService.register(data);
+      setRegistrationSuccess(true);
+      navigate('/login');
+    } catch (error) {
+      console.error('Error de registro:', error);
+      throw error;
+    }
+  };
 
-      if (!user) {
-        throw new Error("No se pudo crear el usuario en Firebase.");
-      }
-
-      const { error } = await supabase.from("profiles").insert([
-        {
-          email: user.email,
-          created_at: new Date().toISOString(),
-        },
-      ]);
-
-      if (error) {
-        throw new Error("Error al crear perfil en Supabase: " + error.message);
-      }
-
-      console.log("Perfil de usuario registrado en Supabase");
-    } catch (error: any) {
-      console.error("Error en registro:", error);
+  const resetPassword = async (email: string) => {
+    try {
+      await authService.resetPassword(email);
+    } catch (error) {
+      console.error('Error al enviar el correo de recuperación:', error);
       throw error;
     }
   };
 
   const logout = async () => {
     try {
-      await signOut(firebaseAuth);
-      setAuthError(null);
+      await authService.logout();
+      setUser(null);
+      navigate('/login');
     } catch (error) {
-      setAuthError("Error al cerrar sesión.");
-      console.error(error);
+      console.error('Error al cerrar sesión:', error);
     }
   };
 
-  return (
-    <AuthContext.Provider value={{ user, login, register, logout, authError }}>
-      {children}
-      {authError && <p style={{ color: "red" }}>{authError}</p>}
-    </AuthContext.Provider>
-  );
+  const clearRegistrationSuccess = () => {
+    setRegistrationSuccess(false);
+  };
+
+  const value = {
+    user,
+    isAuthenticated: !!user,
+    login,
+    register,
+    logout,
+    resetPassword,
+    registrationSuccess,
+    clearRegistrationSuccess,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

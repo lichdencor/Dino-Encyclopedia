@@ -21,3 +21,5 @@ export * from "./public/Store/Store.tsx";
 export * from "./public/Library/Library.tsx";
 export * from "./public/Wallet/Wallet.tsx";
 export { default as AdsPage } from "./public/Ads/AdsPage";
+export { Register } from './public/Register/Register';
+export { RecoveryPassword } from './public/RecoveryPassword/RecoveryPassword';

@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App.tsx";
 import { AuthProvider } from "./context/";
 import { ProgressProvider } from "./context/Progress/ProgressProvider";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <AuthProvider>
-      <ProgressProvider>
-        <App />
-      </ProgressProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ProgressProvider>
+          <App />
+        </ProgressProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </StrictMode>,
 );

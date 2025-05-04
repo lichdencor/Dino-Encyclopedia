@@ -1,79 +1,89 @@
-import { useState } from "react";
-import { useAuth } from "../../../hooks";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../../context/Auth/AuthProvider";
 import styles from "./Login.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [animate, setAnimate] = useState(false);
+  const [error, setError] = useState("");
+  const { login, registrationSuccess, clearRegistrationSuccess } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    setLoading(true);
-    setError(null);
+  useEffect(() => {
+    // Limpiar el estado de registro exitoso cuando el componente se desmonte
+    return () => {
+      clearRegistrationSuccess();
+    };
+  }, [clearRegistrationSuccess]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    
     try {
       await login(email, password);
-      navigate("/pet-selection");
-    } catch (error) {
-      console.error("Error en login:", error);
-      setError("Error al iniciar sesión. Verifica tus credenciales.");
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error al iniciar sesión");
     }
   };
 
-  const handleGoToSignIn = () => {
-    setAnimate(true);
-    setTimeout(() => {
-      navigate("/signin");
-    }, 500);
-  };
-
   return (
-    <div className={styles.container}>
-      <div className={`${styles.card} ${animate ? styles.slideRight : ""}`}>
-        <button
-          className={styles.backButton}
-          onClick={() => {
-            navigate("/");
-          }}
+    <div className={styles.loginContainer}>
+      <div className={styles.loginBox}>
+        <button 
+          className={styles.closeButton}
+          onClick={() => navigate('/')}
+          aria-label="Cerrar"
         >
-          ← Home
+          ×
         </button>
-        <h1>Login</h1>
-        {error && <p className={styles.error}>{error}</p>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={loading}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          disabled={loading}
-        />
-        <button
-          className={styles.loginButton}
-          onClick={handleLogin}
-          disabled={loading}
-        >
-          {loading ? "Cargando..." : "Login"}
-        </button>
-        <button
-          className={styles.registerButton}
-          onClick={handleGoToSignIn}
-          disabled={loading}
-        >
-          {loading ? "Cargando..." : "Register"}
-        </button>
+        <h1>Iniciar Sesión</h1>
+        
+        {registrationSuccess && (
+          <div className={styles.successMessage}>
+            ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+          </div>
+        )}
+        
+        {error && <div className={styles.error}>{error}</div>}
+        
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.inputGroup}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label htmlFor="password">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Tu contraseña"
+            />
+          </div>
+
+          <button type="submit" className={styles.submitButton}>
+            Iniciar Sesión
+          </button>
+        </form>
+
+        <p className={styles.registerLink}>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+        </p>
+        <p className={styles.recoveryLink}>
+          ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
+        </p>
       </div>
     </div>
   );
