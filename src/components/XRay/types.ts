@@ -38,7 +38,10 @@ export type XRayModalProps = {
 };
 
 export interface PuzzlePieceProps {
-  position: { left: number; top: number };
+  position: { 
+    left: number; 
+    top: number; 
+  };
   showAlert: boolean;
   onMouseEnter: () => void;
 }

@@ -32,8 +32,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 }) => {
   const { progress, setProgress } = useProgress();
   
-  const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
-  const [piecePosition, setPiecePosition] = useState({ left: 0.8, top: 0.5 });
+  const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
+  const [piecePosition, setPiecePosition] = useState<{ left: number; top: number } | null>(null);
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [hasPieceBeenFound, setHasPieceBeenFound] = useState(false);
@@ -218,7 +218,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const handleMouseMove = (
     event: React.MouseEvent<HTMLDivElement>
   ) => {
-    if (selectedDinosaur === null) return;
+    if (selectedDinosaur === null || !piecePosition) return;
 
     const container = event.currentTarget;
     const rect = container.getBoundingClientRect();
@@ -330,7 +330,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               dinosaurImage={dinosaurImage}
               dinosaurBone={dinosaurBone}
             >
-              {!hasPieceBeenFound && showPuzzlePiece && (
+              {!hasPieceBeenFound && showPuzzlePiece && piecePosition && (
                 <PuzzlePiece
                   position={piecePosition}
                   showAlert={showAlert}
