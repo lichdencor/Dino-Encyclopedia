@@ -195,7 +195,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const handlePuzzlePieceLeave = () => {
-    console.log("leave");
     if (hoverIntervalRef.current) {
       clearInterval(hoverIntervalRef.current);
       hoverIntervalRef.current = null;
@@ -262,7 +261,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         }
 
         const hoverDuration = Date.now() - hoverStartTimeRef.current!;
-        console.log(hoverDuration);
         if (hoverDuration >= 2000) { 
           handlePuzzlePieceFound();
         }
