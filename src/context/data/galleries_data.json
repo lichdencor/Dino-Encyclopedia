@@ -73,21 +73,6 @@
               "evolutionary_relationship": "Initially mistaken for a theropod dinosaur, but later identified as a member of the crocodilian lineage, related to other poposauroids"
             },
             {
-              "name": "Chindesaurus",
-              "scientific_name": "Chindesaurus bryansmalli",
-              "height": "About 1 meter",
-              "weight": "Estimated to be around 10–30 kg",
-              "geological_period": "Late Triassic",
-              "clasification": "Dinosauria, Saurischia, Herrerasauridae (or possibly a basal theropod)",
-              "diet_type": "Carnivorous (likely preyed on small animals and insects)",
-              "speed": "Likely a fast runner, using its long legs for agility",
-              "special_features": "Slender body, sharp teeth, and long legs for quick movement",
-              "defense_attack_mechanism": "Used its sharp teeth and claws to catch and kill prey",
-              "fossils_found_in": "United States (Arizona, in the Chinle Formation)",
-              "social_behaviour": "Likely solitary or lived in small hunting groups",
-              "evolutionary_relationship": "Considered a primitive saurischian dinosaur, possibly related to early theropods or herrerasaurids"
-            },
-            {
               "name": "Fukuiraptor",
               "scientific_name": "Fukuiraptor kitadaniensis",
               "height": "About 1.5 meters",
@@ -101,6 +86,21 @@
               "fossils_found_in": "Japan (Kitadani Formation, Fukui Prefecture)",
               "social_behaviour": "Unclear, but may have been a solitary hunter",
               "evolutionary_relationship": "A member of the Megaraptora group, possibly related to allosauroids or tyrannosauroids"
+            },
+            {
+              "name": "Chindesaurus",
+              "scientific_name": "Chindesaurus bryansmalli",
+              "height": "About 1 meter",
+              "weight": "Estimated to be around 10–30 kg",
+              "geological_period": "Late Triassic",
+              "clasification": "Dinosauria, Saurischia, Herrerasauridae (or possibly a basal theropod)",
+              "diet_type": "Carnivorous (likely preyed on small animals and insects)",
+              "speed": "Likely a fast runner, using its long legs for agility",
+              "special_features": "Slender body, sharp teeth, and long legs for quick movement",
+              "defense_attack_mechanism": "Used its sharp teeth and claws to catch and kill prey",
+              "fossils_found_in": "United States (Arizona, in the Chinle Formation)",
+              "social_behaviour": "Likely solitary or lived in small hunting groups",
+              "evolutionary_relationship": "Considered a primitive saurischian dinosaur, possibly related to early theropods or herrerasaurids"
             }
           ]
         },

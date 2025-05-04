@@ -108,17 +108,17 @@
 }
 
 .dinosaurBg2 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
+  width: 16%;
+  height: 25%;
+  left: 42%;
   bottom: 23%;
   /* background-color: blue; */
 }
 
 .dinosaurBg3 {
-  width: 16%;
-  height: 25%;
-  left: 42%;
+  width: 12%;
+  height: 23%;
+  right: 16%;
   bottom: 23%;
   /* background-color: red; */
 }
@@ -153,7 +153,7 @@
 }
 
 .dinosaur2 {
-  background-image: url(/assets/img/dinosaurs/tr-2-Chindesaurus.png);
+  background-image: url(/assets/img/dinosaurs/tr-2-Fukuiraptor.png);
   animation: breathe 4s infinite ease-in-out;
 }
 
@@ -185,11 +185,11 @@
 }
 
 .dinosaur2Bone {
-  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-2-Chindesaurus.png);
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-2-Fukuiraptor.png);
 }
 
 .dinosaur3Bone {
-  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-2-Fukuiraptor.png);
+  background-image: url(/assets/img/dinosaurs/skeleton/skeleton-tr-2-Chindesaurus.png);
 }
 
 /* X-Ray Effect */

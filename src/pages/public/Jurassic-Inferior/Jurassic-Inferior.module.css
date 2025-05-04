@@ -108,17 +108,17 @@
 }
 
 .dinosaurBg2 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
+  width: 16%;
+  height: 25%;
+  left: 42%;
   bottom: 23%;
   /* background-color: blue; */
 }
 
 .dinosaurBg3 {
-  width: 16%;
-  height: 25%;
-  left: 42%;
+  width: 12%;
+  height: 23%;
+  right: 16%;
   bottom: 23%;
   /* background-color: red; */
 }

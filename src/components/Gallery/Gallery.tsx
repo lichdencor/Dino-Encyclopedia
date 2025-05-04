@@ -68,6 +68,7 @@ export const Gallery = ({
   const [second3Passed, setSecond3Passed] = useState<boolean>(false);
 
   const handleDinosaurClick = (index: number) => {
+    console.log(index);
     setSelectedDinosaur(index);
     setIsModalOpen(true);
   };
@@ -117,8 +118,11 @@ export const Gallery = ({
         <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
         <GalleryArrows page1={previousPage} page2={nextPage} />
-        <GalleryDinosaurNames dinosaurs={dinosaursInfo.map(dino => dino.name) || []}></GalleryDinosaurNames>
-
+        <GalleryDinosaurNames 
+          dinosaurs={dinosaursInfo.map(dino => dino.name)}
+          era={era}
+          period={period}
+        />
 
         {[customStyles.dinosaurBg1, customStyles.dinosaurBg2, customStyles.dinosaurBg3].map((bgClass, index) => {
           const dinosaurNumber = `dinosaur${index + 1}` as keyof typeof customStyles;
