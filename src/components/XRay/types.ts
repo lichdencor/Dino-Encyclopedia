@@ -63,6 +63,7 @@ export interface InfoListProps {
 
 export interface ProgressBarProps {
   progress: number;
+  puzzlePieceFound: boolean;
 }
 
 export type PuzzlePieceLocation = {

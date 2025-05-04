@@ -11,7 +11,6 @@ import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 
-// Add new type for puzzle piece checking
 type PuzzlePieceStatus = {
   isFound: boolean;
   scanProgress: number;
@@ -33,7 +32,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 }) => {
   const { progress, setProgress } = useProgress();
   
-  // State declarations
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
   const [piecePosition, setPiecePosition] = useState({ left: 0.8, top: 0.5 });
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
@@ -46,7 +44,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const progressTimerRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
 
-  // Puzzle piece related functions
   const checkPuzzlePieceStatus = (dinosaurId: string): PuzzlePieceStatus => {
     const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
     const isPieceFound = foundPieces.some(
@@ -66,19 +63,16 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const savePuzzlePieceFound = (dinosaurId: string) => {
     const currentProgress = { ...progress };
     
-    // Initialize foundPieces if needed
     if (!currentProgress.minigames.puzzleaurus.foundPieces) {
       currentProgress.minigames.puzzleaurus.foundPieces = [];
     }
 
-    // Add piece location
     currentProgress.minigames.puzzleaurus.foundPieces.push({
       era,
       period,
       dinosaurId
     });
 
-    // Update puzzle count
     currentProgress.minigames.puzzleaurus.puzzles = currentProgress.minigames.puzzleaurus.puzzles.map(puzzle => ({
       ...puzzle,
       puzzle_pieces: {
@@ -90,7 +84,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     setProgress(currentProgress);
   };
 
-  // Progress related functions
   const getCurrentDinosaurProgress = () => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
@@ -172,7 +165,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     updateDinosaurProgress(getCurrentDinosaurProgress(), getCurrentDinosaurData().elapsedTime, newVisibleInfo);
   };
 
-  // Event handlers
   const handlePuzzlePieceFound = () => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
@@ -230,7 +222,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     checkDinosaurInteraction(event, container, selectedDinosaur);
   };
 
-  // Effects
   useEffect(() => {
     if (isPuzzlePieceHovered && !hasPieceBeenFound) {
       const timeout = setTimeout(handlePuzzlePieceFound, ALERT_DELAY);
@@ -352,7 +343,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   onInfoVisibilityChange={handleInfoVisibilityChange}
                 />
               </div>
-              <ProgressBar progress={scanProgress} />
+              <ProgressBar progress={scanProgress} puzzlePieceFound={hasPieceBeenFound} />
             </div>
           </div>
         </div>

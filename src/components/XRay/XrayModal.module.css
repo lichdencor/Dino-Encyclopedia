@@ -269,4 +269,8 @@ h2 {
     filter: brightness(20%);
 }
 
+.puzzlePieceBar.found {
+    filter: brightness(100%);
+}
+
 /* PROGRESS BAR END */

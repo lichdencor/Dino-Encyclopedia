@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../XrayModal.module.css';
 import { ProgressBarProps } from '../types';
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
+export const ProgressBar: React.FC<ProgressBarProps> = ({ progress, puzzlePieceFound }) => {
   return (
     <div className={styles.progressContainer}>
       <div className={styles.progressBarContainer}>
@@ -13,7 +13,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
         />
       </div>
       <div className={styles.puzzlePieceContainer}>
-        <div className={styles.puzzlePieceBar} />
+        <div className={`${styles.puzzlePieceBar} ${puzzlePieceFound ? styles.found : ''}`} />
       </div>
     </div>
   );
