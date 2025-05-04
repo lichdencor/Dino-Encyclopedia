@@ -116,15 +116,21 @@
           "dinosaurs": [
             {
               "id": "Postosuchus kirkpatricki",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0,
+              "visibleInfo": []
             },
             {
               "id": "Eoraptor lunensis",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0,
+              "visibleInfo": []
             },
             {
               "id": "Herrerasaurus ischigualastensis",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0,
+              "visibleInfo": []
             }
           ],
           "completed": false
@@ -135,15 +141,18 @@
           "dinosaurs": [
             {
               "id": "Shuvosaurus inexpectatus",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Chindesaurus bryansmalli",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Fukuiraptor kitadaniensis",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             }
           ],
           "completed": false
@@ -154,15 +163,18 @@
           "dinosaurs": [
             {
               "id": "Coelophysis bauri",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Plateosaurus engelhardti",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Rauisuchus tiradentes",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             }
           ],
           "completed": false
@@ -175,15 +187,18 @@
           "dinosaurs": [
             {
               "id": "Dilophosaurus wetherilli",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Compsognathus longipes",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             },
             {
               "id": "Cryolophosaurus ellioti",
-              "discovered": false
+              "discovered": false,
+              "scanProgress": 0
             }
           ],
           "completed": false

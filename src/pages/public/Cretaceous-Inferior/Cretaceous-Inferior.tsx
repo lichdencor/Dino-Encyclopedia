@@ -44,12 +44,14 @@ export const CretaceousInferior = () => {
 
   return (
     <Gallery
-      page1="jurassic-superior"
-      page2="cretaceous-medium"
+      previousPage="jurassic-superior"
+      nextPage="cretaceous-medium"
       customStyles={customStyles}
       imagePrefix="/assets/img/dinosaurs/cr-1-"
       skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-1-"
       dinosaursInfo={dinosaursInfo}
+      era="cretaceous"
+      period="Early"
     />
   );
 };

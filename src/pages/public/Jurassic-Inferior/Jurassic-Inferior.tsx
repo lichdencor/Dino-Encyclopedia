@@ -43,11 +43,13 @@ export const JurassicInferior = () => {
   })) || [];
 
   return [<Gallery
-    page1="triassic-superior"
-    page2="jurassic-medium"
+    previousPage="triassic-superior"
+    nextPage="jurassic-medium"
     customStyles={customStyles}
     imagePrefix="/assets/img/dinosaurs/ju-1-"
     skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jur-1-"
     dinosaursInfo={dinosaursInfo}
+    era="jurassic"
+    period="Early"
   />];
 };
