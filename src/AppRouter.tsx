@@ -25,6 +25,7 @@ import {
   Wallet
 } from "./pages/";
 import { AuthProvider, AdsProvider } from "./context";
+import { Profile } from "./pages/public/Profile/Profile";
 
 const AppRouter = () => {
   return (
@@ -40,6 +41,7 @@ const AppRouter = () => {
             <Route path="/library" element={<Library />} />
             <Route path="/wallet" element={<Wallet />} />
             <Route path="/ads" element={<AdsPage />} />
+            <Route path="/profile" element={<Profile />} />
 
             <Route path="/memodyn" element={<MemoDyn />} />
             <Route path="/puzzleaurus" element={<Puzzleaurus />} />

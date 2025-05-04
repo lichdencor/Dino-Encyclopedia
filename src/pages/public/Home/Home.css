@@ -154,7 +154,7 @@ header {
   border-radius: 15px;
   position: relative;
   background-color: rgba(38, 38, 35, 0.8);
-  border: 5px double rgb(230, 224, 198);
+  border: 5px solid #ECEAD2;
 }
 
 .modalLogoGiph {

@@ -6,7 +6,9 @@ export const Nav = () => {
     <nav>
       <div className="profile-container">
         <div className="profile">
+          <Link to="/profile" className="profilePageLink"></Link>
           <div className="pet-profile-img"></div>
+          
         </div>
         <div className="pawn-1 complete"></div>
         <div className="pawn-2 complete"></div>
@@ -28,7 +30,7 @@ export const Nav = () => {
           <Link to="/">HOME</Link>
           <Link to="/map">MAP</Link>
           <Link to="/store">STORE</Link>
-          <Link to="/profile">PROFILE</Link>
+          
         </div>
         <div className="routes-right">
           <Link to="/album">ALBUM</Link>
