@@ -300,9 +300,10 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const updatePuzzlePiecePosition = () => {
+    const margin = 0.1;
     setPiecePosition({
-      left: Math.random(),
-      top: Math.random()
+      left: margin + Math.random() * (1 - 2 * margin),
+      top: margin + Math.random() * (1 - 2 * margin)
     });
   };
 
