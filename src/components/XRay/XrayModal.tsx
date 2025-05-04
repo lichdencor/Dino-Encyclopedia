@@ -3,7 +3,7 @@ import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Infer
 import styles from "./XrayModal.module.css";
 import { Alert } from "../../components";
 import { XRayModalProps, DinosaurProgress } from "./types";
-import { SCAN_DURATION, UPDATE_INTERVAL, ALERT_DELAY } from "./constants";
+import { SCAN_DURATION, UPDATE_INTERVAL } from "./constants";
 import { PuzzlePiece } from "./components/PuzzlePiece";
 import { DinosaurViewer } from "./components/DinosaurViewer";
 import { InfoList } from "./components/InfoList";
