@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from "./GalleryDinosaurNames.module.css";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 import { DinosaurProgress } from "../XRay/types";
@@ -25,6 +24,24 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
         return 0;
     };
 
+    const isPuzzlePieceFound = (index: number) => {
+        const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
+        const periodData = progress.galleries[0][eraKey].find(
+            (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+        );
+        
+        if (periodData) {
+            const dinosaur = periodData.dinosaurs[index] as DinosaurProgress;
+            const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
+            return foundPieces.some(
+                piece => piece.era === era && 
+                        piece.period === period && 
+                        piece.dinosaurId === dinosaur.id
+            );
+        }
+        return false;
+    };
+
     return (
         <div>
             {dinosaurs.map((dinosaur, index) => (
@@ -38,7 +55,7 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
                             ></div>
                         </div>
                         <div className={styles.puzzlePieceContainer}>
-                            <div className={styles.puzzlePiece}></div>
+                            <div className={`${styles.puzzlePiece} ${isPuzzlePieceFound(index) ? styles.found : ''}`}></div>
                         </div>
                     </div>
 
