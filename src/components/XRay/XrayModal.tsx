@@ -43,6 +43,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   
   const progressTimerRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
+  const hoverStartTimeRef = useRef<number | null>(null);
+  const hoverIntervalRef = useRef<number | null>(null);
 
   const checkPuzzlePieceStatus = (dinosaurId: string): PuzzlePieceStatus => {
     const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
@@ -182,11 +184,25 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   const handleAlertClose = () => {
     setShowAlert(false);
+    setIsPuzzlePieceHovered(false);
+    hoverStartTimeRef.current = null;
     startProgressTimer();
   };
 
   const handlePuzzlePieceHover = () => {
+    hoverStartTimeRef.current = Date.now();
     setIsPuzzlePieceHovered(true);
+  };
+
+  const handlePuzzlePieceLeave = () => {
+    console.log("leave");
+    if (hoverIntervalRef.current) {
+      clearInterval(hoverIntervalRef.current);
+      hoverIntervalRef.current = null;
+    }
+    hoverStartTimeRef.current = null;
+    setIsPuzzlePieceHovered(false);
+    setShowPuzzlePiece(false);
   };
 
   const checkDinosaurInteraction = (
@@ -224,16 +240,51 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     const rect = container.getBoundingClientRect();
 
     updateCursorPosition(event, rect, container);
-    setShowPuzzlePiece(checkPuzzlePieceProximity(event, rect, piecePosition));
+    const shouldShowPiece = checkPuzzlePieceProximity(event, rect, piecePosition);
+    
+    if (!shouldShowPiece && showPuzzlePiece) {
+      handlePuzzlePieceLeave();
+    }
+    setShowPuzzlePiece(shouldShowPiece);
+    
     checkDinosaurInteraction(event, container, selectedDinosaur);
   };
 
   useEffect(() => {
-    if (isPuzzlePieceHovered && !hasPieceBeenFound) {
-      const timeout = setTimeout(handlePuzzlePieceFound, ALERT_DELAY);
-      return () => clearTimeout(timeout);
+    if (isPuzzlePieceHovered && !hasPieceBeenFound && hoverStartTimeRef.current) {
+      const checkHoverDuration = () => {
+        if (hasPieceBeenFound) {
+          if (hoverIntervalRef.current) {
+            clearInterval(hoverIntervalRef.current);
+            hoverIntervalRef.current = null;
+          }
+          return;
+        }
+
+        const hoverDuration = Date.now() - hoverStartTimeRef.current!;
+        console.log(hoverDuration);
+        if (hoverDuration >= 2000) { 
+          handlePuzzlePieceFound();
+        }
+      };
+
+      hoverIntervalRef.current = window.setInterval(checkHoverDuration, 1000);
+      return () => {
+        if (hoverIntervalRef.current) {
+          clearInterval(hoverIntervalRef.current);
+          hoverIntervalRef.current = null;
+        }
+        if (!hasPieceBeenFound) {
+          hoverStartTimeRef.current = null;
+        }
+      };
     } else if (!isPuzzlePieceHovered) {
-      setShowAlert(false);
+      if (hoverIntervalRef.current) {
+        clearInterval(hoverIntervalRef.current);
+        hoverIntervalRef.current = null;
+      }
+      hoverStartTimeRef.current = null;
+      setShowPuzzlePiece(false);
     }
   }, [isPuzzlePieceHovered]);
 
@@ -335,6 +386,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   position={piecePosition}
                   showAlert={showAlert}
                   onMouseEnter={handlePuzzlePieceHover}
+                  onMouseLeave={handlePuzzlePieceLeave}
                 />
               )}
             </DinosaurViewer>

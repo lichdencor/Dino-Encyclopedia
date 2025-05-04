@@ -44,6 +44,7 @@ export interface PuzzlePieceProps {
   };
   showAlert: boolean;
   onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }
 
 export interface DinosaurViewerProps {

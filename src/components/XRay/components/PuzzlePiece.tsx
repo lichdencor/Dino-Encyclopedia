@@ -5,8 +5,13 @@ import { PuzzlePieceProps } from '../types';
 export const PuzzlePiece: React.FC<PuzzlePieceProps> = ({
   position,
   showAlert,
-  onMouseEnter
+  onMouseEnter,
+  onMouseLeave
 }) => {
+  const handleMouseLeave = (event: React.MouseEvent) => {
+    onMouseLeave();
+  };
+
   return (
     <img
       className={`${styles.puzzlePiece} ${showAlert ? styles.hiddenPiece : ""}`}
@@ -18,6 +23,8 @@ export const PuzzlePiece: React.FC<PuzzlePieceProps> = ({
       }}
       alt="puzzle piece"
       onMouseEnter={onMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseOut={handleMouseLeave}
     />
   );
 }; 

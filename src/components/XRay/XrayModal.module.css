@@ -74,11 +74,13 @@ h2 {
     75% {
       transform: scale(1.25) translate(-50%, -50%);
       filter: opacity(0%);
+      filter: brightness(110%);
     }
 
     100% {
         transform: scale(1.25) translate(-50%, -50%);
         filter: opacity(0%);
+        filter: brightness(120%);
       }
   }
   
