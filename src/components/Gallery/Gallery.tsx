@@ -53,7 +53,7 @@ export const Gallery = ({
         
         <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
-        <GalleryArrows page1={previousPage} page2={nextPage} />
+        <GalleryArrows previousPage={previousPage} nextPage={nextPage} />
         <GalleryDinosaurNames 
           dinosaurs={dinosaursInfo.map(dino => dino.name)}
           era={era}
