@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Nav } from "../../components";
+import { GalleryDinosaurNames, Nav } from "../../components";
 import { GalleryArrows } from "../GalleryArrows/GalleryArrows";
 import { XRayModal } from "../XRay/XrayModal";
 
@@ -113,6 +113,8 @@ export const Gallery = ({
         <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
         <GalleryArrows page1={page1} page2={page2} />
+        <GalleryDinosaurNames dinosaurs={dinosaursInfo.map(dino => dino.name) || []}></GalleryDinosaurNames>
+
 
         {[customStyles.dinosaurBg1, customStyles.dinosaurBg2, customStyles.dinosaurBg3].map((bgClass, index) => {
           const dinosaurNumber = `dinosaur${index + 1}` as keyof typeof customStyles;
