@@ -8,8 +8,14 @@ export const Profile = () => {
             <Nav></Nav>
             <div className={styles.profileContainer}>
                 <div className={styles.petUserDataContainer}>
-                    <div className={styles.petContainer}></div>
-                    <div className={styles.userDataContainer}></div>
+                    <div className={styles.petContainer}>
+                        <img src="/public/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg}/>
+                    </div>
+                    <div className={styles.userDataContainer}>
+                        <div className={styles.nameContainer}><p>Gemdelle Dynosaur</p><button className={styles.editNameBtn}></button></div>
+                        <div className={styles.mailContainer}><p>gemdelle.dynosaur@gmail.com</p><button className={styles.editMailBtn}></button></div>
+                        <button className={styles.walletAccessBtn}>WALLET</button>
+                    </div>
                 </div>
                 <div className={styles.fidelitySystemContainer}>
                     <div className={styles.fidelitySystemTitleContainer}>
@@ -21,7 +27,7 @@ export const Profile = () => {
                             <div className={styles.achievementDescriptionContainer}>
                                 <img src="" alt="" className={styles.achievementImg} />
                                 <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description</p>
+                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
                             </div>
                             <div className={styles.achievementBadgesContainer}>
                                 {/* BADGES */}
@@ -41,10 +47,10 @@ export const Profile = () => {
                         </div>
 
                         <div className={styles.achievementContainer}>
-                            <div className={styles.achievementDescriptionContainer}>
+                        <div className={styles.achievementDescriptionContainer}>
                                 <img src="" alt="" className={styles.achievementImg} />
                                 <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description</p>
+                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
                             </div>
                             <div className={styles.achievementBadgesContainer}>
                                 {/* BADGES */}
@@ -64,10 +70,10 @@ export const Profile = () => {
                         </div>
 
                         <div className={styles.achievementContainer}>
-                            <div className={styles.achievementDescriptionContainer}>
+                        <div className={styles.achievementDescriptionContainer}>
                                 <img src="" alt="" className={styles.achievementImg} />
                                 <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description</p>
+                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
                             </div>
                             <div className={styles.achievementBadgesContainer}>
                                 {/* BADGES */}
@@ -87,10 +93,10 @@ export const Profile = () => {
                         </div>
 
                         <div className={styles.achievementContainer}>
-                            <div className={styles.achievementDescriptionContainer}>
+                        <div className={styles.achievementDescriptionContainer}>
                                 <img src="" alt="" className={styles.achievementImg} />
                                 <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description</p>
+                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
                             </div>
                             <div className={styles.achievementBadgesContainer}>
                                 {/* BADGES */}

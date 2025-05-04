@@ -15,10 +15,10 @@
     height: 75%;
     margin: 0 auto;
     margin-top: 5%;
-    background-color: blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: blue; */
 }
 
 /* PET CONTAINER START */
@@ -26,23 +26,114 @@
 .petUserDataContainer {
     width: 45%;
     height: 100%;
-    background-color: yellowgreen;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    /* background-color: yellowgreen; */
 }
+
+@keyframes breathing-pet {
+    0%, 100% {
+      transform: scaleY(1) translateY(0) scaleX(-1);
+    }
+    50% {
+      transform: scaleY(1.02) scaleX(-1);
+    }
+  }
 
 .petContainer {
     width: 100%;
-    height: 65%;
-    background-color: rebeccapurple;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blueviolet; */
+}
+
+.petImg {
+    height: 100%;
+    transform-origin: center bottom;
+    animation: breathing-pet 4s ease-in-out infinite;
+    margin-right: 10%;
+    /* background-color: white; */
 }
 
 .userDataContainer {
-    width: 80%;
+    width: 60%;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: chocolate; */
+}
+
+.nameContainer,
+.mailContainer {
+    width: 100%;
+    height: 17%;
+    background-color: #eae4c0;
+    border-radius: 7px;
+    border: 7px double rgb(45, 1, 1);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.nameContainer p,
+.mailContainer p {
+    margin-left: 2%;
+    font-family: "MedusaGothic";
+    letter-spacing: 0.1vw;
+    color: #2b0202;
+}
+
+.editNameBtn,
+.editMailBtn {
+    position: absolute;
+    width: 2.5vw;
+    height: 2.5vw;
+    right: -3%;
+    background-color: rgb(44, 1, 1);
+    border-radius: 6px;
+    font-size: 0.8vw;
+    color: #eae4c0;
+    border: 6px double rgb(125, 118, 79);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+.editNameBtn:hover,
+.editMailBtn:hover {
+    transform: scale(105%);
+}
+
+.walletAccessBtn {
     height: 30%;
-    background-color: chocolate;
+    width: 40%;
+    background-color: rgb(44, 1, 1);
+    border-radius: 6px;
+    font-family: "MedusaGothic";
+    font-size: 0.9vw;
+    color: #eae4c0;
+    border: 6px double rgb(125, 118, 79);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.3vw;
+    text-align: center;
+    font-weight: unset;
+    transition: all 300ms ease-in-out;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+
+.walletAccessBtn:hover {
+    transform: scale(105%);
 }
 
 /* PET CONTAINER END */
@@ -52,21 +143,21 @@
 .fidelitySystemContainer {
     width: 50%;
     height: 100%;
-    background-color: brown;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    /* background-color: brown; */
 }
 
 .fidelitySystemTitleContainer {
     width: 100%;
     height: 10%;
-    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: default;
+    /* background-color: lightblue; */
 }
 
 .fidelitySystemTitle {
@@ -114,13 +205,30 @@
 }
 
 .fidelitySystemAccessBtn {
-    width: 20%;
-    height: 7%;
-    background-color: #eae4c0;
+    width: 19%;
+    height: 6%;
+    background-color: rgb(44, 1, 1);
+    border-radius: 6px;
+    font-family: "MedusaGothic";
+    font-size: 0.8vw;
+    color: #eae4c0;
+    border: 6px double rgb(125, 118, 79);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2vw;
+    text-align: center;
+    font-weight: unset;
+    transition: all 300ms ease-in-out;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+.fidelitySystemAccessBtn:hover {
+    transform: scale(105%);
 }
 
 .achievementDescriptionContainer {
-    width: 50%;
+    width: 52%;
     height: 100%;
     background-color: lightseagreen;
     display: flex;
@@ -143,12 +251,19 @@
     width: 70%;
     height: 30%;
     background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .achievementTxt {
     width: 70%;
     height: 70%;
     background-color: burlywood;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .achievementBadgesContainer {
