@@ -75,7 +75,8 @@
           "best_time": 0
         }
       ],
-      "available": true
+      "available": true,
+      "foundPieces": []
     },
     "memodyn": {
       "levels": [
@@ -118,19 +119,25 @@
               "id": "Postosuchus kirkpatricki",
               "discovered": false,
               "scanProgress": 0,
-              "visibleInfo": []
+              "visibleInfo": [],
+              "elapsedTime": 0,
+              "puzzlePieceFound": false
             },
             {
               "id": "Eoraptor lunensis",
               "discovered": false,
               "scanProgress": 0,
-              "visibleInfo": []
+              "visibleInfo": [],
+              "elapsedTime": 0,
+              "puzzlePieceFound": false
             },
             {
               "id": "Herrerasaurus ischigualastensis",
               "discovered": false,
               "scanProgress": 0,
-              "visibleInfo": []
+              "visibleInfo": [],
+              "elapsedTime": 0,
+              "puzzlePieceFound": false
             }
           ],
           "completed": false
@@ -142,17 +149,26 @@
             {
               "id": "Shuvosaurus inexpectatus",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Chindesaurus bryansmalli",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Fukuiraptor kitadaniensis",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             }
           ],
           "completed": false
@@ -164,17 +180,26 @@
             {
               "id": "Coelophysis bauri",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Plateosaurus engelhardti",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Rauisuchus tiradentes",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             }
           ],
           "completed": false
@@ -188,17 +213,26 @@
             {
               "id": "Dilophosaurus wetherilli",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Compsognathus longipes",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             },
             {
               "id": "Cryolophosaurus ellioti",
               "discovered": false,
-              "scanProgress": 0
+              "scanProgress": 0,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "puzzlePieceFound": false
             }
           ],
           "completed": false
@@ -209,15 +243,27 @@
           "dinosaurs": [
             {
               "id": "Allosaurus fragilis",
-              "discovered": false
+              "discovered": false,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "scanProgress": 0,
+              "puzzlePieceFound": false
             },
             {
               "id": "Apatosaurus louisae",
-              "discovered": false
+              "discovered": false,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "scanProgress": 0,
+              "puzzlePieceFound": false
             },
             {
               "id": "Camarasaurus supremus",
-              "discovered": false
+              "discovered": false,
+              "elapsedTime": 0,
+              "visibleInfo": [],
+              "scanProgress": 0,
+              "puzzlePieceFound": false
             }
           ],
           "completed": false

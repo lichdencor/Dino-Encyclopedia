@@ -7,6 +7,7 @@ type PeriodData = {
     scanProgress: number;
     visibleInfo: string[];
     elapsedTime: number;
+    puzzlePieceFound: boolean;
   }>;
   completed: boolean;
   hoveredCurtains: {
@@ -32,6 +33,11 @@ export type ProgressData = {
         best_time: number;
       }>;
       available: boolean;
+      foundPieces: Array<{
+        era: string;
+        period: string;
+        dinosaurId: string;
+      }>;
     };
     memodyn: {
       levels: Array<{

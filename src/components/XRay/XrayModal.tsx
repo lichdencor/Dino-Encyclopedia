@@ -11,6 +11,14 @@ import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 
+// Add new type for puzzle piece checking
+type PuzzlePieceStatus = {
+  isFound: boolean;
+  scanProgress: number;
+  visibleInfo: string[];
+  elapsedTime: number;
+};
+
 export const XRayModal: React.FC<XRayModalProps> = ({
   isOpen,
   onClose,
@@ -25,6 +33,64 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 }) => {
   const { progress, setProgress } = useProgress();
   
+  // State declarations
+  const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
+  const [piecePosition, setPiecePosition] = useState({ left: 0.8, top: 0.5 });
+  const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [hasPieceBeenFound, setHasPieceBeenFound] = useState(false);
+  const [scanProgress, setScanProgress] = useState<number>(0);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState<number>(0);
+  
+  const progressTimerRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
+
+  // Puzzle piece related functions
+  const checkPuzzlePieceStatus = (dinosaurId: string): PuzzlePieceStatus => {
+    const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
+    const isPieceFound = foundPieces.some(
+      piece => piece.era === era && 
+              piece.period === period && 
+              piece.dinosaurId === dinosaurId
+    );
+
+    return {
+      isFound: isPieceFound,
+      scanProgress: 0,
+      visibleInfo: [],
+      elapsedTime: 0
+    };
+  };
+
+  const savePuzzlePieceFound = (dinosaurId: string) => {
+    const currentProgress = { ...progress };
+    
+    // Initialize foundPieces if needed
+    if (!currentProgress.minigames.puzzleaurus.foundPieces) {
+      currentProgress.minigames.puzzleaurus.foundPieces = [];
+    }
+
+    // Add piece location
+    currentProgress.minigames.puzzleaurus.foundPieces.push({
+      era,
+      period,
+      dinosaurId
+    });
+
+    // Update puzzle count
+    currentProgress.minigames.puzzleaurus.puzzles = currentProgress.minigames.puzzleaurus.puzzles.map(puzzle => ({
+      ...puzzle,
+      puzzle_pieces: {
+        ...puzzle.puzzle_pieces,
+        found: puzzle.puzzle_pieces.found + 1
+      }
+    }));
+
+    setProgress(currentProgress);
+  };
+
+  // Progress related functions
   const getCurrentDinosaurProgress = () => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
@@ -32,22 +98,11 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     );
     
     if (periodData && selectedDinosaur !== null) {
-      const dinosaur = periodData.dinosaurs[selectedDinosaur] as DinosaurProgress;
+      const dinosaur = periodData.dinosaurs[selectedDinosaur];
       return dinosaur?.scanProgress || 0;
     }
     return 0;
   };
-
-  const [showPuzzlePiece, setShowPuzzlePiece] = useState(true);
-  const [piecePosition, setPiecePosition] = useState({ left: 0.8, top: 0.5 });
-  const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [scanProgress, setScanProgress] = useState<number>(getCurrentDinosaurProgress());
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState<number>(0);
-  
-  const progressTimerRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number | null>(null);
 
   const updateDinosaurProgress = (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
@@ -92,59 +147,44 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     
     if (periodData && selectedDinosaur !== null) {
       const dinosaur = periodData.dinosaurs[selectedDinosaur] as DinosaurProgress;
+      const isPieceFound = progress.minigames.puzzleaurus.foundPieces?.some(
+        piece => piece.era === era && 
+                piece.period === period && 
+                piece.dinosaurId === dinosaur.id
+      ) || false;
+      
       return {
         scanProgress: dinosaur?.scanProgress || 0,
         visibleInfo: dinosaur?.visibleInfo || [],
-        elapsedTime: dinosaur?.elapsedTime || 0
+        elapsedTime: dinosaur?.elapsedTime || 0,
+        puzzlePieceFound: isPieceFound
       };
     }
     return {
       scanProgress: 0,
       visibleInfo: [],
-      elapsedTime: 0
+      elapsedTime: 0,
+      puzzlePieceFound: false
     };
   };
 
   const handleInfoVisibilityChange = (newVisibleInfo: string[]) => {
-    updateDinosaurProgress(scanProgress, elapsedTime, newVisibleInfo);
+    updateDinosaurProgress(getCurrentDinosaurProgress(), getCurrentDinosaurData().elapsedTime, newVisibleInfo);
   };
 
-  const startProgressTimer = () => {
-    stopProgressTimer();
-    lastTimeRef.current = Date.now();
-    progressTimerRef.current = window.setInterval(() => {
-      if (lastTimeRef.current) {
-        const now = Date.now();
-        const delta = (now - lastTimeRef.current) / 1000;
-        lastTimeRef.current = now;
-        
-        setElapsedTime(prev => {
-          const newElapsedTime = prev + delta;
-          setScanProgress((prevProgress: number) => {
-            const progressIncrement = 100 / (SCAN_DURATION * (1000 / UPDATE_INTERVAL));
-            const newProgress = Math.min(prevProgress + progressIncrement, 100);
-            updateDinosaurProgress(newProgress, newElapsedTime, getCurrentDinosaurData().visibleInfo);
-            return newProgress;
-          });
-          return newElapsedTime;
-        });
-      }
-    }, UPDATE_INTERVAL);
-  };
+  // Event handlers
+  const handlePuzzlePieceFound = () => {
+    const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
+    const periodData = progress.galleries[0][eraKey].find(
+      (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+    );
 
-  const stopProgressTimer = () => {
-    if (progressTimerRef.current !== null) {
-      window.clearInterval(progressTimerRef.current);
-      progressTimerRef.current = null;
-      lastTimeRef.current = null;
+    if (periodData && selectedDinosaur !== null) {
+      const dinosaur = periodData.dinosaurs[selectedDinosaur];
+      savePuzzlePieceFound(dinosaur.id);
+      setShowAlert(true);
+      setHasPieceBeenFound(true);
     }
-  };
-
-  const updatePuzzlePiecePosition = () => {
-    setPiecePosition({
-      left: Math.random(),
-      top: Math.random()
-    });
   };
 
   const handlePuzzlePieceHover = () => {
@@ -190,12 +230,32 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     checkDinosaurInteraction(event, container, selectedDinosaur);
   };
 
+  // Effects
   useEffect(() => {
-    if (isOpen) {
-      const { scanProgress: savedProgress, elapsedTime: savedTime } = getCurrentDinosaurData();
-      setScanProgress(savedProgress);
-      setElapsedTime(savedTime);
-      updatePuzzlePiecePosition();
+    if (isPuzzlePieceHovered && !hasPieceBeenFound) {
+      const timeout = setTimeout(handlePuzzlePieceFound, ALERT_DELAY);
+      return () => clearTimeout(timeout);
+    } else if (!isPuzzlePieceHovered) {
+      setShowAlert(false);
+    }
+  }, [isPuzzlePieceHovered]);
+
+  useEffect(() => {
+    if (isOpen && selectedDinosaur !== null) {
+      const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
+      const periodData = progress.galleries[0][eraKey].find(
+        (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+      );
+      
+      if (periodData) {
+        const dinosaur = periodData.dinosaurs[selectedDinosaur];
+        const pieceStatus = checkPuzzlePieceStatus(dinosaur.id);
+        
+        setScanProgress(dinosaur.scanProgress || 0);
+        setElapsedTime(dinosaur.elapsedTime || 0);
+        setHasPieceBeenFound(pieceStatus.isFound);
+        updatePuzzlePiecePosition();
+      }
     } else {
       stopProgressTimer();
     }
@@ -211,14 +271,43 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     return () => stopProgressTimer();
   }, [isMouseOver]);
 
-  useEffect(() => {
-    if (isPuzzlePieceHovered) {
-      const timeout = setTimeout(() => setShowAlert(true), ALERT_DELAY);
-      return () => clearTimeout(timeout);
-    } else {
-      setShowAlert(false);
+  const startProgressTimer = () => {
+    stopProgressTimer();
+    lastTimeRef.current = Date.now();
+    progressTimerRef.current = window.setInterval(() => {
+      if (lastTimeRef.current) {
+        const now = Date.now();
+        const delta = (now - lastTimeRef.current) / 1000;
+        lastTimeRef.current = now;
+        
+        setElapsedTime(prev => {
+          const newElapsedTime = prev + delta;
+          setScanProgress((prevProgress: number) => {
+            const progressIncrement = 100 / (SCAN_DURATION * (1000 / UPDATE_INTERVAL));
+            const newProgress = Math.min(prevProgress + progressIncrement, 100);
+            updateDinosaurProgress(newProgress, newElapsedTime, getCurrentDinosaurData().visibleInfo);
+            return newProgress;
+          });
+          return newElapsedTime;
+        });
+      }
+    }, UPDATE_INTERVAL);
+  };
+
+  const stopProgressTimer = () => {
+    if (progressTimerRef.current !== null) {
+      window.clearInterval(progressTimerRef.current);
+      progressTimerRef.current = null;
+      lastTimeRef.current = null;
     }
-  }, [isPuzzlePieceHovered]);
+  };
+
+  const updatePuzzlePiecePosition = () => {
+    setPiecePosition({
+      left: Math.random(),
+      top: Math.random()
+    });
+  };
 
   if (!isOpen || selectedDinosaur === null) return null;
 
@@ -243,12 +332,14 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               dinosaurImage={dinosaurImage}
               dinosaurBone={dinosaurBone}
             >
-              <PuzzlePiece
-                position={piecePosition}
-                isVisible={showPuzzlePiece}
-                showAlert={showAlert}
-                onMouseEnter={handlePuzzlePieceHover}
-              />
+              {!hasPieceBeenFound && (
+                <PuzzlePiece
+                  position={piecePosition}
+                  isVisible={showPuzzlePiece}
+                  showAlert={showAlert}
+                  onMouseEnter={handlePuzzlePieceHover}
+                />
+              )}
             </DinosaurViewer>
             
             <div className={styles.informationContainer}>
@@ -257,7 +348,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                 <InfoList 
                   dinosaurInfo={dinosaurInfo}
                   elapsedTime={elapsedTime}
-                  visibleInfo={getCurrentDinosaurData().visibleInfo}
+                  visibleInfo={[]}
                   onInfoVisibilityChange={handleInfoVisibilityChange}
                 />
               </div>

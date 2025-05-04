@@ -4,6 +4,7 @@ export type DinosaurProgress = {
   scanProgress: number;
   visibleInfo: string[];
   elapsedTime: number;
+  puzzlePieceFound: boolean;
 };
 
 export type DinosaurInfo = {
@@ -62,4 +63,27 @@ export interface InfoListProps {
 
 export interface ProgressBarProps {
   progress: number;
-} 
+}
+
+export type PuzzlePieceLocation = {
+  era: string;
+  period: string;
+  dinosaurId: string;
+};
+
+export type PuzzleaurusProgress = {
+  puzzles: Array<{
+    id: string;
+    puzzle_pieces: {
+      needed: number;
+      found: number;
+    };
+    progress: {
+      total: number;
+      completed: number;
+    };
+    best_time: number;
+  }>;
+  available: boolean;
+  foundPieces: PuzzlePieceLocation[];
+}; 

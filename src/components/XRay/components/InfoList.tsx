@@ -18,12 +18,17 @@ export const InfoList: React.FC<InfoListProps> = ({
   };
 
   useEffect(() => {
-    INFO_REVEAL_TIMINGS.forEach(timing => {
+    const newVisibleInfo = INFO_REVEAL_TIMINGS.reduce((acc, timing) => {
       if (elapsedTime >= timing.time && !visibleInfo.includes(timing.label)) {
-        onInfoVisibilityChange([...visibleInfo, timing.label]);
+        acc.push(timing.label);
       }
-    });
-  }, [elapsedTime, visibleInfo, onInfoVisibilityChange]);
+      return acc;
+    }, [] as string[]);
+
+    if (newVisibleInfo.length > 0) {
+      onInfoVisibilityChange([...visibleInfo, ...newVisibleInfo]);
+    }
+  }, [elapsedTime]);
 
   return (
     <ul className={styles.infoList}>
