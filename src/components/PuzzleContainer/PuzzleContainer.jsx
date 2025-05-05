@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import PuzzlePiece from '../PuzzlePiece/PuzzlePiece';
-import CompletionMessage from '../CompletionMessage/CompletionMessage';
-import { usePuzzle } from '../../context/Puzzle/PuzzleContext';
-import { DIFFICULTY_LEVELS } from '../../context/Puzzle/PuzzleContext';
-import './PuzzleContainer.css';
-import Timer from '../Timer/Timer';
-import TimeoutMessage from '../TimeoutMessage/TimeoutMessage';
+import React, { useEffect, useRef } from "react";
+import PuzzlePiece from "../PuzzlePiece/PuzzlePiece";
+import CompletionMessage from "../CompletionMessage/CompletionMessage";
+import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
+import { DIFFICULTY_LEVELS } from "../../context/Puzzle/PuzzleContext";
+import "./PuzzleContainer.css";
+import Timer from "../Timer/Timer";
+import TimeoutMessage from "../TimeoutMessage/TimeoutMessage";
 
 const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
   const containerRef = useRef(null);
@@ -22,18 +22,23 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
     handleTimeoutClose,
     getPuzzleImage,
     getCompletedImage,
-    setSelectedPuzzleId
+    setSelectedPuzzleId,
   } = usePuzzle();
+
+  // Efecto para actualizar el selectedPuzzleId cuando cambie el puzzle seleccionado
+  useEffect(() => {
+    setSelectedPuzzleId(selectedPuzzle.id);
+  }, [selectedPuzzle.id, setSelectedPuzzleId]);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const { rows, cols } = DIFFICULTY_LEVELS[difficulty];
     const totalPieces = rows * cols;
-    
+
     const containerWidth = containerRef.current.clientWidth;
     const containerHeight = containerRef.current.clientHeight;
-    
+
     const pieceWidth = containerWidth / cols;
     const pieceHeight = containerHeight / rows;
 
@@ -53,7 +58,7 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
         backgroundX: -col * pieceWidth,
         backgroundY: -row * pieceHeight,
         backgroundWidth: containerWidth,
-        backgroundHeight: containerHeight
+        backgroundHeight: containerHeight,
       };
     });
 
@@ -62,7 +67,7 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
       .map((piece, index) => ({
         ...piece,
         currentX: (index % cols) * pieceWidth,
-        currentY: Math.floor(index / cols) * pieceHeight
+        currentY: Math.floor(index / cols) * pieceHeight,
       }));
 
     setPieces(randomizedPieces);
@@ -70,20 +75,25 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
 
   return (
     <div className="puzzle-game">
-      <div className="puzzle-header">
-        <h1>{selectedPuzzle.name}</h1>
-        <button className="return-to-menu" onClick={onReturnToMenu}>
-          Volver al menú
-        </button>
-      </div>
-      <div className='puzzle-box'>
+      <div className="puzzle-box">
+        <div>
+          <button className="return-to-menu" onClick={onReturnToMenu}>
+            Volver al menú
+          </button>
+          <div className="timer-container">
+            <Timer />
+          </div>
+        </div>
         <div className="puzzle-layout">
-          <div className={`puzzle-container ${isComplete ? 'completed' : ''}`} ref={containerRef}>
+          <div
+            className={`puzzle-container ${isComplete ? "completed" : ""}`}
+            ref={containerRef}
+          >
             {isComplete ? (
-              <img 
-                className='puzzle-completed'
+              <img
+                className="puzzle-completed"
                 src={getCompletedImage(selectedPuzzle.id)}
-                alt="Puzzle completado" 
+                alt="Puzzle completado"
               />
             ) : (
               pieces.map((piece) => (
@@ -100,13 +110,10 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
           </div>
         </div>
       </div>
-      <div className="timer-container">
-        <Timer />
-      </div>
       {isComplete && <CompletionMessage />}
       {showTimeoutMessage && <TimeoutMessage onClose={handleTimeoutClose} />}
     </div>
   );
 };
 
-export default PuzzleContainer; 
+export default PuzzleContainer;

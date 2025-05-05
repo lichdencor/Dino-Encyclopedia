@@ -108,6 +108,7 @@ export const Puzzleaurus = () => {
                         <PuzzleContainer 
                             onReturnToMenu={handleReturnToMenu} 
                             selectedPuzzle={selectedPuzzle}
+                            key={selectedPuzzle.id}
                         />
                         <div className={styles.navigationButtons}>
                             <button 
