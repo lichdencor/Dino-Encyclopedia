@@ -1,0 +1,241 @@
+html {
+  overflow: hidden;
+}
+
+.puzzle-game {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.puzzle-box {
+  position: relative;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/x-ray-bg.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 1.8vw 0;
+}
+
+.puzzle-background {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  background-color: pink;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle-layout {
+  position: relative;
+  width: 97%;
+  height: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: yellow;
+}
+
+.puzzle-container {
+  width: 100%;
+  height: calc(65vw * 0.5625); /* Proporción 16:10 (10/16 = 0.625) */
+  height: 100%;
+  background-color: #2a2a2a;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle-container .puzzle-completed {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  margin: auto;
+}
+
+.puzzle-container.completed {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.puzzle-container.completed img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.puzzle-container .puzzle-completed {
+  object-fit: fill;
+  margin: auto;
+  display: block;
+  animation: fadeInScale 1s ease forwards;
+  opacity: 0;
+  transform: scale(0.95);
+  width: 100%;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.difficulty-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #2a2a2a;
+}
+
+.difficulty-selector label {
+  color: #fff;
+  font-weight: 500;
+}
+
+.difficulty-selector select {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 2px solid #3a3a3a;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.difficulty-selector select:hover {
+  border-color: currentColor;
+  transform: translateY(-1px);
+}
+
+.difficulty-selector select:focus {
+  outline: none;
+  border-color: currentColor;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.difficulty-selector select option {
+  background-color: #2a2a2a;
+  color: inherit;
+  font-weight: 500;
+}
+
+.puzzle-piece {
+  position: absolute;
+  cursor: move;
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  user-select: none;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid #ccc;
+}
+
+.puzzle-piece.completed {
+  animation: fadeOut 0.5s ease forwards;
+  box-shadow: none !important;
+  border: none;
+  cursor: default;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.puzzle-piece.dragging {
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.puzzle-piece.completed.dragging {
+  box-shadow: none !important;
+  transform: none;
+} 
+
+.timer-container {
+  width: 100%;
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.puzzle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 85%;
+  margin: 0 0 1rem 0;
+  position: relative;
+}
+
+.puzzle-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.return-to-menu {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.return-to-menu:hover {
+  background-color: #535bf2;
+  transform: translateY(-2px);
+}
+
+.return-to-menu:active {
+  transform: translateY(0);
+}

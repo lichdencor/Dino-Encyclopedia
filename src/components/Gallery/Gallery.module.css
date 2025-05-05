@@ -1,0 +1,33 @@
+.eraDisplay {
+  position: absolute;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffffff;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.94vh 1.88vh;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.63vh;
+  box-shadow: 
+    0 0 9px rgba(0, 0, 0, 0.5),
+    0 0 19px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.era {
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.25vh;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.13vh;
+}
+
+.period {
+  font-size: 1.88vh;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.06vh;
+  opacity: 0.9;
+} 

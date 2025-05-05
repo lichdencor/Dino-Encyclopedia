@@ -28,14 +28,19 @@ import {
 } from "./pages/";
 import { AuthProvider, AdsProvider } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
-
+import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 const AppRouter = () => {
   return (
     <ErrorBoundary>
       <AdsProvider>
         <RoutesWithNotFound>
           <Route path="/" element={<Home />} />
-          <Route path="/games" element={<Games />} />
+
+          <Route path="/games" element={ 
+            <PuzzleProvider>
+              <Games />
+            </PuzzleProvider>
+            } />
           <Route path="/album" element={<Album />} />
           <Route path="/map" element={<Map />} />
           <Route path="/store" element={<Store />} />

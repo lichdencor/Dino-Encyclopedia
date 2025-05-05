@@ -15,7 +15,6 @@ export const TransitionScreen: React.FC<TransitionScreenProps> = ({ eraName, onT
 
     const handleAnimationEnd = (event: AnimationEvent) => {
       if (event.animationName.includes('transitionFadeOut')) {
-        console.log('Animation ended:', event.animationName);
         onTransitionEnd();
       }
     };
