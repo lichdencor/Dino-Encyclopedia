@@ -1,11 +1,14 @@
 import "./App.css";
 import AppRouter from "./AppRouter";
 import { SupabaseProvider } from "./context";
+import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 
 function App() {
   return (
     <SupabaseProvider>
-      <AppRouter />
+      <PuzzleProvider>
+        <AppRouter />
+      </PuzzleProvider>
     </SupabaseProvider>
   );
 }
