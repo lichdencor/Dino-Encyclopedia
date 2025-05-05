@@ -5,6 +5,7 @@ import { GalleryCurtains } from "./GalleryCurtains";
 import { GalleryDinosaurs } from "./GalleryDinosaurs";
 import { GalleryXRayModal } from "./GalleryXRayModal";
 import { DinosaurInfo, GalleryStyles } from "./types";
+import styles from './Gallery.module.css';
 
 interface GalleryProps {
   previousPage: string;
@@ -64,6 +65,15 @@ export const Gallery = ({
           customStyles={customStyles}
           onDinosaurClick={handleDinosaurClick}
         />
+
+        <div className={styles.eraDisplay}>
+          <div className={styles.era}>
+            {era}
+          </div>
+          <div className={styles.period}>
+            {period}
+          </div>
+        </div>
 
         <GalleryXRayModal
           isOpen={isModalOpen}
