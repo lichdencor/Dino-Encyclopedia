@@ -69,21 +69,29 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       currentProgress.minigames.puzzleaurus.foundPieces = [];
     }
 
-    currentProgress.minigames.puzzleaurus.foundPieces.push({
-      era,
-      period,
-      dinosaurId
-    });
+    const pieceExists = currentProgress.minigames.puzzleaurus.foundPieces.some(
+      piece => piece.era === era && 
+              piece.period === period && 
+              piece.dinosaurId === dinosaurId
+    );
 
-    currentProgress.minigames.puzzleaurus.puzzles = currentProgress.minigames.puzzleaurus.puzzles.map(puzzle => ({
-      ...puzzle,
-      puzzle_pieces: {
-        ...puzzle.puzzle_pieces,
-        found: puzzle.puzzle_pieces.found + 1
-      }
-    }));
+    if (!pieceExists) {
+      currentProgress.minigames.puzzleaurus.foundPieces.push({
+        era,
+        period,
+        dinosaurId
+      });
 
-    setProgress(currentProgress);
+      currentProgress.minigames.puzzleaurus.puzzles = currentProgress.minigames.puzzleaurus.puzzles.map(puzzle => ({
+        ...puzzle,
+        puzzle_pieces: {
+          ...puzzle.puzzle_pieces,
+          found: puzzle.puzzle_pieces.found + 1
+        }
+      }));
+
+      setProgress(currentProgress);
+    }
   };
 
   const getCurrentDinosaurProgress = () => {
