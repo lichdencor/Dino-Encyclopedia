@@ -45,7 +45,7 @@ body {
   font-family: "MedusaGothicD";
   letter-spacing: 0.15vw;
   font-size: 0.6vw;
-  filter: brightness(50%);
+  filter: brightness(0%);
   transition: transform 600ms ease-in-out, filter 300ms ease-in-out 300ms;
   cursor:pointer;
 }
@@ -79,7 +79,7 @@ body {
 
 .raptor-bites {
   width: 15%;
-  height: 23%;
+  height: 20%;
   position: absolute;
   /* background-color: red; */
   background-image: url(/assets/img/map/raptor-bites.png);
@@ -87,7 +87,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   left: 25%;
-  bottom: 11%;
+  bottom: 5%;
   animation: float 3s ease-in-out infinite;
 }
 
