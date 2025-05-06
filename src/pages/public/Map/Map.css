@@ -42,10 +42,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "MedusaGothicD";
+  font-family: "MedusaGothic";
   letter-spacing: 0.15vw;
   font-size: 0.6vw;
-  filter: brightness(0%);
+  filter: brightness(50%);
   transition: transform 600ms ease-in-out, filter 300ms ease-in-out 300ms;
   cursor:pointer;
 }
@@ -92,12 +92,28 @@ body {
 }
 
 
+.restroom {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(/public/assets/giph/silverTower.gif);
+  width: 2%;
+  height: 12%;
+  filter: brightness(100%);
+}
+
+.main-entrance,
+.entrance,
+.library,
+.store {
+  filter: brightness(100%);
+}
+
 .main-entrance,
 .entrance,
 .library,
 .store,
 .kids-room,
-.restroom,
 .stage-1,
 .stage-2,
 .stage-3,
@@ -110,67 +126,50 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url(/public/assets/giph/silverTower.gif);
+  width: 2.8%;
+  height: 18%;
 }
 
 .main-entrance {
-  width: 10%;
-  height: 22%;
-  left: 14%;
+  left: 18%;
   bottom: 20%;
-  background-image: url(/assets/img/buildings/bu-main-entrance.png);
 }
 
 .entrance {
-  width: 7%;
-  height: 19%;
-  right: 4%;
-  bottom: 12%;
-  background-image: url(/assets/img/buildings/bu-entrance.png);
+  right: 8%;
+  bottom: 20%;
 }
 
 .library {
-  width: 5%;
-  height: 15%;
-  left: 59%;
-  bottom: 12%;
-  background-image: url(/assets/img/buildings/bu-library.png);
+  left: 60%;
+  bottom: 14%;
 }
 
 .store {
-  left: 6%;
+  left: 8%;
   bottom: 55%;
-  background-image: url(/assets/img/buildings/bu-store.png);
-  background-color: red;
 }
 
 .kids-room {
-  width: 16%;
-  height: 30%;
-  left: 43%;
-  bottom: 57%;
-  background-image: url(/assets/img/buildings/bu-kids.png);
-}
-
-.restroom {
-  width: 5%;
-  height: 9%;
-  background-image: url(/assets/img/buildings/bu-restroom.png);
+  left: 50%;
+  bottom: 59%;
+  background-image: url(/public/assets/giph/pinkTower.gif);
 }
 
 .restroom-1 {
   left: 39%;
-  bottom: 43%;
+  bottom: 41%;
 }
 
 .restroom-2 {
   left: 57%;
-  bottom: 80%;
+  bottom: 67%;
 }
 
 .restroom-3 {
-  right: 7%;
-  bottom: 65%;
-  transform: scaleX(-1);
+  right: 8%;
+  bottom: 58%;
 }
 
 /* COMMON ROOMS */
@@ -179,95 +178,122 @@ body {
   z-index: 1000;
 }
 
+.stage-1,
+.stage-2,
+.stage-3 {
+  background-image: url(/public/assets/giph/greenTower.gif);
+}
+
 .stage-1 {
-  left: 18%;
-  bottom: 47%;
-  background-image: url(/assets/img/buildings/bu-tri-1.png);
+  left: 22%;
+  bottom: 40%;
 }
 
 .stage-2 {
-  left: 28%;
-  bottom: 51%;
-  background-image: url(/assets/img/buildings/bu-tri-2.png);
+  left: 32%;
+  bottom: 50%;
 }
 
 .stage-3 {
-  left: 35%;
-  bottom: 69%;
-  background-image: url(/assets/img/buildings/bu-tri-3.png);
+  left: 39%;
+  bottom: 65%;
+}
+
+.stage-4,
+.stage-5,
+.stage-6 {
+  background-image: url(/public/assets/giph/blueTower.gif);
 }
 
 .stage-4 {
   left: 48%;
-  bottom: 31%;
-  background-image: url(/assets/img/buildings/bu-jur-1.png);
+  bottom: 29%;
 }
 
 .stage-5 {
-  left: 59%;
-  bottom: 37%;
-  background-image: url(/assets/img/buildings/bu-jur-2.png);
+  left: 61%;
+  bottom: 40%;
 }
 
 .stage-6 {
-  right: 29%;
+  right: 30%;
   bottom: 60%;
-  background-image: url(/assets/img/buildings/bu-jur-3.png);
+}
+
+.stage-7,
+.stage-8,
+.stage-9 {
+  background-image: url(/public/assets/giph/violetTower.gif);
 }
 
 .stage-7 {
-  right: 22%;
-  bottom: 32%;
-  background-image: url(/assets/img/buildings/bu-cre-1.png);
+  right: 21%;
+  bottom: 25%;
 }
 
 .stage-8 {
-  right: 9%;
-  bottom: 36%;
-  background-image: url(/assets/img/buildings/bu-cre-2.png);
+  right: 12%;
+  bottom: 38%;
 }
 
 .stage-9 {
-  right: 17%;
-  bottom: 56%;
-  background-image: url(/assets/img/buildings/bu-cre-3.png);
+  right: 18%;
+  bottom: 50%;
 }
 
 /* PERIOD FRAMES START */
 
-.period-title-frame {
-  background-image: url(/assets/img/frames/period-title.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 17%;
-  height: 13%;
+.periodTitleGoldBg {
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+  border-radius: 15px;
+  width: 13%;
+  height: 10%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "MedusaGothicD";
+}
+
+.periodTitleFrame {
+  border-radius: 15px;
+  width: 98%;
+  height: 93%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "MedusaGothic";
   text-align: center;
   letter-spacing: 0.2vw;
   font-size: 0.8vw;
-  color: rgb(70, 68, 54);
+  color: rgb(237, 234, 207);
 }
 
-.period-1 {
-  top: 15%;
+.period1Container {
+  top: 29%;
   left: 15%;
 }
 
-.period-2 {
+.period2Container {
   bottom: 16%;
   left: 40%;
 }
 
-.period-3 {
-  top: 8%;
+.period3Container {
+  top: 18%;
   left: 75%;
 }
 
+.periodTitleFrame1 {
+  background-color: rgb(44, 43, 26);
+}
+
+.periodTitleFrame2 {
+  background-color: rgb(26, 31, 44);
+}
+
+.periodTitleFrame3 {
+  background-color: rgb(51, 40, 63);
+}
 
 /* PERIOD FRAMES END */
 
@@ -374,7 +400,7 @@ body {
 .info-triassic-dinos-container {
   height: 90%;
   width: 60%;
-  /* background-color: rgb(118, 159, 158); */
+  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -400,10 +426,8 @@ body {
 }
 
 .paper {
-  background-image: url(/assets/img/paper.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 85% 100%;
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+  border-radius: 6px;
   width: 9vw;
   height: 10vw;
   position: absolute;
@@ -426,7 +450,7 @@ body {
 /* BUILDING DINOSAURS */
 
 .dinosaur-silhouette {
-  filter: brightness(0) opacity(70%);
+  filter: brightness(0) opacity(100%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
