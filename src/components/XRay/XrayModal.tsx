@@ -367,7 +367,8 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   if (!isOpen || selectedDinosaur === null) return null;
 
   return (
-    <div className={stylesContainer.modalOverlay + " preview-scan-dino"} onClick={onClose}>
+    <div className={stylesContainer.modalOverlay + " preview-scan-dino"}>
+      <button className={styles.closeBtn} onClick={onClose}>×</button>
       {showAlert && <Alert onClose={handleAlertClose} />}
 
       <div className={styles.modalBg}>

@@ -3,7 +3,7 @@ export const VirtualAssistantDialogue = [
   {
     question: "¿En qué puedo ayudarte?",
     options: [
-      { text: "Tutorial", goesToPageIndex: 126 },
+      { text: "Tutorial", goesToPageIndex: -1 },
       { text: "Mi Cuenta", goesToPageIndex: 1 },
       { text: "Explorar el Museo", goesToPageIndex: 2 },
       { text: "Minijuegos", goesToPageIndex: 3 },
@@ -86,7 +86,7 @@ export const VirtualAssistantDialogue = [
   },
 
   // 7 a 11 - Subpáginas de Registro
-  { question: "¿Cómo me registro en la plataforma?", options: [{ text: "Haciendo clic sobre la opción “Crear cuenta” en el inicio." }, { text: "Back", goesToPageIndex: 6 }] },           // 7
+  { question: "¿Cómo me registro en la plataforma?", options: [{ text: "Haciendo clic sobre la opción 'Crear cuenta' en el inicio." }, { text: "Back", goesToPageIndex: 6 }] },           // 7
   { question: "¿Qué actividades puedo hacer sin registrarme?", options: [{ text: "Podés acceder al mapa, a las exposiciones, minijuegos, cine y la libreria. Todas las actividades ofrecen parte de contenido gratuito y exclusivo." }, { text: "Back", goesToPageIndex: 6 }] }, // 8
   { question: "¿Cuál es el beneficio de registrarme?", options: [{ text: "Obtendrás acceso al sistema de fidelidad y tienda, ademas podrás personalizar tu mascota virtual." }, { text: "Back", goesToPageIndex: 6 }] },         // 9
   { question: "¿Qué datos necesito para crear mi cuenta?", options: [{ text: "Deberás ingresas tu email y contraseña." }, { text: "Back", goesToPageIndex: 6 }] },     // 10

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-export const Nav = () => {
+interface NavProps {
+  id?: string;
+}
+
+export const Nav = ({ id }: NavProps) => {
   return (
-    <nav>
+    <nav id={id}>
       <div className="profile-container">
         <div className="profile">
           <Link to="/profile" className="profilePageLink"></Link>
@@ -29,7 +33,7 @@ export const Nav = () => {
           <Link to="/ads">ADS</Link>
           <Link to="/">HOME</Link>
           <Link to="/map">MAP</Link>
-          <Link to="/store">STORE</Link>
+          <Link id="nav-store" to="/store">STORE</Link>
           
         </div>
         <div className="routes-right">
