@@ -266,14 +266,21 @@ body {
   letter-spacing: 0.2vw;
   font-size: 0.8vw;
   color: rgb(237, 234, 207);
+  cursor: default;
 }
 
 .period1Container img,
-.period2Container img,
 .period3Container img {
-  width: 35%;
-  height: 28%;
-  top: -10%;
+  width: 40%;
+  height: 30%;
+  top: -15%;
+  position: absolute;
+}
+
+.period2Container img {
+  width: 40%;
+  height: 30%;
+  bottom: -15%;
   position: absolute;
 }
 
@@ -431,6 +438,7 @@ body {
   font-size: 0.5vw;
   border-radius: 5px;
   transition: all 500ms ease-in-out;
+  cursor: default;
 }
 
 .info-frame button:hover {

@@ -7,7 +7,7 @@ export const Map = () => {
       <Nav />
       <div className="map">
         <div className="periodTitleGoldBg period1Container">
-          <img src="/public/assets/img/map/period1Paws.png" alt="period level"/> 
+          <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
           <div className="periodTitleFrame periodTitleFrame1">
             Triassic
             <br />
@@ -16,6 +16,7 @@ export const Map = () => {
         </div>
 
         <div className="periodTitleGoldBg period2Container">
+          <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
           <div className="periodTitleFrame periodTitleFrame2">
             Jurassic
             <br />
@@ -24,6 +25,7 @@ export const Map = () => {
         </div>
 
         <div className="periodTitleGoldBg period3Container">
+          <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
           <div className="periodTitleFrame periodTitleFrame3">
             Cretaceous
             <br />
