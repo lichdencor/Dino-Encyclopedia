@@ -207,6 +207,33 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
     }
   };
 
+  const getArrowStyle = (): React.CSSProperties => {
+    if (!currentElementPosition) {
+      return { };
+    }
+
+    switch(currentStep) {
+      case 0:
+      case 1:
+        return {
+          left: "84vh",
+          top: "50%",
+        };
+      
+      case 2:
+        return {
+          left: "60vh",
+          top: "50%",
+        };
+      
+      default:
+        return {
+          left: "84vh",
+          top: "50%",
+        };
+    }
+  };
+
   const getAssistantStyle = (): React.CSSProperties => {
     if (!currentElementPosition) {
       return {
@@ -263,6 +290,7 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
           looped={false}
           dialogStyle={currentStepData.dialogStyle}
         />
+        <button className={styles.carouselBtn} style={getArrowStyle()}></button>
       </div>
     </div>
   );
