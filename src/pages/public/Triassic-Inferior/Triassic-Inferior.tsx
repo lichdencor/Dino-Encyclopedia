@@ -28,7 +28,7 @@ export const TriassicInferior: React.FC = () => {
   };
 
   const lateTriassicData = galleries_data.galleries[0].era_triassic.find(
-    (era) => era.period === "Late Triassic"
+    (era) => era.period === "Triásico Tardío"
   );
 
   const dinosaursInfo = lateTriassicData?.dinosaurs.map(dino => ({
