@@ -191,8 +191,8 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
       
       case 2:
         return {
-          top: "72vh",
-          left: "1474.16px",
+          bottom: "3vh",
+          right: "3%",
           width: "354.531px",
           height: "25vh",
         };
@@ -216,20 +216,20 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
       case 0:
       case 1:
         return {
-          left: "84vh",
-          top: "50%",
+          left: "78.5vh",
+          top: "38%"
         };
       
       case 2:
         return {
-          left: "60vh",
-          top: "50%",
+          left: "57vh",
+          top: "39%",
         };
       
       default:
         return {
-          left: "84vh",
-          top: "50%",
+          left: "78.5vh",
+          top: "38%"
         };
     }
   };

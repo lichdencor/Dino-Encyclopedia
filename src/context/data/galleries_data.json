@@ -275,9 +275,9 @@
               "speed": "Estimado ~10-15 km/h",
               "special_features": "Cuello largo, patas delanteras más largas que las traseras (dándole una postura similar a la de una jirafa) y grandes fosas nasales en la parte superior de la cabeza",
               "defense_attack_mechanism": "Tamaño enorme como disuasión; posible uso de la cola o pisotones para la defensa",
-              "fossils_found_in": "EE. UU. (Formación Morrison), Especies posiblemente relacionadas en África, como Giraffatitan",
-              "social_behaviour": "Probablemente lived in herds or family groups",
-              "evolutionary_relationship": "Related to other macronarian sauropods like Camarasaurus and Giraffatitan"
+              "fossils_found_in": "EE. UU. (Formación Morrison)",
+              "social_behaviour": "Probablemente vivía en manadas o en grupos familiares",
+              "evolutionary_relationship": "Relacionado con otros saurópodos macronarios, como Camarasaurus y Giraffatitan"
             },
             {
               "name": "Diplodocus",
@@ -288,11 +288,11 @@
               "clasification": "Sauropod",
               "diet_type": "Herbívoro",
               "speed": "Estimado ~8-15 km/h",
-              "special_features": "Extremely long neck and tail, whip-like tail, small head with peg-like teeth",
-              "defense_attack_mechanism": "Large size as a deterrent; possible use of tail as a whip for defensa",
+              "special_features": "Cuello y cola extremadamente largos, cola semejante a un látigo y cabeza pequeña con dientes en forma de estaca",
+              "defense_attack_mechanism": "Tamaño grande como disuasión; posible uso de la cola como látigo para la defensa",
               "fossils_found_in": "EE. UU. (Morrison Formation)",
-              "social_behaviour": "Probablemente lived in herds",
-              "evolutionary_relationship": "Related to Apatosaurus and Barosaurus"
+              "social_behaviour": "Probablemente vivían en manadas",
+              "evolutionary_relationship": "Relacionado con Apatosaurus y Barosaurus"
             },
             {
               "name": "Stegosaurus",
@@ -321,29 +321,29 @@
             {
               "name": "Pachycephalosaurus",
               "scientific_name": "Pachycephalosaurus wyomingensis",
-              "height": "Approximately 4 to 5 metros",
-              "weight": "Alrededor de 400 to 450 kg",
+              "height": "Aproximadamente de 4 a 5 metros",
+              "weight": "Alrededor de 400 a 450 kg",
               "geological_period": "Cretácico Inferior",
               "clasification": "Dinosauria, Ornithischia, Pachycephalosauridae",
-              "diet_type": "Herbívoro (probablemente ate leaves, fruits, and seeds)",
-              "speed": "Estimado to be a moderate runner, posiblemente reaching up to 24 km/h",
-              "special_features": "Thick, domed skull up to 25 cm (10 inches) thick, small leaf-shaped teeth, bipedal stance",
-              "defense_attack_mechanism": "Posiblemente used its thick skull for headbutting, either in combat with rivals or for defensa",
-              "fossils_found_in": "United States, particularly in Montana, South Dakota, and Wyoming",
-              "social_behaviour": "Incierto, but may have lived in small groups or been solitario",
-              "evolutionary_relationship": "Un miembro de Pachycephalosauridae, closely relacionado con otros dome-headed dinosaurs like Stygimoloch and Dracorex"
+              "diet_type": "Herbívoro (Probablemente se alimentaba de hojas, frutas y semillas)",
+              "speed": "Se estima que era un corredor moderado, posiblemente alcanzando hasta 24 km/h",
+              "special_features": "Cráneo grueso y abovedado de hasta 25 cm de espesor, dientes pequeños en forma de hoja y postura bípeda",
+              "defense_attack_mechanism": "Posiblemente utilizó su cráneo grueso para embestir, ya sea en combates con rivales o como defensa",
+              "fossils_found_in": "Estados Unidos, especialmente en Montana, Dakota del Sur y Wyoming",
+              "social_behaviour": "Incierto, pero pudo haber vivido en pequeños grupos o ser solitario",
+              "evolutionary_relationship": "Miembro de Pachycephalosauridae, estrechamente relacionado con otros dinosaurios de cabeza similar como Stygimoloch y Dracorex"
             },
             {
               "name": "Microceratus",
               "scientific_name": "Microceratus gobiensis",
-              "height": "Approximately 0.6 metros",
+              "height": "Aproximadamente 0.6 metros",
               "weight": "Alrededor de 5 kg",
               "geological_period": "Cretácico Inferior",
               "clasification": "Dinosauria, Ornithischia, Ceratopsia, Neoceratopsia",
-              "diet_type": "Herbívoro (probablemente fed on low-growing plants like ferns and cycads)",
-              "speed": "Estimado to be a fast and agile runner",
-              "special_features": "Small size, cuerpo liviano, beaked mouth for cropping vegetation, probablemente lacked large horns",
-              "defense_attack_mechanism": "Relied on speed and agility to escape depredadores",
+              "diet_type": "Herbívoro (probablemente se alimentaba de plantas de bajo porte, como helechos y Cícadas (Cycadales))",
+              "speed": "Se estima que era un corredor rápido y ágil",
+              "special_features": "Tamaño pequeño, cuerpo liviano, boca con pico para cortar vegetación; probablemente sin cuernos grandes",
+              "defense_attack_mechanism": "Se basaba en la velocidad y agilidad para escapar de los depredadores",
               "fossils_found_in": "Mongolia, particularly in the Gobi Desert",
               "social_behaviour": "Posiblemente lived in small groups or herds",
               "evolutionary_relationship": "One of the earliest known ceratopsians, related to later, larger species like Protoceratops and Triceratops"
