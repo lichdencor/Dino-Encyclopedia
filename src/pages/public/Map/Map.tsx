@@ -7,6 +7,7 @@ export const Map = () => {
       <Nav />
       <div className="map">
         <div className="periodTitleGoldBg period1Container">
+          <img src="/public/assets/img/map/period1Paws.png" alt="period level"/> 
           <div className="periodTitleFrame periodTitleFrame1">
             Triassic
             <br />

@@ -268,9 +268,22 @@ body {
   color: rgb(237, 234, 207);
 }
 
+.period1Container img,
+.period2Container img,
+.period3Container img {
+  width: 35%;
+  height: 28%;
+  top: -10%;
+  position: absolute;
+}
+
 .period1Container {
   top: 29%;
   left: 15%;
+}
+
+.period1Container img {
+
 }
 
 .period2Container {

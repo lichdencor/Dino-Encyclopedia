@@ -4,7 +4,6 @@ interface AdDisplayProps {
   adCode: string;
 }
 
-
 export const AdDisplay = ({ adCode }: AdDisplayProps) => {
   const adContainerRef = useRef<HTMLDivElement>(null);
   return (
