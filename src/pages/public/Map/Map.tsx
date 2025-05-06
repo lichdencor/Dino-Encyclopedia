@@ -33,7 +33,7 @@ export const Map = () => {
           </div>
         </div>
       </div>
-      <div className="raptor-bites"></div>
+      <img src="/public/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites"/>
 
       {/* COMMON ROOMS */}
       <PeriodsButtonHover stage="main-entrance" label="main entrance" />

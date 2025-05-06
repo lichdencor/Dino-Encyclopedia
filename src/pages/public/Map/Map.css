@@ -77,17 +77,17 @@ body {
   100% { transform: translateY(0); }
 }
 
-.raptor-bites {
-  width: 15%;
-  height: 20%;
+.raptorBites {
+  width: 12%;
+  height: 15%;
   position: absolute;
   /* background-color: red; */
   background-image: url(/assets/img/map/raptor-bites.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  left: 25%;
-  bottom: 5%;
+  left: 26%;
+  bottom: 8%;
   animation: float 3s ease-in-out infinite;
 }
 
