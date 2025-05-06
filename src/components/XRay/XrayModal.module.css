@@ -1,52 +1,71 @@
 .modalBg {
-  width: 95%;
-  height: 90%;
-  background: linear-gradient(45deg, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
+    width: 95%;
+    height: 90%;
+    background: linear-gradient(45deg, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 
-  .dinosaur1{
-    animation: none;
-  }
-  .dinosaur2{
-    animation: none;
-  }
-  .dinosaurBoneBg3{
-    animation: none;
-  }
+    .dinosaur1 {
+        animation: none;
+    }
+
+    .dinosaur2 {
+        animation: none;
+    }
+
+    .dinosaurBoneBg3 {
+        animation: none;
+    }
+}
+
+.closeBtn {
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    z-index: 10;
+    right: 4%;
+    top: 7.8%;
+    background-color: rgb(230, 224, 198);
+    background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(50, 4, 4);
+    font-family: 'Cinzel';
 }
 
 .modalContent {
-  width: 93%;
-  height: 85%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* border: 2px solid rebeccapurple; */
+    width: 93%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid rebeccapurple; */
 }
 
 .dinosaurContainer {
-  width: 50%;
-  height: 100%;
-  /* background-color: blue; */
-  background-image: url(/assets/img/x-ray/platform.png);
-  background-size: 100% 18%;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  cursor: url(/assets/img/scanner/scanner.png) 0 0, auto;
+    width: 50%;
+    height: 100%;
+    /* background-color: blue; */
+    background-image: url(/assets/img/x-ray/platform.png);
+    background-size: 100% 18%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    cursor: url(/assets/img/scanner/scanner.png) 0 0, auto;
 }
 
 h2 {
-  text-align: center;
-  background-color: blue;
+    text-align: center;
+    background-color: blue;
 }
 
 .containerPuzzlePiece {
-  position: relative;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .puzzlePiece {
@@ -56,11 +75,11 @@ h2 {
     transform: scale(1) translate(-50%, -50%);
     transition: all 1s linear;
     transform-origin: top;
-  }
-  
-  @keyframes scalePuzzlePiece {
+}
+
+@keyframes scalePuzzlePiece {
     0% {
-      transform: scale(1) translate(-50%, -50%);
+        transform: scale(1) translate(-50%, -50%);
     }
 
     25% {
@@ -70,47 +89,47 @@ h2 {
     50% {
         filter: opacity(100%);
     }
-  
+
     75% {
-      transform: scale(1.25) translate(-50%, -50%);
-      filter: opacity(0%);
-      filter: brightness(110%);
+        transform: scale(1.25) translate(-50%, -50%);
+        filter: opacity(0%);
+        filter: brightness(110%);
     }
 
     100% {
         transform: scale(1.25) translate(-50%, -50%);
         filter: opacity(0%);
         filter: brightness(120%);
-      }
-  }
-  
-  .puzzlePiece:hover {
-    animation: scalePuzzlePiece 3s linear;
-  }
-
-  /* INFORMATION START */
-
-  /* X-RAY */
-.xRayNameFrame {
-  position: absolute;
-  top: 6%;
-  width: 18vw !important;
-  height: 4vh;
-  font-family: "MedusaGothic";
-  font-size: 0.9vw;
-  color: rgb(43, 23, 3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.3vw;
-  text-align: center;
-  border: 4px double #5e4528;
-  background: linear-gradient(135deg,#5e4528, #f4d5a6,#f4d5a6, #5e4528);
-  z-index: 2;
-  border-radius: 8px;
+    }
 }
-  
-  .informationContainer {
+
+.puzzlePiece:hover {
+    animation: scalePuzzlePiece 3s linear;
+}
+
+/* INFORMATION START */
+
+/* X-RAY */
+.xRayNameFrame {
+    position: absolute;
+    top: 6%;
+    width: 18vw !important;
+    height: 4vh;
+    font-family: "MedusaGothic";
+    font-size: 0.9vw;
+    color: rgb(43, 23, 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.3vw;
+    text-align: center;
+    border: 4px double #5e4528;
+    background: linear-gradient(135deg, #5e4528, #f4d5a6, #f4d5a6, #5e4528);
+    z-index: 2;
+    border-radius: 8px;
+}
+
+.informationContainer {
     width: 45%;
     height: 95%;
     display: flex;
@@ -118,9 +137,9 @@ h2 {
     justify-content: center;
     align-items: center;
     /* background-color: pink; */
-  }
+}
 
-  .information {
+.information {
     position: relative;
     width: 100%;
     height: 95%;
@@ -130,9 +149,9 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .infoList {
+.infoList {
     width: 88%;
     height: 85%;
     list-style: none;
@@ -143,23 +162,23 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-  }
+}
 
-  .infoList li {
+.infoList li {
     margin-bottom: 0.5rem;
     padding-left: 2rem;
     position: relative;
     font-family: "Lato";
     font-size: 1vw;
     opacity: 0;
-  }
-  
-  .infoList li span {
+}
+
+.infoList li span {
     font-family: "MedusaGothic";
     font-size: 0.8vw;
-  }
-  
-  .infoList li::before {
+}
+
+.infoList li::before {
     content: '';
     position: absolute;
     top: 0;
@@ -169,39 +188,71 @@ h2 {
     background-image: url(/assets/img/paws/level-paw-complete.png);
     background-size: contain;
     background-repeat: no-repeat;
-  }  
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(10px);
+        opacity: 0;
+        transform: translateY(10px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
 
-  .infoList li.animate {
+.infoList li.animate {
     animation: fadeIn 0.5s ease-out forwards;
-  }
+}
 
-  /* Animation delays for each item */
-  .infoList li:nth-child(1).animate { animation-delay: 0s; }
-  .infoList li:nth-child(2).animate { animation-delay: 0s; }
-  .infoList li:nth-child(3).animate { animation-delay: 0s; }
-  .infoList li:nth-child(4).animate { animation-delay: 0s; }
-  .infoList li:nth-child(5).animate { animation-delay: 0s; }
-  .infoList li:nth-child(6).animate { animation-delay: 0s; }
-  .infoList li:nth-child(7).animate { animation-delay: 0s; }
-  .infoList li:nth-child(8).animate { animation-delay: 0s; }
-  .infoList li:nth-child(9).animate { animation-delay: 0s; }
-  .infoList li:nth-child(10).animate { animation-delay: 0s; }
-  .infoList li:nth-child(11).animate { animation-delay: 0s; }
+/* Animation delays for each item */
+.infoList li:nth-child(1).animate {
+    animation-delay: 0s;
+}
 
-  /* PROGRESS BAR START */
+.infoList li:nth-child(2).animate {
+    animation-delay: 0s;
+}
 
-  .progressContainer {
+.infoList li:nth-child(3).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(4).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(5).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(6).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(7).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(8).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(9).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(10).animate {
+    animation-delay: 0s;
+}
+
+.infoList li:nth-child(11).animate {
+    animation-delay: 0s;
+}
+
+/* PROGRESS BAR START */
+
+.progressContainer {
     bottom: 6%;
     right: 5%;
     position: absolute;
@@ -238,7 +289,7 @@ h2 {
 .progressBar {
     width: 60%;
     height: 60%;
-    background: linear-gradient(135deg,#372715, #f4d5a6, #7b664d, #f4d5a6);
+    background: linear-gradient(135deg, #372715, #f4d5a6, #7b664d, #f4d5a6);
     border-radius: 4px;
     margin-left: 2%;
 }

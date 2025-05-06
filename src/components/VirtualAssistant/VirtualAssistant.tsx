@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import './VirtualAssistant.css';
 
-export const VirtualAssistant = ({onClick, text, looped, boldWords, dialogStyle}: any) => {
+interface VirtualAssistantProps {
+    onClick?: () => void;
+    text: string;
+    looped?: boolean;
+    boldWords?: string[];
+    dialogStyle?: React.CSSProperties;
+}
+
+export const VirtualAssistant = ({onClick, text, looped, boldWords = [], dialogStyle}: VirtualAssistantProps) => {
     const fullText = text;
     const [displayText, setDisplayText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,9 +44,9 @@ export const VirtualAssistant = ({onClick, text, looped, boldWords, dialogStyle}
         }
     }, [currentIndex, fullText, isDialogShowing, isLooped]);
 
-    const formatText = (text) => {
+    const formatText = (text: string) => {
         let formattedText = text;
-        boldWords.forEach(word => {
+        boldWords.forEach((word: string) => {
             const regex = new RegExp(`(${word})`, 'g');
             formattedText = formattedText.replace(regex, '<b>$1</b>');
         });
@@ -47,7 +55,7 @@ export const VirtualAssistant = ({onClick, text, looped, boldWords, dialogStyle}
     };
 
     return (
-        <div className="dialogueContainer">
+        <div id="virtual-assistant" className="dialogueContainer">
             <div>
                 <img src="/assets/giph/logo.gif" className="virtualAssistantGiph" onClick={onClick}></img>
                 
