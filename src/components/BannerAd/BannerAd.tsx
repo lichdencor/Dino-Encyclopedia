@@ -21,7 +21,6 @@ export const BannerAd = ({ position }: BannerAdProps) => {
     <div className={styles.bannerContainer} data-position={position}>
       <AdDisplay 
         adCode={activeBanner.adCode}
-        sourceId={activeBanner.sourceId}
       />
     </div>
   );

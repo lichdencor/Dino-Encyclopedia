@@ -63,7 +63,7 @@ const AdsPage = () => {
               .filter((banner) => banner.position === 'position1')
               .map((banner) => (
                 <div key={banner.id} className={styles.bannerCard}>
-                  <AdDisplay adCode={banner.adCode} sourceId={banner.sourceId} />
+                  <AdDisplay adCode={banner.adCode} />
                   <div className={styles.bannerControls}>
                     <div className={styles.bannerInfo}>
                       <label>
@@ -90,7 +90,7 @@ const AdsPage = () => {
               .filter((banner) => banner.position === 'position2')
               .map((banner) => (
                 <div key={banner.id} className={styles.bannerCard}>
-                  <AdDisplay adCode={banner.adCode} sourceId={banner.sourceId} />
+                  <AdDisplay adCode={banner.adCode} />
                   <div className={styles.bannerControls}>
                     <div className={styles.bannerInfo}>
                       <label>
