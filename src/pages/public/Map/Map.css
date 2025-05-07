@@ -91,7 +91,6 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
-
 .restroom {
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -324,7 +323,7 @@ body {
   color: white;
   width: 20vh;
   height: 30vh;
-  top: 25%;
+  top: 8vh;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -333,20 +332,21 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
+  /* background-color: #987B45; */
 }
 
 .info-container.right {
-  left: calc(80%);
+  left: 3vw;
 }
 
 .info-container.left {
-  right: calc(80%);
+  right: 3vw;
 }
 
 .info-frame {
   margin-top: 10%;
   width: 60%;
-  height: 65%;
+  height: 67%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -354,60 +354,61 @@ body {
   z-index: 9 !important;
   position: relative;
   transform: translateZ(0);
+  /* background-color: #987B45; */
 }
 
 .stage-1 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-tri-1.png);
+  background-image: url(/public/assets/img/building-descriptions/tri-1.png);
 }
 
 .stage-2 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-tri-2.png);
+  background-image: url(/public/assets/img/building-descriptions/tri-2.png);
 }
 
 .stage-3 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-tri-3.png);
+  background-image: url(/public/assets/img/building-descriptions/tri-3.png);
 }
 
 .stage-4 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-jur-1.png);
+  background-image: url(/public/assets/img/building-descriptions/jur-1.png);
 }
 
 .stage-5 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-jur-2.png);
+  background-image: url(/public/assets/img/building-descriptions/jur-2.png);
 }
 
 .stage-6 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-jur-3.png);
+  background-image: url(/public/assets/img/building-descriptions/jur-3.png);
 }
 
 .stage-7 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-cre-1.png);
+  background-image: url(/public/assets/img/building-descriptions/cre-1.png);
 }
 
 .stage-8 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-cre-2.png);
+  background-image: url(/public/assets/img/building-descriptions/cre-2.png);
 }
 
 .stage-9 .info-container {
-  background-image: url(/assets/img/building-descriptions/card-cre-3.png);
+  background-image: url(/public/assets/img/building-descriptions/cre-3.png);
 }
 
 .site-description {
-  height: 20%;
+  height: 14%;
   width: 100%;
-  /* background-color: rgb(118, 159, 158); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background-color: rgb(118, 159, 158); */
 }
 
 .site-description span {
-  font-size: 0.6vw;
-  letter-spacing: 0.2vw;
-  line-height: 1vw;
+  font-size: 0.5vw;
+  letter-spacing: 0.15vw;
+  line-height: 0.7vw;
   text-align: center;
-  color: rgb(90, 84, 60);
+  color: rgb(224, 218, 193);
 }
 
 .site-description p {
@@ -417,55 +418,74 @@ body {
   color: black;
 }
 
-.info-triassic-dinos-container {
-  height: 90%;
+.visitBtn {
+  position: absolute;
   width: 60%;
+  height: 15%;
+  bottom: 1vw;
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(33, 1, 1);
+  
+  border: 5px double rgb(125, 118, 79);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+  
+  font-family: "MedusaGothic";
+  letter-spacing: 0.15vw;
+  font-size: 0.5vw;
+
+  filter: brightness(50%);
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+}
+
+.linkVisitBtn {
+  color: #eae4c0 !important;
+}
+
+.visitBtn:hover {
+  filter: brightness(100%);
+  transform: scale(103%);
+}
+
+.paperContainer {
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+  border-radius: 6px;
+  width: 7.5vw;
+  height: 10vw;
+  position: absolute;
+  transform: translateY(-25%);
+  display: flex;
+  align-items: center;
+  z-index: 0;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  top: 2vw;
+}
+
+.paperContainer.right {
+  left: 4vw;
+  justify-content: flex-end;
+}
+
+.paperContainer.left {
+  right: 4vw;
+  justify-content: flex-start;
+}
+
+.paper {
+  height: 95%;
+  width: 95%;
+  border-radius: 6px;
   background-color: antiquewhite;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.info-frame button {
-  filter: brightness(50%);
-  position: absolute;
-  bottom: 1vw;
-  color: rgb(234, 235, 221);
-  background-color: rgba(360, 360, 360, 0.8);
-  font-family: "MedusaGothicD";
-  letter-spacing: 0.15vw;
-  font-size: 0.5vw;
-  border-radius: 5px;
-  transition: all 500ms ease-in-out;
-  cursor: default;
-}
-
-.info-frame button:hover {
-  filter: brightness(100%);
-  transform: scale(103%);
-}
-
-.paper {
-  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
-  border-radius: 6px;
-  width: 9vw;
-  height: 10vw;
-  position: absolute;
-  transform: translateY(-16%);
-  display: flex;
-  align-items: center;
-  z-index: 0;
-}
-
-.paper.right {
-  left: calc(90%);
-  justify-content: flex-end;
-}
-
-.paper.left {
-  right: calc(90%);
-  justify-content: flex-start;
 }
 
 /* BUILDING DINOSAURS */
@@ -672,26 +692,26 @@ body {
 
 @keyframes movePaperRight {
   0% {
-    left: calc(80%);
+    left: 5vw;
   }
   100% {
-    left: calc(170%);
+    left: 12vw;
   }
 }
 
 @keyframes movePaperLeft {
   0% {
-    right: calc(80%);
+    right: 5vw;
   }
   100% {
-    right: calc(170%);
+    right: 10vw;
   }
 }
 
-.scaled .paper.right {
+.scaled .paperContainer.right {
   animation: movePaperRight 0.8s ease-in-out 0.6s forwards;
 }
 
-.scaled .paper.left {
+.scaled .paperContainer.left {
   animation: movePaperLeft 0.8s ease-in-out 0.6s forwards;
 }

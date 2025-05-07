@@ -36,16 +36,16 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                             <span>{label}</span>
                         </div>
                         {link &&
-                          <button>
-                            <Link to={link}>VISIT</Link>
+                          <button className="visitBtn">
+                            <Link to={link} className="linkVisitBtn">VISIT</Link>
                           </button>
                         }
 
                     </div>
                 </div>,
                     dinos && dinos.length > 0 ?
-                        <div className={`paper ${infoOrientation}`}>
-                            <div className="info-triassic-dinos-container">
+                        <div className={`paperContainer ${infoOrientation}`}>
+                            <div className="paper">
                                 {dinos.map((dino: string, index: number) => (
                                     <div
                                         key={index}
