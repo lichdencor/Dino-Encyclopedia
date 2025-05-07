@@ -6,7 +6,7 @@
 .cretaceousInferiorBg {
   width: 100%;
   height: 100%;
-  background-image: url(/assets/img/gallery-bg/gallery-bg-triassic.png);
+  background-image: url(/assets/img/gallery-bg/gallery-bg-cretaceous.png);
   background-size: 100% 100%;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -69,13 +69,13 @@
 }
 
 .leftCurtain {
-  background-image: url(/assets/img/gallery-bg/courtains/left-courtain-triassic.png);
+  background-image: url(/assets/img/gallery-bg/courtains/left-courtain-cretaceous.png);
   transform-origin: left;
   transition: transform 1s ease-in-out;
 }
 
 .rightCurtain {
-  background-image: url(/assets/img/gallery-bg/courtains/right-courtain-triassic.png);
+  background-image: url(/assets/img/gallery-bg/courtains/right-courtain-cretaceous.png);
   transform-origin: right;
   transition: transform 1s ease-in-out;
 }
