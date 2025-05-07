@@ -51,10 +51,11 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                         style={{
                             position: 'absolute',
                             top: 0,
-                            right: 0,
-                            width: infoOrientation === 'right' ? '10vh' : '14vh',
+                            left: infoOrientation === 'right' ? 0 : undefined,
+                            right: infoOrientation === 'right' ? undefined : 4,
+                            width: infoOrientation === 'right' ? '10vh' : '10vh',
                             height: '20vh',
-                            zIndex: 1
+                            zIndex: 3
                         }}
                         onMouseEnter={() => setHovered(true)}
                         onMouseLeave={() => setHovered(false)}
