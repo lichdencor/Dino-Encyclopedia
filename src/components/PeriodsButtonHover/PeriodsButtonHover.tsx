@@ -28,18 +28,35 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
             <div className={`period-btn-bg ${stage}-bg`}></div>
             {hovered && (
                 [<div
-                    className={`info-container fade-in ${infoOrientation}`}
+                    className="hover-area"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '10vh',
+                        height: '20vh',
+                        zIndex: 1
+                    }}
                     onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
                 >
-                    <div className="info-frame">
-                        <div className="site-description">
-                            <span>{label}</span>
+                    <div
+                        className={`info-container fade-in ${infoOrientation}`}
+                        style={{
+                            position: 'absolute',
+                            zIndex: 2
+                        }}
+                    >
+                        <div className="info-frame">
+                            <div className="site-description">
+                                <span>{label}</span>
+                            </div>
+                            {link &&
+                              <button className="visitBtn">
+                                <Link to={link} className="linkVisitBtn">VISIT</Link>
+                              </button>
+                            }
                         </div>
-                        {link &&
-                          <button className="visitBtn">
-                            <Link to={link} className="linkVisitBtn">VISIT</Link>
-                          </button>
-                        }
                     </div>
                 </div>,
                     dinos && dinos.length > 0 ?
