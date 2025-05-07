@@ -1,5 +1,6 @@
 import "./Map.css";
 import { Nav, PeriodsButtonHover } from "../../../components/";
+import { PeriodsButtonPremium } from "../../../components/PeriodsButtonPremium/PeriodsButtonPremium";
 
 export const Map = () => {
   return (
@@ -44,7 +45,7 @@ export const Map = () => {
 
       <PeriodsButtonHover stage="store" label="store" />
 
-      <PeriodsButtonHover stage="kids-room" label="kids-room" />
+      <PeriodsButtonPremium stage="kids-room" label="kids-room" />
 
       <PeriodsButtonHover stage="restroom restroom-1" label="restroom" />
 

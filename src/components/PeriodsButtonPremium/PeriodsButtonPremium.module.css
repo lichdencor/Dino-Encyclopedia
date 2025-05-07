@@ -1,0 +1,63 @@
+.galleryInfo {
+    height: 65%;
+    width: 100%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
+}
+
+.alertContainer {
+    height: 65%;
+    width: 80%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+
+.alertBg {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-image: url('/assets/img/alert/alertBorder.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: rotateBackground 40s linear infinite;
+    z-index: 1;
+    top: 15%;
+    left: 15%;
+    background-color: blueviolet;
+}
+
+.lock {
+    height: 60%;
+    width: auto;
+    max-width: 80%;
+    z-index: 2;
+    /* background-color: white; */
+}
+
+.alertText {
+    height: 25%;
+    width: 100%;
+    font-family: "MedusaGothic";
+    text-align: center;
+    font-size: 0.4vw;
+    letter-spacing: 0.1vw;
+    background-color: aliceblue;
+}
+
+@keyframes rotateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
