@@ -361,6 +361,7 @@ body {
   background-image: url(/public/assets/img/building-descriptions/entrance.png);
 }
 
+
 .library .info-container {
   background-image: url(/public/assets/img/building-descriptions/library.png);
 }
@@ -371,14 +372,17 @@ body {
 
 .entrance .info-container,
 .restroom .info-container {
-  background-color: blue;
-  width: 10vw;
-  height: 5vw;
-  left: -4vw;
-  top: 8vw;
+  background-color: rgb(24, 3, 3);
+  width: 6vw;
+  height: 1.5vw;
+  left: -2vw;
+  top: 7.5vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
+  padding-top: 5%;
+  border: 2px solid rgb(206, 206, 206);
 }
 
 .stage-1 .info-container {
