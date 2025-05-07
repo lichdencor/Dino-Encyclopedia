@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useProgress } from "../../context/Progress/ProgressProvider";
+import { getCurrentDinosaurProgress } from "../XRay/utils";
 
 interface PeriodsButtonHoverProps {
     stage: string;
+    era?: string;
+    period?:string;
     label: string;
     link?: string;
     dinos?: string[];
@@ -12,23 +16,28 @@ interface PeriodsButtonHoverProps {
 
 export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
     stage,
+    era,
+    period,
     label,
     link,
     dinos,
     dinoNames,
     infoOrientation = "right",
 }) => {
-    const [hovered, setHovered] = useState(stage === "stage-1");
-    const [showPaper, setShowPaper] = useState(stage === "stage-1");
+    const [hovered, setHovered] = useState(false);
+    const [showPaper, setShowPaper] = useState(false);
+    const { progress } = useProgress();
+    const user_progress = progress
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
         if (hovered) {
-            timeout = setTimeout(() => setShowPaper(true), 20);
+            setShowPaper(true)
+            // timeout = setTimeout(() => setShowPaper(true), 0);
         } else {
             setShowPaper(false);
         }
-        return () => clearTimeout(timeout);
+        // return () => clearTimeout(timeout);
     }, [hovered]);
 
     return (
@@ -75,9 +84,13 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                             <div className="paper">
                                 <div className="dinosaurInfo">
                                     <div className="dinosaurNames">
-                                        {dinoNames.map((dinoName, index) => (
-                                            <div key={index} className="dinosaurName">{dinoName}</div>
-                                        ))}
+                                        {dinoNames.map((dinoName, index) => {
+                                            const progress = getCurrentDinosaurProgress(era, user_progress, period, dinoName);
+                                            const displayName = progress === 100 ? dinoName : "?";
+                                            return (
+                                                <div key={index} className="dinosaurName">{displayName}</div>
+                                            );
+                                        })}
                                     </div>
                                     <div className="dinosaurImg">
                                         {dinos.map((dino, index) => (

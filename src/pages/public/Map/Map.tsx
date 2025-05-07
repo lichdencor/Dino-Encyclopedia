@@ -61,6 +61,8 @@ export const Map = () => {
 
       <PeriodsButtonHover
         stage="stage-1"
+        era="triassic"
+        period="inferior"
         label="inferior gallery"
         link="/triassic-inferior"
         dinos={[
@@ -76,6 +78,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-2"
+        era="triassic"
+        period="medium"        
         label="medium gallery"
         link="/triassic-medium"
         dinos={[
@@ -91,6 +95,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-3"
+        era="triassic"
+        period="superior"        
         label="superior gallery"
         link="/triassic-superior"
         dinos={[
@@ -106,6 +112,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-4"
+        era="jurassic"
+        period="inferior"        
         label="inferior gallery"
         link="/jurassic-inferior"
         dinos={[
@@ -121,7 +129,9 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-5"
-        label="medium gallery"
+        era="jurassic"
+
+period=""        label="medium gallery"
         link="/jurassic-medium"
         dinos={[
           "info-jurassic-2-dino-1 small-dino",
@@ -137,7 +147,9 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-6"
-        label="superior gallery"
+        era="jurassic"
+
+period=""        label="superior gallery"
         link="/jurassic-superior"
         dinos={[
           "info-jurassic-3-dino-1 big-dino",
@@ -153,6 +165,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-7"
+        era = "cretaceous"
+        period=""
         label="inferior gallery"
         link="/cretaceous-inferior"
         dinos={[
@@ -169,6 +183,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-8"
+        era = "cretaceous"
+        period=""
         label="medium gallery"
         link="/cretaceous-medium"
         dinos={[
@@ -185,6 +201,8 @@ export const Map = () => {
       />
       <PeriodsButtonHover
         stage="stage-9"
+        era = "cretaceous"
+        period=""
         label="superior gallery"
         link="/cretaceous-superior"
         dinos={[

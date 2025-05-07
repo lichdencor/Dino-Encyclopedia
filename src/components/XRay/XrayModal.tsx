@@ -8,7 +8,7 @@ import { PuzzlePiece } from "./components/PuzzlePiece";
 import { DinosaurViewer } from "./components/DinosaurViewer";
 import { InfoList } from "./components/InfoList";
 import { ProgressBar } from "./components/ProgressBar";
-import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect } from "./utils";
+import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurrentDinosaurProgress } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 
 type PuzzlePieceStatus = {
@@ -94,19 +94,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     }
   };
 
-  const getCurrentDinosaurProgress = () => {
-    const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
-    const periodData = progress.galleries[0][eraKey].find(
-      (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
-    );
-    
-    if (periodData && selectedDinosaur !== null) {
-      const dinosaur = periodData.dinosaurs[selectedDinosaur];
-      return dinosaur?.scanProgress || 0;
-    }
-    return 0;
-  };
-
   const updateDinosaurProgress = (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
@@ -172,7 +159,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const handleInfoVisibilityChange = (newVisibleInfo: string[]) => {
-    updateDinosaurProgress(getCurrentDinosaurProgress(), getCurrentDinosaurData().elapsedTime, newVisibleInfo);
+    updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), getCurrentDinosaurData().elapsedTime, newVisibleInfo);
   };
 
   const handlePuzzlePieceFound = () => {
