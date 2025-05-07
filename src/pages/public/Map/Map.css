@@ -398,6 +398,11 @@ body {
 
 .stage-3 .info-container {
   background-image: url(/public/assets/img/building-descriptions/tri-3.png);
+  top: 6vw;
+}
+
+.stage-3 .paperContainer {
+  margin-top: 2vw;
 }
 
 .stage-4 .info-container {
@@ -483,12 +488,15 @@ body {
 }
 
 .paperContainer {
-  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
   border-radius: 6px;
-  width: 7.5vw;
+  width: 15vw;
+
+  transform: scaleX(0);
+  /* transform-origin: left; */
+  transition: transform 2s ease-in-out;
+
   height: 10vw;
   position: absolute;
-  transform: translateY(-25%);
   display: flex;
   align-items: center;
   z-index: 0;
@@ -496,33 +504,83 @@ body {
   justify-content: center;
   justify-items: center;
   align-items: center;
-  top: 2vw;
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
 }
 
 .paperContainer.right {
-  left: 5vw;
+  top: 0;
+  left: 0vw;
 }
 
 .paperContainer.left {
-  right: 5vw;
+  top: 0;
+  right: 10vw;
+}
+
+.hidden {
+  display: none;
 }
 
 .paper {
   height: 95%;
-  width: 95%;
+  width: 96%;
   border-radius: 6px;
-  background-color: rgb(103, 100, 97);
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: black;
 }
 
 /* BUILDING DINOSAURS */
 
+.dinosaurInfo {
+  width: 85%;
+  height: 90%;
+  /* margin-right: 3%; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* background-color: white; */
+}
+
+.right .dinosaurInfo {
+  margin-right: 3%;
+}
+
+.left .dinosaurInfo {
+  margin-right: 25%;
+}
+
+.dinosaurNames,
+.dinosaurImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dinosaurName {
+  font-family: "MedusaGothic";
+  font-size: 0.42vw;
+  letter-spacing: 0.08vw;
+  color: #efebd5;
+}
+
+.dinosaurNames {
+  width: 60%;
+  height: 80%;
+  /* background-color: red; */
+}
+
+.dinosaurImg {
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+}
+
 .dinosaur-silhouette {
-  filter: brightness(0) opacity(100%);
-  background-size: 100% 100%;
+  filter: brightness(70) opacity(90%);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform-origin: center bottom;
@@ -543,166 +601,144 @@ body {
   animation: breathe 4s infinite ease-in-out;
 }
 
+.info-triassic-1-dino-1,
+.info-triassic-1-dino-2,
+.info-triassic-1-dino-3,
+.info-triassic-2-dino-1,
+.info-triassic-2-dino-2,
+.info-triassic-2-dino-3,
+.info-triassic-3-dino-1,
+.info-triassic-3-dino-2,
+.info-triassic-3-dino-3,
+.info-jurassic-1-dino-1,
+.info-jurassic-1-dino-2,
+.info-jurassic-1-dino-3,
+.info-jurassic-2-dino-1,
+.info-jurassic-2-dino-2,
+.info-jurassic-2-dino-3,
+.info-jurassic-3-dino-1,
+.info-jurassic-3-dino-2,
+.info-jurassic-3-dino-3,
+.info-cretaceous-1-dino-1,
+.info-cretaceous-1-dino-2,
+.info-cretaceous-1-dino-3,
+.info-cretaceous-2-dino-1,
+.info-cretaceous-2-dino-2,
+.info-cretaceous-2-dino-3,
+.info-cretaceous-3-dino-1,
+.info-cretaceous-3-dino-2,
+.info-cretaceous-3-dino-3 {
+  width: 100%;
+  height: 30%;
+}
+
+
 .info-triassic-1-dino-1 {
   background-image: url(/assets/img/dinosaurs/tr-1-Eoraptor.png);
-  width: 28%;
-  height: 15%;
 }
 
 .info-triassic-1-dino-2 {
   background-image: url(/assets/img/dinosaurs/tr-1-Herrerasaurus.png);
-  width: 35%;
-  height: 24%;
 }
 
 .info-triassic-1-dino-3 {
   background-image: url(/assets/img/dinosaurs/tr-1-Postosuchus.png);
-  width: 40%;
-  height: 25%;
 }
 
 .info-triassic-2-dino-1 {
   background-image: url(/assets/img/dinosaurs/tr-2-Chindesaurus.png);
-  width: 30%;
-  height: 15%;
 }
 
 .info-triassic-2-dino-2 {
   background-image: url(/assets/img/dinosaurs/tr-2-Fukuiraptor.png);
-  width: 45%;
-  height: 20%;
 }
 
 .info-triassic-2-dino-3 {
   background-image: url(/assets/img/dinosaurs/tr-2-Shuvosaurus.png);
-  width: 50%;
-  height: 15%;
 }
 
 .info-triassic-3-dino-1 {
   background-image: url(/assets/img/dinosaurs/tr-3-Coelophysis.png);
-  width: 25%;
-  height: 20%;
 }
 
 .info-triassic-3-dino-2 {
   background-image: url(/assets/img/dinosaurs/tr-3-Plateosaurus.png);
-  width: 50%;
-  height: 28%;
 }
 
 .info-triassic-3-dino-3 {
   background-image: url(/assets/img/dinosaurs/tr-3-Rauisuchus.png);
-  width: 45%;
-  height: 15%;
 }
 
 .info-jurassic-1-dino-1 {
   background-image: url(/assets/img/dinosaurs/ju-1-Compsognathus.png);
-  width: 30%;
-  height: 20%;
 }
 
 .info-jurassic-1-dino-2 {
   background-image: url(/assets/img/dinosaurs/ju-1-Cryolophosaurus.png);
-  width: 50%;
-  height: 24%;
 }
 
 .info-jurassic-1-dino-3 {
   background-image: url(/assets/img/dinosaurs/ju-1-Dilophosaurus.png);
-  width: 40%;
-  height: 20%;
 }
 
 .info-jurassic-2-dino-1 {
   background-image: url(/assets/img/dinosaurs/ju-2-Allosaurus.png);
-  width: 40%;
-  height: 30%;
 }
 
 .info-jurassic-2-dino-2 {
   background-image: url(/assets/img/dinosaurs/ju-2-Apatosaurus.png);
-  width: 60%;
-  height: 45%;
 }
 
 .info-jurassic-2-dino-3 {
   background-image: url(/assets/img/dinosaurs/ju-2-Camarasaurus.png);
-  width: 55%;
-  height: 35%;
 }
 
 .info-jurassic-3-dino-1 {
   background-image: url(/assets/img/dinosaurs/ju-3-Brachiosaurus.png);
-  width: 60%;
-  height: 30%;
 }
 
 .info-jurassic-3-dino-2 {
   background-image: url(/assets/img/dinosaurs/ju-3-Diplodocus.png);
-  width: 65%;
-  height: 28%;
 }
 
 .info-jurassic-3-dino-3 {
   background-image: url(/assets/img/dinosaurs/ju-3-Stegosaurus.png);
-  width: 35%;
-  height: 20%;
 }
 
 .info-cretaceous-1-dino-1 {
   background-image: url(/assets/img/dinosaurs/cr-1-Gallimimus.png);
-  width: 60%;
-  height: 25%;
 }
 
 .info-cretaceous-1-dino-2 {
   background-image: url(/assets/img/dinosaurs/cr-1-Microceratus.png);
-  width: 20%;
-  height: 10%;
 }
 
 .info-cretaceous-1-dino-3 {
   background-image: url(/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png);
-  width: 28%;
-  height: 20%;
 }
 
 .info-cretaceous-2-dino-1 {
   background-image: url(/assets/img/dinosaurs/cr-2-Baryonyx.png);
-  width: 35%;
-  height: 30%;
 }
 
 .info-cretaceous-2-dino-2 {
   background-image: url(/assets/img/dinosaurs/cr-2-Irritator.png);
-  width: 50%;
-  height: 12%;
 }
 
 .info-cretaceous-2-dino-3 {
   background-image: url(/assets/img/dinosaurs/cr-2-Spinosaurus.png);
-  width: 50%;
-  height: 12%;
 }
 
 .info-cretaceous-3-dino-1 {
   background-image: url(/assets/img/dinosaurs/cr-3-Ankylosaurus.png);
-  width: 40%;
-  height: 20%;
 }
 
 .info-cretaceous-3-dino-2 {
   background-image: url(/assets/img/dinosaurs/cr-3-Triceratops.png);
-  width: 32%;
-  height: 12%;
 }
 
 .info-cretaceous-3-dino-3 {
-  background-image: url(/assets/img/dinosaurs/cr-3-Tyrannosaurus\ Rex.png);
-  width: 55%;
-  height: 27%;
+  background-image: url(/assets/img/dinosaurs/cr-3-Tyrannosaurus.png);
 }
 
 /* END */
@@ -722,26 +758,32 @@ body {
 
 @keyframes movePaperRight {
   0% {
+    transform: scaleX(0%);
     left: 5vw;
   }
   100% {
-    left: 12vw;
+    transform: scaleX(100%);
+    left: 11vw;
   }
 }
 
 @keyframes movePaperLeft {
   0% {
+    transform: scaleX(0%);
     right: 5vw;
   }
   100% {
-    right: 13vw;
+    transform: scaleX(100%);
+    right: 11vw;
   }
 }
 
 .scaled .paperContainer.right {
-  animation: movePaperRight 0.8s ease-in-out 0.6s forwards;
+  transform-origin: left;
+  animation: movePaperRight 1.2s ease-in-out 0.6s forwards;
 }
 
 .scaled .paperContainer.left {
-  animation: movePaperLeft 0.8s ease-in-out 0.6s forwards;
+  transform-origin: right;
+  animation: movePaperLeft 1.2s ease-in-out 0.6s forwards;
 }

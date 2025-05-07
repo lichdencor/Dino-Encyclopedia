@@ -41,7 +41,11 @@ export const Map = () => {
 
       <PeriodsButtonHover stage="entrance" label="entrance" infoOrientation="left"/>
 
-      <PeriodsButtonHover stage="library" label="library" />
+      <PeriodsButtonHover
+        stage="library"
+        label="library"
+        link="/library"
+      />
 
       <PeriodsButtonHover stage="store" label="store" />
 
@@ -62,7 +66,12 @@ export const Map = () => {
         dinos={[
           "info-triassic-1-dino-1 small-dino",
           "info-triassic-1-dino-2 medium-dino",
-          "info-triassic-1-dino-3 big-dino",
+          "info-triassic-1-dino-3 big-dino"
+        ]}
+        dinoNames={[
+          "Postosuchus",
+          "Eoraptor",
+          "Herrerasaurus"
         ]}
       />
       <PeriodsButtonHover
@@ -72,7 +81,12 @@ export const Map = () => {
         dinos={[
           "info-triassic-2-dino-1 small-dino",
           "info-triassic-2-dino-2 medium-dino",
-          "info-triassic-2-dino-3 big-dino",
+          "info-triassic-2-dino-3 big-dino"
+        ]}
+        dinoNames={[
+          "Dilophosaurus",
+          "Compsognathus",
+          "Cryolophosaurus"
         ]}
       />
       <PeriodsButtonHover
@@ -84,6 +98,11 @@ export const Map = () => {
           "info-triassic-3-dino-2 big-dino",
           "info-triassic-3-dino-3 medium-dino",
         ]}
+        dinoNames={[
+          "Pachycephalosaurus",
+          "Microceratus",
+          "Gallimimus"
+        ]}
       />
       <PeriodsButtonHover
         stage="stage-4"
@@ -94,6 +113,11 @@ export const Map = () => {
           "info-jurassic-1-dino-2 small-dino",
           "info-jurassic-1-dino-3 big-dino",
         ]} 
+        dinoNames={[
+          "Shuvosaurus",
+          "Chindesaurus",
+          "Fukuiraptor"
+        ]}
       />
       <PeriodsButtonHover
         stage="stage-5"
@@ -103,6 +127,12 @@ export const Map = () => {
           "info-jurassic-2-dino-1 small-dino",
           "info-jurassic-2-dino-2 big-dino",
           "info-jurassic-2-dino-3 medium-dino",
+        ]}
+        infoOrientation="left"
+        dinoNames={[
+          "Allosaurus",
+          "Apatosaurus",
+          "Camarasaurus"
         ]}
       />
       <PeriodsButtonHover
@@ -115,6 +145,11 @@ export const Map = () => {
           "info-jurassic-3-dino-3 small-dino",
         ]} 
         infoOrientation="left"
+        dinoNames={[
+          "Spinosaurus",
+          "Baryonyx",
+          "Irritator"
+        ]}
       />
       <PeriodsButtonHover
         stage="stage-7"
@@ -126,6 +161,11 @@ export const Map = () => {
           "info-cretaceous-1-dino-3 medium-dino",
         ]}
         infoOrientation="left"
+        dinoNames={[
+          "Coelophysis",
+          "Plateosaurus",
+          "Rauisuchus"
+        ]}
       />
       <PeriodsButtonHover
         stage="stage-8"
@@ -137,6 +177,11 @@ export const Map = () => {
           "info-cretaceous-2-dino-3 small-dino",
         ]}
         infoOrientation="left"
+        dinoNames={[
+          "Brachiosaurus",
+          "Diplodoco",
+          "Stegosaurus"
+        ]}
       />
       <PeriodsButtonHover
         stage="stage-9"
@@ -148,6 +193,11 @@ export const Map = () => {
           "info-cretaceous-3-dino-3 big-dino",
         ]}
         infoOrientation="left"
+        dinoNames={[
+          "Ankylosaurus",
+          "Triceratops",
+          "Tyrannosaurus"
+        ]}
       />
     </div>
   );

@@ -4,9 +4,9 @@
     margin-bottom: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .alertContainer {
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 
@@ -32,7 +32,7 @@
     z-index: 1;
     top: 15%;
     left: 15%;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .lock {
@@ -46,11 +46,12 @@
 .alertText {
     height: 25%;
     width: 100%;
-    font-family: "MedusaGothic";
+    font-family: "Lato";
     text-align: center;
-    font-size: 0.4vw;
-    letter-spacing: 0.1vw;
-    background-color: aliceblue;
+    font-size: 0.45vw;
+    letter-spacing: 0.05vw !important;
+    margin: 0;
+    /* background-color: aliceblue; */
 }
 
 @keyframes rotateBackground {
