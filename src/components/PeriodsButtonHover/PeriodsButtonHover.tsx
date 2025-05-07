@@ -40,7 +40,6 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                             <Link to={link} className="linkVisitBtn">VISIT</Link>
                           </button>
                         }
-
                     </div>
                 </div>,
                     dinos && dinos.length > 0 ?
