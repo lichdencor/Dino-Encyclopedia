@@ -30,14 +30,11 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
     const user_progress = progress
 
     useEffect(() => {
-        let timeout: NodeJS.Timeout;
         if (hovered) {
             setShowPaper(true)
-            // timeout = setTimeout(() => setShowPaper(true), 0);
         } else {
             setShowPaper(false);
         }
-        // return () => clearTimeout(timeout);
     }, [hovered]);
 
     return (
@@ -54,8 +51,8 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                         style={{
                             position: 'absolute',
                             top: 0,
-                            left: 0,
-                            width: '10vh',
+                            right: 0,
+                            width: infoOrientation === 'right' ? '10vh' : '14vh',
                             height: '20vh',
                             zIndex: 1
                         }}
