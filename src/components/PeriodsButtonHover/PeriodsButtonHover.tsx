@@ -26,8 +26,6 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
 }) => {
     const [hovered, setHovered] = useState(false);
     const [showPaper, setShowPaper] = useState(false);
-    const { progress } = useProgress();
-    const user_progress = progress
 
     useEffect(() => {
         if (hovered) {
@@ -83,7 +81,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                                 <div className="dinosaurInfo">
                                     <div className="dinosaurNames">
                                         {dinoNames.map((dinoName, index) => {
-                                            const progress = getCurrentDinosaurProgress(era, user_progress, period, dinoName);
+                                            const progress = getCurrentDinosaurProgress(era, period, dinoName);
                                             const displayName = progress === 100 ? dinoName : "?";
                                             return (
                                                 <div key={index} className="dinosaurName">{displayName}</div>

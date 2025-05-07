@@ -1,5 +1,6 @@
 import { PUZZLE_PIECE_DETECTION_RADIUS } from './constants';
 import { ProgressData } from '../../services/progress/types';
+import { useProgress } from '../../context/Progress/ProgressProvider';
 
 export const updateCursorPosition = (
   event: React.MouseEvent<HTMLDivElement>,
@@ -33,12 +34,13 @@ export const isPointInRect = (x: number, y: number, rect: DOMRect) => {
   return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }; 
 
-export const getCurrentDinosaurProgress = (era:string, progress:ProgressData, period:string, selectedDinosaur:number|null) => {
+export const getCurrentDinosaurProgress = (era:string, period:string, selectedDinosaur:number|null) => {
+  const { progress } = useProgress();
   const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
   const periodData = progress.galleries[0][eraKey].find(
     (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
   );
-  
+  debugger
   if (periodData && selectedDinosaur !== null) {
     const dinosaur = periodData.dinosaurs[selectedDinosaur];
     return dinosaur?.scanProgress || 0;
