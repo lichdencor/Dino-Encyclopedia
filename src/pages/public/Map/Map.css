@@ -288,10 +288,6 @@ body {
   left: 15%;
 }
 
-.period1Container img {
-
-}
-
 .period2Container {
   bottom: 16%;
   left: 40%;
@@ -336,11 +332,11 @@ body {
 }
 
 .info-container.right {
-  left: 3vw;
+  left: 4vw;
 }
 
 .info-container.left {
-  right: 3vw;
+  right: 6vw;
 }
 
 .info-frame {
@@ -358,18 +354,26 @@ body {
 }
 
 .main-entrance .info-container {
-  background-image: url(/public/assets/img/building-descriptions/entrance.png);
+  background-image: url(/public/assets/img/building-descriptions/main-entrance.png);
 }
 
 .library .info-container {
   background-image: url(/public/assets/img/building-descriptions/library.png);
+  top: 2vw;
 }
 
 .kids-room .info-container {
   background-image: url(/public/assets/img/building-descriptions/kids.png);
 }
 
-.entrance .info-container,
+.store .info-container {
+  background-image: url(/public/assets/img/building-descriptions/store.png);
+}
+
+.entrance .info-container {
+  background-image: url(/public/assets/img/building-descriptions/entrance.png);
+}
+
 .restroom .info-container {
   background-color: rgb(24, 3, 3);
   width: 6vw;
@@ -496,11 +500,11 @@ body {
 }
 
 .paperContainer.right {
-  left: 4vw;
+  left: 5vw;
 }
 
 .paperContainer.left {
-  right: 4vw;
+  right: 5vw;
 }
 
 .paper {
@@ -730,7 +734,7 @@ body {
     right: 5vw;
   }
   100% {
-    right: 10vw;
+    right: 13vw;
   }
 }
 

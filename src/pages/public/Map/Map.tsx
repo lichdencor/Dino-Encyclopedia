@@ -38,7 +38,7 @@ export const Map = () => {
       {/* COMMON ROOMS */}
       <PeriodsButtonHover stage="main-entrance" label="main entrance" />
 
-      <PeriodsButtonHover stage="entrance" label="entrance" />
+      <PeriodsButtonHover stage="entrance" label="entrance" infoOrientation="left"/>
 
       <PeriodsButtonHover stage="library" label="library" />
 
@@ -92,7 +92,7 @@ export const Map = () => {
           "info-jurassic-1-dino-1 medium-dino",
           "info-jurassic-1-dino-2 small-dino",
           "info-jurassic-1-dino-3 big-dino",
-        ]}
+        ]} 
       />
       <PeriodsButtonHover
         stage="stage-5"
@@ -112,7 +112,8 @@ export const Map = () => {
           "info-jurassic-3-dino-1 big-dino",
           "info-jurassic-3-dino-2 medium-dino",
           "info-jurassic-3-dino-3 small-dino",
-        ]}
+        ]} 
+        infoOrientation="left"
       />
       <PeriodsButtonHover
         stage="stage-7"
