@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 
 const PuzzleContext = createContext(null);
 
-export const DIFFICULTY_LEVELS = {
+const DIFFICULTY_LEVELS = {
   easy: { 
     name: 'Fácil', 
     rows: 3, 
@@ -26,6 +26,8 @@ export const DIFFICULTY_LEVELS = {
   }
 }; 
 
+export { DIFFICULTY_LEVELS };
+
 export const PuzzleProvider = ({ children }) => {
   const [pieces, setPieces] = useState([]);
   const [draggedPiece, setDraggedPiece] = useState(null);
@@ -36,6 +38,14 @@ export const PuzzleProvider = ({ children }) => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [selectedPuzzleId, setSelectedPuzzleId] = useState(null);
   const [time, setTime] = useState(DIFFICULTY_LEVELS['easy'].time);
+
+  // Agregamos un handler personalizado para seleccionar puzzle
+  const handlePuzzleSelection = useCallback((puzzleId) => {
+    setSelectedPuzzleId(puzzleId);
+    setTime(DIFFICULTY_LEVELS[difficulty].time);
+    setIsComplete(false);
+    setShowTimeoutMessage(false);
+  }, [difficulty]);
 
   // Función para obtener la imagen del puzzle según la dificultad
   const getPuzzleImage = useCallback((puzzleId, difficulty) => {
@@ -220,7 +230,7 @@ export const PuzzleProvider = ({ children }) => {
     showTimeoutMessage,
     handleTimeoutClose,
     elapsedTime,
-    setSelectedPuzzleId,
+    setSelectedPuzzleId: handlePuzzleSelection,
     getPuzzleImage,
     getCompletedImage,
   };

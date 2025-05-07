@@ -110,6 +110,7 @@ export const Puzzleaurus = () => {
                             selectedPuzzle={selectedPuzzle}
                             key={selectedPuzzle.id}
                         />
+                        {/* Botones de navegación entre puzzles 
                         <div className={styles.navigationButtons}>
                             <button 
                                 className={`${styles.navButton} ${styles.prevButton}`}
@@ -125,7 +126,7 @@ export const Puzzleaurus = () => {
                             >
                                 Siguiente Puzzle →
                             </button>
-                        </div>
+                        </div>*/}
                     </div>
                 ) : (
                     <PuzzleMenu onPuzzleSelect={handlePuzzleSelect} />
