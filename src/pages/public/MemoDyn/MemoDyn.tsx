@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Nav } from "../../../components";
 import MemoDynMenu from "../../../components/MemoDynMenu/MemoDynMenu";
+import DialogoTips from "../../../components/DialogoTips/DialogoTips";
 import "./MemoDyn.css";
 
 interface MemoryGame {
@@ -20,7 +21,7 @@ interface GameSelection {
     difficulty: 'easy' | 'medium' | 'hard';
 }
 
-const loadAudio = (src: string) => {
+const loadAudio = (src: string): Promise<HTMLAudioElement> => {
     return new Promise((resolve, reject) => {
         const audio = new Audio(src);
         audio.oncanplaythrough = () => resolve(audio);
@@ -50,6 +51,8 @@ const getPairsCount = (totalCards: number) => {
     return Math.floor(totalCards / 2);
 };
 
+const MEMODYN_TIPS_KEY = 'showMemoDynTipsDialog';
+
 export const MemoDyn = () => {
     const [selectedGame, setSelectedGame] = useState<GameSelection | null>(null);
     const [currentSelection, setCurrentSelection] = useState<number[]>([]);
@@ -57,6 +60,8 @@ export const MemoDyn = () => {
     const [cardOrder, setCardOrder] = useState<number[]>([]);
     const [timeLeft, setTimeLeft] = useState<number>(0);
     const [gameOver, setGameOver] = useState<boolean>(false);
+    const [showTips, setShowTips] = useState<boolean>(false);
+    const [showTransition, setShowTransition] = useState<boolean>(false);
 
     const cardImages = [
         "Card01", "Card02", "Card03", "Card04", "Card05",
@@ -100,6 +105,13 @@ export const MemoDyn = () => {
         }
         return () => clearInterval(timer);
     }, [selectedGame, timeLeft, gameOver]);
+
+    useEffect(() => {
+        setShowTips(localStorage.getItem(MEMODYN_TIPS_KEY) === 'true');
+        const onStorage = () => setShowTips(localStorage.getItem(MEMODYN_TIPS_KEY) === 'true');
+        window.addEventListener('storage', onStorage);
+        return () => window.removeEventListener('storage', onStorage);
+    }, []);
 
     const formatTime = (seconds: number): string => {
         const minutes = Math.floor(seconds / 60);
@@ -148,6 +160,7 @@ export const MemoDyn = () => {
 
     const handleGameSelect = (selection: GameSelection) => {
         setSelectedGame(selection);
+        setShowTransition(true);
     };
 
     const handleBackToMenu = () => {
@@ -158,6 +171,11 @@ export const MemoDyn = () => {
         setCardOrder([]);
         setGameOver(false);
         setTimeLeft(0);
+        setShowTransition(false);
+    };
+
+    const handleContinue = () => {
+        setShowTransition(false);
     };
 
     return (
@@ -169,33 +187,42 @@ export const MemoDyn = () => {
                 </div>
             ) : (
                 <div className="memoDyn-container">
-                    <div className="game-header">
-                        <div className="game-info">
-                            <h2>{selectedGame.game.name}</h2>
-                            <p className="difficulty-info">
-                                Dificultad: {selectedGame.game.difficulties[selectedGame.difficulty].name}
-                            </p>
-                        </div>
-                        <div className="timer">Tiempo: {formatTime(timeLeft)}</div>
-                        <button className="back-button" onClick={handleBackToMenu}>
-                            Volver al Menú
-                        </button>
-                    </div>
-                    {gameOver && (
-                        <div className="game-over-message">
-                            {wins === Math.floor(selectedGame.game.gridSize / 2) ? "¡Ganaste!" : "¡Se acabó el tiempo!"}
-                        </div>
+                    {showTransition && showTips ? (
+                        <DialogoTips
+                            onContinue={handleContinue}
+                            puzzleName={selectedGame.game.name}
+                        />
+                    ) : (
+                        <>
+                            <div className="game-header">
+                                <div className="game-info">
+                                    <h2>{selectedGame.game.name}</h2>
+                                    <p className="difficulty-info">
+                                        Dificultad: {selectedGame.game.difficulties[selectedGame.difficulty].name}
+                                    </p>
+                                </div>
+                                <div className="timer">Tiempo: {formatTime(timeLeft)}</div>
+                                <button className="back-button" onClick={handleBackToMenu}>
+                                    Volver al Menú
+                                </button>
+                            </div>
+                            {gameOver && (
+                                <div className="game-over-message">
+                                    {wins === Math.floor(selectedGame.game.gridSize / 2) ? "¡Ganaste!" : "¡Se acabó el tiempo!"}
+                                </div>
+                            )}
+                            <div className={`cardcontainer grid-${selectedGame.game.gridSize}`}>
+                                {cardStates.map((state, index) => (
+                                    <div
+                                        key={index}
+                                        className={`card ${state === "front" ? "card-front" : `card-${cardOrder[index]}`}`}
+                                        onClick={() => handleClick(index)}
+                                    />
+                                ))}
+                            </div>
+                            <div className="wins-counter">Pares encontrados: {wins} de {Math.floor(selectedGame.game.gridSize / 2)}</div>
+                        </>
                     )}
-                    <div className={`cardcontainer grid-${selectedGame.game.gridSize}`}>
-                        {cardStates.map((state, index) => (
-                            <div
-                                key={index}
-                                className={`card ${state === "front" ? "card-front" : `card-${cardOrder[index]}`}`}
-                                onClick={() => handleClick(index)}
-                            />
-                        ))}
-                    </div>
-                    <div className="wins-counter">Pares encontrados: {wins} de {Math.floor(selectedGame.game.gridSize / 2)}</div>
                 </div>
             )}
         </div>
