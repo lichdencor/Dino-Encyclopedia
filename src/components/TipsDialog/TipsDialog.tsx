@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TipsDialog.module.css';
+import { getRandomDinoFact } from '../../services/dinosaurService';
 
 interface TransitionDialogProps {
     onContinue: () => void;
@@ -7,13 +8,22 @@ interface TransitionDialogProps {
 }
 
 const TipsDialog: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName }) => {
+    const [fact, setFact] = useState<string>("");
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getRandomDinoFact().then(fact => {
+            setFact(fact);
+            setLoading(false);
+        });
+    }, []);
+
     return (
         <div className={styles.dialogOverlay}>
             <div className={styles.dialogContainer}>
                 <div className={styles.dialogBox}>
                     <p className={styles.dialogText}>
-                        ¡Hola! ¿Estás listo para resolver el puzzle de {puzzleName}?<br/>
-                        ¡Vamos a poner a prueba tus habilidades!
+                        {loading ? 'Cargando dato de dinosaurio...' : fact}
                     </p>
                 </div>
                 <div className={styles.charactersRow}>
