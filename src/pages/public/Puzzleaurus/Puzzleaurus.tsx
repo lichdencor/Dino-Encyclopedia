@@ -2,7 +2,7 @@ import  { useState, useEffect } from 'react';
 import { Nav } from "../../../components";
 import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer";
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
-import TipsDialog from "../../../components/TipsDialog/TipsDialog.tsx";
+import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
 
 interface Puzzle {
@@ -124,7 +124,7 @@ export const Puzzleaurus = () => {
                 {selectedPuzzle ? (
                     <>
                         {showTransition && showTips ? (
-                            <TipsDialog
+                            <DialogoTips
                                 onContinue={handleContinue}
                                 puzzleName={selectedPuzzle.name}
                             />

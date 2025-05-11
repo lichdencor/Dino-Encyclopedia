@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './TipsDialog.module.css';
+import styles from './DialogoTips.module.css';
 import { getRandomDinoFact } from '../../services/dinosaurService';
 
 interface TransitionDialogProps {
@@ -7,7 +7,7 @@ interface TransitionDialogProps {
     puzzleName: string;
 }
 
-const TipsDialog: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName }) => {
+const DialogoTips: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName }) => {
     const [fact, setFact] = useState<string>("");
     const [loading, setLoading] = useState(true);
 
@@ -52,4 +52,4 @@ const TipsDialog: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName })
     );
 };
 
-export default TipsDialog;
+export default DialogoTips;
