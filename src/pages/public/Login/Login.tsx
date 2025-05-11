@@ -1,58 +1,72 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { useAuth } from "../../../context/Auth/AuthProvider";
 import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
-export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { login, registrationSuccess, clearRegistrationSuccess } = useAuth();
-  const navigate = useNavigate();
+interface LoginState {
+  email: string;
+  password: string;
+  error: string;
+}
 
-  useEffect(() => {
-    return () => {
-      clearRegistrationSuccess();
+interface LoginProps {
+  navigate: (route: string) => void;
+  login: (email: string, password: string) => Promise<void>;
+  registrationSuccess: boolean;
+  clearRegistrationSuccess: () => void;
+}
+
+export class Login extends React.Component<LoginProps, LoginState> {
+  constructor(props: LoginProps) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      error: ""
     };
-  }, [clearRegistrationSuccess]);
+  }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  componentWillUnmount() {
+    this.props.clearRegistrationSuccess();
+  }
+
+  handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    this.setState({ error: "" });
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(this.state.email)) {
       const errorEmailInvalido = 'Error email invalido';
-      mostrarError(errorEmailInvalido);
+      this.mostrarError(errorEmailInvalido);
       return;
     }
 
-    if (password.length < 8) {
+    if (this.state.password.length < 8) {
       const errorPasswordInvalida = 'Error password invalida';
-      mostrarError(errorPasswordInvalida);
+      this.mostrarError(errorPasswordInvalida);
       return;
     }
     
     try {
-      await login(email, password);
+      await this.props.login(this.state.email, this.state.password);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Error al iniciar sesión");
+      this.setState({ error: err instanceof Error ? err.message : "Error al iniciar sesión" });
     }
   };
 
-  function mostrarError(error: string) {
-    setError(error);
-  }
+  mostrarError = (error: string) => {
+    this.setState({ error });
+  };
 
-  function mostrarFormularioLogin() {
-    return <form onSubmit={handleSubmit} className={styles.form}>
+  mostrarFormularioLogin = () => {
+    return <form onSubmit={this.handleSubmit} className={styles.form}>
       <div className={styles.inputGroup}>
         <label htmlFor="email">Email</label>
         <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={this.state.email}
+            onChange={(e) => this.setState({ email: e.target.value })}
             required
             placeholder="tu@email.com"
         />
@@ -63,8 +77,8 @@ export const Login = () => {
         <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={this.state.password}
+            onChange={(e) => this.setState({ password: e.target.value })}
             required
             placeholder="Tu contraseña"
         />
@@ -74,37 +88,58 @@ export const Login = () => {
         Iniciar Sesión
       </button>
     </form>;
-  }
+  };
 
-  return (
-    <div className={styles.loginContainer}>
-      <div className={styles.loginBox}>
-        <button
-            className={styles.closeButton}
-            onClick={() => navigate('/')}
-            aria-label="Cerrar"
-        >
-          ×
-        </button>
-        <h1>Iniciar Sesión</h1>
+  render() {
+    return (
+      <div className={styles.loginContainer}>
+        <div className={styles.loginBox}>
+          <button
+              className={styles.closeButton}
+              onClick={() => this.props.navigate('/')}
+              aria-label="Cerrar"
+          >
+            ×
+          </button>
+          <h1>Iniciar Sesión</h1>
 
-        {registrationSuccess && (
-            <div className={styles.successMessage}>
-              ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
-            </div>
-        )}
+          {this.props.registrationSuccess && (
+              <div className={styles.successMessage}>
+                ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+              </div>
+          )}
 
-        {error && <div className={styles.error}>{error}</div>}
+          {this.state.error && <div className={styles.error}>{this.state.error}</div>}
 
-        {mostrarFormularioLogin()}
+          {this.mostrarFormularioLogin()}
 
-        <p className={styles.registerLink}>
-          ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
-        </p>
-        <p className={styles.recoveryLink}>
-          ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
-        </p>
+          <p className={styles.registerLink}>
+            ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+          </p>
+          <p className={styles.recoveryLink}>
+            ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+
+// HOC para manejar la navegación y el contexto de autenticación
+export const withAuthAndNavigation = (WrappedComponent: typeof Login) => {
+  return function WithAuthAndNavigationComponent() {
+    const navigate = useNavigate();
+    const { login, registrationSuccess, clearRegistrationSuccess } = useAuth();
+    return (
+      <WrappedComponent 
+        navigate={navigate} 
+        login={login}
+        registrationSuccess={registrationSuccess}
+        clearRegistrationSuccess={clearRegistrationSuccess}
+      />
+    );
+  };
 };
+
+// Exportar el componente envuelto con la navegación y autenticación
+export default withAuthAndNavigation(Login);
