@@ -20,10 +20,10 @@ export const Tips = () => {
     <div className={styles.tipsPage}>
       <Nav />
       <div className={styles.tipsBackofficeContainer}>
-        <h2 className={styles.title}>Tips Backoffice</h2>
+        <h2 className={styles.title}>Tips</h2>
         <div className={styles.switchRow}>
         <label htmlFor="tips-switch" className={styles.label}>
-          Mostrar TipsDialog en Puzzleaurus
+          Mostrar Tips en Puzzleaurus
         </label>
         <input
           id="tips-switch"
