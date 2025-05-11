@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Tips.module.css';
 import { Nav } from '../../../components';
 
-const PUZZLEAURUS_TIPS_KEY = 'showTipsDialog';
+const PUZZLEAURUS_TIPS_KEY = 'showPuzzleaurusTipsDialog';
 const MEMODYN_TIPS_KEY = 'showMemoDynTipsDialog';
 
 export const Tips = () => {

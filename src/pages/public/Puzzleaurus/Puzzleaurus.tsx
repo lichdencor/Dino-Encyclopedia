@@ -75,7 +75,7 @@ const puzzles: Puzzle[] = [
     }
 ];
 
-const TIPS_KEY = 'showTipsDialog';
+const PUZZLEAURUS_TIPS_KEY = 'showPuzzleaurusTipsDialog';
 
 export const Puzzleaurus = () => {
     const [selectedPuzzle, setSelectedPuzzle] = useState<Puzzle | null>(null);
@@ -83,8 +83,8 @@ export const Puzzleaurus = () => {
     const [showTips, setShowTips] = useState(false);
 
     useEffect(() => {
-        setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
-        const onStorage = () => setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
+        setShowTips(localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true');
+        const onStorage = () => setShowTips(localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true');
         window.addEventListener('storage', onStorage);
         return () => window.removeEventListener('storage', onStorage);
     }, []);
