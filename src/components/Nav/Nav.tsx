@@ -30,7 +30,7 @@ export const Nav = ({ id }: NavProps) => {
 
       <div className="routes">
         <div className="routes-left">
-          <Link to="/ads">ADS</Link>
+          <Link to="/tips">TIPS</Link>
           <Link to="/">HOME</Link>
           <Link to="/map">MAP</Link>
           <Link id="nav-store" to="/store">STORE</Link>

@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { Nav } from "../../../components";
 import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer";
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
@@ -75,9 +75,19 @@ const puzzles: Puzzle[] = [
     }
 ];
 
+const TIPS_KEY = 'showTipsDialog';
+
 export const Puzzleaurus = () => {
     const [selectedPuzzle, setSelectedPuzzle] = useState<Puzzle | null>(null);
     const [showTransition, setShowTransition] = useState(false);
+    const [showTips, setShowTips] = useState(false);
+
+    useEffect(() => {
+        setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
+        const onStorage = () => setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
+        window.addEventListener('storage', onStorage);
+        return () => window.removeEventListener('storage', onStorage);
+    }, []);
 
     const handlePuzzleSelect = (puzzle: Puzzle) => {
         setSelectedPuzzle(puzzle);
@@ -113,7 +123,7 @@ export const Puzzleaurus = () => {
             <div className={styles.gamesContainer}>
                 {selectedPuzzle ? (
                     <>
-                        {showTransition ? (
+                        {showTransition && showTips ? (
                             <TipsDialog
                                 onContinue={handleContinue}
                                 puzzleName={selectedPuzzle.name}

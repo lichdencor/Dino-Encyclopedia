@@ -21,18 +21,17 @@ import {
   Puzzleaurus,
   Store,
   Library,
-  AdsPage,
+  Tips,
   Wallet,
   Register,
   RecoveryPassword
 } from "./pages/";
-import { AuthProvider, AdsProvider } from "./context";
+import { AuthProvider } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 const AppRouter = () => {
   return (
     <ErrorBoundary>
-      <AdsProvider>
         <RoutesWithNotFound>
           <Route path="/" element={<Home />} />
 
@@ -46,7 +45,7 @@ const AppRouter = () => {
           <Route path="/store" element={<Store />} />
           <Route path="/library" element={<Library />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/ads" element={<AdsPage />} />
+          <Route path="/tips" element={<Tips />} />
           <Route path="/profile" element={<Profile />} />
 
           <Route path="/memodyn" element={<MemoDyn />} />
@@ -102,7 +101,6 @@ const AppRouter = () => {
 
           <Route path="/pet-selection" element={<PetSelection />} />
         </RoutesWithNotFound>
-      </AdsProvider>
     </ErrorBoundary>
   );
 };
