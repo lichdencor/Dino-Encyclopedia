@@ -34,12 +34,12 @@ export const Map = () => {
           </div>
         </div>
       </div>
-      <img src="/public/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites"/>
+      <img src="/public/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites" />
 
       {/* COMMON ROOMS */}
       <PeriodsButtonHover stage="main-entrance" label="main entrance" />
 
-      <PeriodsButtonHover stage="entrance" label="entrance" infoOrientation="left"/>
+      <PeriodsButtonHover stage="entrance" label="entrance" infoOrientation="left" />
 
       <PeriodsButtonHover
         stage="library"
@@ -47,7 +47,11 @@ export const Map = () => {
         link="/library"
       />
 
-      <PeriodsButtonHover stage="store" label="store" />
+      <PeriodsButtonHover
+        stage="store"
+        label="store"
+        link="/store"
+      />
 
       <PeriodsButtonPremium stage="kids-room" label="kids-room" />
 
@@ -79,7 +83,7 @@ export const Map = () => {
       <PeriodsButtonHover
         stage="stage-2"
         era="triassic"
-        period="medium"        
+        period="medium"
         label="medium gallery"
         link="/triassic-medium"
         dinos={[
@@ -96,7 +100,7 @@ export const Map = () => {
       <PeriodsButtonHover
         stage="stage-3"
         era="triassic"
-        period="superior"        
+        period="superior"
         label="superior gallery"
         link="/triassic-superior"
         dinos={[
@@ -113,14 +117,14 @@ export const Map = () => {
       <PeriodsButtonHover
         stage="stage-4"
         era="jurassic"
-        period="inferior"        
+        period="inferior"
         label="inferior gallery"
         link="/jurassic-inferior"
         dinos={[
           "info-jurassic-1-dino-1 medium-dino",
           "info-jurassic-1-dino-2 small-dino",
           "info-jurassic-1-dino-3 big-dino",
-        ]} 
+        ]}
         dinoNames={[
           "Shuvosaurus",
           "Chindesaurus",
@@ -131,7 +135,7 @@ export const Map = () => {
         stage="stage-5"
         era="jurassic"
 
-period=""        label="medium gallery"
+        period="" label="medium gallery"
         link="/jurassic-medium"
         dinos={[
           "info-jurassic-2-dino-1 small-dino",
@@ -149,13 +153,13 @@ period=""        label="medium gallery"
         stage="stage-6"
         era="jurassic"
 
-period=""        label="superior gallery"
+        period="" label="superior gallery"
         link="/jurassic-superior"
         dinos={[
           "info-jurassic-3-dino-1 big-dino",
           "info-jurassic-3-dino-2 medium-dino",
           "info-jurassic-3-dino-3 small-dino",
-        ]} 
+        ]}
         infoOrientation="left"
         dinoNames={[
           "Spinosaurus",
@@ -165,7 +169,7 @@ period=""        label="superior gallery"
       />
       <PeriodsButtonHover
         stage="stage-7"
-        era = "cretaceous"
+        era="cretaceous"
         period=""
         label="inferior gallery"
         link="/cretaceous-inferior"
@@ -183,7 +187,7 @@ period=""        label="superior gallery"
       />
       <PeriodsButtonHover
         stage="stage-8"
-        era = "cretaceous"
+        era="cretaceous"
         period=""
         label="medium gallery"
         link="/cretaceous-medium"
@@ -201,7 +205,7 @@ period=""        label="superior gallery"
       />
       <PeriodsButtonHover
         stage="stage-9"
-        era = "cretaceous"
+        era="cretaceous"
         period=""
         label="superior gallery"
         link="/cretaceous-superior"
