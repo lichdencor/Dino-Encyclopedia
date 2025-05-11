@@ -1,0 +1,57 @@
+.tipsBackofficeContainer {
+  background: #fffbe9;
+  border: 2px solid #FFD700;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(123,45,38,0.08);
+  padding: 2rem 2.5rem;
+  max-width: 400px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tipsPage {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/assets/img/landing-page/bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title {
+  color: #7B2D26;
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Cinzel-Bold', serif;
+}
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  color: #8B5C2A;
+  font-size: 1.1rem;
+  font-family: 'Lato', sans-serif;
+}
+
+.switch {
+  width: 22px;
+  height: 22px;
+  accent-color: #FFD700;
+}
+
+.status {
+  color: #7B2D26;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+} 

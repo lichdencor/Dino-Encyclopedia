@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { Nav } from "../../../components";
 import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer";
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
+import TipsDialog from "../../../components/TipsDialog/TipsDialog.tsx";
 import styles from "./Puzzleaurus.module.css";
 
 interface Puzzle {
@@ -74,15 +75,32 @@ const puzzles: Puzzle[] = [
     }
 ];
 
+const TIPS_KEY = 'showTipsDialog';
+
 export const Puzzleaurus = () => {
     const [selectedPuzzle, setSelectedPuzzle] = useState<Puzzle | null>(null);
+    const [showTransition, setShowTransition] = useState(false);
+    const [showTips, setShowTips] = useState(false);
+
+    useEffect(() => {
+        setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
+        const onStorage = () => setShowTips(localStorage.getItem(TIPS_KEY) === 'true');
+        window.addEventListener('storage', onStorage);
+        return () => window.removeEventListener('storage', onStorage);
+    }, []);
 
     const handlePuzzleSelect = (puzzle: Puzzle) => {
         setSelectedPuzzle(puzzle);
+        setShowTransition(true);
     };
 
     const handleReturnToMenu = () => {
         setSelectedPuzzle(null);
+        setShowTransition(false);
+    };
+
+    const handleContinue = () => {
+        setShowTransition(false);
     };
 
     const handlePrevPuzzle = () => {
@@ -104,30 +122,39 @@ export const Puzzleaurus = () => {
             <Nav />
             <div className={styles.gamesContainer}>
                 {selectedPuzzle ? (
-                    <div className={styles.puzzleContent}>
-                        <PuzzleContainer 
-                            onReturnToMenu={handleReturnToMenu} 
-                            selectedPuzzle={selectedPuzzle}
-                            key={selectedPuzzle.id}
-                        />
-                        {/* Botones de navegación entre puzzles 
-                        <div className={styles.navigationButtons}>
-                            <button 
-                                className={`${styles.navButton} ${styles.prevButton}`}
-                                onClick={handlePrevPuzzle}
-                                disabled={selectedPuzzle.id === 1}
-                            >
-                                ← Puzzle Anterior
-                            </button>
-                            <button 
-                                className={`${styles.navButton} ${styles.nextButton}`}
-                                onClick={handleNextPuzzle}
-                                disabled={selectedPuzzle.id === 6}
-                            >
-                                Siguiente Puzzle →
-                            </button>
-                        </div>*/}
-                    </div>
+                    <>
+                        {showTransition && showTips ? (
+                            <TipsDialog
+                                onContinue={handleContinue}
+                                puzzleName={selectedPuzzle.name}
+                            />
+                        ) : (
+                            <div className={styles.puzzleContent}>
+                                <PuzzleContainer 
+                                    onReturnToMenu={handleReturnToMenu} 
+                                    selectedPuzzle={selectedPuzzle}
+                                    key={selectedPuzzle.id}
+                                />
+                                {/* Botones de navegación entre puzzles 
+                                <div className={styles.navigationButtons}>
+                                    <button 
+                                        className={`${styles.navButton} ${styles.prevButton}`}
+                                        onClick={handlePrevPuzzle}
+                                        disabled={selectedPuzzle.id === 1}
+                                    >
+                                        ← Puzzle Anterior
+                                    </button>
+                                    <button 
+                                        className={`${styles.navButton} ${styles.nextButton}`}
+                                        onClick={handleNextPuzzle}
+                                        disabled={selectedPuzzle.id === 6}
+                                    >
+                                        Siguiente Puzzle →
+                                    </button>
+                                </div>*/}
+                            </div>
+                        )}
+                    </>
                 ) : (
                     <PuzzleMenu onPuzzleSelect={handlePuzzleSelect} />
                 )}
