@@ -1,72 +1,58 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../../context/Auth/AuthProvider";
 import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
-interface LoginState {
-  email: string;
-  password: string;
-  error: string;
-}
+export const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { login, registrationSuccess, clearRegistrationSuccess } = useAuth();
+  const navigate = useNavigate();
 
-interface LoginProps {
-  navigate: (route: string) => void;
-  login: (email: string, password: string) => Promise<void>;
-  registrationSuccess: boolean;
-  clearRegistrationSuccess: () => void;
-}
-
-export class Login extends React.Component<LoginProps, LoginState> {
-  constructor(props: LoginProps) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      error: ""
+  useEffect(() => {
+    return () => {
+      clearRegistrationSuccess();
     };
-  }
+  }, [clearRegistrationSuccess]);
 
-  componentWillUnmount() {
-    this.props.clearRegistrationSuccess();
-  }
-
-  handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    this.setState({ error: "" });
+    setError("");
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(this.state.email)) {
+    if (!emailRegex.test(email)) {
       const errorEmailInvalido = 'Error email invalido';
-      this.mostrarError(errorEmailInvalido);
+      mostrarError(errorEmailInvalido);
       return;
     }
 
-    if (this.state.password.length < 8) {
+    if (password.length < 8) {
       const errorPasswordInvalida = 'Error password invalida';
-      this.mostrarError(errorPasswordInvalida);
+      mostrarError(errorPasswordInvalida);
       return;
     }
     
     try {
-      await this.props.login(this.state.email, this.state.password);
+      await login(email, password);
     } catch (err) {
-      this.setState({ error: err instanceof Error ? err.message : "Error al iniciar sesión" });
+      setError(err instanceof Error ? err.message : "Error al iniciar sesión");
     }
   };
 
-  mostrarError = (error: string) => {
-    this.setState({ error });
-  };
+  function mostrarError(error: string) {
+    setError(error);
+  }
 
-  mostrarFormularioLogin = () => {
-    return <form onSubmit={this.handleSubmit} className={styles.form}>
+  function mostrarFormularioLogin() {
+    return <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.inputGroup}>
         <label htmlFor="email">Email</label>
         <input
             type="email"
             id="email"
-            value={this.state.email}
-            onChange={(e) => this.setState({ email: e.target.value })}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="tu@email.com"
         />
@@ -77,8 +63,8 @@ export class Login extends React.Component<LoginProps, LoginState> {
         <input
             type="password"
             id="password"
-            value={this.state.password}
-            onChange={(e) => this.setState({ password: e.target.value })}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
             placeholder="Tu contraseña"
         />
@@ -88,58 +74,37 @@ export class Login extends React.Component<LoginProps, LoginState> {
         Iniciar Sesión
       </button>
     </form>;
-  };
-
-  render() {
-    return (
-      <div className={styles.loginContainer}>
-        <div className={styles.loginBox}>
-          <button
-              className={styles.closeButton}
-              onClick={() => this.props.navigate('/')}
-              aria-label="Cerrar"
-          >
-            ×
-          </button>
-          <h1>Iniciar Sesión</h1>
-
-          {this.props.registrationSuccess && (
-              <div className={styles.successMessage}>
-                ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
-              </div>
-          )}
-
-          {this.state.error && <div className={styles.error}>{this.state.error}</div>}
-
-          {this.mostrarFormularioLogin()}
-
-          <p className={styles.registerLink}>
-            ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
-          </p>
-          <p className={styles.recoveryLink}>
-            ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
-          </p>
-        </div>
-      </div>
-    );
   }
-}
 
-// HOC para manejar la navegación y el contexto de autenticación
-export const withAuthAndNavigation = (WrappedComponent: typeof Login) => {
-  return function WithAuthAndNavigationComponent() {
-    const navigate = useNavigate();
-    const { login, registrationSuccess, clearRegistrationSuccess } = useAuth();
-    return (
-      <WrappedComponent 
-        navigate={navigate} 
-        login={login}
-        registrationSuccess={registrationSuccess}
-        clearRegistrationSuccess={clearRegistrationSuccess}
-      />
-    );
-  };
+  return (
+    <div className={styles.loginContainer}>
+      <div className={styles.loginBox}>
+        <button
+            className={styles.closeButton}
+            onClick={() => navigate('/')}
+            aria-label="Cerrar"
+        >
+          ×
+        </button>
+        <h1>Iniciar Sesión</h1>
+
+        {registrationSuccess && (
+            <div className={styles.successMessage}>
+              ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+            </div>
+        )}
+
+        {error && <div className={styles.error}>{error}</div>}
+
+        {mostrarFormularioLogin()}
+
+        <p className={styles.registerLink}>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+        </p>
+        <p className={styles.recoveryLink}>
+          ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
+        </p>
+      </div>
+    </div>
+  );
 };
-
-// Exportar el componente envuelto con la navegación y autenticación
-export default withAuthAndNavigation(Login);

@@ -1,160 +1,136 @@
 import "./LandingPage.css";
 import {Nav, Carousel, AsistenteVirtual, Tutorial} from "../../../components/";
 import {VirtualAssistantDialogue} from "../../../data/"
-import React from "react";
+import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const modalPages = VirtualAssistantDialogue;
 
-interface LandingPageState {
-    isModalOpen: boolean;
-    modalCurrentPage: number;
-    isTutorialOpen: boolean;
-}
+export const LandingPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [modalCurrentPage, setModalCurrentPage] = useState<number>(0);
+    const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
+    const navigate = useNavigate();
 
-interface LandingPageProps {
-    navigate: (route: string) => void;
-}
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
 
-export class LandingPage extends React.Component<LandingPageProps, LandingPageState> {
-    constructor(props: LandingPageProps) {
-        super(props);
-        this.state = {
-            isModalOpen: false,
-            modalCurrentPage: 0,
-            isTutorialOpen: false
-        };
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setModalCurrentPage(0);
+    };
+
+    const changeModalPage = (page: number) => {
+        if (page === -1) { // Asumiendo que -1 es el índice para el tutorial
+            closeModal();
+            setIsTutorialOpen(true);
+        } else {
+            setModalCurrentPage(page);
+        }
     }
 
-    openModal = () => {
-        this.setState({ isModalOpen: true });
+    const closeTutorial = () => {
+        setIsTutorialOpen(false);
     };
 
-    closeModal = () => {
-        this.setState({ 
-            isModalOpen: false,
-            modalCurrentPage: 0
-        });
+    const navigatePage = (route: string) => {
+        navigate(route);
     };
 
-    changeModalPage = (page: number) => {
-        if (page === -1) {
-            this.closeModal();
-            this.setState({ isTutorialOpen: true });
-        } else {
-            this.setState({ modalCurrentPage: page });
-        }
-    };
-
-    closeTutorial = () => {
-        this.setState({ isTutorialOpen: false });
-    };
-
-    navigatePage = (route: string) => {
-        this.props.navigate(route);
-    };
-
-    mostrarNav = () => {
+    function mostrarNav() {
         return <Nav id="main-nav"/>;
-    };
+    }
 
-    cargarCarousel = () => {
+    function cargarCarousel() {
         return <Carousel/>;
-    };
+    }
 
-    mostrarAccesoATienda = () => {
+    function mostrarAccesoATienda() {
         return <div id="ticket-purchase-container" className="ticket-purchase-container">
             <div className="ticketImgContainer">
                 <img className="ticketBackground" src="assets/img/alert/alertBorder.png"
                      alt="ticket background"/>
 
-                <button className="ticket-wrapper" onClick={() => this.navigatePage("/store")}>
+                <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
                     <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets"/>
                 </button>
             </div>
 
             <span>¡Comprá tus entradas!</span>
         </div>;
-    };
+    }
 
-    cargarAccesoAsistenteVirtual = () => {
+    function cargarAccesoAsistenteVirtual() {
         return <div className="dynardContainer">
-            {!this.state.isModalOpen && !this.state.isTutorialOpen && (
+            {!isModalOpen && !isTutorialOpen && (
                 <AsistenteVirtual
-                    onClick={this.openModal}
+                    onClick={openModal}
                     text="¿Necesitas Ayuda?"
                     boldWords={["Ayuda"]}
                     looped={true}
                 />
             )}
         </div>;
-    };
+    }
 
-    accederTutorial = () => {
-        return <Tutorial onClose={this.closeTutorial}/>;
-    };
+    function accederTutorial() {
+        return <Tutorial onClose={closeTutorial}/>;
+    }
 
-    render() {
-        return (
-            <div className="homePage">
-                {this.mostrarNav()}
-                <header>
-                    <div className="text">
-                        <div className="header-title">ACADEMIA DEL DINO CULTO</div>
-                        <div className="header-subtitle">MUSEO INTERACTIVO DE PALEONTOLOGIA</div>
-                    </div>
-                </header>
-                <div className="periods-container">
-                    {this.cargarCarousel()}
-                    {this.mostrarAccesoATienda()}
-                    {this.cargarAccesoAsistenteVirtual()}
+    return (
+        <div className="homePage">
+            {mostrarNav()}
+            <header>
+                <div className="text">
+                    <div className="header-title">ACADEMIA DEL DINO CULTO</div>
+                    <div className="header-subtitle">MUSEO INTERACTIVO DE PALEONTOLOGIA</div>
+                </div>
+            </header>
+            <div className="periods-container">
 
-                    {this.state.isModalOpen && (
-                        <div className={"modalOverlay"} onClick={this.closeModal}>
-                            <button className="dynardModalCloseBtn" onClick={this.closeModal}>×</button>
-                            <div className="modalContentGoldBg">
-                                <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-                                    <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph"/>
-                                    <div className="dynardQuestion">{modalPages[this.state.modalCurrentPage].question}</div>
-                                    <div className="dynardOptionsWrapper">
-                                        {modalPages[this.state.modalCurrentPage].options.map((option, index) => {
-                                            const isBack = option.text === "Back";
-                                            const isButton = option.goesToPageIndex !== undefined;
-                                            const className = isButton
-                                                ? `dynardQuestionOption ${isBack ? "dynardBtnBack" : ""}`
-                                                : "dynardQuestionText";
+                {cargarCarousel()}
 
-                                            return (
-                                                <div
-                                                    key={index}
-                                                    className={className}
-                                                    onClick={isButton ? () => this.changeModalPage(option.goesToPageIndex) : undefined}
-                                                >
-                                                    <p>{option.text}</p>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
+                {mostrarAccesoATienda()}
+
+                {cargarAccesoAsistenteVirtual()}
+
+                {isModalOpen && (
+                    <div className={"modalOverlay"} onClick={closeModal}>
+                        <button className="dynardModalCloseBtn" onClick={closeModal}>×</button>
+                        <div className="modalContentGoldBg">
+                            <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+                                <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph"/>
+                                <div className="dynardQuestion">{modalPages[modalCurrentPage].question}</div>
+                                <div className="dynardOptionsWrapper">
+                                    {modalPages[modalCurrentPage].options.map((option, index) => {
+                                        const isBack = option.text === "Back";
+                                        const isButton = option.goesToPageIndex !== undefined;
+                                        const className = isButton
+                                            ? `dynardQuestionOption ${isBack ? "dynardBtnBack" : ""}`
+                                            : "dynardQuestionText";
+
+                                        return (
+                                            <div
+                                                key={index}
+                                                className={className}
+                                                onClick={isButton ? () => changeModalPage(option.goesToPageIndex) : undefined}
+                                            >
+                                                <p>{option.text}</p>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>
-                    )}
 
-                    {this.state.isTutorialOpen && this.accederTutorial()}
-                </div>
+                    </div>
+                )}
+
+                {isTutorialOpen && accederTutorial()}
+
             </div>
-        );
-    }
-}
-
-// HOC para manejar la navegación
-export const withNavigation = (WrappedComponent: typeof LandingPage) => {
-    return function WithNavigationComponent(props: Omit<LandingPageProps, 'navigate'>) {
-        const navigate = useNavigate();
-        return <WrappedComponent {...props} navigate={navigate} />;
-    };
+        </div>
+    );
 };
-
-// Exportar el componente envuelto con la navegación
-export default withNavigation(LandingPage);
 
