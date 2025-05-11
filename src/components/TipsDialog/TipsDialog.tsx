@@ -19,34 +19,35 @@ const TipsDialog: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName })
     }, []);
 
     return (
-        <div className={styles.dialogOverlay}>
-            <div className={styles.dialogContainer}>
-                <div className={styles.dialogBox}>
-                    <p className={styles.dialogText}>
+        <div className={styles.dialogueOverlay}>
+            <div className={styles.dialogueGoldBg}>
+            <div className={styles.dialogueContainer}>
+                <div className={styles.dialogueBox}>
+                    <p className={styles.dialogueQuestion}>¿Sabías que...?</p>
+                    <p className={styles.dialogueText}>
                         {loading ? 'Cargando dato de dinosaurio...' : fact}
                     </p>
                 </div>
                 <div className={styles.charactersRow}>
-                    <div className={styles.character1Circle}>
+                    <div className={styles.character1}>
                         <img 
-                            src="/assets/img/characters/character1.png" 
-                            alt="Character 1" 
+                            src="/public/assets/giph/dynard-friend.gif" 
+                            alt="character 1" 
                             className={styles.characterImage}
                         />
-                        <span className={styles.characterLabel}>character1</span>
                     </div>
-                    <div className={styles.character2Circle}>
+                    <div className={styles.character2}>
                         <img 
-                            src="/assets/img/characters/character2.png" 
-                            alt="Character 2" 
+                            src="/public/assets/giph/logo.gif" 
+                            alt="character 2" 
                             className={styles.characterImage}
                         />
-                        <span className={styles.characterLabel}>character2</span>
                     </div>
                 </div>
                 <button className={styles.continueButton} onClick={onContinue}>
                     continue
                 </button>
+            </div>
             </div>
         </div>
     );
