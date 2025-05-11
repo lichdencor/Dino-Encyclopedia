@@ -74,6 +74,10 @@ export const LandingPage = () => {
         </div>;
     }
 
+    function accederTutorial() {
+        return <Tutorial onClose={closeTutorial}/>;
+    }
+
     return (
         <div className="homePage">
             {mostrarNav()}
@@ -123,7 +127,7 @@ export const LandingPage = () => {
                     </div>
                 )}
 
-                {isTutorialOpen && <Tutorial onClose={closeTutorial}/>}
+                {isTutorialOpen && accederTutorial()}
 
             </div>
         </div>
