@@ -14,7 +14,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
   logout: () => void;
-  resetPassword: (email: string) => Promise<void>;
+  recuperarContrasenia: (email: string) => Promise<void>;
   registrationSuccess: boolean;
   clearRegistrationSuccess: () => void;
 }
@@ -36,8 +36,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await authService.login({ email, password });
-      setUser(response.profile);
+      const perfilUsuarioCliente = await authService.postLogin({ email, password });
+      guardarPerfil(perfilUsuarioCliente.profile)
       navigate('/');
     } catch (error) {
       console.error('Error de login:', error);
@@ -48,7 +48,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
       const perfilUsuarioCliente = await authService.postRegistro(data);
-      guardarPerfil(perfilUsuarioCliente);
+      guardarPerfil(perfilUsuarioCliente.profile);
+      setRegistrationSuccess(true);
       navigate('/login');
     } catch (error) {
       console.error('Error de registro:', error);
@@ -56,9 +57,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const resetPassword = async (email: string) => {
+  const recuperarContrasenia = async (email: string) => {
     try {
-      await authService.resetPassword(email);
+      await authService.postRecuperarContrasenia(email);
     } catch (error) {
       console.error('Error al enviar el correo de recuperación:', error);
       throw error;
@@ -80,8 +81,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   function guardarPerfil(perfilUsuarioCliente) {
-    //TODO: Guardar perfil perfilUsuarioCliente
-    setRegistrationSuccess(true);
+    setUser(perfilUsuarioCliente.profile);
   }
 
   const value = {
@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     login,
     register: registrar,
     logout,
-    resetPassword,
+    recuperarContrasenia,
     registrationSuccess,
     clearRegistrationSuccess,
   };

@@ -22,4 +22,4 @@ export * from "./public/Library/Library.tsx";
 export * from "./public/Wallet/Wallet.tsx";
 export { Tips } from "./public/Tips/Tips";
 export { Register } from './public/Register/Register';
-export { RecoveryPassword } from './public/RecoveryPassword/RecoveryPassword';
+export { RecuperarContrasenia } from './public/RecoveryPassword/RecuperarContrasenia.tsx';

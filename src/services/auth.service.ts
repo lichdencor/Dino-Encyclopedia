@@ -79,7 +79,7 @@ const getErrorMessage = (error: ApiError): string => {
 };
 
 export const authService = {
-  async login(credentials: LoginCredentials): Promise<LoginResponse> {
+  async postLogin(credentials: LoginCredentials): Promise<LoginResponse> {
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
@@ -162,7 +162,7 @@ export const authService = {
     }
   },
 
-  async resetPassword(email: string): Promise<void> {
+  async postRecuperarContrasenia(email: string): Promise<void> {
     try {
       const response = await fetch(`${API_URL}/auth/reset-password`, {
         method: 'POST',

@@ -24,7 +24,7 @@ import {
   Tips,
   Wallet,
   Register,
-  RecoveryPassword
+  RecuperarContrasenia
 } from "./pages/";
 import { AuthProvider } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
@@ -85,7 +85,7 @@ const AppRouter = () => {
             path="/recovery-password"
             element={
               <AuthProvider>
-                <RecoveryPassword />
+                <RecuperarContrasenia />
               </AuthProvider>
             }
           />
