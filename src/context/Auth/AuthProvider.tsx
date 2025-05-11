@@ -45,10 +45,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const register = async (data: { email: string; password: string; full_name: string }) => {
+  const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
-      const response = await authService.register(data);
-      setRegistrationSuccess(true);
+      const perfilUsuarioCliente = await authService.postRegistro(data);
+      guardarPerfil(perfilUsuarioCliente);
       navigate('/login');
     } catch (error) {
       console.error('Error de registro:', error);
@@ -79,11 +79,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRegistrationSuccess(false);
   };
 
+  function guardarPerfil(perfilUsuarioCliente) {
+    //TODO: Guardar perfil perfilUsuarioCliente
+    setRegistrationSuccess(true);
+  }
+
   const value = {
     user,
     isAuthenticated: !!user,
     login,
-    register,
+    register: registrar,
     logout,
     resetPassword,
     registrationSuccess,

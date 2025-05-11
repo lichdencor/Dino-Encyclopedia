@@ -109,7 +109,7 @@ export const authService = {
     }
   },
 
-  async register(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> {
+  async postRegistro(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> {
     try {
       const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',

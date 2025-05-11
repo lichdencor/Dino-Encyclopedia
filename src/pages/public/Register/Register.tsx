@@ -16,6 +16,19 @@ export const Register = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      const errorEmailInvalido = 'Error email invalido';
+      mostrarError(errorEmailInvalido);
+      return;
+    }
+
+    if (formData.password.length < 8) {
+      const errorPasswordInvalida = 'Error password invalida';
+      mostrarError(errorPasswordInvalida);
+      return;
+    }
     
     try {
       await register(formData);
@@ -32,15 +45,18 @@ export const Register = () => {
     });
   };
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.formWrapper}>
-        <h2>Registro</h2>
-        {error && <p className={styles.error}>{error}</p>}
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.inputGroup}>
-            <label htmlFor="full_name">Nombre completo</label>
-            <input
+  function mostrarError(error: string) {
+    setError(error);
+  }
+
+  function mostrarFormularioRegistro() {
+    return <div className={styles.formWrapper}>
+      <h2>Registro</h2>
+      {error && <p className={styles.error}>{error}</p>}
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <label htmlFor="full_name">Nombre completo</label>
+          <input
               type="text"
               id="full_name"
               name="full_name"
@@ -48,12 +64,12 @@ export const Register = () => {
               onChange={handleChange}
               required
               placeholder="Ingresa tu nombre completo"
-            />
-          </div>
-          
-          <div className={styles.inputGroup}>
-            <label htmlFor="email">Email</label>
-            <input
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <label htmlFor="email">Email</label>
+          <input
               type="email"
               id="email"
               name="email"
@@ -61,12 +77,12 @@ export const Register = () => {
               onChange={handleChange}
               required
               placeholder="Ingresa tu email"
-            />
-          </div>
+          />
+        </div>
 
-          <div className={styles.inputGroup}>
-            <label htmlFor="password">Contraseña</label>
-            <input
+        <div className={styles.inputGroup}>
+          <label htmlFor="password">Contraseña</label>
+          <input
               type="password"
               id="password"
               name="password"
@@ -74,17 +90,22 @@ export const Register = () => {
               onChange={handleChange}
               required
               placeholder="Ingresa tu contraseña"
-            />
-          </div>
-
-          <button type="submit" className={styles.submitButton}>
-            Registrarse
-          </button>
-        </form>
-        <div className={styles.loginLink}>
-          ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+          />
         </div>
+
+        <button type="submit" className={styles.submitButton}>
+          Registrarse
+        </button>
+      </form>
+      <div className={styles.loginLink}>
+        ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
       </div>
+    </div>;
+  }
+
+  return (
+    <div className={styles.container}>
+      {mostrarFormularioRegistro()}
     </div>
   );
 }; 
