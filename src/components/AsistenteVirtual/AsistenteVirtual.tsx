@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './VirtualAssistant.css';
+import './AsistenteVirtual.css';
 
 interface VirtualAssistantProps {
     onClick?: () => void;
@@ -9,7 +9,7 @@ interface VirtualAssistantProps {
     dialogStyle?: React.CSSProperties;
 }
 
-export const VirtualAssistant = ({onClick, text, looped, boldWords = [], dialogStyle}: VirtualAssistantProps) => {
+export const AsistenteVirtual = ({onClick, text, looped, boldWords = [], dialogStyle}: VirtualAssistantProps) => {
     const fullText = text;
     const [displayText, setDisplayText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,22 +54,26 @@ export const VirtualAssistant = ({onClick, text, looped, boldWords = [], dialogS
         return formattedText;
     };
 
-    return (
-        <div id="virtual-assistant" className="dialogueContainer">
-            <div>
-                <img src="/assets/giph/logo.gif" className="virtualAssistantGiph" onClick={onClick}></img>
-                
-            </div>
-            <div className={`${"dialogue"} ${isDialogShowing ? "dialogueShow" : ''}`} style={dialogStyle}>
-                <div className="typingContainer" >
-                    <div
-                        className="typing"
-                        dangerouslySetInnerHTML={{ __html: displayText }}
-                    />
+    function mostrarAccesoAsistenteVirtual() {
+        return (
+            <div id="virtual-assistant" className="dialogueContainer">
+                <div>
+                    <img src="/assets/giph/logo.gif" className="virtualAssistantGiph" onClick={onClick}></img>
+
+                </div>
+                <div className={`${"dialogue"} ${isDialogShowing ? "dialogueShow" : ''}`} style={dialogStyle}>
+                    <div className="typingContainer">
+                        <div
+                            className="typing"
+                            dangerouslySetInnerHTML={{__html: displayText}}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+
+    return mostrarAccesoAsistenteVirtual();
 };
 
-export default VirtualAssistant;
+export default AsistenteVirtual;

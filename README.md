@@ -95,9 +95,9 @@ bun run dev
 │   │       │   └── Encyclopedia.tsx
 │   │       ├── Era
 │   │       │   └── Era.css
-│   │       ├── Home
-│   │       │   ├── Home.css
-│   │       │   └── Home.tsx
+│   │       ├── LandingPage
+│   │       │   ├── LandingPage.css
+│   │       │   └── LandingPage.tsx
 │   │       ├── Jurassic-Inferior
 │   │       │   ├── Jurassic-Inferior.css
 │   │       │   └── Jurassic-Inferior.tsx

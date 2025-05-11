@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import { RoutesWithNotFound, ErrorBoundary } from "./components";
 import {
-  Home,
+  LandingPage,
   Album,
   Map,
   TriassicInferior,
@@ -33,7 +33,7 @@ const AppRouter = () => {
   return (
     <ErrorBoundary>
         <RoutesWithNotFound>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
 
           <Route path="/games" element={ 
             <PuzzleProvider>

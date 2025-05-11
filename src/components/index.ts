@@ -8,6 +8,6 @@ export * from "./ImageUploader/ImageUploader.tsx";
 export * from "./Nav/Nav.tsx";
 export * from "./PeriodsButtonHover/PeriodsButtonHover.tsx";
 export * from "./RoutesWithNotFound/RoutesWithNotFound.tsx";
-export * from "./VirtualAssistant/VirtualAssistant.tsx";
+export * from "./AsistenteVirtual/AsistenteVirtual.tsx";
 export * from "./XRay/XrayModal.tsx";
 export * from './Tutorial/Tutorial';

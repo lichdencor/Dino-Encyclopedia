@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { VirtualAssistant } from '../VirtualAssistant/VirtualAssistant';
+import { AsistenteVirtual } from '../AsistenteVirtual/AsistenteVirtual.tsx';
 import styles from './Tutorial.module.css';
 
 interface ElementPosition {
@@ -283,7 +283,7 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
         className={styles.assistantContainer}
         style={getAssistantStyle()}
       >
-        <VirtualAssistant
+        <AsistenteVirtual
           key={currentStep}
           text={currentStepData.text}
           boldWords={currentStepData.boldWords || []}

@@ -1,12 +1,12 @@
-import "./Home.css";
-import {Nav, Carousel, VirtualAssistant, Tutorial} from "../../../components/";
+import "./LandingPage.css";
+import {Nav, Carousel, AsistenteVirtual, Tutorial} from "../../../components/";
 import {VirtualAssistantDialogue} from "../../../data/"
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const modalPages = VirtualAssistantDialogue;
 
-export const Home = () => {
+export const LandingPage = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [modalCurrentPage, setModalCurrentPage] = useState<number>(0);
     const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
@@ -38,9 +38,45 @@ export const Home = () => {
         navigate(route);
     };
 
+    function mostrarNav() {
+        return <Nav id="main-nav"/>;
+    }
+
+    function cargarCarousel() {
+        return <Carousel/>;
+    }
+
+    function mostrarAccesoATienda() {
+        return <div id="ticket-purchase-container" className="ticket-purchase-container">
+            <div className="ticketImgContainer">
+                <img className="ticketBackground" src="assets/img/alert/alertBorder.png"
+                     alt="ticket background"/>
+
+                <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
+                    <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets"/>
+                </button>
+            </div>
+
+            <span>¡Comprá tus entradas!</span>
+        </div>;
+    }
+
+    function cargarAccesoAsistenteVirtual() {
+        return <div className="dynardContainer">
+            {!isModalOpen && !isTutorialOpen && (
+                <AsistenteVirtual
+                    onClick={openModal}
+                    text="¿Necesitas Ayuda?"
+                    boldWords={["Ayuda"]}
+                    looped={true}
+                />
+            )}
+        </div>;
+    }
+
     return (
         <div className="homePage">
-            <Nav id="main-nav"/>
+            {mostrarNav()}
             <header>
                 <div className="text">
                     <div className="header-title">ACADEMIA DEL DINO CULTO</div>
@@ -49,31 +85,11 @@ export const Home = () => {
             </header>
             <div className="periods-container">
 
-                <Carousel/>
+                {cargarCarousel()}
 
-                <div id="ticket-purchase-container" className="ticket-purchase-container">
-                    <div className="ticketImgContainer">
-                        <img className="ticketBackground" src="assets/img/alert/alertBorder.png"
-                             alt="ticket background"/>
+                {mostrarAccesoATienda()}
 
-                        <button className="ticket-wrapper" onClick={() => navigatePage("/store")}>
-                            <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets"/>
-                        </button>
-                    </div>
-
-                    <span>¡Comprá tus entradas!</span>
-                </div>
-
-                <div className="dynardContainer">
-                    {!isModalOpen && !isTutorialOpen && (
-                        <VirtualAssistant
-                            onClick={openModal}
-                            text="¿Necesitas Ayuda?"
-                            boldWords={["Ayuda"]}
-                            looped={true}
-                        />
-                    )}
-                </div>
+                {cargarAccesoAsistenteVirtual()}
 
                 {isModalOpen && (
                     <div className={"modalOverlay"} onClick={closeModal}>
