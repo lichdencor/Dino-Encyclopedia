@@ -26,81 +26,139 @@ import {
   Register,
   RecuperarContrasenia
 } from "./pages/";
-import { AuthProvider } from "./context";
+import { AuthProvider, useAuth } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
+import { PublicGuard } from "./guard/PublicGuard";
+
 const AppRouter = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <ErrorBoundary>
-        <RoutesWithNotFound>
-          <Route path="/" element={<LandingPage />} />
+      <RoutesWithNotFound>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/recovery-password" element={<RecuperarContrasenia />} />
 
-          <Route path="/games" element={ 
+        <Route path="/" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <LandingPage />
+          </PublicGuard>
+        } />
+
+        <Route path="/games" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
             <PuzzleProvider>
               <Games />
             </PuzzleProvider>
-            } />
-          <Route path="/album" element={<Album />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/library" element={<Library />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/tips" element={<Tips />} />
-          <Route path="/profile" element={<Profile />} />
+          </PublicGuard>
+        } />
 
-          <Route path="/memodyn" element={<MemoDyn />} />
-          <Route path="/puzzleaurus" element={<Puzzleaurus />} />
+        <Route path="/album" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Album />
+          </PublicGuard>
+        } />
 
-          <Route path="/cretaceous-inferior" element={<CretaceousInferior />} />
-          <Route path="/cretaceous-medium" element={<CretaceousMedium />} />
-          <Route path="/cretaceous-superior" element={<CretaceousSuperior />} />
+        <Route path="/map" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Map />
+          </PublicGuard>
+        } />
 
-          <Route path="/jurassic-inferior" element={<JurassicInferior />} />
-          <Route path="/jurassic-medium" element={<JurassicMedium />} />
-          <Route path="/jurassic-superior" element={<JurassicSuperior />} />
+        <Route path="/store" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Store />
+          </PublicGuard>
+        } />
 
-          <Route path="/triassic-inferior" element={<TriassicInferior />} />
-          <Route path="/triassic-medium" element={<TriassicMedium />} />
-          <Route path="/triassic-superior" element={<TriassicSuperior />} />
+        <Route path="/library" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Library />
+          </PublicGuard>
+        } />
 
-          <Route
-            path="/login"
-            element={
-              <AuthProvider>
-                <Login />
-              </AuthProvider>
-            }
-          />
+        <Route path="/wallet" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Wallet />
+          </PublicGuard>
+        } />
 
-          <Route
-            path="/register"
-            element={
-              <AuthProvider>
-                <Register />
-              </AuthProvider>
-            }
-          />
+        <Route path="/tips" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Tips />
+          </PublicGuard>
+        } />
 
-          <Route
-            path="/recovery-password"
-            element={
-              <AuthProvider>
-                <RecuperarContrasenia />
-              </AuthProvider>
-            }
-          />
-          {/* Ruta para el inicio de sesión deprecada
-          <Route
-            path="/signin"
-            element={
-              <AuthProvider>
-                <SignIn />
-              </AuthProvider>
-            }
-          />*/}
+        <Route path="/profile" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Profile />
+          </PublicGuard>
+        } />
 
-          <Route path="/pet-selection" element={<PetSelection />} />
-        </RoutesWithNotFound>
+        <Route path="/memodyn" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <MemoDyn />
+          </PublicGuard>
+        } />
+
+        <Route path="/puzzleaurus" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Puzzleaurus />
+          </PublicGuard>
+        } />
+
+        <Route path="/cretaceous-inferior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <CretaceousInferior />
+          </PublicGuard>
+        } />
+
+        <Route path="/cretaceous-medium" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <CretaceousMedium />
+          </PublicGuard>
+        } />
+
+        <Route path="/cretaceous-superior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <CretaceousSuperior />
+          </PublicGuard>
+        } />
+
+        <Route path="/jurassic-inferior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <JurassicInferior />
+          </PublicGuard>
+        } />
+
+        <Route path="/jurassic-medium" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <JurassicMedium />
+          </PublicGuard>
+        } />
+
+        <Route path="/jurassic-superior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <JurassicSuperior />
+          </PublicGuard>
+        } />
+
+        <Route path="/triassic-medium" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <TriassicMedium />
+          </PublicGuard>
+        } />
+
+        <Route path="/triassic-superior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <TriassicSuperior />
+          </PublicGuard>
+        } />
+
+        <Route path="/pet-selection" element={<PetSelection />} />
+      </RoutesWithNotFound>
     </ErrorBoundary>
   );
 };

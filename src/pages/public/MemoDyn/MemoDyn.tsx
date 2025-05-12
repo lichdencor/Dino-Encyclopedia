@@ -47,10 +47,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return newArray;
 };
 
-const getPairsCount = (totalCards: number) => {
-    return Math.floor(totalCards / 2);
-};
-
 const MEMODYN_TIPS_KEY = 'showMemoDynTipsDialog';
 
 export const MemoDyn = () => {

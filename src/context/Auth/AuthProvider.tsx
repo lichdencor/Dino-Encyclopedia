@@ -2,14 +2,14 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 import { authService } from '../../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
-interface User {
+interface PerfilUsuarioCliente {
   id: string;
   email: string;
   full_name: string;
 }
 
 interface AuthContextType {
-  user: User | null;
+  user: PerfilUsuarioCliente | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
@@ -30,7 +30,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<PerfilUsuarioCliente | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
       const perfilUsuarioCliente = await authService.postRegistro(data);
-      guardarPerfil(perfilUsuarioCliente.profile);
+      guardarPerfil(perfilUsuarioCliente);
       setRegistrationSuccess(true);
       navigate('/login');
     } catch (error) {
@@ -80,8 +80,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRegistrationSuccess(false);
   };
 
-  function guardarPerfil(perfilUsuarioCliente) {
-    setUser(perfilUsuarioCliente.profile);
+  function guardarPerfil(perfilUsuarioCliente: PerfilUsuarioCliente) {
+    setUser(perfilUsuarioCliente);
   }
 
   const value = {
