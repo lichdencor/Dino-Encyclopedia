@@ -17,7 +17,7 @@ import {
   PetSelection,
   SignIn,
   MemoDyn,
-  Games,
+  Minijuegos,
   Puzzleaurus,
   Store,
   Library,
@@ -50,7 +50,7 @@ const AppRouter = () => {
         <Route path="/games" element={
           <PublicGuard isAuthenticated={isAuthenticated}>
             <PuzzleProvider>
-              <Games />
+              <Minijuegos />
             </PuzzleProvider>
           </PublicGuard>
         } />
