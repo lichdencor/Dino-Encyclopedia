@@ -2,14 +2,15 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 import { authService } from '../../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
-interface PerfilUsuarioCliente {
+interface User {
   id: string;
   email: string;
   full_name: string;
+  profile_picture?: string;
 }
 
 interface AuthContextType {
-  user: PerfilUsuarioCliente | null;
+  user: User | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
@@ -17,6 +18,7 @@ interface AuthContextType {
   recuperarContrasenia: (email: string) => Promise<void>;
   registrationSuccess: boolean;
   clearRegistrationSuccess: () => void;
+  loginAsGuest: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,14 +32,14 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<PerfilUsuarioCliente | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const navigate = useNavigate();
 
   const login = async (email: string, password: string) => {
     try {
-      const perfilUsuarioCliente = await authService.postLogin({ email, password });
-      guardarPerfil(perfilUsuarioCliente.profile)
+      const response = await authService.postLogin({ email, password });
+      setUser(response.profile);
       navigate('/');
     } catch (error) {
       console.error('Error de login:', error);
@@ -47,8 +49,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
-      const perfilUsuarioCliente = await authService.postRegistro(data);
-      guardarPerfil(perfilUsuarioCliente);
+      const response = await authService.postRegistro(data);
+      setUser(response.profile);
       setRegistrationSuccess(true);
       navigate('/login');
     } catch (error) {
@@ -80,9 +82,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRegistrationSuccess(false);
   };
 
-  function guardarPerfil(perfilUsuarioCliente: PerfilUsuarioCliente) {
-    setUser(perfilUsuarioCliente);
-  }
+  const loginAsGuest = () => {
+    const guestUser: User = {
+      id: 'guest',
+      email: 'guest@guest.com',
+      full_name: 'Guest User'
+    };
+    setUser(guestUser);
+    navigate('/');
+  };
 
   const value = {
     user,
@@ -93,6 +101,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     recuperarContrasenia,
     registrationSuccess,
     clearRegistrationSuccess,
+    loginAsGuest,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

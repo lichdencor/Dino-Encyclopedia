@@ -83,6 +83,18 @@ export class Login extends Component<{}, LoginState> {
             <button type="submit" className={styles.submitButton}>
                 Iniciar Sesión
             </button>
+
+            <button 
+                type="button" 
+                onClick={() => {
+                    if (this.context) {
+                        this.context.loginAsGuest();
+                    }
+                }} 
+                className={styles.guestButton}
+            >
+                Acceder como Invitado
+            </button>
         </form>;
     }
 
