@@ -1,31 +1,24 @@
 .gamesPage {
-  min-height: 100vh;
-  background-color: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/public/assets/img/bg/rockBg.png);
+    background-position: bottom;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gamesContainer {
-  flex: 1;
-  padding: 1.5rem;
-  margin-top: 60px; /* Espacio para la barra de navegación */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white; /* Asegura que todo el texto sea visible */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.puzzleaurus {
-  width: 60vh;
-  height: 50vh;
-  background-image: url(/assets/img/era-bg/room-bg-9.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(1);
+    width: 90%;
+    height: 70%;
+    margin: 0 auto;
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
 }
 
 .memodyn {
@@ -134,7 +127,6 @@
   margin: 2rem auto 0;
   padding-top: 2rem;
   margin-top: 6rem;
-  
 }
 
 .leftContainer {

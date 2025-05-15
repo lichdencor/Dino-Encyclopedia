@@ -1,9 +1,10 @@
 .puzzleMenu {
-  padding: 2rem;
-  text-align: center;
-  min-height: calc(100vh - 60px);
-  background: transparent;
-  margin-top: 8rem;
+  background: beige;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .puzzleMenu h1 {
@@ -13,28 +14,11 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
   display: inline-block;
-}
-
-.puzzleMenu h1::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: #ff1744;
-  border-radius: 2px;
-}
-
-.puzzlesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  animation: fadeIn 0.5s ease-in-out;
+  background-image: url(/public/assets/img/landing-page/title-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-size: "MedusaGothic";
 }
 
 @keyframes fadeIn {
