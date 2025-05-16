@@ -115,14 +115,13 @@
 }
 
 .card {
-  width: 12vh;
-  height: 17vh;
+  width: 15vh;
+  height: 20vh;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
@@ -276,8 +275,8 @@
   }
 
   .card {
-    width: 9vh;
-    height: 14vh;
+    width: 10vh;
+    height: 16vh;
   }
 
   .game-header {
