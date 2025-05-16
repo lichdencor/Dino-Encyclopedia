@@ -6,6 +6,7 @@ interface User {
   id: string;
   email: string;
   full_name: string;
+  profile_picture?: string;
 }
 
 interface AuthContextType {
@@ -14,12 +15,13 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
   logout: () => void;
-  resetPassword: (email: string) => Promise<void>;
+  recuperarContrasenia: (email: string) => Promise<void>;
   registrationSuccess: boolean;
   clearRegistrationSuccess: () => void;
+  loginAsGuest: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await authService.login({ email, password });
+      const response = await authService.postLogin({ email, password });
       setUser(response.profile);
       navigate('/');
     } catch (error) {
@@ -45,9 +47,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const register = async (data: { email: string; password: string; full_name: string }) => {
+  const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
-      const response = await authService.register(data);
+      const response = await authService.postRegistro(data);
+      setUser(response.profile);
       setRegistrationSuccess(true);
       navigate('/login');
     } catch (error) {
@@ -56,9 +59,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const resetPassword = async (email: string) => {
+  const recuperarContrasenia = async (email: string) => {
     try {
-      await authService.resetPassword(email);
+      await authService.postRecuperarContrasenia(email);
     } catch (error) {
       console.error('Error al enviar el correo de recuperación:', error);
       throw error;
@@ -79,15 +82,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRegistrationSuccess(false);
   };
 
+  const loginAsGuest = () => {
+    const guestUser: User = {
+      id: 'guest',
+      email: 'guest@guest.com',
+      full_name: 'Guest User'
+    };
+    setUser(guestUser);
+    navigate('/');
+  };
+
   const value = {
     user,
     isAuthenticated: !!user,
     login,
-    register,
+    register: registrar,
     logout,
-    resetPassword,
+    recuperarContrasenia,
     registrationSuccess,
     clearRegistrationSuccess,
+    loginAsGuest,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

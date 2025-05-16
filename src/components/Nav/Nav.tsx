@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 interface NavProps {
@@ -6,13 +6,25 @@ interface NavProps {
 }
 
 export const Nav = ({ id }: NavProps) => {
+  const navigate = useNavigate();
+
+  const accederAPerfil = () => navigate('/profile');
+  const accederATips = () => navigate('/tips');
+  const accederAHome = () => navigate('/');
+  const accederAMap = () => navigate('/map');
+  const accederATienda = () => navigate('/store');
+  const accederAlAlbum = () => navigate('/album');
+  const accederAMinijuegos = () => navigate('/games');
+  const accederABiblioteca = () => navigate('/library');
+  const accederACine = () => navigate('/cinema');
+  const accederAWallet = () => navigate('/wallet');
+
   return (
     <nav id={id}>
       <div className="profile-container">
         <div className="profile">
-          <Link to="/profile" className="profilePageLink"></Link>
+          <div onClick={accederAPerfil} className="profilePageLink"></div>
           <div className="pet-profile-img"></div>
-          
         </div>
         <div className="pawn-1 complete"></div>
         <div className="pawn-2 complete"></div>
@@ -30,31 +42,23 @@ export const Nav = ({ id }: NavProps) => {
 
       <div className="routes">
         <div className="routes-left">
-          <Link to="/ads">ADS</Link>
-          <Link to="/">HOME</Link>
-          <Link to="/map">MAP</Link>
-          <Link id="nav-store" to="/store">STORE</Link>
-          
+          <div onClick={accederATips} className="nav-item">TIPS</div>
+          <div onClick={accederAHome} className="nav-item">HOME</div>
+          <div onClick={accederAMap} className="nav-item">MAP</div>
+          <div id="nav-store" onClick={accederATienda} className="nav-item">STORE</div>
         </div>
         <div className="routes-right">
-          <Link to="/album">ALBUM</Link>
-          <Link to="/games">GAMES</Link>
-          <Link to="/library">LIBRARY</Link>
-          <Link to="/cinema">CINEMA</Link>
+          <div onClick={accederAlAlbum} className="nav-item">ALBUM</div>
+          <div onClick={accederAMinijuegos} className="nav-item">GAMES</div>
+          <div onClick={accederABiblioteca} className="nav-item">LIBRARY</div>
+          <div onClick={accederACine} className="nav-item">CINEMA</div>
         </div>
 
-        <Link to="/wallet" className="token-container">
+        <div onClick={accederAWallet} className="token-container">
           <div className="token-img"></div>
           <div className="token-amount">100</div>
-        </Link>
-
-
-        {/* <div className="token-container">
-          <div className="token-img"></div>
-          <div className="token-amount">100</div>
-        </div> */}
+        </div>
       </div>
-
     </nav>
   );
 };

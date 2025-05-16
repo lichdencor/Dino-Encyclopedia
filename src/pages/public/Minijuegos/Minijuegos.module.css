@@ -1,0 +1,105 @@
+.gamesPage {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/assets/img/gamesPage/gamePageBg.png);
+  background-size: 100% 85%;
+  background-position: bottom;
+  background-color: black;
+}
+
+.gamesContainer {
+  width: 80%;
+  height: 76%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: red; */
+  margin-top: 5vw;
+  position: relative;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    filter: brightness(1.2);
+    opacity: 0.4;
+  }
+}
+
+.sparkle1,
+.sparkle4 {
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.sparkle2,
+.sparkle5 {
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.sparkle1,
+.sparkle2,
+.sparkle3,
+.sparkle4,
+.sparkle5{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.sparkle1 {
+  top: 13%;
+  width: 6%;
+  height: 15%;
+  background-image: url(/public/assets/img/sparkles/sparkle1.png);
+  /* background-color: blue; */
+}
+
+.sparkle2 {
+  bottom: 30%;
+  left: 40%;
+  width: 8%;
+  height: 18%;
+  background-image: url(/public/assets/img/sparkles/sparkle2.png);
+  /* background-color: blue; */
+}
+
+.sparkle3 {
+  width: 6%;
+  height: 18%;
+  background-image: url(/public/assets/img/sparkles/sparkle2.png);
+  right: 35%;
+  top: 0%;
+  /* background-color: red; */
+  animation: sparkle 5s ease-in-out infinite;
+}
+
+.sparkle4 {
+  width: 6%;
+  height: 10%;
+  background-image: url(/public/assets/img/sparkles/sparkle1.png);
+  right: 0%;
+  top: 30%;
+  /* background-color: red; */
+}
+
+.sparkle5 {
+  width: 8%;
+  height: 15%;
+  background-image: url(/public/assets/img/sparkles/sparkle2.png);
+  right: 0%;
+  bottom: 35%;
+  /* background-color: red; */
+}

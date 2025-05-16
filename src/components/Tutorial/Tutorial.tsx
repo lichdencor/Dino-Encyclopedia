@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { VirtualAssistant } from '../VirtualAssistant/VirtualAssistant';
+import { AsistenteVirtual } from '../AsistenteVirtual/AsistenteVirtual.tsx';
 import styles from './Tutorial.module.css';
 
 interface ElementPosition {
@@ -273,25 +273,29 @@ export const Tutorial = ({ onClose }: TutorialProps) => {
     }
   };
 
-  return (
-    <div className={styles.tutorialOverlay} onClick={handleClick}>
-      <div 
-        className={`${styles.highlight} ${styles[currentStepData.highlightClass]}`}
-        style={getHighlightStyle()}
-      />
-      <div 
-        className={styles.assistantContainer}
-        style={getAssistantStyle()}
-      >
-        <VirtualAssistant
-          key={currentStep}
-          text={currentStepData.text}
-          boldWords={currentStepData.boldWords || []}
-          looped={false}
-          dialogStyle={currentStepData.dialogStyle}
-        />
-        <button className={styles.carouselBtn} style={getArrowStyle()}></button>
-      </div>
-    </div>
-  );
+  function mostrarTutorial() {
+    return (
+        <div className={styles.tutorialOverlay} onClick={handleClick}>
+          <div
+              className={`${styles.highlight} ${styles[currentStepData.highlightClass]}`}
+              style={getHighlightStyle()}
+          />
+          <div
+              className={styles.assistantContainer}
+              style={getAssistantStyle()}
+          >
+            <AsistenteVirtual
+                key={currentStep}
+                text={currentStepData.text}
+                boldWords={currentStepData.boldWords || []}
+                looped={false}
+                dialogStyle={currentStepData.dialogStyle}
+            />
+            <button className={styles.carouselBtn} style={getArrowStyle()}></button>
+          </div>
+        </div>
+    );
+  }
+
+  return mostrarTutorial();
 }; 

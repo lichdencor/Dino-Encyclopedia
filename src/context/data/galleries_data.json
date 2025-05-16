@@ -15,7 +15,7 @@
               "clasification": " Rauisuchian Archosaur",
               "diet_type": " Carnívoro",
               "speed": " ~40 km/h",
-              "special_features": " Cráneo similar al de un cocodrilo y postura semi-erguida",
+              "special_features": " Cráneo similar al de un cocodrilo, postura semi-erguida",
               "defense_attack_mechanism": " Dientes afilados, gran fuerza de mordida",
               "fossils_found_in": " EE. UU. (Texas, New Mexico, Arizona, North Carolina)",
               "social_behaviour": " Habitualmente solitario",
@@ -29,7 +29,7 @@
               "geological_period": " Triásico Tardío",
               "clasification": " Dinosauria, Saurischia, Herrerasauridae",
               "diet_type": " Omnívoro (comía animales pequeños, insectos, y plantas)",
-              "speed": " Se estima que era un corredor veloz, alcanzando hasta 40 km/h (25 mph)",
+              "speed": " Se estima que era un corredor veloz, alcanzando hasta 40 km/h",
               "special_features": " Pequeño, ligero, ágil, con garras y una mordida rápida",
               "defense_attack_mechanism": " Dientes afilados para desgarrar carne, y garras en sus manos",
               "fossils_found_in": " Argentina, en la Formación Ischigualasto (Valle de la Luna)",
@@ -63,14 +63,14 @@
               "height": " ~1.2 metros",
               "weight": " Alrededor de: 90–150 kg",
               "geological_period": " Triásico Tardío",
-              "clasification": " Archosauria, Poposauroidea (originalmente cosiderado un ornitomímido, posteriormente identificado un reptil, más emparentado con los cocodrilos)",
+              "clasification": " Archosauria, Poposauroidea,",
               "diet_type": " Herbívoro",
               "speed": " Considerado un veloz corredor bípedo",
               "special_features": " Pico desdentado, piernas largas, cuerpo ligero y ágil",
-              "defense_attack_mechanism": " La velocidad y la agilidad fueron probablemente sus principales mecanismos de defensa",
+              "defense_attack_mechanism": " Velocidad y agilidad fueron sus mecanismos de defensa",
               "fossils_found_in": " Estados Unidos (Texas)",
-              "social_behaviour": " Desconocido, posiblemente era solitario o vivía en pequeños grupos",
-              "evolutionary_relationship": " Inicialmente confundido con un dinosaurio terópodo, luego se identificó como miembro de la línea Crocodilia, emparentado con otros poposauroideos"
+              "social_behaviour": " Desconocido, era solitario o vivía en pequeños grupos",
+              "evolutionary_relationship": " Miembro de la línea Crocodilia"
             },
             {
               "name": " Fukuiraptor",
@@ -117,11 +117,11 @@
               "clasification": "  Dinosauria, Saurischia, Theropoda, Coelophysidae",
               "diet_type": "  Carnívoro",
               "speed": "  Probablemente un corredor rápido y ágil, con velocidad estimada de 40–50 km/h",
-              "special_features": "  Cuerpo ligero, cola larga para mantener el equilibrio y dientes afilados para atrapar presas",
-              "defense_attack_mechanism": "  Usaba su velocidad para cazar y escapar, tenía dientes y garras afiladas para atacar a sus presas",
-              "fossils_found_in": "  Estados Unidos (Nuevo Mexico, Arizona), posiblemente Zimbabwe and South Africa",
-              "social_behaviour": "  Evidencia sugiere que vivió en grupos, posiblemente para la caza o protección",
-              "evolutionary_relationship": "  Un Terópodo temprano, relacionado con Terópodos posteriores de mayor tamaño como Dilofosaurios y Alosaurios"
+              "special_features": "  Cuerpo ligero, cola larga y dientes afilados",
+              "defense_attack_mechanism": "  Veloz, tenía dientes y garras afiladas",
+              "fossils_found_in": "  Estados Unidos (Nuevo Mexico, Arizona)",
+              "social_behaviour": "  Evidencia sugiere que vivió en grupos",
+              "evolutionary_relationship": "  Un Terópodo temprano, relacionado con Terópodos"
             },
             {
               "name": " Plateosaurus",
@@ -130,13 +130,13 @@
               "weight": " Estimado entre 600–4,000 kg",
               "geological_period": " Triásico Tardío",
               "clasification": " Dinosauria, Saurischia, Sauropodomorpha, Plateosauridae",
-              "diet_type": " Herbívoro (dieta de helechos, Cícadas (Cycadales), y otras plantas prehistoricas)",
-              "speed": " Podía caminar en dos y cuatro patas, probablemente alcanzando velocidades de 5–10 km/h",
-              "special_features": " Cuello largo, patas traseras fueres, manos prensiles con garras grandes para alimentarse",
-              "defense_attack_mechanism": " Podía usar su gran tamaño para intimidar a los depredadores; sus fuertes garras podrían haberse utilizado para la defensa",
+              "diet_type": " Herbívoro",
+              "speed": " Alcanzaba velocidades de 5–10 km/h",
+              "special_features": " Cuello largo, manos prensiles con garras grandes",
+              "defense_attack_mechanism": " Podía usar su gran tamaño para intimidar a los depredadores",
               "fossils_found_in": " Europa (Alemania, Suiza, Francia, Groenlandia)",
-              "social_behaviour": " Evidencia sugiere que puede que haya vivido en grupos, aunque algunos estudios indican un comportamiento solitario",
-              "evolutionary_relationship": " un Saurópodomorfo temprano, Relacionado con saurópodos gigantes posteriores como Brachiosaurus y Apatosaurus"
+              "social_behaviour": " Evidencia sugiere que puede que haya vivido en grupos",
+              "evolutionary_relationship": " un Saurópodomorfo temprano"
             },
             {
               "name": " Rauisuchus",
@@ -145,13 +145,13 @@
               "weight": " Estimado alrededor de 250–400 kg",
               "geological_period": " Triásico Tardío",
               "clasification": " Archosauria, Pseudosuchia, Rauisuchidae",
-              "diet_type": " Carnívoro (probablemente se alimentaba de grandes reptiles herbívoros y de los primeros dinosaurios)",
-              "speed": " Probablemente un corredor, ayudado por patas traseras fuertes",
-              "special_features": " Cráneo grande con mandíbulas potentes, dientes aserrados para desgarrar carne y postura erguida",
-              "defense_attack_mechanism": " Usaba su mordida potente y dientes afilados para someter a sus presas, posiblemente un depredador de emboscada",
+              "diet_type": " Carnívoro",
+              "speed": " Probablemente un corredor",
+              "special_features": " Cráneo grande, dientes aserrados",
+              "defense_attack_mechanism": " Usaba su mordida potente y dientes afilados",
               "fossils_found_in": " Brasil (Formación Santa María)",
               "social_behaviour": " Probablemente un cazador solitario",
-              "evolutionary_relationship": " Un miembro de Rauisuchidae, relacionado con otros depredadores del Triásico como el Postosuchus"
+              "evolutionary_relationship": " Un miembro de Rauisuchidae"
             }
           ]
         }

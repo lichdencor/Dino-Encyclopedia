@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { Component } from 'react';
 import { Nav } from "../../../components";
 import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer";
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
+import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
 
 interface Puzzle {
@@ -9,6 +10,12 @@ interface Puzzle {
     name: string;
     logoPuzzle: string;
     difficultysLogo: string[];
+}
+
+interface PuzzleaurusState {
+    selectedPuzzle: Puzzle | null;
+    showTransition: boolean;
+    showTips: boolean;
 }
 
 const puzzles: Puzzle[] = [
@@ -74,66 +81,112 @@ const puzzles: Puzzle[] = [
     }
 ];
 
-export const Puzzleaurus = () => {
-    const [selectedPuzzle, setSelectedPuzzle] = useState<Puzzle | null>(null);
+const PUZZLEAURUS_TIPS_KEY = 'showPuzzleaurusTipsDialog';
 
-    const handlePuzzleSelect = (puzzle: Puzzle) => {
-        setSelectedPuzzle(puzzle);
+export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
+    state: PuzzleaurusState = {
+        selectedPuzzle: null,
+        showTransition: false,
+        showTips: false
     };
 
-    const handleReturnToMenu = () => {
-        setSelectedPuzzle(null);
+    componentDidMount() {
+        this.setState({ showTips: localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true' });
+        window.addEventListener('storage', this.handleStorageChange);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('storage', this.handleStorageChange);
+    }
+
+    handleStorageChange = () => {
+        this.setState({ showTips: localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true' });
     };
 
-    const handlePrevPuzzle = () => {
-        if (selectedPuzzle && selectedPuzzle.id > 1) {
-            const prevPuzzle = puzzles.find((p: Puzzle) => p.id === selectedPuzzle.id - 1);
-            if (prevPuzzle) setSelectedPuzzle(prevPuzzle);
+    handlePuzzleSelect = (puzzle: Puzzle) => {
+        this.setState({
+            selectedPuzzle: puzzle,
+            showTransition: true
+        });
+    };
+
+    handleReturnToMenu = () => {
+        this.setState({
+            selectedPuzzle: null,
+            showTransition: false
+        });
+    };
+
+    handleContinue = () => {
+        this.setState({ showTransition: false });
+    };
+
+    handlePrevPuzzle = () => {
+        if (this.state.selectedPuzzle && this.state.selectedPuzzle.id > 1) {
+            const prevPuzzle = puzzles.find((p: Puzzle) => p.id === this.state.selectedPuzzle!.id - 1);
+            if (prevPuzzle) {
+                this.setState({ selectedPuzzle: prevPuzzle });
+            }
         }
     };
 
-    const handleNextPuzzle = () => {
-        if (selectedPuzzle && selectedPuzzle.id < 6) {
-            const nextPuzzle = puzzles.find((p: Puzzle) => p.id === selectedPuzzle.id + 1);
-            if (nextPuzzle) setSelectedPuzzle(nextPuzzle);
+    handleNextPuzzle = () => {
+        if (this.state.selectedPuzzle && this.state.selectedPuzzle.id < 6) {
+            const nextPuzzle = puzzles.find((p: Puzzle) => p.id === this.state.selectedPuzzle!.id + 1);
+            if (nextPuzzle) {
+                this.setState({ selectedPuzzle: nextPuzzle });
+            }
         }
     };
 
-    return (
-        <div className={styles.gamesPage}>
-            <Nav />
-            <div className={styles.gamesContainer}>
-                {selectedPuzzle ? (
-                    <div className={styles.puzzleContent}>
-                        <PuzzleContainer 
-                            onReturnToMenu={handleReturnToMenu} 
-                            selectedPuzzle={selectedPuzzle}
-                            key={selectedPuzzle.id}
-                        />
-                        {/* Botones de navegación entre puzzles 
-                        <div className={styles.navigationButtons}>
-                            <button 
-                                className={`${styles.navButton} ${styles.prevButton}`}
-                                onClick={handlePrevPuzzle}
-                                disabled={selectedPuzzle.id === 1}
-                            >
-                                ← Puzzle Anterior
-                            </button>
-                            <button 
-                                className={`${styles.navButton} ${styles.nextButton}`}
-                                onClick={handleNextPuzzle}
-                                disabled={selectedPuzzle.id === 6}
-                            >
-                                Siguiente Puzzle →
-                            </button>
-                        </div>*/}
-                    </div>
-                ) : (
-                    <PuzzleMenu onPuzzleSelect={handlePuzzleSelect} />
-                )}
+    render() {
+        const { selectedPuzzle, showTransition, showTips } = this.state;
+
+        return (
+            <div className={styles.gamesPage}>
+                <Nav />
+                <div className={styles.gamesContainer}>
+                    {selectedPuzzle ? (
+                        <>
+                            {showTransition && showTips ? (
+                                <DialogoTips
+                                    onContinue={this.handleContinue}
+                                    puzzleName={selectedPuzzle.name}
+                                />
+                            ) : (
+                                <div className={styles.puzzleContent}>
+                                    <PuzzleContainer 
+                                        onReturnToMenu={this.handleReturnToMenu} 
+                                        selectedPuzzle={selectedPuzzle}
+                                        key={selectedPuzzle.id}
+                                    />
+                                    {/* Botones de navegación entre puzzles 
+                                    <div className={styles.navigationButtons}>
+                                        <button 
+                                            className={`${styles.navButton} ${styles.prevButton}`}
+                                            onClick={this.handlePrevPuzzle}
+                                            disabled={selectedPuzzle.id === 1}
+                                        >
+                                            ← Puzzle Anterior
+                                        </button>
+                                        <button 
+                                            className={`${styles.navButton} ${styles.nextButton}`}
+                                            onClick={this.handleNextPuzzle}
+                                            disabled={selectedPuzzle.id === 6}
+                                        >
+                                            Siguiente Puzzle →
+                                        </button>
+                                    </div>*/}
+                                </div>
+                            )}
+                        </>
+                    ) : (
+                        <PuzzleMenu onPuzzleSelect={this.handlePuzzleSelect} />
+                    )}
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default Puzzleaurus;

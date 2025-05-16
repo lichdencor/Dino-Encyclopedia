@@ -16,7 +16,7 @@ interface PuzzleMenuProps {
 const puzzles = [
   {
     id: 1,
-    name: "Dinosaurio",
+    name: "Tyranosaurus Rex",
     logoPuzzle: "/assets/img/puzzles/puzzle-1/puzzle-1.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
@@ -26,7 +26,7 @@ const puzzles = [
   },
   {
     id: 2,
-    name: "Fósil",
+    name: "Spinosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-2/puzzle-2.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
@@ -36,7 +36,7 @@ const puzzles = [
   },
   {
     id: 3,
-    name: "Era Mesozoica",
+    name: "Gigantosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-3/puzzle-3.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
@@ -46,7 +46,7 @@ const puzzles = [
   },
   {
     id: 4,
-    name: "Paleontología",
+    name: "Baryonyx",
     logoPuzzle: "/assets/img/puzzles/puzzle-4/puzzle-4.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
@@ -56,7 +56,7 @@ const puzzles = [
   },
   {
     id: 5,
-    name: "Excavación",
+    name: "Allosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-5/puzzle-5.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
@@ -66,7 +66,7 @@ const puzzles = [
   },
   {
     id: 6,
-    name: "Museo",
+    name: "Velociraptor",
     logoPuzzle: "/assets/img/puzzles/puzzle-6/puzzle-6.jpg",
     difficultysLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",

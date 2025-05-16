@@ -1,0 +1,117 @@
+.dialogueOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialogueGoldBg {
+    border-radius: 16px;
+    width: 50%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+}
+
+.dialogueContainer {
+    border-radius: 16px;
+    width: 98%;
+    height: 97%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(19, 11, 0);
+}
+
+.dialogueBox {
+    top: 10%;
+    width: 80%;
+    height: 20%;
+    border-radius: 28px;
+    margin: 0 auto 0.5rem auto;
+    font-family: "Lato";
+    font-size: 1vw;
+    letter-spacing: 0.15vw;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    background-color: blue;
+    
+}
+
+.dialogueQuestion {
+    margin-left: 2vw;
+    text-align: start;
+    font-family: "MedusaGothic";
+    font-size: 1.2vw;
+}
+
+.dialogueText {
+    width: 90%;
+    margin-left: 2vw;
+    font-style: italic;
+    /* background-color: red; */
+}
+
+.charactersRow {
+    margin-top: 10%;
+    width: 80%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    /* background-color: pink; */
+}
+
+.character1 {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    /* border: 2px solid black; */
+}
+
+.character2 {
+    width: 60%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: scaleX(-1);
+    position: absolute;
+    bottom: -2%;
+    right: 5%;
+    /* border: 2px solid black; */
+}
+
+.characterImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.continueButton {
+    width: 50%;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(123,45,38,0.10);
+}

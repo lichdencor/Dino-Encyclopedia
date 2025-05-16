@@ -125,6 +125,23 @@ button {
   background-color: #45a049;
 }
 
+.guestButton {
+  background-color: #666;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.guestButton:hover {
+  background-color: #555;
+}
+
 .error {
   background-color: #ffebee;
   color: #c62828;
