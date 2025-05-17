@@ -4,6 +4,9 @@ export interface MapState {
     displayNames: {
         [key: string]: string[]; // key format: "era-period" (e.g., "triassic-inferior")
     };
+    discoveredSilhouettes: {
+        [key: string]: boolean[]; // key format: "era-period" (e.g., "triassic-inferior")
+    };
 }
 
 export class MapModel {
@@ -13,7 +16,8 @@ export class MapModel {
 
     constructor(progress: ProgressData) {
         this.state = {
-            displayNames: {}
+            displayNames: {},
+            discoveredSilhouettes: {}
         };
         this.progress = progress;
     }
@@ -26,9 +30,15 @@ export class MapModel {
         if (!progress?.galleries?.[0]) return;
 
         const displayNames: MapState['displayNames'] = {};
+        const discoveredSilhouettes: MapState['discoveredSilhouettes'] = {};
         
         // Triassic Period
         displayNames['triassic-inferior'] = this.getDinosaurDisplayNamesByProgress(progress, "triassic", "inferior", [
+            "Postosuchus",
+            "Eoraptor",
+            "Herrerasaurus"
+        ]);
+        discoveredSilhouettes['triassic-inferior'] = this.getDinosaurSilhouettesByProgress(progress, "triassic", "inferior", [
             "Postosuchus",
             "Eoraptor",
             "Herrerasaurus"
@@ -39,8 +49,18 @@ export class MapModel {
             "Fukuiraptor",
             "Chindesaurus"
         ]);
+        discoveredSilhouettes['triassic-medium'] = this.getDinosaurSilhouettesByProgress(progress, "triassic", "medium", [
+            "Shuvosaurus",
+            "Fukuiraptor",
+            "Chindesaurus"
+        ]);
         
         displayNames['triassic-superior'] = this.getDinosaurDisplayNamesByProgress(progress, "triassic", "superior", [
+            "Coelophysis",
+            "Plateosaurus",
+            "Rauisuchus"
+        ]);
+        discoveredSilhouettes['triassic-superior'] = this.getDinosaurSilhouettesByProgress(progress, "triassic", "superior", [
             "Coelophysis",
             "Plateosaurus",
             "Rauisuchus"
@@ -52,14 +72,29 @@ export class MapModel {
             "Compsognathus",
             "Cryolophosaurus"
         ]);
+        discoveredSilhouettes['jurassic-inferior'] = this.getDinosaurSilhouettesByProgress(progress, "jurassic", "inferior", [
+            "Dilophosaurus",
+            "Compsognathus",
+            "Cryolophosaurus"
+        ]);
         
         displayNames['jurassic-medium'] = this.getDinosaurDisplayNamesByProgress(progress, "jurassic", "medium", [
             "Allosaurus",
             "Apatosaurus",
             "Camarasaurus"
         ]);
+        discoveredSilhouettes['jurassic-medium'] = this.getDinosaurSilhouettesByProgress(progress, "jurassic", "medium", [
+            "Allosaurus",
+            "Apatosaurus",
+            "Camarasaurus"
+        ]);
         
         displayNames['jurassic-superior'] = this.getDinosaurDisplayNamesByProgress(progress, "jurassic", "superior", [
+            "Brachiosaurus",
+            "Diplodocus",
+            "Stegosaurus"
+        ]);
+        discoveredSilhouettes['jurassic-superior'] = this.getDinosaurSilhouettesByProgress(progress, "jurassic", "superior", [
             "Brachiosaurus",
             "Diplodocus",
             "Stegosaurus"
@@ -71,8 +106,18 @@ export class MapModel {
             "Microceratus",
             "Gallimimus"
         ]);
+        discoveredSilhouettes['cretaceous-inferior'] = this.getDinosaurSilhouettesByProgress(progress, "cretaceous", "inferior", [
+            "Pachycephalosaurus",
+            "Microceratus",
+            "Gallimimus"
+        ]);
         
         displayNames['cretaceous-medium'] = this.getDinosaurDisplayNamesByProgress(progress, "cretaceous", "medium", [
+            "Spinosaurus",
+            "Baryonyx",
+            "Irritator"
+        ]);
+        discoveredSilhouettes['cretaceous-medium'] = this.getDinosaurSilhouettesByProgress(progress, "cretaceous", "medium", [
             "Spinosaurus",
             "Baryonyx",
             "Irritator"
@@ -83,8 +128,14 @@ export class MapModel {
             "Ankylosaurus",
             "Tyrannosaurus"
         ]);
+        discoveredSilhouettes['cretaceous-superior'] = this.getDinosaurSilhouettesByProgress(progress, "cretaceous", "superior", [
+            "Triceratops",
+            "Ankylosaurus",
+            "Tyrannosaurus"
+        ]);
 
         this.state.displayNames = displayNames;
+        this.state.discoveredSilhouettes = discoveredSilhouettes;
         this.notifyListeners();
     }
 
@@ -110,11 +161,15 @@ export class MapModel {
 
     private getDinosaurDisplayNamesByProgress(progress: ProgressData, era: string, period: string, dinoNames: string[]): string[] {
         return dinoNames.map(dinoName => {
-            if (dinoName === "Compsognathus" || dinoName === "Shuvosaurus") {
-                debugger
-            }
             const dinosaurProgress = this.getDinosaurProgress(progress, era, period, dinoName);
             return dinosaurProgress === 100 ? dinoName : "?";
+        });
+    }
+
+    private getDinosaurSilhouettesByProgress(progress: ProgressData, era: string, period: string, dinoNames: string[]): boolean[] {
+        return dinoNames.map(dinoName => {
+            const dinosaurProgress = this.getDinosaurProgress(progress, era, period, dinoName);
+            return dinosaurProgress === 100;
         });
     }
 

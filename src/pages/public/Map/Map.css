@@ -587,6 +587,10 @@ body {
   /* border: 1px solid black; */
 }
 
+.dinosaur-silhouette.discovered {
+  filter: brightness(110%) opacity(100%);
+}
+
 /* DINOSAUR SILHOUETTES */
 
 .small-dino {

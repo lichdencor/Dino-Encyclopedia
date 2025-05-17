@@ -6,6 +6,7 @@ interface PeriodsButtonHoverProps {
     link?: string;
     dinos?: string[];
     displayNames?: string[];
+    discoveredSilhouettes?: boolean[];
     infoOrientation?: string;
     onNavigate?: (route: string) => void;
 }
@@ -16,6 +17,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
     link,
     dinos,
     displayNames,
+    discoveredSilhouettes,
     infoOrientation = "right",
     onNavigate
 }) => {
@@ -76,7 +78,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                         </div>
                     </div>
 
-                    {dinos && dinos.length > 0 && displayNames && (
+                    {dinos && dinos.length > 0 && displayNames && discoveredSilhouettes && (
                         <div className={`paperContainer ${infoOrientation} ${!showPaper ? "hidden" : ""}`}>
                             <div className="paper">
                                 <div className="dinosaurInfo">
@@ -89,7 +91,7 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                                         {dinos.map((dino, index) => (
                                             <div
                                                 key={index}
-                                                className={`${dino} dinosaur-silhouette`}
+                                                className={`${dino} dinosaur-silhouette ${discoveredSilhouettes[index] ? 'discovered' : ''}`}
                                             ></div>
                                         ))}
                                     </div>

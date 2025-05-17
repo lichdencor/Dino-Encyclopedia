@@ -121,6 +121,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                         "info-triassic-1-dino-3 big-dino"
                     ]}
                     displayNames={state.displayNames['triassic-inferior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['triassic-inferior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -133,6 +134,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                         "info-triassic-2-dino-3 big-dino"
                     ]}
                     displayNames={state.displayNames['triassic-medium']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['triassic-medium']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -145,6 +147,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                         "info-triassic-3-dino-3 medium-dino",
                     ]}
                     displayNames={state.displayNames['triassic-superior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['triassic-superior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -157,6 +160,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                         "info-jurassic-1-dino-3 big-dino",
                     ]}
                     displayNames={state.displayNames['jurassic-inferior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['jurassic-inferior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -170,6 +174,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     ]}
                     infoOrientation="left"
                     displayNames={state.displayNames['jurassic-medium']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['jurassic-medium']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -183,6 +188,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     ]}
                     infoOrientation="left"
                     displayNames={state.displayNames['jurassic-superior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['jurassic-superior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -196,6 +202,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     ]}
                     infoOrientation="left"
                     displayNames={state.displayNames['cretaceous-inferior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['cretaceous-inferior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -209,6 +216,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     ]}
                     infoOrientation="left"
                     displayNames={state.displayNames['cretaceous-medium']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['cretaceous-medium']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
                 <PeriodsButtonHover
@@ -222,6 +230,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     ]}
                     infoOrientation="left"
                     displayNames={state.displayNames['cretaceous-superior']}
+                    discoveredSilhouettes={state.discoveredSilhouettes['cretaceous-superior']}
                     onNavigate={(route) => this.controller.navigateToGallery(route)}
                 />
             </div>
