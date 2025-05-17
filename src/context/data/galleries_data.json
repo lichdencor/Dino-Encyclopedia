@@ -51,8 +51,8 @@
           ]
         },
         {
-          "name": "  Triassic",
-          "period": "  Middle Triassic",
+          "name": "Triassic",
+          "period": "Triassic Medium",
           "dinosaurs": [
             {
               "name": "  Shuvosaurus",
@@ -197,8 +197,8 @@
           ]
         },
         {
-          "name": "Jurásico",
-          "period": "Jurásico medio",
+          "name": "Jurassic",
+          "period": "Jurassic Medium",
           "dinosaurs": [
             {
               "name": " Allosaurus",
@@ -245,8 +245,8 @@
           ]
         },
         {
-          "name": "Jurásico",
-          "period": "Jurásico Superior",
+          "name": "Jurassic",
+          "period": "Jurassic Superior",
           "dinosaurs": [
             {
               "name": " Brachiosaurus",
@@ -295,8 +295,8 @@
       ],
       "era_cretaceous": [
         {
-          "name": "Cretácico",
-          "period": "Cretácico Inferior",
+          "name": "Cretaceous",
+          "period": "Cretaceous Inferior",
           "dinosaurs": [
             {
               "name": " Pachycephalosaurus",
@@ -343,8 +343,8 @@
           ]
         },
         {
-          "name": "Cretácico",
-          "period": "Cretácico Medio",
+          "name": "Cretaceous",
+          "period": "Cretaceous Medium",
           "dinosaurs": [
             {
               "name": " Spinosaurus",
@@ -391,8 +391,8 @@
           ]
         },
         {
-          "name": "Cretácico",
-          "period": "Cretácico Superior",
+          "name": "Cretaceous",
+          "period": "Cretaceous Superior",
           "dinosaurs": [
             {
               "name": " Triceratops",

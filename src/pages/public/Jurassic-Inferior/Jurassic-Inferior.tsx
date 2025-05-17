@@ -28,7 +28,7 @@ export const JurassicInferior: React.FC = () => {
   };
 
   const inferiorJurassicData = galleries_data.galleries[0].era_jurassic.find(
-    (era) => era.period === "Early Jurassic"
+    (era) => era.period === "Jurassic Inferior"
   );
 
   const dinosaursInfo = inferiorJurassicData?.dinosaurs.map(dino => ({

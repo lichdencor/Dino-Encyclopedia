@@ -24,7 +24,7 @@ export const CretaceousMedium = () => {
   };
 
   const mediumCretaceousData = galleries_data.galleries[0].era_cretaceous.find(
-    (era) => era.period === "Medium Cretaceous"
+    (era) => era.period === "Cretaceous Medium"
   );
 
   const dinosaursInfo = mediumCretaceousData?.dinosaurs.map(dino => ({

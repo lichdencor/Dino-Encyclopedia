@@ -24,7 +24,7 @@ export const TriassicMedium = () => {
   };
 
   const mediumTriassicData = galleries_data.galleries[0].era_triassic.find(
-    (era) => era.period === "Triásico medio"
+    (era) => era.period === "Triassic Medium"
   );
 
   const dinosaursInfo = mediumTriassicData?.dinosaurs.map(dino => ({

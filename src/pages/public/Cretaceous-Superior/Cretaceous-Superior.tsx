@@ -24,7 +24,7 @@ export const CretaceousSuperior = () => {
   };
 
   const superiorCretaceousData = galleries_data.galleries[0].era_cretaceous.find(
-    (era) => era.period === "Superior Cretaceous"
+    (era) => era.period === "Cretaceous Superior"
   );
 
   const dinosaursInfo = superiorCretaceousData?.dinosaurs.map(dino => ({

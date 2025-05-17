@@ -24,7 +24,7 @@ export const JurassicSuperior = () => {
   };
 
   const superiorJurassicData = galleries_data.galleries[0].era_jurassic.find(
-    (era) => era.period === "Superior Jurassic"
+    (era) => era.period === "Jurassic Superior"
   );
 
   const dinosaursInfo = superiorJurassicData?.dinosaurs.map(dino => ({

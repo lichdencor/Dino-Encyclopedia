@@ -27,11 +27,11 @@ export const TriassicInferior: React.FC = () => {
     curtainHover: styles.curtainHover,
   };
 
-  const lateTriassicData = galleries_data.galleries[0].era_triassic.find(
+  const inferiorTriassicData = galleries_data.galleries[0].era_triassic.find(
     (era) => era.period === "Triassic Inferior"
   );
 
-  const dinosaursInfo = lateTriassicData?.dinosaurs.map(dino => ({
+  const dinosaursInfo = inferiorTriassicData?.dinosaurs.map(dino => ({
     name: dino.name,
     nombreCientifico: dino.scientific_name,
     altura: dino.height,

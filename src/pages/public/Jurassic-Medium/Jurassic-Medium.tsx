@@ -24,7 +24,7 @@ export const JurassicMedium = () => {
   };
 
   const mediumJurassicData = galleries_data.galleries[0].era_jurassic.find(
-    (era) => era.period === "Medium Jurassic"
+    (era) => era.period === "Jurassic Medium"
   );
 
   const dinosaursInfo = mediumJurassicData?.dinosaurs.map(dino => ({
