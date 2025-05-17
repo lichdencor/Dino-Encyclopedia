@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getCurrentDinosaurProgress } from "../XRay/utils";
 
 interface PeriodsButtonHoverProps {
     stage: string;
-    era?: string;
-    period?:string;
     label: string;
     link?: string;
     dinos?: string[];
-    dinoNames?: string[];
+    displayNames?: string[];
     infoOrientation?: string;
+    onNavigate?: (route: string) => void;
 }
 
 export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
     stage,
-    era,
-    period,
     label,
     link,
     dinos,
-    dinoNames,
+    displayNames,
     infoOrientation = "right",
+    onNavigate
 }) => {
     const [hovered, setHovered] = useState(false);
     const [showPaper, setShowPaper] = useState(false);
@@ -33,6 +29,12 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
             setShowPaper(false);
         }
     }, [hovered]);
+
+    const handleNavigate = () => {
+        if (link && onNavigate) {
+            onNavigate(link);
+        }
+    };
 
     return (
         <div
@@ -66,26 +68,22 @@ export const PeriodsButtonHover: React.FC<PeriodsButtonHoverProps> = ({
                                     <span>{label}</span>
                                 </div>
                                 {link &&
-                                    <button className="visitBtn">
-                                        <Link to={link} className="linkVisitBtn">VISIT</Link>
+                                    <button className="visitBtn" onClick={handleNavigate}>
+                                        <div className="linkVisitBtn">VISIT</div>
                                     </button>
                                 }
                             </div>
                         </div>
                     </div>
 
-                    {dinos && dinos.length > 0 && dinoNames && (
+                    {dinos && dinos.length > 0 && displayNames && (
                         <div className={`paperContainer ${infoOrientation} ${!showPaper ? "hidden" : ""}`}>
                             <div className="paper">
                                 <div className="dinosaurInfo">
                                     <div className="dinosaurNames">
-                                        {dinoNames.map((dinoName, index) => {
-                                            const progress = getCurrentDinosaurProgress(era, period, dinoName);
-                                            const displayName = progress === 100 ? dinoName : "?";
-                                            return (
-                                                <div key={index} className="dinosaurName">{displayName}</div>
-                                            );
-                                        })}
+                                        {displayNames.map((displayName, index) => (
+                                            <div key={index} className="dinosaurName">{displayName}</div>
+                                        ))}
                                     </div>
                                     <div className="dinosaurImg">
                                         {dinos.map((dino, index) => (
