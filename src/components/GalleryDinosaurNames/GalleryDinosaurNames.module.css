@@ -50,7 +50,7 @@
     /* background-color: red; */
 }
 
-.progressBarContainer {
+.progressBarContainer-triassic {
     width: 85%;
     height: 80%;
     /* background-color: blue; */
@@ -62,9 +62,33 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+.progressBarContainer-jurassic {
+    width: 85%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(/assets/img/gallery-progress/progressBarContainer-2.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-color: blue; */
+}
+.progressBarContainer-cretaceous {
+    width: 85%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(/assets/img/gallery-progress/progressBarContainer-3.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-color: blue; */
+}
 
 .progressText {
-    color: black;
+    color: white;
     font-family: "Lato";
     letter-spacing: 0.1vw;
     font-weight: bold;
@@ -80,7 +104,9 @@
     margin-left: 2%;
 }
 
-.puzzlePieceContainer {
+.puzzlePieceContainer-triassic,
+.puzzlePieceContainer-jurassic,
+.puzzlePieceContainer-cretaceous {
     width: 18%;
     height: 12%;
     display: flex;
@@ -88,10 +114,21 @@
     align-items: center;
     position: absolute;
     right: 14%;
-    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-1.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.puzzlePieceContainer-triassic {
+    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-1.png);
+}
+
+.puzzlePieceContainer-jurassic {
+    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-2.png);
+}
+
+.puzzlePieceContainer-cretaceous {
+    background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-3.png);
 }
 
 .puzzlePiece {

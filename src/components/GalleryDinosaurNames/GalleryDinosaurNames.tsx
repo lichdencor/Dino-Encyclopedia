@@ -47,14 +47,26 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
             {dinosaurs.map((dinosaur, index) => (
                 <div key={index} className={`${styles.dinosaurData} ${styles[`dinosaurData${index + 1}`]}`}>
                     <div className={styles.progressContainer}>
-                        <div className={styles.progressBarContainer}>
+                        <div className={`${styles.progressBarContainer} ${
+                  era === 'triassic'
+                    ? styles['progressBarContainer-triassic']
+                    : era === 'jurassic'
+                    ? styles['progressBarContainer-jurassic']
+                    : styles['progressBarContainer-cretaceous']
+                }`}>
                             <span className={styles.progressText}>{Math.round(getDinosaurProgress(index))}%</span>
                             <div 
                                 className={styles.progressBar}
                                 style={{ width: `${getDinosaurProgress(index)}%` }}
                             ></div>
                         </div>
-                        <div className={styles.puzzlePieceContainer}>
+                        <div className={`${styles.progressBarContainer} ${
+                  era === 'triassic'
+                    ? styles['puzzlePieceContainer-triassic']
+                    : era === 'jurassic'
+                    ? styles['puzzlePieceContainer-jurassic']
+                    : styles['puzzlePieceContainer-cretaceous']
+                }`}>
                             <div className={`${styles.puzzlePiece} ${isPuzzlePieceFound(index) ? styles.found : ''}`}></div>
                         </div>
                     </div>

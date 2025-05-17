@@ -121,7 +121,7 @@
               "scientific_name": "  Plateosaurus engelhardti",
               "height": "  ~3–4 meters",
               "weight": "  ~600–4,000 kg",
-              "classification": "  Dinosauria, Saurischia, Sauropodomorpha, Plateosauridae",
+              "classification": "  Dinosauria, Saurischia, Sauropodomorpha",
               "diet_type": "  Herbivore",
               "speed": "  Could reach 5–10 km/h",
               "special_features": "  Long neck, grasping hands with large claws",
@@ -164,7 +164,7 @@
               "defense_attack_mechanism": "  Sharp teeth, claws, speed for ambush",
               "fossils_found_in": "  USA (Arizona)",
               "social_behaviour": "  Possibly solitary or in small hunting groups",
-              "evolutionary_relationship": "  Early theropod related to later large carnivores"
+              "evolutionary_relationship": "  Early theropod"
             },
             {
               "name": "Compsognathus",
@@ -186,10 +186,10 @@
               "height": "  ~2.5 meters",
               "weight": "  ~450–750 kg",
               "classification": "  Primitive theropod (or basal saurischian)",
-              "diet_type": "  Carnivore (likely preyed on smaller dinosaurs and other prehistoric animals)",
+              "diet_type": "  Carnivore (likely preyed on smaller dinosaurs and other animals)",
               "speed": "  Likely a fast, agile runner",
-              "special_features": "  Distinctive cranial crest, possibly used for display or dominance behaviors",
-              "defense_attack_mechanism": "  Sharp teeth and claws for hunting; likely used speed and ambush tactics",
+              "special_features": "  Distinctive cranial crest used for dominance behaviors",
+              "defense_attack_mechanism": "  Sharp teeth and claws for hunting; likely used ambush tactics",
               "fossils_found_in": "  Antarctica (Transantarctic Mountains, Hanson Formation)",
               "social_behaviour": "  Unclear; may have been solitary or lived in small groups",
               "evolutionary_relationship": "  Early theropod"
