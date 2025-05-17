@@ -6,7 +6,7 @@ export const INFO_REVEAL_TIMINGS = [
   { time: 2, label: 'Scientific Name', dinosaurInfoAttribute: "nombreCientifico" },
   { time: 4, label: 'Height', dinosaurInfoAttribute: "altura" },
   { time: 6, label: 'Weight', dinosaurInfoAttribute: "peso" },
-  { time: 8, label: 'Classificacion', dinosaurInfoAttribute: "clasificacion" },
+  { time: 8, label: 'Classification', dinosaurInfoAttribute: "clasificacion" },
   { time: 10, label: 'Diet', dinosaurInfoAttribute: "dieta" },
   { time: 12, label: 'Speed', dinosaurInfoAttribute: "velocidad" },
   { time: 14, label: 'Characteristics', dinosaurInfoAttribute: "caracteristicas" },
