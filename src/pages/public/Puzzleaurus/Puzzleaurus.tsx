@@ -4,19 +4,8 @@ import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
 import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
-
-interface Puzzle {
-    id: number;
-    name: string;
-    logoPuzzle: string;
-    difficultysLogo: string[];
-}
-
-interface PuzzleaurusState {
-    selectedPuzzle: Puzzle | null;
-    showTransition: boolean;
-    showTips: boolean;
-}
+import { PuzzleaurusModel, PuzzleaurusState, Puzzle } from './PuzzleaurusModel';
+import { PuzzleaurusController } from './PuzzleaurusController';
 
 const puzzles: Puzzle[] = [
     {
@@ -81,63 +70,32 @@ const puzzles: Puzzle[] = [
     }
 ];
 
-const PUZZLEAURUS_TIPS_KEY = 'showPuzzleaurusTipsDialog';
-
 export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
-    state: PuzzleaurusState = {
-        selectedPuzzle: null,
-        showTransition: false,
-        showTips: false
-    };
+    private model: PuzzleaurusModel;
+    private controller: PuzzleaurusController;
+    private unsubscribe: (() => void) | null = null;
+
+    constructor(props: {}) {
+        super(props);
+        this.model = new PuzzleaurusModel();
+        this.controller = new PuzzleaurusController(this.model, puzzles);
+        this.state = this.model.getState();
+    }
 
     componentDidMount() {
-        this.setState({ showTips: localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true' });
-        window.addEventListener('storage', this.handleStorageChange);
+        this.unsubscribe = this.model.subscribe((newState) => {
+            this.setState(newState);
+        });
+        this.model.initialize();
+        window.addEventListener('storage', this.controller.handleStorageChange);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('storage', this.handleStorageChange);
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
+        window.removeEventListener('storage', this.controller.handleStorageChange);
     }
-
-    handleStorageChange = () => {
-        this.setState({ showTips: localStorage.getItem(PUZZLEAURUS_TIPS_KEY) === 'true' });
-    };
-
-    handlePuzzleSelect = (puzzle: Puzzle) => {
-        this.setState({
-            selectedPuzzle: puzzle,
-            showTransition: true
-        });
-    };
-
-    handleReturnToMenu = () => {
-        this.setState({
-            selectedPuzzle: null,
-            showTransition: false
-        });
-    };
-
-    handleContinue = () => {
-        this.setState({ showTransition: false });
-    };
-
-    handlePrevPuzzle = () => {
-        if (this.state.selectedPuzzle && this.state.selectedPuzzle.id > 1) {
-            const prevPuzzle = puzzles.find((p: Puzzle) => p.id === this.state.selectedPuzzle!.id - 1);
-            if (prevPuzzle) {
-                this.setState({ selectedPuzzle: prevPuzzle });
-            }
-        }
-    };
-
-    handleNextPuzzle = () => {
-        if (this.state.selectedPuzzle && this.state.selectedPuzzle.id < 6) {
-            const nextPuzzle = puzzles.find((p: Puzzle) => p.id === this.state.selectedPuzzle!.id + 1);
-            if (nextPuzzle) {
-                this.setState({ selectedPuzzle: nextPuzzle });
-            }
-        }
-    };
 
     render() {
         const { selectedPuzzle, showTransition, showTips } = this.state;
@@ -150,13 +108,13 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                         <>
                             {showTransition && showTips ? (
                                 <DialogoTips
-                                    onContinue={this.handleContinue}
+                                    onContinue={this.controller.handleContinue}
                                     puzzleName={selectedPuzzle.name}
                                 />
                             ) : (
                                 <div className={styles.puzzleContent}>
                                     <PuzzleContainer 
-                                        onReturnToMenu={this.handleReturnToMenu} 
+                                        onReturnToMenu={this.controller.handleReturnToMenu} 
                                         selectedPuzzle={selectedPuzzle}
                                         key={selectedPuzzle.id}
                                     />
@@ -164,14 +122,14 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                                     <div className={styles.navigationButtons}>
                                         <button 
                                             className={`${styles.navButton} ${styles.prevButton}`}
-                                            onClick={this.handlePrevPuzzle}
+                                            onClick={this.controller.handlePrevPuzzle}
                                             disabled={selectedPuzzle.id === 1}
                                         >
                                             ← Puzzle Anterior
                                         </button>
                                         <button 
                                             className={`${styles.navButton} ${styles.nextButton}`}
-                                            onClick={this.handleNextPuzzle}
+                                            onClick={this.controller.handleNextPuzzle}
                                             disabled={selectedPuzzle.id === 6}
                                         >
                                             Siguiente Puzzle →
@@ -181,7 +139,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             )}
                         </>
                     ) : (
-                        <PuzzleMenu onPuzzleSelect={this.handlePuzzleSelect} />
+                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} />
                     )}
                 </div>
             </div>
