@@ -3,9 +3,11 @@ import {useNavigate} from "react-router-dom";
 
 export class LandingPageController {
     private model: LandingPageModel;
+    private navigate: ReturnType<typeof useNavigate>;
 
-    constructor(model: LandingPageModel) {
+    constructor(model: LandingPageModel, navigate: ReturnType<typeof useNavigate>) {
         this.model = model;
+        this.navigate = navigate;
     }
 
     handleOpenModal() {
@@ -25,8 +27,7 @@ export class LandingPageController {
     }
 
     handleNavigateToStore() {
-        const navigate = useNavigate();
-        navigate('/store');
+        this.navigate('/store');
     }
 
     getModalPages() {

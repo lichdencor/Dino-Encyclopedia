@@ -3,17 +3,24 @@ import {AsistenteVirtual, Carousel, Nav, Tutorial} from "../../../components/";
 import {Component} from "react";
 import {LandingPageModel, LandingPageState} from "./LandingPageModel";
 import {LandingPageController} from "./LandingPageController";
+import {ProgressData} from "../../../services/progress/types.ts";
+import {NavigateFunction, useNavigate} from "react-router-dom";
+import {useProgress} from "../../../context/Progress/ProgressProvider.tsx";
 
+interface LandingPageProps {
+    progress: ProgressData;
+    navigate: NavigateFunction;
+}
 
-export class LandingPage extends Component<{}, LandingPageState> {
+export class LandingPageComponent extends Component<LandingPageProps, LandingPageState> {
     private model: LandingPageModel;
     private controller: LandingPageController;
     private unsubscribe: () => void;
 
-    constructor(props: {}) {
+    constructor(props: LandingPageProps) {
         super(props);
         this.model = new LandingPageModel();
-        this.controller = new LandingPageController(this.model);
+        this.controller = new LandingPageController(this.model, props.navigate);
         this.state = this.model.getState();
         this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
     }
@@ -104,3 +111,13 @@ export class LandingPage extends Component<{}, LandingPageState> {
     }
 }
 
+// Esto fue necesario para poder usar los hooks useNavigate y useProgress dentro de una Clase.
+function withNavigateAndProgress(WrappedComponent: typeof LandingPageComponent) {
+    return function WithNavigateComponent() {
+        const navigate = useNavigate();
+        const { progress } = useProgress();
+        return <WrappedComponent progress={progress} navigate={navigate} />;
+    };
+}
+
+export const LandingPage = withNavigateAndProgress(LandingPageComponent);
