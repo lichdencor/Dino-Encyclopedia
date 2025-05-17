@@ -1,5 +1,4 @@
 export * from "./public/Album/Album.tsx";
-export * from "./public/Encyclopedia/Encyclopedia.tsx";
 export * from "./public/LandingPage/LandingPage.tsx";
 export * from "./public/Map/Map.tsx";
 export * from "./public/Triassic-Inferior/Triassic-Inferior.tsx";
