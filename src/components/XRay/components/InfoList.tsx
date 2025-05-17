@@ -35,9 +35,10 @@ export const InfoList: React.FC<InfoListProps> = ({
       {INFO_REVEAL_TIMINGS.map((timing) => (
         <li key={timing.label} className={isInfoVisible(timing.label) ? styles.animate : ''}>
           <span>{timing.label.charAt(0).toUpperCase() + timing.label.slice(1)}:</span>
-          {dinosaurInfo[timing.label as keyof typeof dinosaurInfo]}
+          {dinosaurInfo[timing.dinosaurInfoAttribute as keyof typeof dinosaurInfo]}
         </li>
       ))}
     </ul>
   );
-}; 
+};
+
