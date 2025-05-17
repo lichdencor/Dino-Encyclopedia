@@ -145,6 +145,12 @@ const AppRouter = () => {
           </PublicGuard>
         } />
 
+        <Route path="/triassic-inferior" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <TriassicInferior />
+          </PublicGuard>
+        } />
+
         <Route path="/triassic-medium" element={
           <PublicGuard isAuthenticated={isAuthenticated}>
             <TriassicMedium />

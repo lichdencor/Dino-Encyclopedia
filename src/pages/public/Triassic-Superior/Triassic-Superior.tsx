@@ -24,7 +24,7 @@ export const TriassicSuperior = () => {
   };
 
   const superiorTriassicData = galleries_data.galleries[0].era_triassic.find(
-    (era) => era.period === "Superior Triassic"
+    (era) => era.period === "Triassic Superior"
   );
 
   const dinosaursInfo = superiorTriassicData?.dinosaurs.map(dino => ({
@@ -43,6 +43,7 @@ export const TriassicSuperior = () => {
   })) || [];
 
   return (
+    <>
     <Gallery
       previousPage="triassic-medium"
       nextPage="jurassic-inferior"
@@ -52,6 +53,7 @@ export const TriassicSuperior = () => {
       dinosaursInfo={dinosaursInfo}
       era="triassic"
       period="Superior"
-    />
+    /> {console.log(dinosaursInfo)}
+    </>
   );
 };
