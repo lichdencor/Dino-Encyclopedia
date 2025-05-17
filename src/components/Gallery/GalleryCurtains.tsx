@@ -3,14 +3,14 @@ import { useProgress } from "../../context/Progress/ProgressProvider";
 
 interface GalleryCurtainsProps {
   customStyles: {
-    courtains1: string;
-    courtains2: string;
-    courtains3: string;
-    leftCurtain: string;
-    rightCurtain: string;
-    leftCurtainHover: string;
-    rightCurtainHover: string;
-    curtainHover: string;
+    "courtains-1": string;
+    "courtains-2": string;
+    "courtains-3": string;
+    "left-curtain": string;
+    "right-curtain": string;
+    "left-curtain-hover": string;
+    "right-curtain-hover": string;
+    "curtain-hover": string;
   };
   era: "triassic" | "jurassic" | "cretaceous";
   period: "Early" | "Medium" | "Superior" | "Late";
@@ -98,31 +98,31 @@ export const GalleryCurtains = ({ customStyles, era, period }: GalleryCurtainsPr
     <>
       {!curtainsState.curtain1 && (
         <div
-          className={`${customStyles.courtains1} ${curtain1IsHovered && second1Passed ? customStyles.curtainHover : ""}`}
+          className={`${customStyles["courtains-1"]} ${curtain1IsHovered && second1Passed ? customStyles["curtain-hover"] : ""}`}
           onMouseEnter={() => handleCurtainHover(1)}
         >
-          <div className={`${customStyles.leftCurtain} ${curtain1IsHovered && customStyles.leftCurtainHover}`}></div>
-          <div className={`${customStyles.rightCurtain} ${curtain1IsHovered && customStyles.rightCurtainHover}`}></div>
+          <div className={`${customStyles["left-curtain"]} ${curtain1IsHovered && customStyles["left-curtain-hover"]}`}></div>
+          <div className={`${customStyles["right-curtain"]} ${curtain1IsHovered && customStyles["right-curtain-hover"]}`}></div>
         </div>
       )}
 
       {!curtainsState.curtain2 && (
         <div
-          className={`${customStyles.courtains2} ${curtain2IsHovered && second2Passed ? customStyles.curtainHover : ""}`}
+          className={`${customStyles["courtains-2"]} ${curtain2IsHovered && second2Passed ? customStyles["curtain-hover"] : ""}`}
           onMouseEnter={() => handleCurtainHover(2)}
         >
-          <div className={`${customStyles.leftCurtain} ${curtain2IsHovered && customStyles.leftCurtainHover}`}></div>
-          <div className={`${customStyles.rightCurtain} ${curtain2IsHovered && customStyles.rightCurtainHover}`}></div>
+          <div className={`${customStyles["left-curtain"]} ${curtain2IsHovered && customStyles["left-curtain-hover"]}`}></div>
+          <div className={`${customStyles["right-curtain"]} ${curtain2IsHovered && customStyles["right-curtain-hover"]}`}></div>
         </div>
       )}
 
       {!curtainsState.curtain3 && (
         <div
-          className={`${customStyles.courtains3} ${curtain3IsHovered && second3Passed ? customStyles.curtainHover : ""}`}
+          className={`${customStyles["courtains-3"]} ${curtain3IsHovered && second3Passed ? customStyles["curtain-hover"] : ""}`}
           onMouseEnter={() => handleCurtainHover(3)}
         >
-          <div className={`${customStyles.leftCurtain} ${curtain3IsHovered && customStyles.leftCurtainHover}`}></div>
-          <div className={`${customStyles.rightCurtain} ${curtain3IsHovered && customStyles.rightCurtainHover}`}></div>
+          <div className={`${customStyles["left-curtain"]} ${curtain3IsHovered && customStyles["left-curtain-hover"]}`}></div>
+          <div className={`${customStyles["right-curtain"]} ${curtain3IsHovered && customStyles["right-curtain-hover"]}`}></div>
         </div>
       )}
     </>

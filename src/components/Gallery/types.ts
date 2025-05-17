@@ -14,21 +14,21 @@ export interface DinosaurInfo {
 }
 
 export interface GalleryStyles {
-  containerClass: string;
-  backgroundClass: string;
-  dinosaurBg1: string;
-  dinosaurBg2: string;
-  dinosaurBg3: string;
+  "containerClass": string;
+  "backgroundClass": string;
+  "dinosaur-bg-1": string;
+  "dinosaur-bg-2": string;
+  "dinosaur-bg-3": string;
   dinosaur: string;
-  dinosaur1: string;
-  dinosaur2: string;
-  dinosaur3: string;
-  courtains1: string;
-  courtains2: string;
-  courtains3: string;
-  leftCurtain: string;
-  rightCurtain: string;
-  leftCurtainHover: string;
-  rightCurtainHover: string;
-  curtainHover: string;
+  "dinosaur-1": string;
+  "dinosaur-2": string;
+  "dinosaur-3": string;
+  "courtains-1": string;
+  "courtains-2": string;
+  "courtains-3": string;
+  "left-curtain": string;
+  "right-curtain": string;
+  "left-curtain-hover": string;
+  "right-curtain-hover": string;
+  "curtain-hover": string;
 } 

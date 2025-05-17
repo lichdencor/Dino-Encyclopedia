@@ -22,7 +22,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
       >
         <div
           className={
-            `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur${selectedDinosaur + 1}`]} ` +
+            `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur-${selectedDinosaur + 1}`]} ` +
             `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
           }
           style={{ backgroundImage: `url(${dinosaurImage})` }}

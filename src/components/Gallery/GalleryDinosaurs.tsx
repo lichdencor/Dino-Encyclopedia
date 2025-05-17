@@ -1,12 +1,12 @@
 interface GalleryDinosaursProps {
   customStyles: {
-    dinosaurBg1: string;
-    dinosaurBg2: string;
-    dinosaurBg3: string;
+    "dinosaur-bg-1": string;
+    "dinosaur-bg-2": string;
+    "dinosaur-bg-3": string;
     dinosaur: string;
-    dinosaur1: string;
-    dinosaur2: string;
-    dinosaur3: string;
+    "dinosaur-1": string;
+    "dinosaur-2": string;
+    "dinosaur-3": string;
   };
   onDinosaurClick: (index: number) => void;
 }
@@ -14,8 +14,8 @@ interface GalleryDinosaursProps {
 export const GalleryDinosaurs = ({ customStyles, onDinosaurClick }: GalleryDinosaursProps) => {
   return (
     <>
-      {[customStyles.dinosaurBg1, customStyles.dinosaurBg2, customStyles.dinosaurBg3].map((bgClass, index) => {
-        const dinosaurNumber = `dinosaur${index + 1}` as keyof typeof customStyles;
+      {[customStyles["dinosaur-bg-1"], customStyles["dinosaur-bg-2"], customStyles["dinosaur-bg-3"]].map((bgClass, index) => {
+        const dinosaurNumber = `dinosaur-${index + 1}` as keyof typeof customStyles;
         return (
           <div
             key={index}
