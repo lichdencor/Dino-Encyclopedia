@@ -7,7 +7,7 @@
           "period": "Triassic Inferior",
           "dinosaurs": [
             {
-              "name": "  Postosuchus",
+              "name": "Postosuchus",
               "scientific_name": "  Postosuchus kirkpatricki",
               "height": "  ~1.2 meters",
               "weight": "  ~250–300 kg",
@@ -21,7 +21,7 @@
               "evolutionary_relationship": "  Closely related to crocodiles"
             },
             {
-              "name": "  Eoraptor",
+              "name": "Eoraptor",
               "scientific_name": "  Eoraptor lunensis",
               "height": "  ~0.5 meters",
               "weight": "  9–10 kg",
@@ -35,7 +35,7 @@
               "evolutionary_relationship": "  One of the earliest dinosaurs"
             },
             {
-              "name": "  Herrerasaurus",
+              "name": "Herrerasaurus",
               "scientific_name": "  Herrerasaurus ischigualastensis",
               "height": "  ~1.1 meters",
               "weight": "  ~200 kg",
@@ -55,7 +55,7 @@
           "period": "Triassic Medium",
           "dinosaurs": [
             {
-              "name": "  Shuvosaurus",
+              "name": "Shuvosaurus",
               "scientific_name": "  Shuvosaurus inexpectatus",
               "height": "  ~1.2 meters",
               "weight": "  Approximately 90–150 kg",
@@ -69,7 +69,7 @@
               "evolutionary_relationship": "  Member of the Crocodilia lineage"
             },
             {
-              "name": "  Fukuiraptor",
+              "name": "Fukuiraptor",
               "scientific_name": "  Fukuiraptor kitadaniensis",
               "height": "  Approximately 1.5 meters",
               "weight": "  Estimated 200–400 kg",
@@ -83,7 +83,7 @@
               "evolutionary_relationship": "  Member of the Megaraptora clade"
             },
             {
-              "name": "  Chindesaurus",
+              "name": "Chindesaurus",
               "scientific_name": "  Chindesaurus bryansmalli",
               "height": "  Approximately 1 meter",
               "weight": "  Estimated 10–30 kg",
@@ -103,7 +103,7 @@
           "period": "Triassic Superior",
           "dinosaurs": [
             {
-              "name": "  Coelophysis",
+              "name": "Coelophysis",
               "scientific_name": "  Coelophysis bauri",
               "height": "  Approximately 1 meter",
               "weight": "  Approximately 15–20 kg",
@@ -117,7 +117,7 @@
               "evolutionary_relationship": "  Early theropod"
             },
             {
-              "name": "  Plateosaurus",
+              "name": "Plateosaurus",
               "scientific_name": "  Plateosaurus engelhardti",
               "height": "  Approximately 3–4 meters",
               "weight": "  Estimated 600–4,000 kg",
@@ -131,7 +131,7 @@
               "evolutionary_relationship": "  Early sauropodomorph"
             },
             {
-              "name": "  Rauisuchus",
+              "name": "Rauisuchus",
               "scientific_name": "  Rauisuchus tiradentes",
               "height": "  Approximately 1.5–2 meters",
               "weight": "  Estimated 250–400 kg",
@@ -153,7 +153,7 @@
           "period": "Jurassic Inferior",
           "dinosaurs": [
             {
-              "name": "  Dilophosaurus",
+              "name": "Dilophosaurus",
               "scientific_name": "  Dilophosaurus wetherilli",
               "height": "  ~2 meters",
               "weight": "  ~400 kg",
@@ -164,10 +164,10 @@
               "defense_attack_mechanism": "  Sharp teeth, claws, speed for ambush",
               "fossils_found_in": "  USA (Arizona)",
               "social_behaviour": "  Possibly solitary or in small hunting groups",
-              "evolutionary_relationship": "  Early theropod related to later large carnivores like Allosaurus"
+              "evolutionary_relationship": "  Early theropod related to later large carnivores"
             },
             {
-              "name": "  Compsognathus",
+              "name": "Compsognathus",
               "scientific_name": "  Compsognathus longipes",
               "height": "  ~0.3 meters",
               "weight": "  ~3 kg",
@@ -178,10 +178,10 @@
               "defense_attack_mechanism": "  Fast and agile; sharp teeth for catching small prey",
               "fossils_found_in": "  Germany and France",
               "social_behaviour": "  Possibly solitary or in small groups",
-              "evolutionary_relationship": "  Related to later theropods, including Tyrannosaurus rex"
+              "evolutionary_relationship": "  Related to later theropods"
             },
             {
-              "name": "  Cryolophosaurus",
+              "name": "Cryolophosaurus",
               "scientific_name": "  Cryolophosaurus ellioti",
               "height": "  Approximately 2.5 meters",
               "weight": "  Estimated 450–750 kg",
@@ -192,7 +192,7 @@
               "defense_attack_mechanism": "  Sharp teeth and claws for hunting; likely used speed and ambush tactics",
               "fossils_found_in": "  Antarctica (Transantarctic Mountains, Hanson Formation)",
               "social_behaviour": "  Unclear; may have been solitary or lived in small groups",
-              "evolutionary_relationship": "  An early theropod, possibly related to Dilophosaurus and other primitive Jurassic carnivores"
+              "evolutionary_relationship": "  Early theropod"
             }
           ]
         },
@@ -201,7 +201,7 @@
           "period": "Jurassic Medium",
           "dinosaurs": [
             {
-              "name": "  Allosaurus",
+              "name": "Allosaurus",
               "scientific_name": "  Allosaurus fragilis",
               "height": "  ~4.5 meters",
               "weight": "  ~2,000 kg",
@@ -212,10 +212,10 @@
               "defense_attack_mechanism": "  Powerful bite, sharp claws, ambush tactics",
               "fossils_found_in": "  USA (Morrison Formation), Portugal, possibly Tanzania",
               "social_behaviour": "  Evidence suggests possible pack hunting",
-              "evolutionary_relationship": "  Related to later theropods like Tyrannosaurus rex"
+              "evolutionary_relationship": "  Related to later theropods"
             },
             {
-              "name": "  Apatosaurus",
+              "name": "Apatosaurus",
               "scientific_name": "  Apatosaurus louisae",
               "height": "  ~4.5–5 meters",
               "weight": "  ~20,000–25,000 kg",
@@ -226,10 +226,10 @@
               "defense_attack_mechanism": "  Large size as deterrent; possible use of tail as a whip",
               "fossils_found_in": "  USA (Morrison Formation)",
               "social_behaviour": "  Likely lived in herds",
-              "evolutionary_relationship": "  Related to sauropods like Brontosaurus and Diplodocus"
+              "evolutionary_relationship": "  Related to sauropods"
             },
             {
-              "name": "  Camarasaurus",
+              "name": "Camarasaurus",
               "scientific_name": "  Camarasaurus supremus",
               "height": "  ~4.5 meters",
               "weight": "  ~15,000–25,000 kg",
@@ -240,7 +240,7 @@
               "defense_attack_mechanism": "  Large size as main deterrent; tail possibly used defensively",
               "fossils_found_in": "  USA (Morrison Formation)",
               "social_behaviour": "  Likely lived in herds or family groups",
-              "evolutionary_relationship": "  Related to Brachiosaurus and other macronarian sauropods"
+              "evolutionary_relationship": "  Related to Brachiosaurus"
             }
           ]
         },
@@ -249,7 +249,7 @@
           "period": "Jurassic Superior",
           "dinosaurs": [
             {
-              "name": "  Brachiosaurus",
+              "name": "Brachiosaurus",
               "scientific_name": "  Brachiosaurus altithorax",
               "height": "  ~9 meters",
               "weight": "  ~30,000–50,000 kg",
@@ -260,10 +260,10 @@
               "defense_attack_mechanism": "  Enormous size as deterrent; possible use of tail or stomps for defense",
               "fossils_found_in": "  USA (Morrison Formation)",
               "social_behaviour": "  Likely lived in herds or family groups",
-              "evolutionary_relationship": "  Related to other macronarian sauropods like Camarasaurus and Giraffatitan"
+              "evolutionary_relationship": "  Related to other macronarian sauropods"
             },
             {
-              "name": "  Diplodocus",
+              "name": "Diplodocus",
               "scientific_name": "  Diplodocus longus",
               "height": "  ~4.5–5 meters",
               "weight": "  ~10,000–15,000 kg",
@@ -277,7 +277,7 @@
               "evolutionary_relationship": "  Related to Apatosaurus and Barosaurus"
             },
             {
-              "name": "  Stegosaurus",
+              "name": "Stegosaurus",
               "scientific_name": "  Stegosaurus stenops",
               "height": "  ~4 meters",
               "weight": "  ~5,000–7,000 kg",
@@ -299,7 +299,7 @@
           "period": "Cretaceous Inferior",
           "dinosaurs": [
             {
-              "name": "  Pachycephalosaurus",
+              "name": "Pachycephalosaurus",
               "scientific_name": "  Pachycephalosaurus wyomingensis",
               "height": "  Approximately 4–5 meters",
               "weight": "  Approximately 400–450 kg",
@@ -313,7 +313,7 @@
               "evolutionary_relationship": "  Member of Pachycephalosauridae, closely related to other dome-headed dinosaurs like Stygimoloch and Dracorex"
             },
             {
-              "name": "  Microceratus",
+              "name": "Microceratus",
               "scientific_name": "  Microceratus gobiensis",
               "height": "  Approximately 0.6 meters",
               "weight": "  Approximately 5 kg",
@@ -327,7 +327,7 @@
               "evolutionary_relationship": "  One of the earliest known ceratopsians, related to later larger species like Protoceratops and Triceratops"
             },
             {
-              "name": "  Gallimimus",
+              "name": "Gallimimus",
               "scientific_name": "  Gallimimus bullatus",
               "height": "  Approximately 2 meters",
               "weight": "  Approximately 440 kg",
@@ -347,7 +347,7 @@
           "period": "Cretaceous Medium",
           "dinosaurs": [
             {
-              "name": "  Spinosaurus",
+              "name": "Spinosaurus",
               "scientific_name": "  Spinosaurus aegyptiacus",
               "height": "  Approximately 4–7 meters",
               "weight": "  7,000–20,000 kg",
@@ -361,7 +361,7 @@
               "evolutionary_relationship": "  Member of Spinosauridae; closely related to Baryonyx and Suchomimus"
             },
             {
-              "name": "  Baryonyx",
+              "name": "Baryonyx",
               "scientific_name": "  Baryonyx walkeri",
               "height": "  Approximately 2.5 meters",
               "weight": "  Approximately 1,200–1,700 kg",
@@ -375,7 +375,7 @@
               "evolutionary_relationship": "  Member of Spinosauridae; closely related to Spinosaurus and Suchomimus"
             },
             {
-              "name": "  Irritator",
+              "name": "Irritator",
               "scientific_name": "  Irritator challengeri",
               "height": "  Approximately 2 meters",
               "weight": "  Approximately 1,000 kg",
@@ -395,7 +395,7 @@
           "period": "Cretaceous Superior",
           "dinosaurs": [
             {
-              "name": "  Triceratops",
+              "name": "Triceratops",
               "scientific_name": "  Triceratops horridus",
               "height": "  ~3 meters",
               "weight": "  ~6,000–12,000 kg",
@@ -409,7 +409,7 @@
               "evolutionary_relationship": "  Distantly related to modern birds"
             },
             {
-              "name": "  Ankylosaurus",
+              "name": "Ankylosaurus",
               "scientific_name": "  Ankylosaurus magniventris",
               "height": "  Approximately 1.7 meters",
               "weight": "  Approximately 4,000–8,000 kg",
@@ -423,7 +423,7 @@
               "evolutionary_relationship": "  Member of Ankylosauridae; closely related to Euoplocephalus and other armored dinosaurs"
             },
             {
-              "name": "  Tyrannosaurus",
+              "name": "Tyrannosaurus",
               "scientific_name": "  Tyrannosaurus rex",
               "height": "  Approximately 4 meters",
               "weight": "  Approximately 8,000–14,000 kg",
