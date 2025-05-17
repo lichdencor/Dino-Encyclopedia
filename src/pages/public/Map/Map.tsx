@@ -238,8 +238,8 @@ class MapComponent extends Component<MapProps, MapComponentState> {
     }
 }
 
-// HOC para proveer navigate
-function withNavigate(WrappedComponent: typeof MapComponent) {
+// Esto fue necesario para poder usar los hooks useNavigate y useProgress dentro de una Clase.
+function withNavigateAndProgress(WrappedComponent: typeof MapComponent) {
     return function WithNavigateComponent() {
         const navigate = useNavigate();
         const { progress } = useProgress();
@@ -247,4 +247,4 @@ function withNavigate(WrappedComponent: typeof MapComponent) {
     };
 }
 
-export const Map = withNavigate(MapComponent);
+export const Map = withNavigateAndProgress(MapComponent);
