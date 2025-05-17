@@ -32,7 +32,7 @@ export const CretaceousMedium = () => {
     nombreCientifico: dino.scientific_name,
     altura: dino.height,
     peso: dino.weight,
-    clasificacion: dino.clasification,
+    clasificacion: dino.classification,
     dieta: dino.diet_type,
     velocidad: dino.speed,
     caracteristicas: dino.special_features,
