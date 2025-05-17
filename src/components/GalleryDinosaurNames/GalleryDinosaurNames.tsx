@@ -5,7 +5,7 @@ import { DinosaurProgress } from "../XRay/types";
 type GalleryDinosaurNamesProps = {
     dinosaurs: string[];
     era: "triassic" | "jurassic" | "cretaceous";
-    period: "Early" | "Medium" | "Superior" | "Late";
+    period: "Inferior" | "Medium" | "Superior";
 }
 
 export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaurNamesProps) => {

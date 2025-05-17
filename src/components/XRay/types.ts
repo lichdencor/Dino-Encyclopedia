@@ -32,7 +32,7 @@ export type XRayModalProps = {
   dinosaurImage: string;
   dinosaurBone: string;
   era: "triassic" | "jurassic" | "cretaceous";
-  period: "Early" | "Medium" | "Superior" | "Late";
+  period: "Inferior" | "Medium" | "Superior";
   scanThreshold?: number;
   onScanComplete?: (dinosaurInfo: DinosaurInfo) => void;
 };

@@ -13,7 +13,7 @@ interface GalleryCurtainsProps {
     "curtain-hover": string;
   };
   era: "triassic" | "jurassic" | "cretaceous";
-  period: "Early" | "Medium" | "Superior" | "Late";
+  period: "Inferior" | "Medium" | "Superior";
 }
 
 export const GalleryCurtains = ({ customStyles, era, period }: GalleryCurtainsProps) => {

@@ -66,7 +66,7 @@ export const TriassicInferior: React.FC = () => {
         skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-1-"
         dinosaursInfo={dinosaursInfo}
         era="triassic"
-        period="Late"
+        period="Inferior"
       />
     </>
   );

@@ -208,7 +208,7 @@
       "era_jurassic": [
         {
           "name": "Jurassic",
-          "period": "Early Jurassic",
+          "period": "Inferior Jurassic",
           "dinosaurs": [
             {
               "id": "Dilophosaurus wetherilli",
@@ -291,7 +291,7 @@
       "era_cretaceous": [
         {
           "name": "Cretaceous",
-          "period": "Early Cretaceous",
+          "period": "Inferior Cretaceous",
           "dinosaurs": [
             {
               "id": "Pachycephalosaurus wyomingensis",

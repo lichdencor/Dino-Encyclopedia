@@ -15,7 +15,7 @@ interface GalleryProps {
   skeletonPrefix: string;
   dinosaursInfo: DinosaurInfo[];
   era: "triassic" | "jurassic" | "cretaceous";
-  period: "Early" | "Medium" | "Superior" | "Late";
+  period: "Inferior" | "Medium" | "Superior";
 }
 
 export const Gallery = ({

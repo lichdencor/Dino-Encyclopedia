@@ -110,7 +110,7 @@ export class MapModel {
 
     private getDinosaurDisplayNamesByProgress(progress: ProgressData, era: string, period: string, dinoNames: string[]): string[] {
         return dinoNames.map(dinoName => {
-            if (dinoName === "Shuvosaurus") {
+            if (dinoName === "Compsognathus" || dinoName === "Shuvosaurus") {
                 debugger
             }
             const dinosaurProgress = this.getDinosaurProgress(progress, era, period, dinoName);

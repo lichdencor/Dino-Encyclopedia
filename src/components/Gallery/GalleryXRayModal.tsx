@@ -11,7 +11,7 @@ interface GalleryXRayModalProps {
   imagePrefix: string;
   skeletonPrefix: string;
   era: "triassic" | "jurassic" | "cretaceous";
-  period: "Early" | "Medium" | "Superior" | "Late";
+  period: "Inferior" | "Medium" | "Superior";
 }
 
 export const GalleryXRayModal = ({
