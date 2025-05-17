@@ -13,7 +13,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
   dinosaurBone
 }) => {
   return (
-    <div className={styles.dinosaurContainer}>
+    <div className={styles["dinosaur-container"]}>
       <div
         key={`preview-${selectedDinosaur}`}
         className={stylesContainer.scannerCursorBg}
@@ -23,7 +23,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
         <div
           className={
             `${stylesContainer.dinosaur} ${stylesContainer[`dinosaur-${selectedDinosaur + 1}`]} ` +
-            `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
+            `${activeDinosaur === selectedDinosaur ? stylesContainer["active-bone"] : ""}`
           }
           style={{ backgroundImage: `url(${dinosaurImage})` }}
         >
@@ -33,7 +33,7 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
           <div
             className={
               `${stylesContainer[`dinosaur${selectedDinosaur + 1}Bone`]} ` +
-              `${activeDinosaur === selectedDinosaur ? stylesContainer.activeBone : ""}`
+              `${activeDinosaur === selectedDinosaur ? stylesContainer["active-bone"] : ""}`
             }
             style={{ backgroundImage: `url(${dinosaurBone})` }}
           />

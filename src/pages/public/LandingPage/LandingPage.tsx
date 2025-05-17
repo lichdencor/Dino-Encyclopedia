@@ -98,10 +98,10 @@ export class LandingPage extends Component {
                 {this.cargarAccesoAsistenteVirtual()}
 
                 {this.state.isModalOpen && (
-                    <div className={"modalOverlay"} onClick={this.closeModal}>
+                    <div className={"modal-overlay"} onClick={this.closeModal}>
                         <button className="dynardModalCloseBtn" onClick={this.closeModal}>×</button>
                         <div className="modalContentGoldBg">
-                            <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph"/>
                                 <div className="dynardQuestion">{modalPages[this.state.modalCurrentPage].question}</div>
                                 <div className="dynardOptionsWrapper">

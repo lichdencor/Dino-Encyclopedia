@@ -112,7 +112,7 @@ header {
 
 /* Modal: overlay semitransparente */
 
-.modalOverlay {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -154,7 +154,7 @@ header {
   justify-content: center;
   text-align: center;
 }
-.homePage .modalContent {
+.homePage .modal-content {
   width: 98%;
   height: 98%;
   color: #fff;

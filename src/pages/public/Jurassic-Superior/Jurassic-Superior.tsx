@@ -4,8 +4,8 @@ import galleries_data from "../../../context/data/galleries_data.json";
 
 export const JurassicSuperior = () => {
   const customStyles = {
-    "containerClass": styles["jurassicSuperiorContainer"],
-    "backgroundClass": styles["jurassicSuperiorBg"],
+    "containerClass": styles["jurassic-superior-container"],
+    "backgroundClass": styles["jurassic-superior-bg"],
     "dinosaur-bg-1": styles["dinosaur-bg-1"],
     "dinosaur-bg-2": styles["dinosaur-bg-2"],
     "dinosaur-bg-3": styles["dinosaur-bg-3"],
