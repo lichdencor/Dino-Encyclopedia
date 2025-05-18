@@ -1,0 +1,48 @@
+.title,
+.subtitle,
+.text {
+    margin-left: 57%;
+}
+
+.title,
+.subtitle {
+    font-family: "MedusaGothic";
+}
+
+.title {
+    width: 40%;
+    font-size: 1vw;
+    letter-spacing: 0.2vw;
+    margin-top: 4%;
+    margin-bottom: 0.2vw;
+    color: rgb(54, 52, 49);
+    border-bottom: 3px solid rgb(167, 167, 149);
+}
+
+.subtitle {
+    font-size: 0.8vw;
+    letter-spacing: 0.1vw;
+    margin-top: 0;
+    color: rgb(91, 88, 84);
+}
+
+.text {
+    font-family: "Lato";
+    text-align: justify;
+    line-height: 2.2vh;
+    font-weight: light;
+    letter-spacing: 0.07vw;
+    font-size: 0.84vw;
+    margin: 4%;
+    margin-top: 0%;
+    margin-left: 57%;
+    text-indent: 1.5vw;
+}
+
+.image-left {
+    width: 47%;
+    height: 90%;
+    position: absolute;
+    bottom: 5%;
+    left: 2.5vw;
+}

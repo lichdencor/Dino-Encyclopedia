@@ -1,15 +1,14 @@
 import {useEffect, useRef, useState} from "react";
 import { Nav } from "../../../components";
 import styles from "./Book.module.css";
-import TemplateImageLeftDownAndTopRight
-    from "./templates/TemplateImageLeftDownAndTopRight/TemplateImageLeftDownAndTopRight.tsx";
-import TemplateImageLeftDown from "./templates/TemplateImageLeftDown/TemplateImageLeftDown.tsx";
+import TemplateImageLeftDownAndTopRight from "./templates/TemplateImageLeftDownAndTopRight/TemplateImageLeftDownAndTopRight.tsx";
 import TemplateImageTopRight from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
 import TemplateOnlyText from "./templates/TemplateOnlyText/TemplateOnlyText.tsx";
+import TemplateImageLeft from "./templates/TemplateImageLeft/TemplateImageLeft.tsx";
 
 enum BookType {
     templateImageLeftDownAndTopRight = "templateImageLeftDownAndTopRight",
-    templateImageLeftDown = "templateImageLeftDown",
+    templateImageLeft = "templateImageLeft",
     templateOnlyText = "templateOnlyText",
     templateImageTopRight = "templateImageTopRight",
 }
@@ -68,8 +67,8 @@ export const Book = ({book}) => {
                     switch(page.type){
                         case BookType.templateImageLeftDownAndTopRight:
                             return (<TemplateImageLeftDownAndTopRight upperText={page.upperText} imageLeftDownSrc={page.imageLeftDownSrc} imageRightUpSrc={page.imageRightUpSrc} lowerText={page.lowerText} />);
-                        case BookType.templateImageLeftDown:
-                            return (<TemplateImageLeftDown upperText={page.upperText} imageLeftDownSrc={page.imageLeftDownSrc} lowerText={page.lowerText} />);
+                        case BookType.templateImageLeft:
+                            return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} subtitle={page.subtitle} text={page.text} />);
                         case BookType.templateImageTopRight:
                             return (<TemplateImageTopRight upperText={page.upperText} imageRightUpSrc={page.imageRightUpSrc} lowerText={page.lowerText} />);
                         default:

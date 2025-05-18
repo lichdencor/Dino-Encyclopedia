@@ -51,8 +51,12 @@
   transform-style: preserve-3d;
   cursor: pointer;
   user-select: none;
-  background-color: #f0f0f0;
-  background-color: pink;
+  /* background-color: #f0f0f0; */
+  /* background-color: pink; */
+  background-image: url(/public/assets/img/books/old-page-2.jpg);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   border-radius: 40px;
 }
 

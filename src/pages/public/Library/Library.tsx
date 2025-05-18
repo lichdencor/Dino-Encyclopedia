@@ -5,7 +5,7 @@ import Book from "../Book/Book.tsx";
 
 enum BookType {
     templateImageLeftDownAndTopRight = "templateImageLeftDownAndTopRight",
-    templateImageLeftDown = "templateImageLeftDown",
+    templateImageLeft = "templateImageLeft",
     templateOnlyText = "templateOnlyText",
     templateImageTopRight = "templateImageTopRight",
 }
@@ -17,16 +17,17 @@ const books = [
         image: "/assets/img/bg/base.png",
         pages: [
             {
-                type: BookType.templateImageLeftDown,
-                upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-                imageLeftDownSrc: "/assets/img/cards/1.png",
-                lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
+                type: BookType.templateImageLeft,
+                title: "Ankylosaurus",
+                subtitle: "Hatching",
+                imageLeftSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-birth.png",
+                text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.\n\nLorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
             },
             {
                 type: BookType.templateImageLeftDownAndTopRight,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
-                imageLeftDownSrc: "/assets/img/cards/2.png",
-                imageRightUpSrc: "/assets/img/cards/3.png",
+                imageLeftDownSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-food-1.png",
+                imageRightUpSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-food-2.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
             },
             {
