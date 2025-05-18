@@ -18,9 +18,7 @@
     letter-spacing: 0.07vw;
     font-size: 0.84vw;
     margin: 4%;
-
     text-indent: 1.5vw;
-
 }
 
 .text-upper {
@@ -30,7 +28,7 @@
 
 .text-lower {
     border-top: 5px double rgb(133, 133, 107);
-    margin-top: 0%;
+    margin-top: -3%;
     width: 90%;
     padding-top: 2%;
 }

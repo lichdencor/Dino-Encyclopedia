@@ -27,7 +27,7 @@
 
 .pages {
   width: 90vw;
-  height: 35vw;
+  height: 33vw;
   position: relative;
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -35,7 +35,7 @@
   justify-content: center;
   align-items: center;
   background-color: blue;
-  margin-bottom: 2vw;
+  margin-bottom: 4.5vw;
 }
 
 .page {
