@@ -1,6 +1,7 @@
 .jurassicMediumContainer {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(19, 19, 23);
 }
 
 .jurassicMediumBg {
@@ -100,25 +101,25 @@
 }
 
 .dinosaur-bg-1 {
-  width: 19%;
-  height: 30%;
-  left: 12%;
-  bottom: 24%;
+  width: 20%;
+  height: 45%;
+  left: 11%;
+  bottom: 18%;
   background-size: 100% 100%;
 }
 
 .dinosaur-bg-2 {
-  width: 16%;
-  height: 25%;
-  left: 42%;
-  bottom: 23%;
+  width: 18%;
+  height: 50%;
+  left: 40%;
+  bottom: 17%;
   /* background-color: blue; */
 }
 
 .dinosaur-bg-3 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
+  width: 22%;
+  height: 30%;
+  right: 10%;
   bottom: 23%;
   /* background-color: red; */
 }

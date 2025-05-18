@@ -6,6 +6,7 @@ import { GalleryDinosaurs } from "./GalleryDinosaurs";
 import { GalleryXRayModal } from "./GalleryXRayModal";
 import { DinosaurInfo, GalleryStyles } from "./types";
 import styles from './Gallery.module.css';
+import GalleryTitle from "../GalleryTitle/GalleryTitle";
 
 interface GalleryProps {
   previousPage: string;
@@ -66,14 +67,10 @@ export const Gallery = ({
           onDinosaurClick={handleDinosaurClick}
         />
 
-        <div className={styles.eraDisplay}>
-          <div className={styles.era}>
-            {era}
-          </div>
-          <div className={styles.period}>
-            {period}
-          </div>
-        </div>
+        <GalleryTitle
+          period={era}
+          subperiod={period}
+        ></GalleryTitle>
 
         <GalleryXRayModal
           isOpen={isModalOpen}

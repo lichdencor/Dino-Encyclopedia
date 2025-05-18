@@ -53,7 +53,7 @@ export const TriassicSuperior = () => {
       dinosaursInfo={dinosaursInfo}
       era="triassic"
       period="Superior"
-    /> {console.log(dinosaursInfo)}
+    />
     </>
   );
 };

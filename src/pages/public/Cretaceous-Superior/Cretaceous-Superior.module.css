@@ -1,6 +1,7 @@
 .cretaceous-superior-container {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(21, 19, 23);
 }
 
 .cretaceous-superior-bg {
@@ -102,32 +103,35 @@
 .dinosaur-bg-1 {
   width: 19%;
   height: 30%;
-  left: 12%;
+  left: 16%;
   bottom: 24%;
   background-size: 100% 100%;
 }
 
 .dinosaur-bg-2 {
   width: 16%;
-  height: 25%;
+  height: 28%;
   left: 42%;
   bottom: 23%;
   /* background-color: blue; */
 }
 
 .dinosaur-bg-3 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
+  width: 24%;
+  height: 30%;
+  right: 4%;
   bottom: 23%;
   /* background-color: red; */
 }
 
 /* Breathe Animation */
 @keyframes breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleY(1);
   }
+
   50% {
     transform: scaleY(1.03);
   }
@@ -278,4 +282,3 @@
   position: unset;
   /* background-color: red; */
 }
-

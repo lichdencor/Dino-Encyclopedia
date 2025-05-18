@@ -67,6 +67,7 @@ export interface InfoListProps {
 export interface ProgressBarProps {
   progress: number;
   puzzlePieceFound: boolean;
+  era: "triassic" | "jurassic" | "cretaceous";
 }
 
 export type PuzzlePieceLocation = {

@@ -60,7 +60,7 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
                                 style={{ width: `${getDinosaurProgress(index)}%` }}
                             ></div>
                         </div>
-                        <div className={`${styles.progressBarContainer} ${
+                        <div className={`${styles.puzzlePieceContainer} ${
                   era === 'triassic'
                     ? styles['puzzlePieceContainer-triassic']
                     : era === 'jurassic'

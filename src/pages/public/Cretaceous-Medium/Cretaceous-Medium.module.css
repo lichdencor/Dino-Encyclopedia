@@ -1,6 +1,7 @@
 .cretaceousMediumContainer {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(21, 19, 23);
 }
 
 .cretaceousMediumBg {
@@ -125,9 +126,12 @@
 
 /* Breathe Animation */
 @keyframes breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleY(1);
   }
+
   50% {
     transform: scaleY(1.03);
   }
@@ -278,4 +282,3 @@
   position: unset;
   /* background-color: red; */
 }
-

@@ -395,7 +395,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   onInfoVisibilityChange={handleInfoVisibilityChange}
                 />
               </div>
-              <ProgressBar progress={scanProgress} puzzlePieceFound={hasPieceBeenFound} />
+              <ProgressBar era={era} progress={scanProgress} puzzlePieceFound={hasPieceBeenFound} />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 .triassicSuperiorContainer {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(23, 23, 19);
 }
 
 .triassicSuperiorBg {
@@ -116,18 +117,21 @@
 }
 
 .dinosaur-bg-3 {
-  width: 12%;
+  width: 16%;
   height: 23%;
-  right: 16%;
+  right: 14%;
   bottom: 23%;
   /* background-color: red; */
 }
 
 /* Breathe Animation */
 @keyframes breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleY(1);
   }
+
   50% {
     transform: scaleY(1.03);
   }
@@ -278,4 +282,3 @@
   position: unset;
   /* background-color: red; */
 }
-

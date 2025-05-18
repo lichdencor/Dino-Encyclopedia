@@ -1,6 +1,7 @@
 .jurassicInferiorContainer {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(19, 19, 23);
 }
 
 .jurassicInferiorBg {
@@ -15,7 +16,6 @@
   margin: 0;
   padding: 0;
   z-index: 2;
-
 }
 
 .courtains-1,
@@ -102,25 +102,25 @@
 .dinosaur-bg-1 {
   width: 19%;
   height: 30%;
-  left: 12%;
+  left: 14%;
   bottom: 24%;
   background-size: 100% 100%;
 }
 
 .dinosaur-bg-2 {
   width: 16%;
-  height: 25%;
-  left: 42%;
+  height: 28%;
+  left: 41%;
   bottom: 23%;
   /* background-color: blue; */
 }
 
 .dinosaur-bg-3 {
-  width: 12%;
-  height: 23%;
-  right: 16%;
+  width: 24%;
+  height: 30%;
+  right: 7%;
   bottom: 23%;
-  /* background-color: red; */
+  background-color: red;
 }
 
 /* Breathe Animation */

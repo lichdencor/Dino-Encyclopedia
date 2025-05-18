@@ -1,6 +1,7 @@
 .cretaceousInferiorContainer {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(21, 19, 23);
 }
 
 .cretaceousInferiorBg {
@@ -101,32 +102,35 @@
 .dinosaur-bg-1 {
   width: 19%;
   height: 30%;
-  left: 12%;
+  left: 14%;
   bottom: 24%;
   background-size: 100% 100%;
 }
 
 .dinosaur-bg-2 {
   width: 16%;
-  height: 25%;
-  left: 42%;
+  height: 20%;
+  left: 43%;
   bottom: 23%;
   /* background-color: blue; */
 }
 
 .dinosaur-bg-3 {
-  width: 12%;
+  width: 20%;
   height: 23%;
-  right: 16%;
+  right: 11%;
   bottom: 23%;
   /* background-color: red; */
 }
 
 /* Breathe Animation */
 @keyframes breathe {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scaleY(1);
   }
+
   50% {
     transform: scaleY(1.03);
   }
@@ -277,4 +281,3 @@
   position: unset;
   /* background-color: red; */
 }
-

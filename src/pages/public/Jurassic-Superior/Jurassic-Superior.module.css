@@ -1,6 +1,7 @@
 .jurassic-superior-container {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(19, 19, 23);
 }
 
 .jurassic-superior-bg {
@@ -101,25 +102,26 @@
 
 .dinosaur-bg-1 {
   width: 19%;
-  height: 30%;
-  left: 12%;
-  bottom: 24%;
+  height: 37%;
+  left: 17%;
+  bottom: 22%;
   background-size: 100% 100%;
+  /* background-color: red; */
 }
 
 .dinosaur-bg-2 {
-  width: 16%;
+  width: 20%;
   height: 25%;
-  left: 42%;
-  bottom: 23%;
+  left: 38%;
+  bottom: 22%;
   /* background-color: blue; */
 }
 
 .dinosaur-bg-3 {
   width: 12%;
-  height: 23%;
-  right: 16%;
-  bottom: 23%;
+  height: 30%;
+  right: 17%;
+  bottom: 24%;
   /* background-color: red; */
 }
 

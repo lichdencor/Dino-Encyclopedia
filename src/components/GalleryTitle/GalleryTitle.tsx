@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './GalleryTitle.module.css';
 
 type GalleryTitleProps = {
     period: string;
@@ -7,9 +7,9 @@ type GalleryTitleProps = {
 
 export default function GalleryTitle({period, subperiod}:GalleryTitleProps) {
   return (
-    <div>
-        <span>{period}</span>
-        <span>{subperiod}</span>
+    <div className={styles["container-titles"]}>
+        <span className={styles["title-period"]}>{period}</span>
+        <span className={styles["title-subperiod"]}>-{subperiod}-</span>
     </div>
   )
 }

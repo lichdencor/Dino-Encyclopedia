@@ -1,0 +1,74 @@
+.container-titles {
+    position: relative;
+    margin: 0 auto;
+    bottom: 4vw;
+    width: 40vw;
+    height: 4vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "MedusaGothic";
+    color: rgb(85, 78, 70);
+    letter-spacing: 0.15vw;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    /* background-image: url(/public/assets/img/landing-page/title-bg.png);
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat; */
+    border-top: 4px double rgb(124, 99, 59);
+    border-bottom: 4px double rgb(103, 87, 57);
+
+    background: linear-gradient(to right,
+            transparent 0%,
+            #e5dfd7 5%,
+            #e5dfd7 95%,
+            transparent 100%);
+    cursor: default;
+
+}
+
+.title-period {
+    font-size: 1.3vw;
+    margin-right: 0.5vw;
+    letter-spacing: 0.4vw;
+}
+
+.title-subperiod {
+    font-size: 1.1vw;
+    color: rgb(90, 79, 69);
+}
+
+.eraDisplay {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.94vh 1.88vh;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0.63vh;
+    box-shadow:
+        0 0 9px rgba(0, 0, 0, 0.5),
+        0 0 19px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.era {
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.25vh;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.13vh;
+}
+
+.period {
+    font-size: 1.88vh;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.06vh;
+    opacity: 0.9;
+}
