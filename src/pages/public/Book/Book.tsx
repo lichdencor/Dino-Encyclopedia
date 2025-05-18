@@ -45,10 +45,14 @@ export const Book = ({book}) => {
                 page.classList.remove(styles.flipped);
                 const previousPage = pagesArray[pageIndex - 1] as HTMLElement | undefined;
                 previousPage?.classList.remove(styles.flipped);
+                console.log("pageIndex", pageIndex);
+                console.log(previousPage?.classList);
             } else {
                 page.classList.add(styles.flipped);
                 const nextPage = pagesArray[pageIndex + 1] as HTMLElement | undefined;
                 nextPage?.classList.add(styles.flipped);
+                console.log("pageIndex", pageIndex);
+                console.log(nextPage?.classList);
             }
         };
         container.addEventListener("click", handlePageClick);
@@ -77,6 +81,9 @@ export const Book = ({book}) => {
                             return (<TemplateOnlyText text={page.text}/>);
                     }
                 })}
+                <div className={`${styles.page} ${styles.backPage}`}>
+                    <img src={book.image} className={styles.bookImage}/>
+                </div>
             </div>
         </div>
     );
