@@ -1,0 +1,18 @@
+.imageLeftDown,
+.imageRightTop {
+    position: absolute;
+}
+
+.imageRightTop {
+    width: 28%;
+    height: 50%;
+    right: 2vw;
+    top: 2vw;
+}
+
+.imageLeftDown {
+    width: 23%;
+    height: 38%;
+    bottom: 2vw;
+    left: 2vw;
+}
