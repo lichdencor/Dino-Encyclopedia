@@ -4,7 +4,7 @@ import styles from "./Book.module.css";
 
 import TemplateOnlyText from "./templates/TemplateOnlyText/TemplateOnlyText.tsx";
 import TemplateImageLeft from "./templates/TemplateImageLeft/TemplateImageLeft.tsx";
-import TemplateImageRightTop from "./templates/TemplateImageRightBottom/TemplateImageRightBottom.tsx";
+import TemplateImageRightTop, { TemplateImageBottomRight } from "./templates/TemplateImageBottomRight/TemplateImageBottomRight.tsx";
 import TemplateImageBottomLeftAndTopRight from "./templates/TemplateImageBottomLeftAndTopRight/TemplateImageBottomLeftAndTopRight.tsx";
 
 enum BookType {
@@ -76,7 +76,7 @@ export const Book = ({book}) => {
                         case BookType.templateImageLeft:
                             return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} subtitle={page.subtitle} text={page.text} />);
                         case BookType.templateImageBottomRight:
-                            return (<TemplateImageRightTop upperText={page.upperText} imageRightBottomSrc={page.imageRightBottomSrc} lowerText={page.lowerText} />);
+                            return (<TemplateImageBottomRight subtitle={page.subtitle} upperText={page.upperText} imageBottomRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
                         default:
                             return (<TemplateOnlyText text={page.text}/>);
                     }
