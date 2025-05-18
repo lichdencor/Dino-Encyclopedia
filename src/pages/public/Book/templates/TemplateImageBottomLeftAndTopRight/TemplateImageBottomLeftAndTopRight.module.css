@@ -1,13 +1,37 @@
 .subtitle {
     font-family: "MedusaGothic";
     margin-left: 4%;
-    width: 40%;
-    height: 20%;
+    width: 48%;
     font-size: 0.9vw;
     letter-spacing: 0.2vw;
-    margin-top: 0;
+    margin-top: 4%;
     color: rgb(91, 88, 84);
     margin-bottom: 0.8vw;
+    border-top: 3px solid rgb(133, 133, 107);
+}
+
+.container-food {
+    width: 23%;
+    height: 6.5%;
+    margin-left: 30%;
+    margin-bottom: 0.5vw;
+    border-top: 28px solid rgb(187, 187, 151);
+    border-bottom: 28px solid rgb(187, 187, 151);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.container-food p {
+    width: 100%;
+    text-align: center;
+    font-family: "MedusaGothic";
+    font-size: 0.9vw;
+    letter-spacing: 0.2vw;
+    color: rgb(91, 88, 84);
+    border-top: 5px double rgb(133, 133, 107);
+    border-bottom: 5px double rgb(133, 133, 107);
 }
 
 .text {
@@ -18,9 +42,20 @@
     letter-spacing: 0.07vw;
     font-size: 0.84vw;
     margin: 4%;
-    margin-top: 0%;
+
     text-indent: 1.5vw;
-    width: 60%;
+
+}
+
+.text-upper {
+    margin-top: 0%;
+    width: 48%;
+}
+
+.text-lower {
+    margin-top: 0%;
+    margin-left: 30%;
+    width: 65%;
 }
 
 .image-bottom-left,
@@ -29,8 +64,8 @@
 }
 
 .image-top-right {
-    width: 28%;
-    height: 50%;
+    width: 40%;
+    height: 65%;
     right: 2vw;
     top: 2vw;
 }

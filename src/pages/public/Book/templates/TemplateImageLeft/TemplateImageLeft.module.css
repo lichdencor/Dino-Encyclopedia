@@ -16,7 +16,6 @@
     margin-top: 4%;
     margin-bottom: 0.2vw;
     color: rgb(54, 52, 49);
-    border-bottom: 3px solid rgb(133, 133, 107);
 }
 
 .subtitle {
@@ -26,6 +25,7 @@
     margin-top: 0;
     color: rgb(91, 88, 84);
     margin-bottom: 0.8vw;
+    border-top: 3px solid rgb(133, 133, 107);
 }
 
 .text {
