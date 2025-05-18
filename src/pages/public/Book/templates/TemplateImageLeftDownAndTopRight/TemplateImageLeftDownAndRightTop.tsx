@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import styles from "./TemplateImageLeftDownAndTopRight.module.css";
+import styles from "./TemplateImageLeftDownAndRightTop.module.css";
 import bookStyles from "../../Book.module.css";
 
 type TemplateImageLeftDownAndTopRightProps = {

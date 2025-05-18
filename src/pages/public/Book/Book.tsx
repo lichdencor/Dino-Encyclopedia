@@ -1,10 +1,10 @@
 import {useEffect, useRef, useState} from "react";
-import { Nav } from "../../../components";
 import styles from "./Book.module.css";
-import TemplateImageLeftDownAndTopRight from "./templates/TemplateImageLeftDownAndTopRight/TemplateImageLeftDownAndTopRight.tsx";
 import TemplateImageTopRight from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
 import TemplateOnlyText from "./templates/TemplateOnlyText/TemplateOnlyText.tsx";
 import TemplateImageLeft from "./templates/TemplateImageLeft/TemplateImageLeft.tsx";
+import TemplateImageLeftDownAndTopRight
+    from "./templates/TemplateImageLeftDownAndTopRight/TemplateImageLeftDownAndRightTop.tsx";
 
 enum BookType {
     templateImageLeftDownAndTopRight = "templateImageLeftDownAndTopRight",
