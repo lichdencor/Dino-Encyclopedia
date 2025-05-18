@@ -16,6 +16,7 @@ const books = [
         title: "Book 1",
         image: "/assets/img/bg/base.png",
         pages: [
+            // DINOSAUR 1 - Ankylosaurus
             {
                 type: BookType.templateImageLeft,
                 title: "Ankylosaurus",
@@ -41,6 +42,14 @@ const books = [
                 imageBottomRightSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-behaviour.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
             }
+            // DINOSAUR 2 - Brachiosaurus
+            // DINOSAUR 3 - Coelophysis
+            // DINOSAUR 4 - Compsognathus
+            // DINOSAUR 5 - Microceratus
+            // DINOSAUR 6 - Pachycephalosaurus
+            // DINOSAUR 7 - Stegosaurus
+            // DINOSAUR 8 - Triceratops
+            // DINOSAUR 9 - Tyrannosaurus rex
         ]
     }
 ];
@@ -49,7 +58,7 @@ export const Library = () => {
     return (
         <div className={styles.libraryContainer}>
             <Nav />
-            <Book book={books[0]}/>
+            <Book book={books[0]} />
         </div>
     );
 };
