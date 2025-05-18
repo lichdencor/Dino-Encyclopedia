@@ -41,8 +41,8 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                 <Nav id="main-nav"/>
                 <header>
                     <div className="text">
-                        <div className="header-title">ACADEMIA DEL DINO CULTO</div>
-                        <div className="header-subtitle">MUSEO INTERACTIVO DE PALEONTOLOGIA</div>
+                        <div className="header-title">Cultured Dino Academy</div>
+                        <div className="header-subtitle">Interactive Paleontology Museum</div>
                     </div>
                 </header>
                 <div className="periods-container">
@@ -72,10 +72,10 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                     </div>
 
                     {state.isVirtualAssistantOpen && (
-                        <div className="modalOverlay" onClick={() => this.controller.handleCloseModal()}>
+                        <div className="modal-overlay" onClick={() => this.controller.handleCloseModal()}>
                             <button className="dynardModalCloseBtn" onClick={() => this.controller.handleCloseModal()}>×</button>
                             <div className="modalContentGoldBg">
-                                <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+                                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                     <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph" />
                                     <div className="dynardQuestion">{modalPages[state.modalCurrentPage].question}</div>
                                     <div className="dynardOptionsWrapper">
