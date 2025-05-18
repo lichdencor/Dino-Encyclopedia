@@ -68,7 +68,7 @@ export const Book = ({book}) => {
                 {bookPages.map((page, i) => {
                     switch(page.type){
                         case BookType.templateImageBottomLeftAndTopRight:
-                            return (<TemplateImageBottomLeftAndTopRight upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
+                            return (<TemplateImageBottomLeftAndTopRight subtitle={page.subtitle} upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImageLeft:
                             return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} subtitle={page.subtitle} text={page.text} />);
                         case BookType.templateImageBottomRight:
