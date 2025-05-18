@@ -1,4 +1,4 @@
-.transitionScreen {
+.screen-transition {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,15 +13,31 @@
   opacity: 0;
 }
 
-.eraTitle {
-  font-size: 5rem;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  font-weight: bold;
-  text-align: center;
+.container-title {
+  position: relative;
+  margin: 0 auto;
+  width: 65%;
+  height: 13%;
   animation: transitionScaleUp 0.8s ease-out forwards;
-  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  background-image: url(/public/assets/img/landing-page/title-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.title-era {
+  font-size: 3.5vw;
+  color: #e3e1cc;
+  text-transform: uppercase;
+  letter-spacing: 0.7vw;
+  text-align: center;
+  /* opacity: 0; */
+  font-family: "MedusaGothic";
+  font-weight: lighter;
 }
 
 @keyframes transitionFadeIn {
