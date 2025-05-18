@@ -387,7 +387,13 @@ export const XRayModal: React.FC<XRayModalProps> = ({
             
             <div className={styles.informationContainer}>
               <h2 className={styles.xRayNameFrame}>{dinosaurInfo.name}</h2>
-              <div className={styles.information}>
+              <div className={`${styles.information} ${
+                  era === 'triassic'
+                    ? styles['information-triassic']
+                    : era === 'jurassic'
+                    ? styles['information-jurassic']
+                    : styles['information-cretaceous']
+                }`}>
                 <InfoList 
                   dinosaurInfo={dinosaurInfo}
                   elapsedTime={elapsedTime}
