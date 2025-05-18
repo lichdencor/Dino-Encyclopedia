@@ -27,8 +27,10 @@ export const TransitionScreen: React.FC<TransitionScreenProps> = ({ eraName, onT
   }, [onTransitionEnd]);
 
   return (
-    <div ref={screenRef} className={styles.transitionScreen}>
-      <h1 className={styles.eraTitle}>{eraName}</h1>
+    <div ref={screenRef} className={styles["screen-transition"]}>
+      <div className={styles["container-title"]}>
+        <h1 className={styles["title-era"]}>{eraName}</h1>
+      </div>
     </div>
   );
 }; 
