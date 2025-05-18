@@ -1,8 +1,20 @@
+import React, { useState, useEffect } from 'react';
 import styles from "./Cretaceous-Superior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { TransitionScreen } from '../../../components/TransitionScreen';
+import { usePreviousRoute } from '../../../context/NavigationContext';
 
 export const CretaceousSuperior = () => {
+  const [showTransition, setShowTransition] = useState(false);
+  const previousRoute = usePreviousRoute();
+
+  useEffect(() => {
+    if (previousRoute === '/map') {
+      setShowTransition(true);
+    }
+  }, [previousRoute]);
+
   const customStyles = {
     "containerClass": styles["cretaceous-superior-container"],
     "backgroundClass": styles["cretaceous-superior-bg"],
@@ -42,16 +54,28 @@ export const CretaceousSuperior = () => {
     relacionEvolutiva: dino.evolutionary_relationship
   })) || [];
 
+  const handleTransitionEnd = () => {
+    setShowTransition(false);
+  };
+
   return (
-    <Gallery
-      previousPage="cretaceous-medium"
-      nextPage="map"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/cr-3-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-3-"
-      dinosaursInfo={dinosaursInfo}
-      era="cretaceous"
-      period="Superior"
-    />
+    <>
+      {showTransition && (
+        <TransitionScreen 
+          eraName="Cretaceous Period" 
+          onTransitionEnd={handleTransitionEnd} 
+        />
+      )}
+      <Gallery
+        previousPage="cretaceous-medium"
+        nextPage="map"
+        customStyles={customStyles}
+        imagePrefix="/assets/img/dinosaurs/cr-3-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-3-"
+        dinosaursInfo={dinosaursInfo}
+        era="cretaceous"
+        period="Superior"
+      />
+    </>
   );
 };

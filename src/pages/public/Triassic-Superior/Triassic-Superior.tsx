@@ -1,8 +1,20 @@
+import React, { useState, useEffect } from 'react';
 import styles from "./Triassic-Superior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { TransitionScreen } from '../../../components/TransitionScreen';
+import { usePreviousRoute } from '../../../context/NavigationContext';
 
 export const TriassicSuperior = () => {
+  const [showTransition, setShowTransition] = useState(false);
+  const previousRoute = usePreviousRoute();
+
+  useEffect(() => {
+    if (previousRoute === '/jurassic-inferior' || previousRoute === '/map') {
+      setShowTransition(true);
+    }
+  }, [previousRoute]);
+
   const customStyles = {
     "containerClass": styles["triassicSuperiorContainer"],
     "backgroundClass": styles["triassicSuperiorBg"],
@@ -42,18 +54,28 @@ export const TriassicSuperior = () => {
     relacionEvolutiva: dino.evolutionary_relationship
   })) || [];
 
+  const handleTransitionEnd = () => {
+    setShowTransition(false);
+  };
+
   return (
     <>
-    <Gallery
-      previousPage="triassic-medium"
-      nextPage="jurassic-inferior"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/tr-3-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-3-"
-      dinosaursInfo={dinosaursInfo}
-      era="triassic"
-      period="Superior"
-    />
+      {showTransition && (
+        <TransitionScreen 
+          eraName="Triassic Period" 
+          onTransitionEnd={handleTransitionEnd} 
+        />
+      )}
+      <Gallery
+        previousPage="triassic-medium"
+        nextPage="jurassic-inferior"
+        customStyles={customStyles}
+        imagePrefix="/assets/img/dinosaurs/tr-3-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-3-"
+        dinosaursInfo={dinosaursInfo}
+        era="triassic"
+        period="Superior"
+      />
     </>
   );
 };

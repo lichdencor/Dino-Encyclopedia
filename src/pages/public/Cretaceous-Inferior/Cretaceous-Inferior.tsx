@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./Cretaceous-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
+import { usePreviousRoute } from '../../../context/NavigationContext';
 
-export const CretaceousInferior: React.FC = () => {
-  const [showTransition, setShowTransition] = useState(true);
+export const CretaceousInferior = () => {
+  const previousRoute = usePreviousRoute();
+  const [showTransition, setShowTransition] = useState(false);
+
+  useEffect(() => {
+    if (previousRoute === '/jurassic-superior' || previousRoute === '/map') {
+      setShowTransition(true);
+    }
+  }, [previousRoute]);
 
   const customStyles = {
     "containerClass": styles["cretaceousInferiorContainer"],
