@@ -3,7 +3,10 @@
 }
 
 .imageLeftDown {
-    width: 12vh;
-    height: 12vh;
+    width: 35%;
+    height: 58%;
     position: absolute;
+    background-color: red;
+    bottom: 2vw;
+    left: 2vw;
 }

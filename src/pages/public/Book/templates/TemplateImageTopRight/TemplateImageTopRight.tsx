@@ -13,7 +13,7 @@ export const TemplateImageTopRight = ({upperText, imageRightUpSrc, lowerText} : 
     return (
         <div className={`${styles.templateImageTopRight} ${bookStyles.page}`}>
             <div className={styles.upperText}>{upperText}</div>
-            <img src={imageRightUpSrc} alt="" className={styles.imageLeftDown}/>
+            <img src={imageRightUpSrc} alt="" className={styles.imageTopRight}/>
             <div className={styles.lowerText}>{lowerText}</div>
         </div>
     );

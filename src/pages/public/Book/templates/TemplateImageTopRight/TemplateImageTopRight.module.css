@@ -2,8 +2,11 @@
     position: relative;
 }
 
-.imageLeftDown {
-    width: 12vh;
-    height: 12vh;
+.imageTopRight {
     position: absolute;
+    width: 35%;
+    height: 60%;
+    right: 2vw;
+    top: 2vw;
+    background: blueviolet;
 }

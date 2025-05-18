@@ -26,20 +26,21 @@
 }
 
 .pages {
-  width: 60vw;
-  height: 44vw;
+  width: 90vw;
+  height: 35vw;
   position: relative;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: blue;
+  margin-bottom: 2vw;
 }
 
 .page {
-  width: 30vw;
-  height: 34vw;
+  width: 50%;
+  height: 100%;
   background-color: #111111;
   background: left top no-repeat;
   background-size: cover;
@@ -51,6 +52,8 @@
   cursor: pointer;
   user-select: none;
   background-color: #f0f0f0;
+  background-color: pink;
+  border-radius: 40px;
 }
 
 .page::before {
