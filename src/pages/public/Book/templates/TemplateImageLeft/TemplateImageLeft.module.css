@@ -11,19 +11,21 @@
 
 .title {
     width: 40%;
-    font-size: 1vw;
+    font-size: 1.1vw;
     letter-spacing: 0.2vw;
     margin-top: 4%;
     margin-bottom: 0.2vw;
     color: rgb(54, 52, 49);
-    border-bottom: 3px solid rgb(167, 167, 149);
+    border-bottom: 3px solid rgb(133, 133, 107);
 }
 
 .subtitle {
-    font-size: 0.8vw;
-    letter-spacing: 0.1vw;
+      width: 40%;
+    font-size: 0.9vw;
+    letter-spacing: 0.2vw;
     margin-top: 0;
     color: rgb(91, 88, 84);
+    margin-bottom: 0.8vw;
 }
 
 .text {

@@ -4,10 +4,10 @@ import styles from "./Library.module.css";
 import Book from "../Book/Book.tsx";
 
 enum BookType {
-    templateImageLeftDownAndTopRight = "templateImageLeftDownAndTopRight",
     templateImageLeft = "templateImageLeft",
+    templateImageBottomLeftAndTopRight = "templateImageBottomLeftAndTopRight",
     templateOnlyText = "templateOnlyText",
-    templateImageTopRight = "templateImageTopRight",
+    templateImageRightTop = "templateImageRightTop",
 }
 
 
@@ -24,7 +24,7 @@ const books = [
                 text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.\n\nLorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
             },
             {
-                type: BookType.templateImageLeftDownAndTopRight,
+                type: BookType.templateImageBottomLeftAndTopRight,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
                 imageLeftDownSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-food-1.png",
                 imageRightUpSrc: "/public/assets/img/books/adults-3/ankylosaurus/ankylosaurus-food-2.png",
@@ -35,7 +35,7 @@ const books = [
                 text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
             },
             {
-                type: BookType.templateImageTopRight,
+                type: BookType.templateImageRightTop,
                 upperText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.",
                 imageRightUpSrc: "/assets/img/cards/3.png",
                 lowerText: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis."
