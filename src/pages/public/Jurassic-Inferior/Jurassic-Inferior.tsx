@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./Jurassic-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
+import { usePreviousRoute } from '../../../context/NavigationContext';
 
-export const JurassicInferior: React.FC = () => {
-  const [showTransition, setShowTransition] = useState(true);
+export const JurassicInferior = () => {
+  const [showTransition, setShowTransition] = useState(false);
+  const previousRoute = usePreviousRoute();
+
+  useEffect(() => {
+    if (previousRoute === '/triassic-superior' || previousRoute === '/map') {
+      setShowTransition(true);
+    }
+  }, [previousRoute]);
 
   const customStyles = {
     "containerClass": styles["jurassicInferiorContainer"],

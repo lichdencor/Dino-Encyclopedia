@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import {useEffect, useState} from 'react';
 import styles from "./Triassic-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
+import { usePreviousRoute } from '../../../context/NavigationContext';
 
-export const TriassicInferior: React.FC = () => {
-  const [showTransition, setShowTransition] = useState(true);
+export const TriassicInferior = () => {
+  const [showTransition, setShowTransition] = useState(false);
+  const previousRoute = usePreviousRoute();
+
+  useEffect(() => {
+    if (previousRoute === '/cretaceous-superior' || previousRoute === '/map') {
+      setShowTransition(true);
+    }
+  }, [previousRoute]);
 
   const customStyles = {
     "containerClass": styles["triassicInferiorContainer"],
@@ -59,7 +67,7 @@ export const TriassicInferior: React.FC = () => {
         />
       )}
       <Gallery
-        previousPage="map"
+        previousPage="cretaceous-superior"
         nextPage="triassic-medium"
         customStyles={customStyles}
         imagePrefix="/assets/img/dinosaurs/tr-1-"
