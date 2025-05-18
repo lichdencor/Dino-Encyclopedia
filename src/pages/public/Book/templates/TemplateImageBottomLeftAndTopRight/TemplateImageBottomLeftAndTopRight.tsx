@@ -2,7 +2,6 @@ import styles from "./TemplateImageBottomLeftAndTopRight.module.css";
 import bookStyles from "../../Book.module.css";
 
 type TemplateImageBottomLeftAndTopRightProps = {
-    subtitle: string;
     foodName: string;
     imageBottomLeftSrc: string;
     imageTopRightSrc: string;
@@ -10,10 +9,10 @@ type TemplateImageBottomLeftAndTopRightProps = {
     lowerText: string;
 }
 
-export const TemplateImageBottomLeftAndTopRight = ({ subtitle, upperText, imageBottomLeftSrc, foodName, imageTopRightSrc, lowerText }: TemplateImageBottomLeftAndTopRightProps) => {
+export const TemplateImageBottomLeftAndTopRight = ({ upperText, imageBottomLeftSrc, foodName, imageTopRightSrc, lowerText }: TemplateImageBottomLeftAndTopRightProps) => {
     return (
         <div className={bookStyles.page}>
-            <p className={styles.subtitle}>{subtitle}</p>
+            <p className={styles.subtitle}>FEEDING</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
             <img src={imageBottomLeftSrc} alt="" className={styles["image-bottom-left"]} />
             <div className={styles["container-food"]}><p>{foodName}</p></div>
