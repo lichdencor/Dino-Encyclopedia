@@ -79,14 +79,14 @@ export const PuzzleProvider = ({ children }) => {
     if (!isComplete && time > 0 && !showTimeoutMessage) {
       intervalId = setInterval(() => {
         setTime(prev => {
-          if (prev <= 1) {
+          if (prev <= 0.1) {
             clearInterval(intervalId);
             setShowTimeoutMessage(true);
             return 0;
           }
-          return prev - 1;
+          return prev - 0.1;
         });
-      }, 1000);
+      }, 100);
     }
 
     return () => {
@@ -107,7 +107,7 @@ export const PuzzleProvider = ({ children }) => {
 
   const formatTime = useCallback((seconds) => {
     const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
+    const remainingSeconds = Math.floor(seconds % 60);
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }, []);
 
