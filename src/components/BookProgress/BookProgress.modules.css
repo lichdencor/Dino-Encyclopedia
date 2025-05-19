@@ -1,0 +1,37 @@
+.container-book-progress {
+    width: 80%;
+    height: 10%;
+    background-color: yellowgreen;
+}
+
+.container-pet {
+    width: 10%;
+    height: 100%;
+    background-color: blue;
+}
+
+.container-pet img {
+    animation: breathing-pet 3s ease-in-out infinite;
+}
+
+.container-line-progress {
+    width: 80%;
+    height: 90%;
+    background-color: pink;
+}
+
+.container-line-progress img {
+    width: 3vw;
+    height: 3vw;
+    background-color: red;
+}
+
+/* ANIMATIONS */
+@keyframes breathing-pet {
+  0%, 100% {
+    transform: scaleY(1) translateY(0);
+  }
+  50% {
+    transform: scaleY(1.03);
+  }
+}
