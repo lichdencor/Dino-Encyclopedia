@@ -1,8 +1,14 @@
 import styles from "./Jurassic-Medium.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { useProgress } from '../../../context/Progress/ProgressProvider';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import { GalleryModel } from '../../../components/Gallery/GalleryModel';
+import { SubPeriodModel } from '../../../models/PeriodModel';
 
 export const JurassicMedium = () => {
+  const { progress } = useProgress();
+
   const customStyles = {
     "containerClass": styles["jurassicMediumContainer"],
     "backgroundClass": styles["jurassicMediumBg"],
@@ -27,31 +33,30 @@ export const JurassicMedium = () => {
     (era) => era.period === "Jurassic Medium"
   );
 
-  const dinosaursInfo = mediumJurassicData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!mediumJurassicData || !mediumJurassicData.dinosaurs[0]) {
+    console.error('No dinosaur data found for Jurassic Medium period');
+    return null;
+  }
 
-  return (
-    <Gallery
-      previousPage="jurassic-inferior"
-      nextPage="jurassic-superior"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/ju-2-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jur-2-"
-      dinosaursInfo={dinosaursInfo}
-      era="jurassic"
-      period="Medium"
-    />
+  // Create the DinosaurModels with progress data
+  const dinosaurs = mediumJurassicData.dinosaurs.map((dino) => {
+    return createDinosaurModel(dino, progress);
+  });
+
+  // Create the GalleryModel
+  const galleryModel = new GalleryModel(
+    dinosaurs,
+    "jurassic-inferior",
+    "jurassic-superior",
+    customStyles,
+    "/assets/img/dinosaurs/ju-2-",
+    "/assets/img/dinosaurs/skeleton/skeleton-jur-2-",
+    "jurassic",
+    "Medium"
   );
+
+  // Create the SubPeriodModel
+  const subPeriod = new SubPeriodModel("Jurassic Medium", dinosaurs);
+
+  return <Gallery model={galleryModel} />;
 };

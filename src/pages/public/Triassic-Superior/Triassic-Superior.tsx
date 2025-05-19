@@ -4,13 +4,18 @@ import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
 import { usePreviousRoute } from '../../../context/NavigationContext';
+import { useProgress } from '../../../context/Progress/ProgressProvider';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import { GalleryModel } from '../../../components/Gallery/GalleryModel';
+import { SubPeriodModel } from '../../../models/PeriodModel';
 
 export const TriassicSuperior = () => {
   const [showTransition, setShowTransition] = useState(false);
   const previousRoute = usePreviousRoute();
+  const { progress } = useProgress();
 
   useEffect(() => {
-    if (previousRoute === '/jurassic-inferior' || previousRoute === '/map') {
+    if (previousRoute === '/map') {
       setShowTransition(true);
     }
   }, [previousRoute]);
@@ -39,20 +44,30 @@ export const TriassicSuperior = () => {
     (era) => era.period === "Triassic Superior"
   );
 
-  const dinosaursInfo = superiorTriassicData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!superiorTriassicData || !superiorTriassicData.dinosaurs[0]) {
+    console.error('No dinosaur data found for Triassic Superior period');
+    return null;
+  }
+
+  // Create the DinosaurModels with progress data
+  const dinosaurs = superiorTriassicData.dinosaurs.map((dino) => {
+    return createDinosaurModel(dino, progress);
+  });
+
+  // Create the GalleryModel
+  const galleryModel = new GalleryModel(
+    dinosaurs,
+    "triassic-medium",
+    "jurassic-inferior",
+    customStyles,
+    "/assets/img/dinosaurs/tr-3-",
+    "/assets/img/dinosaurs/skeleton/skeleton-tr-3-",
+    "triassic",
+    "Superior"
+  );
+
+  // Create the SubPeriodModel
+  const subPeriod = new SubPeriodModel("Triassic Superior", dinosaurs);
 
   const handleTransitionEnd = () => {
     setShowTransition(false);
@@ -66,16 +81,7 @@ export const TriassicSuperior = () => {
           onTransitionEnd={handleTransitionEnd} 
         />
       )}
-      <Gallery
-        previousPage="triassic-medium"
-        nextPage="jurassic-inferior"
-        customStyles={customStyles}
-        imagePrefix="/assets/img/dinosaurs/tr-3-"
-        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-3-"
-        dinosaursInfo={dinosaursInfo}
-        era="triassic"
-        period="Superior"
-      />
+      <Gallery model={galleryModel} />
     </>
   );
 };

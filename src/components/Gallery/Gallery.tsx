@@ -1,90 +1,111 @@
-import { useState } from "react";
+import { Component } from "react";
 import { GalleryDinosaurNames, Nav } from "../../components";
 import { GalleryArrows } from "../GalleryArrows/GalleryArrows";
 import { GalleryCurtains } from "./GalleryCurtains";
 import { GalleryDinosaurs } from "./GalleryDinosaurs";
 import { GalleryXRayModal } from "./GalleryXRayModal";
-import { DinosaurInfo, GalleryStyles } from "./types";
-import styles from './Gallery.module.css';
+import { DinosaurInfo as GalleryDinosaurInfo } from "./types";
+import { GalleryModel, GalleryState } from "./GalleryModel";
+import { GalleryController } from "./GalleryController";
+import { DinosaurInfo as ModelDinosaurInfo } from "../../models/PeriodModel";
 import GalleryTitle from "../GalleryTitle/GalleryTitle";
 
-interface GalleryProps {
-  previousPage: string;
-  nextPage: string;
-  customStyles: GalleryStyles;
-  imagePrefix: string;
-  skeletonPrefix: string;
-  dinosaursInfo: DinosaurInfo[];
-  era: "triassic" | "jurassic" | "cretaceous";
-  period: "Inferior" | "Medium" | "Superior";
+function adaptDinosaurInfo(info: ModelDinosaurInfo): GalleryDinosaurInfo {
+  return {
+    name: info.name,
+    nombreCientifico: info.scientific_name,
+    altura: info.height,
+    peso: info.weight,
+    clasificacion: info.classification,
+    dieta: info.diet_type,
+    velocidad: info.speed,
+    caracteristicas: info.special_features,
+    naturaleza: info.defense_attack_mechanism,
+    fosiles: info.fossils_found_in,
+    sociabilidad: info.social_behaviour,
+    relacionEvolutiva: info.evolutionary_relationship
+  };
 }
 
-export const Gallery = ({
-  previousPage,
-  nextPage,
-  customStyles,
-  imagePrefix,
-  skeletonPrefix,
-  dinosaursInfo,
-  era,
-  period
-}: GalleryProps) => {
-  const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDinosaur, setSelectedDinosaur] = useState<number>(0);
+interface GalleryProps {
+  model: GalleryModel;
+}
 
-  const handleDinosaurClick = (index: number) => {
-    setSelectedDinosaur(index);
-    setIsModalOpen(true);
-  };
+interface GalleryComponentState {
+  state: GalleryState;
+}
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedDinosaur(0);
-  };
+export class Gallery extends Component<GalleryProps, GalleryComponentState> {
+  private controller: GalleryController;
 
-  return (
-    <div>
-      <Nav />
-      <div className={customStyles.containerClass}>
-        <GalleryCurtains 
-          customStyles={customStyles}
-          era={era}
-          period={period}
-        />
-        
-        <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
+  constructor(props: GalleryProps) {
+    super(props);
+    this.controller = new GalleryController(props.model);
+    this.state = {
+      state: props.model.getState()
+    };
+    props.model.subscribe(this.handleStateChange);
+  }
 
-        <GalleryArrows previousPage={previousPage} nextPage={nextPage} />
-        <GalleryDinosaurNames 
-          dinosaurs={dinosaursInfo.map(dino => dino.name)}
-          era={era}
-          period={period}
-        />
+  handleStateChange = (newState: GalleryState) => {
+    this.setState({ state: newState });
+  }
 
-        <GalleryDinosaurs 
-          customStyles={customStyles}
-          onDinosaurClick={handleDinosaurClick}
-        />
+  render() {
+    const { state } = this.state;
+    const { model } = this.props;
+    const dinosaurs = model.dinosaurs;
+    
+    if (!dinosaurs || dinosaurs.length === 0) {
+      console.error('Gallery: dinosaurs array is required but was not provided or is empty');
+      return null;
+    }
 
-        <GalleryTitle
-          period={era}
-          subperiod={period}
-        ></GalleryTitle>
+    const dinosaursInfo = dinosaurs.map(dinosaur => adaptDinosaurInfo(dinosaur.info));
 
-        <GalleryXRayModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          selectedDinosaur={selectedDinosaur}
-          activeDinosaur={activeDinosaur}
-          setActiveDinosaur={setActiveDinosaur}
-          dinosaursInfo={dinosaursInfo}
-          imagePrefix={imagePrefix}
-          skeletonPrefix={skeletonPrefix}
-          era={era}
-          period={period}
-        />
+    return (
+      <div>
+        <Nav />
+        <div className={model.customStyles.containerClass}>
+          <GalleryCurtains 
+            customStyles={model.customStyles}
+            era={model.era}
+            period={model.period}
+          />
+          
+          <div className={model.customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
+
+          <GalleryArrows previousPage={model.previousPage} nextPage={model.nextPage} />
+          <GalleryDinosaurNames 
+            dinosaurs={dinosaurs}
+            era={model.era}
+            period={model.period}
+          />
+
+          <GalleryDinosaurs 
+            customStyles={model.customStyles}
+            onDinosaurClick={(index) => this.controller.handleDinosaurClick(index)}
+          />
+
+          <GalleryTitle
+            period={model.era}
+            subperiod={model.period}
+          />
+
+          <GalleryXRayModal
+            isOpen={state.isModalOpen}
+            onClose={() => this.controller.handleModalClose()}
+            selectedDinosaur={state.selectedDinosaur}
+            activeDinosaur={state.activeDinosaur}
+            setActiveDinosaur={(index) => this.controller.handleDinosaurHover(index)}
+            dinosaursInfo={dinosaursInfo}
+            imagePrefix={model.imagePrefix}
+            skeletonPrefix={model.skeletonPrefix}
+            era={model.era}
+            period={model.period}
+          />
+        </div>
       </div>
-    </div>
-  );
-}; 
+    );
+  }
+} 

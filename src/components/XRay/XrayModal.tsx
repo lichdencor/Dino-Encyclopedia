@@ -10,6 +10,7 @@ import { InfoList } from "./components/InfoList";
 import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurrentDinosaurProgress } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
+import { ProgressData } from "../../services/progress/types";
 
 type PuzzlePieceStatus = {
   isFound: boolean;
@@ -97,33 +98,44 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const updateDinosaurProgress = (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
-      (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+      (p) => p.period === `${era} ${period}`
     );
 
     if (periodData && selectedDinosaur !== null) {
-      const newProgress = {
+      const dinosaur = periodData.dinosaurs[selectedDinosaur];
+      const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
+      const puzzlePieceFound = foundPieces.some(
+        piece => piece.era === era && 
+                piece.period === period && 
+                piece.dinosaurId === dinosaur.id
+      );
+
+      const newProgress: ProgressData = {
         ...progress,
         galleries: [{
           ...progress.galleries[0],
           [eraKey]: progress.galleries[0][eraKey].map(p => 
-            p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+            p.period === `${era} ${period}`
               ? {
                   ...p,
                   dinosaurs: p.dinosaurs.map((d, idx) =>
                     idx === selectedDinosaur
-                      ? { 
-                          ...d, 
+                      ? {
+                          id: d.id,
+                          name: d.name,
                           discovered: currentProgress >= 100,
                           scanProgress: Math.min(Math.round(currentProgress), 100),
                           visibleInfo,
-                          elapsedTime: currentElapsedTime
+                          elapsedTime: currentElapsedTime,
+                          puzzlePieceFound
                         }
                       : d
                   )
                 }
               : p
           )
-        }]
+        }],
+        minigames: progress.minigames
       };
       setProgress(newProgress);
     }

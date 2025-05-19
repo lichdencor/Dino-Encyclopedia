@@ -1,16 +1,21 @@
-import {useEffect, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./Triassic-Inferior.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
 import { usePreviousRoute } from '../../../context/NavigationContext';
+import { useProgress } from '../../../context/Progress/ProgressProvider';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import { GalleryModel } from '../../../components/Gallery/GalleryModel';
+import { SubPeriodModel } from '../../../models/PeriodModel';
 
 export const TriassicInferior = () => {
   const [showTransition, setShowTransition] = useState(false);
   const previousRoute = usePreviousRoute();
+  const { progress } = useProgress();
 
   useEffect(() => {
-    if (previousRoute === '/cretaceous-superior' || previousRoute === '/map') {
+    if (previousRoute === '/map') {
       setShowTransition(true);
     }
   }, [previousRoute]);
@@ -39,20 +44,30 @@ export const TriassicInferior = () => {
     (era) => era.period === "Triassic Inferior"
   );
 
-  const dinosaursInfo = inferiorTriassicData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!inferiorTriassicData || !inferiorTriassicData.dinosaurs[0]) {
+    console.error('No dinosaur data found for Triassic Inferior period');
+    return null;
+  }
+
+  // Create the DinosaurModels with progress data
+  const dinosaurs = inferiorTriassicData.dinosaurs.map((dino) => {
+    return createDinosaurModel(dino, progress);
+  });
+
+  // Create the GalleryModel
+  const galleryModel = new GalleryModel(
+    dinosaurs,
+    "map",
+    "triassic-medium",
+    customStyles,
+    "/assets/img/dinosaurs/tr-1-",
+    "/assets/img/dinosaurs/skeleton/skeleton-tr-1-",
+    "triassic",
+    "Inferior"
+  );
+
+  // Create the SubPeriodModel
+  const subPeriod = new SubPeriodModel("Triassic Inferior", dinosaurs);
 
   const handleTransitionEnd = () => {
     setShowTransition(false);
@@ -66,16 +81,7 @@ export const TriassicInferior = () => {
           onTransitionEnd={handleTransitionEnd} 
         />
       )}
-      <Gallery
-        previousPage="cretaceous-superior"
-        nextPage="triassic-medium"
-        customStyles={customStyles}
-        imagePrefix="/assets/img/dinosaurs/tr-1-"
-        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-tr-1-"
-        dinosaursInfo={dinosaursInfo}
-        era="triassic"
-        period="Inferior"
-      />
+      <Gallery model={galleryModel} />
     </>
   );
 };

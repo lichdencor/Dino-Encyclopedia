@@ -1,23 +1,24 @@
-type PeriodData = {
+export interface DinosaurProgressData {
+  id: string;
   name: string;
-  period: string;
-  dinosaurs: Array<{
-    id: string;
-    discovered: boolean;
-    scanProgress: number;
-    visibleInfo: string[];
-    elapsedTime: number;
-    puzzlePieceFound: boolean;
-  }>;
-  completed: boolean;
-  hoveredCurtains: {
-    curtain1: boolean;
-    curtain2: boolean;
-    curtain3: boolean;
-  };
-};
+  discovered: boolean;
+  scanProgress: number;
+  visibleInfo: string[];
+  elapsedTime: number;
+  puzzlePieceFound: boolean;
+}
 
-export type ProgressData = {
+export interface PeriodData {
+  period: string;
+  dinosaurs: DinosaurProgressData[];
+}
+
+export interface ProgressData {
+  galleries: [{
+    era_triassic: PeriodData[];
+    era_jurassic: PeriodData[];
+    era_cretaceous: PeriodData[];
+  }];
   minigames: {
     puzzleaurus: {
       puzzles: Array<{
@@ -51,11 +52,6 @@ export type ProgressData = {
       available: boolean;
     };
   };
-  galleries: Array<{
-    era_triassic: Array<PeriodData>;
-    era_jurassic: Array<PeriodData>;
-    era_cretaceous: Array<PeriodData>;
-  }>;
 }
 
 export interface IProgressService {

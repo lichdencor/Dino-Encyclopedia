@@ -1,8 +1,14 @@
 import styles from "./Cretaceous-Medium.module.css";
 import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
+import { useProgress } from '../../../context/Progress/ProgressProvider';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import { GalleryModel } from '../../../components/Gallery/GalleryModel';
+import { SubPeriodModel } from '../../../models/PeriodModel';
 
 export const CretaceousMedium = () => {
+  const { progress } = useProgress();
+
   const customStyles = {
     "containerClass": styles["cretaceousMediumContainer"],
     "backgroundClass": styles["cretaceousMediumBg"],
@@ -27,31 +33,30 @@ export const CretaceousMedium = () => {
     (era) => era.period === "Cretaceous Medium"
   );
 
-  const dinosaursInfo = mediumCretaceousData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!mediumCretaceousData || !mediumCretaceousData.dinosaurs[0]) {
+    console.error('No dinosaur data found for Cretaceous Medium period');
+    return null;
+  }
 
-  return (
-    <Gallery
-      previousPage="cretaceous-inferior"
-      nextPage="cretaceous-superior"
-      customStyles={customStyles}
-      imagePrefix="/assets/img/dinosaurs/cr-2-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-2-"
-      dinosaursInfo={dinosaursInfo}
-      era="cretaceous"
-      period="Medium"
-    />
+  // Create the DinosaurModels with progress data
+  const dinosaurs = mediumCretaceousData.dinosaurs.map((dino) => {
+    return createDinosaurModel(dino, progress);
+  });
+
+  // Create the GalleryModel
+  const galleryModel = new GalleryModel(
+    dinosaurs,
+    "cretaceous-inferior",
+    "cretaceous-superior",
+    customStyles,
+    "/assets/img/dinosaurs/cr-2-",
+    "/assets/img/dinosaurs/skeleton/skeleton-cr-2-",
+    "cretaceous",
+    "Medium"
   );
+
+  // Create the SubPeriodModel
+  const subPeriod = new SubPeriodModel("Cretaceous Medium", dinosaurs);
+
+  return <Gallery model={galleryModel} />;
 };

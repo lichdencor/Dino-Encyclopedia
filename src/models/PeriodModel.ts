@@ -19,11 +19,16 @@ export class DinosaurModel {
     private _puzzlePieceDiscovered: boolean;
     private _progress: number;
 
-    constructor(info: DinosaurInfo) {
+    constructor(
+        info: DinosaurInfo,
+        discovered: boolean = false,
+        puzzlePieceDiscovered: boolean = false,
+        progress: number = 0
+    ) {
         this._info = info;
-        this._discovered = false;
-        this._puzzlePieceDiscovered = false;
-        this._progress = 0;
+        this._discovered = discovered;
+        this._puzzlePieceDiscovered = puzzlePieceDiscovered;
+        this._progress = progress;
     }
 
     get info(): DinosaurInfo {

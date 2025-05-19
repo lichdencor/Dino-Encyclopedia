@@ -116,7 +116,7 @@
           "period": "Inferior Triassic",
           "dinosaurs": [
             {
-              "id": "Postosuchus kirkpatricki",
+              "id": "Postosuchus",
               "discovered": false,
               "scanProgress": 0,
               "visibleInfo": [],
@@ -124,7 +124,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Eoraptor lunensis",
+              "id": "Eoraptor",
               "discovered": false,
               "scanProgress": 0,
               "visibleInfo": [],
@@ -132,7 +132,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Herrerasaurus ischigualastensis",
+              "id": "Herrerasaurus",
               "discovered": false,
               "scanProgress": 0,
               "visibleInfo": [],
@@ -147,7 +147,7 @@
           "period": "Medium Triassic",
           "dinosaurs": [
             {
-              "id": "Shuvosaurus inexpectatus",
+              "id": "Shuvosaurus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -155,7 +155,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Chindesaurus bryansmalli",
+              "id": "Chindesaurus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -163,7 +163,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Fukuiraptor kitadaniensis",
+              "id": "Fukuiraptor",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -178,7 +178,7 @@
           "period": "Superior Triassic",
           "dinosaurs": [
             {
-              "id": "Coelophysis bauri",
+              "id": "Coelophysis",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -186,7 +186,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Plateosaurus engelhardti",
+              "id": "Plateosaurus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -194,7 +194,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Rauisuchus tiradentes",
+              "id": "Rauisuchus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -211,7 +211,7 @@
           "period": "Inferior Jurassic",
           "dinosaurs": [
             {
-              "id": "Dilophosaurus wetherilli",
+              "id": "Dilophosaurus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -219,7 +219,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Compsognathus longipes",
+              "id": "Compsognathus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -227,7 +227,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Cryolophosaurus ellioti",
+              "id": "Cryolophosaurus",
               "discovered": false,
               "scanProgress": 0,
               "elapsedTime": 0,
@@ -242,7 +242,7 @@
           "period": "Medium Jurassic",
           "dinosaurs": [
             {
-              "id": "Allosaurus fragilis",
+              "id": "Allosaurus",
               "discovered": false,
               "elapsedTime": 0,
               "visibleInfo": [],
@@ -250,7 +250,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Apatosaurus louisae",
+              "id": "Apatosaurus",
               "discovered": false,
               "elapsedTime": 0,
               "visibleInfo": [],
@@ -258,7 +258,7 @@
               "puzzlePieceFound": false
             },
             {
-              "id": "Camarasaurus supremus",
+              "id": "Camarasaurus",
               "discovered": false,
               "elapsedTime": 0,
               "visibleInfo": [],
@@ -273,15 +273,15 @@
           "period": "Superior Jurassic",
           "dinosaurs": [
             {
-              "id": "Brachiosaurus altithorax",
+              "id": "Brachiosaurus",
               "discovered": false
             },
             {
-              "id": "Diplodocus longus",
+              "id": "Diplodocus",
               "discovered": false
             },
             {
-              "id": "Stegosaurus stenops",
+              "id": "Stegosaurus",
               "discovered": false
             }
           ],
@@ -294,15 +294,15 @@
           "period": "Inferior Cretaceous",
           "dinosaurs": [
             {
-              "id": "Pachycephalosaurus wyomingensis",
+              "id": "Pachycephalosaurus",
               "discovered": false
             },
             {
-              "id": "Microceratus gobiensis",
+              "id": "Microceratus",
               "discovered": false
             },
             {
-              "id": "Gallimimus bullatus",
+              "id": "Gallimimus",
               "discovered": false
             }
           ],
@@ -313,15 +313,15 @@
           "period": "Medium Cretaceous",
           "dinosaurs": [
             {
-              "id": "Spinosaurus aegyptiacus",
+              "id": "Spinosaurus",
               "discovered": false
             },
             {
-              "id": "Baryonyx walkeri",
+              "id": "Baryonyx",
               "discovered": false
             },
             {
-              "id": "Irritator challengeri",
+              "id": "Irritator",
               "discovered": false
             }
           ],
@@ -332,11 +332,11 @@
           "period": "Superior Cretaceous",
           "dinosaurs": [
             {
-              "id": "Triceratops horridus",
+              "id": "Triceratops",
               "discovered": false
             },
             {
-              "id": "Ankylosaurus magniventris",
+              "id": "Ankylosaurus",
               "discovered": false
             },
             {

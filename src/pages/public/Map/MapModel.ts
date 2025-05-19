@@ -1,16 +1,30 @@
-import {ProgressData} from "../../../services/progress/types";
-import { PeriodModel, SubPeriodModel, DinosaurModel, DinosaurInfo } from "../../../models/PeriodModel";
-import galleriesData from "../../../context/data/galleries_data.json";
+import { DinosaurModel, DinosaurInfo, SubPeriodModel, PeriodModel } from '../../../models/PeriodModel';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import galleriesData from '../../../context/data/galleries_data.json';
+import { ProgressData } from '../../../services/progress/types';
 
-export class DinosaurMapModel {
+interface MapState {
+    displayNames: { [key: string]: string[] };
+    discoveredSilhouettes: { [key: string]: boolean[] };
+    periods: PeriodModel[];
+    progress: ProgressData;
+}
+
+interface PuzzlePiece {
+    era: string;
+    period: string;
+    dinosaurId: string;
+}
+
+class DinosaurMapModel {
     private _dinosaur: DinosaurModel;
     private _image: string;
     private _silhouette: string;
 
-    constructor(dinosaur: DinosaurModel, image: string = "", silhouette: string = "") {
+    constructor(dinosaur: DinosaurModel) {
         this._dinosaur = dinosaur;
-        this._image = image;
-        this._silhouette = silhouette;
+        this._image = '';
+        this._silhouette = '';
     }
 
     get dinosaur(): DinosaurModel {
@@ -34,52 +48,41 @@ export class DinosaurMapModel {
     }
 }
 
-export interface MapState {
-    displayNames: {
-        [key: string]: string[]; // key format: "era-period" (e.g., "triassic-inferior")
-    };
-    discoveredSilhouettes: {
-        [key: string]: boolean[]; // key format: "era-period" (e.g., "triassic-inferior")
-    };
-    periods: PeriodModel[];
-}
-
 export class MapModel {
     private state: MapState;
     private listeners: ((state: MapState) => void)[] = [];
-    private progress: ProgressData;
-    private periods: PeriodModel[];
     private dinosaurMaps: Map<string, DinosaurMapModel> = new Map();
 
     constructor(progress: ProgressData) {
-        this.progress = progress;
-        this.periods = this.initializePeriods();
         this.state = {
             displayNames: {},
             discoveredSilhouettes: {},
-            periods: this.periods
+            periods: [],
+            progress: progress || { 
+                galleries: [{ 
+                    era_triassic: [], 
+                    era_jurassic: [], 
+                    era_cretaceous: [] 
+                }],
+                minigames: {
+                    puzzleaurus: {
+                        foundPieces: []
+                    }
+                }
+            }
         };
+        this.state.periods = this.initializePeriods();
+        debugger
+        this.initialize();
     }
 
     private initializePeriods(): PeriodModel[] {
-        const createDinosaur = (dinoData: any): DinosaurModel => {
-            const info: DinosaurInfo = {
-                name: dinoData.name,
-                scientific_name: dinoData.scientific_name.trim(),
-                height: dinoData.height.trim(),
-                weight: dinoData.weight.trim(),
-                classification: dinoData.classification.trim(),
-                diet_type: dinoData.diet_type.trim(),
-                speed: dinoData.speed.trim(),
-                special_features: dinoData.special_features.trim(),
-                defense_attack_mechanism: dinoData.defense_attack_mechanism.trim(),
-                fossils_found_in: dinoData.fossils_found_in.trim(),
-                social_behaviour: dinoData.social_behaviour.trim(),
-                evolutionary_relationship: dinoData.evolutionary_relationship.trim()
-            };
-            const dinosaur = new DinosaurModel(info);
+        const createDinosaur = (dinoData: any, era: string, period: string): DinosaurModel => {
+            // Get progress data for this dinosaur with proper null checks
+            const progress = this.state.progress;
+            const dinosaur = createDinosaurModel(dinoData, progress);
             const mapModel = new DinosaurMapModel(dinosaur);
-            this.dinosaurMaps.set(info.name, mapModel);
+            this.dinosaurMaps.set(dinoData.name, mapModel);
             return dinosaur;
         };
 
@@ -88,32 +91,82 @@ export class MapModel {
 
         // Process Triassic Period
         const triassicPeriods = galleries.era_triassic.map(period => {
+            const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino))
+                period.dinosaurs.map(dino => createDinosaur(dino, "Triassic", periodName))
             );
         });
         periods.push(new PeriodModel("Triassic", triassicPeriods));
 
         // Process Jurassic Period
         const jurassicPeriods = galleries.era_jurassic.map(period => {
+            const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino))
+                period.dinosaurs.map(dino => createDinosaur(dino, "Jurassic", periodName))
             );
         });
         periods.push(new PeriodModel("Jurassic", jurassicPeriods));
 
         // Process Cretaceous Period
         const cretaceousPeriods = galleries.era_cretaceous.map(period => {
+            const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino))
+                period.dinosaurs.map(dino => createDinosaur(dino, "Cretaceous", periodName))
             );
         });
         periods.push(new PeriodModel("Cretaceous", cretaceousPeriods));
 
         return periods;
+    }
+
+    public initialize() {
+        this.updateDisplayNames();
+    }
+
+    private updateDisplayNames() {
+        const displayNames: MapState['displayNames'] = {};
+        const discoveredSilhouettes: MapState['discoveredSilhouettes'] = {};
+        
+        this.state.periods.forEach(period => {
+            const periodName = period.name.toLowerCase();
+            period.subPeriods.forEach(subPeriod => {
+                const subPeriodName = subPeriod.name.split(" ")[1];
+                const key = `${periodName}-${subPeriodName.toLowerCase()}`;
+                displayNames[key] = [];
+                discoveredSilhouettes[key] = [];
+                
+                subPeriod.dinosaurs.forEach((dino, index) => {
+                    const progress = this.getDinosaurProgress(this.state.progress, periodName, subPeriodName, dino.info.name);
+                    dino.progress = progress;
+                    dino.discovered = progress === 100;
+                    
+                    displayNames[key].push(dino.info.name);
+                    discoveredSilhouettes[key].push(dino.discovered);
+                });
+            });
+        });
+        
+        this.state.displayNames = displayNames;
+        this.state.discoveredSilhouettes = discoveredSilhouettes;
+        this.notifyListeners();
+    }
+
+    private notifyListeners() {
+        this.listeners.forEach(listener => listener(this.state));
+    }
+
+    public addListener(listener: (state: MapState) => void) {
+        this.listeners.push(listener);
+    }
+
+    public removeListener(listener: (state: MapState) => void) {
+        const index = this.listeners.indexOf(listener);
+        if (index > -1) {
+            this.listeners.splice(index, 1);
+        }
     }
 
     public getDinosaurMapModel(name: string): DinosaurMapModel | undefined {
@@ -128,120 +181,41 @@ export class MapModel {
         }
     }
 
-    public initialize() {
-        this.updateDisplayNames(this.progress);
-    }
-
-    private updateDisplayNames(progress: ProgressData) {
-        if (!progress?.galleries?.[0]) return;
-
-        const displayNames: MapState['displayNames'] = {};
-        const discoveredSilhouettes: MapState['discoveredSilhouettes'] = {};
-        
-        this.periods.forEach(period => {
-            const periodName = period.name.toLowerCase();
-            period.subPeriods.forEach(subPeriod => {
-                const subPeriodName = subPeriod.name.split(" ")[1].toLowerCase();
-                const key = `${periodName}-${subPeriodName}`;
-                
-                subPeriod.dinosaurs.forEach((dino, index) => {
-                    const progress = this.getDinosaurProgress(this.progress, periodName, subPeriodName, dino.info.name);
-                    dino.progress = progress;
-                    dino.discovered = progress === 100;
-                });
-
-                displayNames[key] = subPeriod.dinosaurs.map(dino => dino.discovered ? dino.info.name : "?");
-                discoveredSilhouettes[key] = subPeriod.dinosaurs.map(dino => dino.discovered);
-                
-                subPeriod.updateProgress();
-            });
-            
-            period.updateProgress();
-        });
-
-        this.state.displayNames = displayNames;
-        this.state.discoveredSilhouettes = discoveredSilhouettes;
-        this.state.periods = this.periods;
-        this.notifyListeners();
-    }
-
-    getState(): MapState {
-        return { ...this.state };
-    }
-
-    subscribe(listener: (state: MapState) => void) {
-        this.listeners.push(listener);
-        return () => {
-            this.listeners = this.listeners.filter(l => l !== listener);
-        };
-    }
-
-    private notifyListeners() {
-        this.listeners.forEach(listener => listener(this.getState()));
-    }
-
-    getDisplayNames(era: string, period: string): string[] {
-        const key = `${era}-${period}`;
-        return this.state.displayNames[key] || [];
-    }
-
     private getDinosaurProgress(progress: ProgressData, era: string, period: string, dinoName: string): number {
         if (!progress?.galleries?.[0]) {
             return 0;
         }
-
-        const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
+        
+        const eraKey = `era_${era.toLowerCase()}` as keyof typeof progress.galleries[0];
         const eraData = progress.galleries[0][eraKey];
         
-        if (!eraData) {
+        if (!Array.isArray(eraData)) {
             return 0;
         }
 
         const periodData = eraData.find(
-            (p) => p.period === `${period.charAt(0).toUpperCase() + period.slice(1)} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+            (p) => p?.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
         );
-
+        
         if (!periodData?.dinosaurs) {
             return 0;
         }
-
-        // Map of simple names to scientific names
-        const scientificNames: { [key: string]: string } = {
-            "Postosuchus": "Postosuchus kirkpatricki",
-            "Eoraptor": "Eoraptor lunensis",
-            "Herrerasaurus": "Herrerasaurus ischigualastensis",
-            "Shuvosaurus": "Shuvosaurus inexpectatus",
-            "Fukuiraptor": "Fukuiraptor kitadaniensis",
-            "Chindesaurus": "Chindesaurus bryansmalli",
-            "Coelophysis": "Coelophysis bauri",
-            "Plateosaurus": "Plateosaurus engelhardti",
-            "Rauisuchus": "Rauisuchus tiradentes",
-            "Dilophosaurus": "Dilophosaurus wetherilli",
-            "Compsognathus": "Compsognathus longipes",
-            "Cryolophosaurus": "Cryolophosaurus ellioti",
-            "Allosaurus": "Allosaurus fragilis",
-            "Apatosaurus": "Apatosaurus louisae",
-            "Camarasaurus": "Camarasaurus supremus",
-            "Brachiosaurus": "Brachiosaurus altithorax",
-            "Diplodocus": "Diplodocus longus",
-            "Stegosaurus": "Stegosaurus stenops",
-            "Pachycephalosaurus": "Pachycephalosaurus wyomingensis",
-            "Microceratus": "Microceratus gobiensis",
-            "Gallimimus": "Gallimimus bullatus",
-            "Spinosaurus": "Spinosaurus aegyptiacus",
-            "Baryonyx": "Baryonyx walkeri",
-            "Irritator": "Irritator challengeri",
-            "Triceratops": "Triceratops horridus",
-            "Ankylosaurus": "Ankylosaurus magniventris",
-            "Tyrannosaurus": "Tyrannosaurus Rex"
-        };
-
-        const scientificName = scientificNames[dinoName];
-        if (!scientificName) {
-            return 0;
-        }
-
-        const dinosaur = periodData.dinosaurs.find(d => d.id === scientificName);
+        debugger
+        const dinosaur = periodData.dinosaurs.find(d => d?.id === dinoName);
         return dinosaur?.scanProgress || 0;
+    }
+
+    public getState(): MapState {
+        return this.state;
+    }
+
+    public subscribe(listener: (state: MapState) => void): () => void {
+        this.listeners.push(listener);
+        return () => {
+            const index = this.listeners.indexOf(listener);
+            if (index > -1) {
+                this.listeners.splice(index, 1);
+            }
+        };
     }
 }

@@ -4,10 +4,15 @@ import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
 import { usePreviousRoute } from '../../../context/NavigationContext';
+import { useProgress } from '../../../context/Progress/ProgressProvider';
+import { createDinosaurModel } from '../../../utils/dinosaur';
+import { GalleryModel } from '../../../components/Gallery/GalleryModel';
+import { SubPeriodModel } from '../../../models/PeriodModel';
 
 export const CretaceousInferior = () => {
   const previousRoute = usePreviousRoute();
   const [showTransition, setShowTransition] = useState(false);
+  const { progress } = useProgress();
 
   useEffect(() => {
     if (previousRoute === '/jurassic-superior' || previousRoute === '/map') {
@@ -39,20 +44,30 @@ export const CretaceousInferior = () => {
     (era) => era.period === "Cretaceous Inferior"
   );
 
-  const dinosaursInfo = inferiorCretaceousData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!inferiorCretaceousData || !inferiorCretaceousData.dinosaurs[0]) {
+    console.error('No dinosaur data found for Cretaceous Inferior period');
+    return null;
+  }
+
+  // Create the DinosaurModels with progress data
+  const dinosaurs = inferiorCretaceousData.dinosaurs.map((dino) => {
+    return createDinosaurModel(dino, progress);
+  });
+
+  // Create the GalleryModel
+  const galleryModel = new GalleryModel(
+    dinosaurs,
+    "jurassic-superior",
+    "cretaceous-medium",
+    customStyles,
+    "/assets/img/dinosaurs/cr-1-",
+    "/assets/img/dinosaurs/skeleton/skeleton-cr-1-",
+    "cretaceous",
+    "Inferior"
+  );
+
+  // Create the SubPeriodModel
+  const subPeriod = new SubPeriodModel("Cretaceous Inferior", dinosaurs);
 
   const handleTransitionEnd = () => {
     setShowTransition(false);
@@ -66,16 +81,7 @@ export const CretaceousInferior = () => {
           onTransitionEnd={handleTransitionEnd} 
         />
       )}
-      <Gallery
-        previousPage="jurassic-superior"
-        nextPage="cretaceous-medium"
-        customStyles={customStyles}
-        imagePrefix="/assets/img/dinosaurs/cr-1-"
-        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-1-"
-        dinosaursInfo={dinosaursInfo}
-        era="cretaceous"
-        period="Inferior"
-      />
+      <Gallery model={galleryModel} />
     </>
   );
 };
