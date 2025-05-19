@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import styles from "./TemplateImageTopRight.module.css";
 import bookStyles from "../../Book.module.css";
 
