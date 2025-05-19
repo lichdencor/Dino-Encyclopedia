@@ -1,22 +1,24 @@
 import styles from "./TemplateImageTopRight.module.css";
 import bookStyles from "../../Book.module.css";
 
-type TemplateImageTopRightProps = {
-    imageTopRightSrc: string;
+type TemplateImageRightBottomProps = {
     upperText: string;
+    imageTopRightSrc: string;
     lowerText: string;
 }
 
-export const TemplateImageTopRight = ({imageTopRightSrc, upperText, lowerText} : TemplateImageTopRightProps) => {
+export const TemplateImageBottomRight = ({ upperText, imageTopRightSrc, lowerText} : TemplateImageRightBottomProps) => {
     return (
         <div className={bookStyles.page}>
+            <p className={styles.subtitle}>BEHAVIOUR</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
-            <img src={imageTopRightSrc} alt="" className={styles["image-right"]} />
-             <div className={`${styles.text} ${styles['text-lower']}`}>{lowerText}</div>
-            <p className={styles["page-number"]}>n</p>
+            <div className={styles["container-image"]}>
+                <img src="/public/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
+                <img src={imageTopRightSrc} alt="" className={styles["image-right"]} />
+            </div>
+            <div className={`${styles.text} ${styles['text-lower']}`}>{lowerText}</div>
         </div>
     );
 };
 
-export default TemplateImageTopRight;
-           
+export default TemplateImageBottomRight;

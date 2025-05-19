@@ -14,10 +14,20 @@ export const TemplateImageBottomLeftAndTopRight = ({ upperText, imageBottomLeftS
         <div className={bookStyles.page}>
             <p className={styles.subtitle}>FEEDING</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
-            <img src={imageBottomLeftSrc} alt="" className={styles["image-bottom-left"]} />
+
+            <div className={styles["container-image-bottom-left"]}>
+                <img src="/public/assets/img/books/frame-book-small.png" alt="frame" className={styles["image-frame"]} />
+                <img src={imageBottomLeftSrc} alt="" className={styles["image-bottom-left"]} />
+            </div>
+            
             <div className={styles["container-food"]}><p>{foodName}</p></div>
             <div className={`${styles.text} ${styles['text-lower']}`}>{lowerText}</div>
-            <img src={imageTopRightSrc} alt="" className={styles["image-top-right"]} />
+
+            <div className={styles["container-image-top-right"]}>
+                <img src="/public/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
+                <img src={imageTopRightSrc} alt="" className={styles["image-top-right"]} />
+            </div>
+            
         </div>
     );
 };

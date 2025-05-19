@@ -1,9 +1,13 @@
-.image-right {
+.subtitle {
+    font-family: "MedusaGothic";
+    margin-left: 4%;
     width: 47%;
-    height: 90%;
-    position: absolute;
-    bottom: 5%;
-    left: 2.5vw;
+    font-size: 0.9vw;
+    letter-spacing: 0.2vw;
+    margin-top: 4%;
+    color: rgb(91, 88, 84);
+    margin-bottom: 0.8vw;
+    border-top: 3px solid rgb(133, 133, 107);
 }
 
 .text {
@@ -14,22 +18,40 @@
     letter-spacing: 0.07vw;
     font-size: 0.84vw;
     margin: 4%;
-    margin-top: 0%;
-    margin-left: 57%;
     text-indent: 1.5vw;
 }
 
 .text-upper {
     margin-top: 0%;
-    width: 48%;
+    width: 47%;
 }
 
 .text-lower {
-    margin-top: 0%;
-    margin-left: 30%;
-    width: 65%;
+    border-top: 5px double rgb(133, 133, 107);
+    margin-top: -3%;
+    width: 90%;
+    padding-top: 2%;
 }
 
-.page-number {
-    font-family: "Lato";
+.container-image {
+    position: absolute;
+    width: 40%;
+    height: 72%;
+    right: 2vw;
+    top: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-frame {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image-right {
+    width: 95%;
+    height: 98%;
 }

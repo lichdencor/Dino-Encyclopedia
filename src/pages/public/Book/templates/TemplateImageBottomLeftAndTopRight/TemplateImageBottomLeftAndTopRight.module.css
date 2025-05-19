@@ -57,21 +57,38 @@
     width: 65%;
 }
 
-.image-bottom-left,
-.image-top-right {
-    position: absolute;
+.container-image-bottom-left,
+.container-image-top-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-top-right {
+.container-image-top-right {
+    position: absolute;
     width: 40%;
     height: 65%;
     right: 2vw;
     top: 2vw;
 }
 
-.image-bottom-left {
+.container-image-bottom-left {
+    position: absolute;
     width: 23%;
     height: 38%;
     bottom: 1.5vw;
     left: 2vw;
+}
+
+.image-frame {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image-top-right,
+.image-bottom-left {
+    width: 95%;
+    height: 98%;
 }

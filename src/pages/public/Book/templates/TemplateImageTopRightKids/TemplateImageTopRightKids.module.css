@@ -1,0 +1,27 @@
+.text {
+    font-family: "Lato";
+    text-align: justify;
+    line-height: 2.2vh;
+    font-weight: light;
+    letter-spacing: 0.07vw;
+    font-size: 0.84vw;
+    margin: 4%;
+    margin-top: 0%;
+    margin-left: 57%;
+    text-indent: 1.5vw;
+}
+
+.text-upper {
+    margin-top: 0%;
+    width: 48%;
+}
+
+.text-lower {
+    margin-top: 0%;
+    margin-left: 30%;
+    width: 65%;
+}
+
+.page-number {
+    font-family: "Lato";
+}
