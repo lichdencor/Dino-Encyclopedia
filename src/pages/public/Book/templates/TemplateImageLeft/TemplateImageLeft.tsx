@@ -13,7 +13,7 @@ export const TemplateImageLeft = ({ imageLeftSrc, title, text }: TemplateImageLe
     return (
         <div className={bookStyles.page}>
             <p className={styles.title}>{title}</p>
-            <p className={styles.subtitle}>CHARACTERISTICS</p>
+            <p className={styles.subtitle}>HATCHING</p>
             <img src={imageLeftSrc} alt="" className={styles["image-left"]} />
             <div className={styles.text}>{text}</div>
         </div>
