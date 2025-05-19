@@ -1,0 +1,78 @@
+.timerContainer {
+    width: 100%;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.timerBar {
+    width: 80%;
+    height: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(244, 213, 166, 0.6);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.timerProgress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #372715, #f4d5a6, #7b664d, #f4d5a6);
+    transition: width 0.1s linear;
+    opacity: 0.5;
+}
+
+.timerText {
+    color: white;
+    font-family: "MedusaGothic";
+    font-size: 1.2rem;
+    letter-spacing: 0.1vw;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.timeRunningOut .timerProgress {
+    background: linear-gradient(135deg, #8B0000, #ff4444, #8B0000, #ff4444);
+    animation: pulse 1s infinite;
+}
+
+.timeRunningOut .timerText {
+    color: #ff4444;
+    animation: blink 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+} 

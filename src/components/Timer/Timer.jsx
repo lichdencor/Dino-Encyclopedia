@@ -22,12 +22,7 @@ function Timer() {
       <div className={styles.timeDisplay}>
         {formatTime(time)}
       </div>
-      <div className={styles.timelineContainer}>
-        <div 
-          className={`${styles.timelineProgress} ${isWarning ? styles.warning : ''}`}
-          style={{ width: `${timePercentage}%` }}
-        />
-      </div>
+  
     </div>
   );
 }
