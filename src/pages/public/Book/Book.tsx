@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import { Nav } from "../../../components";
 import styles from "./Book.module.css";
 
@@ -16,7 +16,12 @@ enum BookType {
     templateImageBottomRight = "templateImageBottomRight"
 }
 
-export const Book = ({book}) => {
+type BookProps = {
+    book: any; // Puedes reemplazar `any` por el tipo correcto de tu libro si lo tienes
+    setCurrentProgress: React.Dispatch<React.SetStateAction<number>>;
+  };
+  
+  export const Book = ({ book, setCurrentProgress }: BookProps) => {
     const [bookPages, setBookPages] = useState(book.pages);
     const pagesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -42,20 +47,21 @@ export const Book = ({book}) => {
 
             if (pageIndex === -1) return;
 
+            // Página PAR -> deshacer vuelta
             if ((pageIndex + 1) % 2 === 0) {
                 page.classList.remove(styles.flipped);
                 const previousPage = pagesArray[pageIndex - 1] as HTMLElement | undefined;
                 previousPage?.classList.remove(styles.flipped);
-                console.log("pageIndex", pageIndex);
-                console.log(previousPage?.classList);
+                setCurrentProgress(prev => Math.max(prev - 1, 0));
             } else {
+                // Página IMPAR -> pasar página
                 page.classList.add(styles.flipped);
                 const nextPage = pagesArray[pageIndex + 1] as HTMLElement | undefined;
                 nextPage?.classList.add(styles.flipped);
-                console.log("pageIndex", pageIndex);
-                console.log(nextPage?.classList);
+                setCurrentProgress(prev => Math.min(prev + 1, bookPages.length));
             }
         };
+
         container.addEventListener("click", handlePageClick);
 
         return () => {
@@ -67,11 +73,11 @@ export const Book = ({book}) => {
         <div className={styles.book}>
             <div id="pages" className={styles.pages} ref={pagesContainerRef}>
                 <div className={`${styles.page} ${styles.frontPage}`}>
-                    <img src={book.image} className={styles.bookImage}/>
+                    <img src={book.image} className={styles.bookImage} />
                     <p className={styles.bookTitle}>{book.title}</p>
                 </div>
                 {bookPages.map((page, i) => {
-                    switch(page.type){
+                    switch (page.type) {
                         case BookType.templateImageBottomLeftAndTopRight:
                             return (<TemplateImageBottomLeftAndTopRight upperText={page.upperText} foodName={page.foodName} imageBottomLeftSrc={page.imageBottomLeftSrc} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImageLeft:
@@ -79,13 +85,13 @@ export const Book = ({book}) => {
                         case BookType.templateImageBottomRight:
                             return (<TemplateImageBottomRight upperText={page.upperText} imageBottomRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImageBottomRight:
-                            return (<TemplateImageTopRight upperText={page.upperText} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText}/>);
+                            return (<TemplateImageTopRight upperText={page.upperText} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
                         default:
-                            return (<TemplateImageBottomLeft upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} lowerText={page.lowerText}/>);
+                            return (<TemplateImageBottomLeft upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} lowerText={page.lowerText} />);
                     }
                 })}
                 <div className={`${styles.page} ${styles.backPage}`}>
-                    <img src={book.image} className={styles.bookImage}/>
+                    <img src={book.image} className={styles.bookImage} />
                 </div>
             </div>
         </div>

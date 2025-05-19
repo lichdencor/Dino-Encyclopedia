@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Nav } from "../../../components";
 import styles from "./Library.module.css";
 import Book from "../Book/Book.tsx";
@@ -315,12 +315,17 @@ const books = [
     }
 ];
 
+const currentBook = books[0];
+const pagesCount = currentBook.pages.length/2;
+
 export const Library = () => {
+    const [currentProgress, setCurrentProgress] = useState(0);
+
     return (
         <div className={styles.libraryContainer}>
             <Nav />
-            <Book book={books[0]} />
-            {/* <BookProgress></BookProgress> */}
+            <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
+      <BookProgress pages={pagesCount} progress={currentProgress} />
         </div>
     );
 };
