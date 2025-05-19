@@ -1,6 +1,7 @@
 import React from 'react';
-import PuzzleCard from '../PuzzleCard/PuzzleCard';
+import PuzzleCard from '../PuzzleCard/PuzzleCard.tsx';
 import styles from './PuzzleMenu.module.css';
+import { usePuzzle } from '../../context/Puzzle/PuzzleContext';
 
 interface Puzzle {
   id: number;
@@ -77,6 +78,15 @@ const puzzles = [
 ];
 
 const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
+  const { handleLevel } = usePuzzle();
+
+  const handlePuzzleAndLevel = (puzzle: Puzzle, difficulty: 'easy' | 'medium' | 'hard') => {
+    if (handleLevel) {
+      handleLevel(puzzle.id, difficulty);
+      onPuzzleSelect(puzzle);
+    }
+  };
+
   return (
     <div className={styles.puzzleMenu}>
       <div className={styles.puzzlesGrid}>
@@ -84,7 +94,7 @@ const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
           <PuzzleCard 
             key={puzzle.id} 
             puzzle={puzzle}
-            onClick={() => onPuzzleSelect(puzzle)}
+            onClick={(difficulty) => handlePuzzleAndLevel(puzzle, difficulty)}
           />
         ))}
       </div>

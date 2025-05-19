@@ -8,12 +8,14 @@ interface PuzzleCardProps {
     logoPuzzle: string;
     difficultysLogo: string[];
   };
-  onClick: () => void;
+  onClick: (difficulty: 'easy' | 'medium' | 'hard') => void;
 }
 
 const PuzzleCard: React.FC<PuzzleCardProps> = ({ puzzle, onClick }) => {
+  const difficulties: ('easy' | 'medium' | 'hard')[] = ['easy', 'medium', 'hard'];
+
   return (
-    <div className={styles.puzzleCard} onClick={onClick}>
+    <div className={styles.puzzleCard}>
       <div className={styles.imageContainer}>
         <img 
           src={puzzle.logoPuzzle} 
@@ -22,16 +24,21 @@ const PuzzleCard: React.FC<PuzzleCardProps> = ({ puzzle, onClick }) => {
         />
         <div className={styles.overlay} />
       </div>
+      <h3 className={styles.title}>{puzzle.name}</h3>
       <div className={styles.content}>
-        <h3 className={styles.title}>{puzzle.name}</h3>
         <div className={styles.difficultyContainer}>
           {puzzle.difficultysLogo.map((logo, index) => (
-            <img
+            <button
               key={index}
-              src={logo}
-              alt={`Dificultad ${index + 1}`}
-              className={styles.difficultyIcon}
-            />
+              onClick={() => onClick(difficulties[index])}
+              className={styles.difficultyButton}
+            >
+              <img
+                src={logo}
+                alt={`Dificultad ${difficulties[index]}`}
+                className={styles.difficultyIcon}
+              />
+            </button>
           ))}
         </div>
       </div>

@@ -39,13 +39,15 @@ export const PuzzleProvider = ({ children }) => {
   const [selectedPuzzleId, setSelectedPuzzleId] = useState(null);
   const [time, setTime] = useState(DIFFICULTY_LEVELS['easy'].time);
 
-  // Agregamos un handler personalizado para seleccionar puzzle
-  const handlePuzzleSelection = useCallback((puzzleId) => {
+  // Handler para seleccionar nivel y puzzle
+  const handleLevel = useCallback((puzzleId, selectedDifficulty) => {
     setSelectedPuzzleId(puzzleId);
-    setTime(DIFFICULTY_LEVELS[difficulty].time);
+    setDifficulty(selectedDifficulty);
+    setTime(DIFFICULTY_LEVELS[selectedDifficulty].time);
     setIsComplete(false);
     setShowTimeoutMessage(false);
-  }, [difficulty]);
+    setResetCounter(prev => prev + 1);
+  }, []);
 
   // Función para obtener la imagen del puzzle según la dificultad
   const getPuzzleImage = useCallback((puzzleId, difficulty) => {
@@ -54,8 +56,6 @@ export const PuzzleProvider = ({ children }) => {
       medium: '5_8',
       hard: '7_12'
     };
-
-    console.log(`public/assets/img/puzzles/puzzle-${puzzleId}/puzzle-${puzzleId}-${imageSuffix[difficulty]}.png`);
     return `public/assets/img/puzzles/puzzle-${puzzleId}/puzzle-${puzzleId}-${imageSuffix[difficulty]}.png`;
   }, []);
 
@@ -63,14 +63,6 @@ export const PuzzleProvider = ({ children }) => {
   const getCompletedImage = useCallback((puzzleId) => {
     return `public/assets/img/puzzles/puzzle-${puzzleId}/puzzle-${puzzleId}.${puzzleId === 2 ? 'jpeg' : 'jpg'}`;
   }, []);
-
-  // Efecto para resetear el tiempo cuando cambia el puzzle seleccionado
-  useEffect(() => {
-    setTime(DIFFICULTY_LEVELS[difficulty].time);
-    setIsComplete(false);
-    setShowTimeoutMessage(false);
-    setResetCounter(prev => prev + 1);
-  }, [selectedPuzzleId, difficulty]);
 
   // Efecto para el timer
   useEffect(() => {
@@ -180,7 +172,6 @@ export const PuzzleProvider = ({ children }) => {
   }, [difficulty]);
 
   const handleCompletePuzzle = useCallback(() => {
-    // Colocar cada pieza en su posición correcta
     setPieces(prevPieces => 
       prevPieces.map(piece => ({
         ...piece,
@@ -189,12 +180,9 @@ export const PuzzleProvider = ({ children }) => {
         isDragging: false
       }))
     );
-    
-    // Marcar como completo
     setIsComplete(true);
   }, []);
 
-  // Handler para cambiar dificultad
   const handleDifficultyChange = useCallback((e) => {
     const newDifficulty = e.target.value;
     setTime(DIFFICULTY_LEVELS[newDifficulty].time);
@@ -230,9 +218,11 @@ export const PuzzleProvider = ({ children }) => {
     showTimeoutMessage,
     handleTimeoutClose,
     elapsedTime,
-    setSelectedPuzzleId: handlePuzzleSelection,
+    handleLevel,
     getPuzzleImage,
     getCompletedImage,
+    selectedPuzzleId,
+    setSelectedPuzzleId
   };
 
   return (
