@@ -4,9 +4,9 @@ import styles from "./Book.module.css";
 
 import TemplateOnlyText, { TemplateImageBottomLeft } from "./templates/TemplateImageBottomLeft/TemplateImageBottomLeft.tsx";
 import TemplateImageLeft from "./templates/TemplateImageLeft/TemplateImageLeft.tsx";
-import TemplateImageRightTop, { TemplateImageBottomRight } from "./templates/TemplateImageBottomRight/TemplateImageBottomRight.tsx";
+import TemplateImageRightTop, { TemplateImageBottomRight } from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
 import TemplateImageBottomLeftAndTopRight from "./templates/TemplateImageBottomLeftAndTopRight/TemplateImageBottomLeftAndTopRight.tsx";
-import TemplateImageTopRight from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
+import TemplateImageTopRight from "./templates/TemplateImageTopRightKids/TemplateImageTopRightKids.tsx";
 
 enum BookType {
     templateImageBottomLeftAndTopRight = "templateImageBottomLeftAndTopRight",
@@ -76,16 +76,17 @@ type BookProps = {
                     <img src={book.image} className={styles.bookImage} />
                     <p className={styles.bookTitle}>{book.title}</p>
                 </div>
+                {/* <div className={styles["middle-line"]}></div> */}
                 {bookPages.map((page, i) => {
                     switch (page.type) {
                         case BookType.templateImageBottomLeftAndTopRight:
                             return (<TemplateImageBottomLeftAndTopRight upperText={page.upperText} foodName={page.foodName} imageBottomLeftSrc={page.imageBottomLeftSrc} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImageLeft:
-                            return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} text={page.text} />);
+                            return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} subtitle={page.subtitle} text={page.text} />);
                         case BookType.templateImageBottomRight:
-                            return (<TemplateImageBottomRight upperText={page.upperText} imageBottomRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
+                            return (<TemplateImageBottomRight upperText={page.upperText} imageTopRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImageBottomRight:
-                            return (<TemplateImageTopRight upperText={page.upperText} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
+                            return (<TemplateImageTopRight upperText={page.upperText} imageTopRightKidsSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
                         default:
                             return (<TemplateImageBottomLeft upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} lowerText={page.lowerText} />);
                     }

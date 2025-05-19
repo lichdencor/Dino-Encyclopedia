@@ -27,7 +27,7 @@
 
 .pages {
   width: 90vw;
-  height: 33vw;
+  height: 68vh;
   position: relative;
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -35,7 +35,7 @@
   justify-content: center;
   align-items: center;
   background-color: blue;
-  margin-bottom: 4.5vw;
+  margin-bottom: 14vh;
 }
 
 .page {
@@ -48,7 +48,7 @@
   transform-style: preserve-3d;
   cursor: pointer;
   user-select: none;
-  background-image: url(/public/assets/img/books/old-page-2.jpg);
+  background-image: url(/public/assets/img/books/old-page-2.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

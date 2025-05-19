@@ -41,10 +41,25 @@
     text-indent: 1.5vw;
 }
 
-.image-left {
+.container-image {
     width: 47%;
     height: 90%;
     position: absolute;
     bottom: 5%;
     left: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-frame {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image-left {
+    width: 95%;
+    height: 98%;
 }
