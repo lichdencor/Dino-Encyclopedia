@@ -1,14 +1,28 @@
 .puzzleMenu {
-  background: beige;
-  width: 80%;
+  width: 60%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: transparent;
+  margin-top: 0;
+  position: relative;
+}
+
+.puzzlesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 1000px;
+  padding: 1rem;
+  place-items: center;
+  margin: 0 auto;
 }
 
 .puzzleMenu h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: white;
   font-size: 2.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -18,7 +32,7 @@
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  font-size: "MedusaGothic";
+  font-family: "MedusaGothic";
 }
 
 @keyframes fadeIn {
@@ -32,14 +46,34 @@
   }
 }
 
+/* Tablets */
+@media (max-width: 1024px) {
+  .puzzlesGrid {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 1.2rem;
+    max-width: 800px;
+  }
+  
+  .puzzleMenu {
+    width: 80%;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .puzzlesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: minmax(160px, 1fr);
+    gap: 1rem;
     padding: 0.5rem;
+    max-width: 400px;
+  }
+
+  .puzzleMenu {
+    width: 90%;
   }
 
   .puzzleMenu h1 {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
 } 
