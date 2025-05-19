@@ -25,8 +25,8 @@ interface MemoDynMenuProps {
 const memoryGames: MemoryGame[] = [
   {
     id: 1,
-    name: "Memodyn Básico",
-    image: "/assets/img/memorama/basic.jpg",
+    name: "Básico",
+    image: "assets/img/cards/8.png",
     gridSize: 14,
     difficulties: {
       easy: { name: "Fácil", time: 5 },
@@ -36,8 +36,8 @@ const memoryGames: MemoryGame[] = [
   },
   {
     id: 2,
-    name: "Memodyn Intermedio",
-    image: "/assets/img/memorama/intermediate.jpg",
+    name: "Intermedio",
+    image: "assets/img/cards/15.png",
     gridSize: 20,
     difficulties: {
       easy: { name: "Fácil", time: 6 },
@@ -47,8 +47,8 @@ const memoryGames: MemoryGame[] = [
   },
   {
     id: 3,
-    name: "Memodyn Avanzado",
-    image: "/assets/img/memorama/advanced.jpg",
+    name: "Avanzado",
+    image: "assets/img/cards/1.png",
     gridSize: 30,
     difficulties: {
       easy: { name: "Fácil", time: 8 },
@@ -60,32 +60,37 @@ const memoryGames: MemoryGame[] = [
 
 const MemoDynMenu: React.FC<MemoDynMenuProps> = ({ onGameSelect }) => {
   return (
-    <div className={styles.memoDynMenu}>
-      <div className={styles.gamesGrid}>
+    <div className={styles['memo-dyn-menu']}>
+      <div className={styles['games-grid']}>
         {memoryGames.map((game) => (
-          <div key={game.id} className={styles.gameCard}>
-            <img src={game.image} alt={game.name} className={styles.gameImage} />
-            <div className={styles.gameInfo}>
+          <div key={game.id} className={styles['game-card']}>
+            <div className={styles['game-image']}>
+              <img src={game.image} alt={game.name} />
+            </div>
+            <div className={styles['game-info']}>
               <h3>{game.name}</h3>
-              <div className={styles.difficultyContainer}>
-                <div 
-                  className={styles.difficultyOption} 
+              <div className={styles['difficulty-container']}>
+                <button 
+                  className={styles['difficulty-option']} 
                   onClick={() => onGameSelect({ game, difficulty: 'easy' })}
+                  title="Fácil"
                 >
-                  <img src="/assets/img/puzzles/dificultad/incomplete.png" alt="Fácil" />
-                </div>
-                <div 
-                  className={styles.difficultyOption}
+                  <img src="assets/img/puzzles/dificultad/incomplete.png" alt="Fácil" />
+                </button>
+                <button 
+                  className={styles['difficulty-option']}
                   onClick={() => onGameSelect({ game, difficulty: 'medium' })}
+                  title="Medio"
                 >
-                  <img src="/assets/img/puzzles/dificultad/incomplete.png" alt="Medio" />
-                </div>
-                <div 
-                  className={styles.difficultyOption}
+                  <img src="assets/img/puzzles/dificultad/incomplete.png" alt="Medio" />
+                </button>
+                <button 
+                  className={styles['difficulty-option']}
                   onClick={() => onGameSelect({ game, difficulty: 'hard' })}
+                  title="Difícil"
                 >
-                  <img src="/assets/img/puzzles/dificultad/incomplete.png" alt="Difícil" />
-                </div>
+                  <img src="assets/img/puzzles/dificultad/incomplete.png" alt="Difícil" />
+                </button>
               </div>
             </div>
           </div>

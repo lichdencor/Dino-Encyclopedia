@@ -5,49 +5,339 @@
 /*}*/
 
 .memoDyn-container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 100vh;
+  width: 100vw;
+  height: calc(100vh - 12vh);
+  margin-top: 12vh;
+  background-image: url(/assets/img/bg/rockBg.png);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-top: 12vh;
+  overflow: hidden;
+  padding: 1.5rem;
 }
 
 .game-header {
+  width: 85%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 98vw;
-  margin-bottom: 2rem;
+  padding: 0.75rem;
+  margin: 0 auto 0.5rem auto;
+  border-radius: 8px;
 }
 
 .game-info {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: auto;
 }
 
 .game-info h2 {
-  color: #2c3e50;
+  color: white;
+  font-family: "MedusaGothic";
+  font-size: 1.5rem;
   margin: 0;
-  font-size: 2rem;
+  letter-spacing: 0.2vw;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
 }
 
 .difficulty-info {
-  color: #666;
-  margin: 0.5rem 0 0 0;
-  font-size: 1.1rem;
+  color: white;
+  font-family: "Lato";
+  font-size: 1rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
 }
 
 .timer {
-  background: #2c3e50;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 8px;
   font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem 0;
+  margin: 0;
   font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-right: 2rem;
+}
+
+.back-button {
+  padding: 0.8rem 0.5rem;
+  width: 6rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #ff1744;
+  color: white;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #d50000;
+  transform: translateY(-2px);
+}
+
+.cardcontainer {
+  width: 85%;
+  height: 75%;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: -0.5rem auto 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Grids según el tamaño */
+.grid-14 {
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid-20 {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-30 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+/* Estilos de las cartas */
+.card {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+/* Tamaños específicos según el grid */
+.grid-14 .card {
+  max-width: 140px;
+  max-height: 140px;
+}
+
+.grid-20 .card {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.grid-30 .card {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+  background-image: url(/assets/img/cards/back.png);
+  background-size: contain;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Ajustamos el tamaño de fondo para todas las cartas volteadas */
+[class^="card-"]:not(.card-front) {
+  background-size: contain;
+  background-color: white;
+  background-position: center;
+}
+
+.card-0 {
+  background-image: url(/assets/img/cards/1.png);
+}
+
+.card-1 {
+  background-image: url(/assets/img/cards/2.png);
+}
+
+.card-2 {
+  background-image: url(/assets/img/cards/3.png);
+}
+
+.card-3 {
+  background-image: url(/assets/img/cards/4.png);
+}
+
+.card-4 {
+  background-image: url(/assets/img/cards/5.png);
+}
+
+.card-5 {
+  background-image: url(/assets/img/cards/6.png);
+}
+
+.card-6 {
+  background-image: url(/assets/img/cards/7.png);
+}
+
+.card-7 {
+  background-image: url(/assets/img/cards/8.png);
+}
+
+.card-8 {
+  background-image: url(/assets/img/cards/9.png);
+}
+
+.card-9 {
+  background-image: url(/assets/img/cards/10.png);
+}
+
+.card-10 {
+  background-image: url(/assets/img/cards/11.png);
+}
+
+.card-11 {
+  background-image: url(/assets/img/cards/12.png);
+}
+
+.card-12 {
+  background-image: url(/assets/img/cards/13.png);
+}
+
+.card-13 {
+  background-image: url(/assets/img/cards/14.png);
+}
+
+.card-14 {
+  background-image: url(/assets/img/cards/15.png);
+}
+
+.pairs-counter {
+  color: white;
+  font-family: "Lato";
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  .grid-14 .card {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .grid-20 .card {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .grid-30 .card {
+    max-width: 85px;
+    max-height: 85px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardcontainer {
+    gap: 0.75rem;
+  }
+
+  .grid-14 .card {
+    max-width: 85px;
+    max-height: 85px;
+  }
+
+  .grid-20 .card {
+    max-width: 75px;
+    max-height: 75px;
+  }
+
+  .grid-30 .card {
+    max-width: 65px;
+    max-height: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardcontainer {
+    gap: 0.5rem;
+  }
+
+  .grid-14 .card {
+    max-width: 75px;
+    max-height: 75px;
+  }
+
+  .grid-20 .card {
+    max-width: 65px;
+    max-height: 65px;
+  }
+
+  .grid-30 .card {
+    max-width: 55px;
+    max-height: 55px;
+  }
+}
+
+.menu-container {
+  width: 100vw;
+  height: 88vh;
+  margin-top: 12vh;
+  background-image: url(/assets/img/bg/rockBg.png);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.game-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+  position: relative;
+  margin-top: -1rem;
+  justify-content: space-between;
+  min-height: 0;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-over-message {
@@ -74,222 +364,10 @@
   }
 }
 
-.back-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-  background-color: #2980b9;
-}
-
-.cardcontainer {
-  margin: 2rem auto;
-  max-width: 90vw;
-  display: grid;
-  gap: 15px;
-  place-items: center;
-}
-
-/* Grid específico para cada tamaño */
-.grid-14 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.grid-20 {
-  grid-template-columns: repeat(10, 1fr);
-  max-width: 98vw;
-  gap: 10px;
-}
-
-.grid-30 {
-  grid-template-columns: repeat(10, 1fr);
-  max-width: 98vw;
-  gap: 10px;
-}
-
-.card {
-  width: 15vh;
-  height: 20vh;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  background-size: contain;
-  background-position: center;
-}
-
-.card:hover {
-  transform: scale(1.1);
-}
-
-.card-front {
-  background-image: url(/public/assets/img/cards/back.png);
-  background-size: cover;
-}
-
-.card-0 {
-  background-image: url(/public/assets/img/cards/1.png);
-  background-size: cover;
-}
-
-.card-1 {
-  background-image: url(/public/assets/img/cards/2.png);
-  background-size: cover;
-}
-
-.card-2 {
-  background-image: url(/public/assets/img/cards/3.png);
-  background-size: cover;
-}
-
-.card-3 {
-  background-image: url(/public/assets/img/cards/4.png);
-  background-size: cover;
-}
-
-.card-4 {
-  background-image: url(/public/assets/img/cards/5.png);
-  background-size: cover;
-}
-
-.card-5 {
-  background-image: url(/public/assets/img/cards/6.png);
-  background-size: cover;
-}
-
-.card-6 {
-  background-image: url(/public/assets/img/cards/7.png);
-  background-size: cover;
-}
-
-.card-7 {
-  background-image: url(/public/assets/img/cards/8.png);
-  background-size: cover;
-}
-
-.card-8 {
-  background-image: url(/public/assets/img/cards/9.png);
-  background-size: cover;
-}
-
-.card-9 {
-  background-image: url(/public/assets/img/cards/10.png);
-  background-size: cover;
-}
-
-.card-10 {
-  background-image: url(/public/assets/img/cards/11.png);
-  background-size: cover;
-}
-
-.card-11 {
-  background-image: url(/public/assets/img/cards/12.png);
-  background-size: cover;
-}
-
-.card-12 {
-  background-image: url(/public/assets/img/cards/13.png);
-  background-size: cover;
-}
-
-.card-13 {
-  background-image: url(/public/assets/img/cards/14.png);
-  background-size: cover;
-}
-
-.card-14 {
-  background-image: url(/public/assets/img/cards/15.png);
-  background-size: cover;
-}
-
 .wins-counter {
   text-align: center;
   font-size: 1.25rem;
   color: #2c3e50;
   margin-top: 2rem;
   width: 100%;
-}
-
-@media (max-width: 1024px) {
-  .grid-14 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .grid-20 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .grid-30 {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .card {
-    width: 11vh;
-    height: 16vh;
-  }
-}
-
-@media (max-width: 768px) {
-  .cardcontainer {
-    max-width: 95vw;
-    gap: 10px;
-  }
-
-  .grid-14 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .grid-20 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .grid-30 {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .card {
-    width: 10vh;
-    height: 15vh;
-  }
-
-  .game-header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    max-width: 90vw;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .grid-14,
-  .grid-20,
-  .grid-30 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card {
-    width: 10vh;
-    height: 16vh;
-  }
-
-  .game-header {
-    max-width: 95vw;
-  }
-}
-
-.menu-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background-color: #1a1a1a;
 }

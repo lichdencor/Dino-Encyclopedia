@@ -1,102 +1,146 @@
-.memoDynMenu {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #1a1a1a;
-    min-height: 100vh;
+.memo-dyn-menu {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: transparent;
+    padding: 2rem;
 }
 
 .title {
-    text-align: center;
+    margin-bottom: 3rem;
     color: white;
-    margin-bottom: 4rem;
     font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+    background-image: url(/public/assets/img/landing-page/title-bg.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: "MedusaGothic";
 }
 
-.gamesGrid {
-    display: flex;
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 2rem;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 1rem;
+    margin: 0 auto;
 }
 
-.gameCard {
-    background: #2a2a2a;
+.game-card {
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 300px;
-    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
 }
 
-.gameCard:hover {
+.game-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
 }
 
-.gameImage {
+.game-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 180px;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.gameInfo {
-    padding: 1.5rem;
+.game-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.gameInfo h3 {
-    margin: 0 0 0.5rem 0;
+.game-info {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.game-info h3 {
+    margin: 0;
     color: #ffffff;
     font-size: 1.25rem;
+    font-family: "MedusaGothic";
+    letter-spacing: 0.1vw;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
-.gameInfo p {
+.game-info p {
     margin: 0.5rem 0;
     color: #b3b3b3;
     font-size: 1rem;
 }
 
-.difficultyContainer {
+.difficulty-container {
     display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    gap: 0.5rem;
-}
-
-.difficultyOption {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0;
+    padding: 0.5rem;
+}
+
+.difficulty-option {
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.difficultyOption:hover {
+.difficulty-option:hover {
+    transform: translateY(-2px);
+}
+
+.difficulty-option:active {
+    transform: translateY(0);
+}
+
+.difficulty-option img {
+    width: 35px;
+    height: 35px;
+    transition: all 0.2s ease;
+    filter: brightness(1.2);
+}
+
+.difficulty-option:hover img {
     transform: scale(1.1);
+    filter: brightness(1.4);
 }
 
-.difficultyOption img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.25rem;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+/* Ocultamos el texto */
+.difficulty-option span {
+    display: none;
 }
 
-.difficultyOption span {
-    font-size: 0.8rem;
-    color: #b3b3b3;
-}
-
-.backButton {
+.back-button {
     padding: 0.75rem 1.5rem;
     background: #e74c3c;
     border: none;
@@ -107,26 +151,43 @@
     transition: background 0.3s ease;
 }
 
-.backButton:hover {
+.back-button:hover {
     background: #c0392b;
 }
 
+/* Tablets */
 @media (max-width: 1024px) {
-    .gamesGrid {
-        flex-wrap: wrap;
+    .games-grid {
+        grid-template-columns: repeat(2, 300px);
+        gap: 2rem;
+    }
+
+    .game-card {
+        height: 350px;
+    }
+
+    .game-image {
+        height: 180px;
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-    .gamesGrid {
-        gap: 1rem;
+    .games-grid {
+        grid-template-columns: 300px;
+        gap: 2rem;
     }
-    
-    .gameCard {
-        width: 280px;
+
+    .game-card {
+        height: 350px;
     }
-    
+
+    .game-image {
+        height: 180px;
+    }
+
     .title {
         font-size: 2rem;
+        margin-bottom: 2rem;
     }
 } 

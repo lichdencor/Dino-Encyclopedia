@@ -23,7 +23,6 @@ const playSound = async (src: string) => {
     }
 };
 
-
 export class MemoDyn extends Component<{}, MemoDynState> {
     private model: MemoDynModel;
     private controller: MemoDynController;
@@ -85,11 +84,13 @@ export class MemoDyn extends Component<{}, MemoDynState> {
         const { selectedGame, showTransition, showTips, timeLeft, gameOver, wins, cardStates, cardOrder } = this.state;
 
         return (
-            <div>
+            <>
                 <Nav />
                 {!selectedGame ? (
                     <div className="menu-container">
-                        <MemoDynMenu onGameSelect={this.controller.handleGameSelect} />
+                        <div className="gamesContainer">
+                            <MemoDynMenu onGameSelect={this.controller.handleGameSelect} />
+                        </div>
                     </div>
                 ) : (
                     <div className="memoDyn-container">
@@ -99,7 +100,7 @@ export class MemoDyn extends Component<{}, MemoDynState> {
                                 puzzleName={selectedGame.game.name}
                             />
                         ) : (
-                            <>
+                            <div className="game-content">
                                 <div className="game-header">
                                     <div className="game-info">
                                         <h2>{selectedGame.game.name}</h2>
@@ -112,28 +113,33 @@ export class MemoDyn extends Component<{}, MemoDynState> {
                                         Volver al Menú
                                     </button>
                                 </div>
-                                {gameOver && (
-                                    <div className="game-over-message">
-                                        {wins === Math.floor(selectedGame.game.gridSize / 2) ? "¡Ganaste!" : "¡Se acabó el tiempo!"}
+
+                                <div className="game-area">
+                                    {gameOver && (
+                                        <div className="game-over-message">
+                                            {wins === Math.floor(selectedGame.game.gridSize / 2) ? "¡Ganaste!" : "¡Se acabó el tiempo!"}
+                                        </div>
+                                    )}
+                                    
+                                    <div className={`cardcontainer grid-${selectedGame.game.gridSize}`}>
+                                        {cardStates.map((state, index) => (
+                                            <div
+                                                key={index}
+                                                className={`card ${state === "front" ? "card-front" : `card-${cardOrder[index]}`}`}
+                                                onClick={() => this.controller.handleCardClick(index)}
+                                            />
+                                        ))}
                                     </div>
-                                )}
-                                <div className={`cardcontainer grid-${selectedGame.game.gridSize}`}>
-                                    {cardStates.map((state, index) => (
-                                        <div
-                                            key={index}
-                                            className={`card ${state === "front" ? "card-front" : `card-${cardOrder[index]}`}`}
-                                            onClick={() => this.controller.handleCardClick(index)}
-                                        />
-                                    ))}
+
+                                    <div className="pairs-counter">
+                                        Pares encontrados: {wins} de {Math.floor(selectedGame.game.gridSize / 2)}
+                                    </div>
                                 </div>
-                                <div className="wins-counter">
-                                    Pares encontrados: {wins} de {Math.floor(selectedGame.game.gridSize / 2)}
-                                </div>
-                            </>
+                            </div>
                         )}
                     </div>
                 )}
-            </div>
+            </>
         );
     }
 }
