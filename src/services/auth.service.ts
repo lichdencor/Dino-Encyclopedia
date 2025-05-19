@@ -23,7 +23,7 @@ interface ApiError {
   status?: number;
 }
 
-const API_URL = 'http://localhost:8000/api/v1';
+const API_URL = 'https://dino-encyclopedia-backend-production.up.railway.app/api/v1';
 
 const getErrorMessage = (error: ApiError): string => {
   // Errores específicos de Firebase/Auth
@@ -111,6 +111,9 @@ export const authService = {
 
   async postRegistro(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> {
     try {
+
+      console.log(userData);
+
       const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
