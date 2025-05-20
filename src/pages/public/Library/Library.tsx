@@ -340,7 +340,7 @@ export const Library = () => {
     const [currentProgress, setCurrentProgress] = useState(0);
 
     return (
-        <div className={styles.libraryContainer}>
+        <div className={styles["containter-library"]}>
             <Nav />
             <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
       <BookProgress pages={pagesCount} progress={currentProgress} />
