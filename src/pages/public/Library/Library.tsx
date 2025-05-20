@@ -90,7 +90,7 @@ const books = [
             {
                 type: BookType.templateImageBottomLeftAndTopRight,
                 upperText: "Coelophysis possessed a narrow skull and lightly built jaws equipped with recurved, serrated teeth optimized for grasping small vertebrate prey. High gape angles enabled rapid snapping motions, while cervical flexibility allowed vertical and lateral head swings. Muscular attachment sites indicate powerful adductor muscles for forceful jaw closure. Feeding kinematics inferred from comparative analogs suggest rapid strikes aided by keen visual acuity. Cranial fenestrae reduced bone mass without compromising structural integrity during feeding sequences Biomechanical models outline strike velocity rates."
-,
+                ,
                 foodName: "beetles",
                 imageBottomLeftSrc: "./public/assets/img/books/adults-2/coelophysis/coelophysis-food-1.png",
                 imageTopRightSrc: "./public/assets/img/books/adults-2/coelophysis/coelophysis-food-2.png",
@@ -164,7 +164,7 @@ const books = [
             {
                 type: BookType.templateImageBottomLeftAndTopRight,
                 upperText: "Microceratus developed a robust rostral beak and flexible jaw articulation to browse low-growing vegetation with minimal energy expenditure. Coronoid process hypertrophy provided enhanced muscle leverage for precise cropping motions. Mandibular kinesis reduced stress during repetitive biting sequences. Comparative jaw mechanics models highlight optimized bite force distribution across the dentary. Elongated cervical musculature supported sustained head movements during foraging bouts in dense undergrowth. Osteohistological data suggest rapid bone deposition under feeding loads."
-,
+                ,
                 foodName: "Cycads",
                 imageBottomLeftSrc: "./public/assets/img/books/adults-2/microceratus/microceratus-food-1.png",
                 imageTopRightSrc: "./public/assets/img/books/adults-2/microceratus/microceratus-food-2.png",
@@ -181,7 +181,7 @@ const books = [
             {
                 type: BookType.templateImageBottomRight,
                 upperText: "Microceratus likely formed small social groups, as shown by bonebeds in fluvial deposits. Trackway sets exhibit parallel strides, implying coordinated locomotion for vigilance. Display behaviors may have included lateral body inflation, tail flicking, and head-bobbing conveying dominance or mating intent. Seasonal resource fluctuations drove periodic migrations along floodplain corridors to exploit grazing areas. Territorial calls, inferred from hyoid anatomy, facilitated group cohesion across habitats. Nest site selection appears opportunistic, with relocations following sediment deposition patterns. Evidence of healed bite marks suggests intra or interspecific confrontations, reflecting territorial disputes. Agile limb proportions and acceleration patterns in trackways underscore predator avoidance as a primary behavioral driver. Enlarged orbital and auditory features imply advanced sensory communication capabilities. New fossil data."
-,
+                ,
                 imageBottomRightSrc: "./public/assets/img/books/adults-2/microceratus/microceratus-behaviour.png",
                 lowerText: "Microceratus bone histology reveals lines of arrested growth indicating seasonal metabolic modulation. CT imaging exposes expanded sinus cavities within nasal passages, suggesting enhanced olfactory capabilities."
 
@@ -328,22 +328,77 @@ const books = [
                 imageBottomRightSrc: "./public/assets/img/books/adults-2/tyrannosaurus/tyrannosaurus-behaviour.png",
                 lowerText: "Tyrannosaurus rex lived during the Maastrichtian stage of the Late Cretaceous, about 68–66 Ma, right up to the K–Pg extinction event. Its name, meaning “tyrant lizard king,” reflects its position at the top of the food chain."
             }
-
         ]
     }
 ];
 
 const currentBook = books[0];
-const pagesCount = currentBook.pages.length/2;
+const pagesCount = currentBook.pages.length / 2;
 
 export const Library = () => {
     const [currentProgress, setCurrentProgress] = useState(0);
 
     return (
-        <div className={styles["containter-library"]}>
+        <div className={styles["container-page"]}>
             <Nav />
-            <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
-      <BookProgress pages={pagesCount} progress={currentProgress} />
+            <div className={styles["container-library"]}>
+                {/* BOOK 1 */}
+                <div className={styles["container-book"]}>
+                    <h1 className={styles["title"]}>TITLE</h1>
+                    <p className={styles["summary"]}>Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum.</p>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+                {/* BOOK 2 */}
+                <div className={styles["container-book"]}>
+                    <h1 className={styles["title"]}></h1>
+                    <p className={styles["summary"]}></p>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+                {/* BOOK 3 */}
+                <div className={styles["container-book"]}>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["title"]}></div>
+                    <div className={styles["summary"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+                {/* BOOK 4 */}
+                <div className={styles["container-book"]}>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["title"]}></div>
+                    <div className={styles["summary"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+                {/* BOOK 5 */}
+                <div className={styles["container-book"]}>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["title"]}></div>
+                    <div className={styles["summary"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+                {/* BOOK 6 */}
+                <div className={styles["container-book"]}>
+                    <div className={styles["book"]}></div>
+                    <div className={styles["title"]}></div>
+                    <div className={styles["summary"]}></div>
+                    <div className={styles["container-progress"]}>
+                        <div className={styles["progress-bar"]}></div>
+                    </div>
+                </div>
+            </div>
+            {/* <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
+            <BookProgress pages={pagesCount} progress={currentProgress} /> */}
         </div>
     );
 };

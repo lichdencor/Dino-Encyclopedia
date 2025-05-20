@@ -1,8 +1,90 @@
-.container-library {
+.container-page {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/public/assets/img/bg/rockBg.png);
+    background-position: bottom;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.container-library {
+    width: 90%;
+    height: 75%;
+    margin: 0 auto;
+    margin-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    background-color: blue;
+    gap: 10px; /* solo si quieres espacio entre libros */
+    justify-content: space-between; /* opcional si usas gap */
+    row-gap: 15%;
+}
+
+.container-book {
+    width: calc((100% - 200px) / 3); /* resta el total del gap entre columnas */
+    height: 95%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.book {
     width: 100%;
-    height: 100vh;
+    height: 80%;
+    background-color: purple;
+    background-image: url(/public/assets/img/books/book-base.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+    transition: all 800ms ease-in-out;
+}
+
+.book:hover {
+    transform: scale(103%);
+}
+
+h1,
+p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+    font-size: 1.8vw;
+    font-family: "MedusaGothic";
+    background-color: yellow;
+    letter-spacing: 0.5vw;
+    border-bottom: 5px solid rgb(187, 187, 151);
+    background-image: url(/public/assets/img/landing-page/title-bg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.summary {
+    width: 100%;
+    height: 13%;
+    font-family: "Lato";
+    font-size: 1vw;
+    background-color: violet;
+    border-bottom: 5px double rgb(187, 187, 151);
+}
+
+.container-progress {
+    height: 8%;
+    width: 100%;
+    background-color: aqua;
 }
