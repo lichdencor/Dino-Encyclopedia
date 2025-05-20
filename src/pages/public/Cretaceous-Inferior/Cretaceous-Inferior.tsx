@@ -51,7 +51,7 @@ export const CretaceousInferior = () => {
 
   // Create the DinosaurModels with progress data
   const dinosaurs = inferiorCretaceousData.dinosaurs.map((dino) => {
-    return createDinosaurModel(dino, progress);
+    return createDinosaurModel({ ...dino, id: dino.name }, progress);
   });
 
   // Create the GalleryModel

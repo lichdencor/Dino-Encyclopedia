@@ -72,12 +72,11 @@ export class MapModel {
             }
         };
         this.state.periods = this.initializePeriods();
-        debugger
         this.initialize();
     }
 
     private initializePeriods(): PeriodModel[] {
-        const createDinosaur = (dinoData: any, era: string, period: string): DinosaurModel => {
+        const createDinosaur = (dinoData: DinosaurInfo & { id: string }, era: string, period: string): DinosaurModel => {
             // Get progress data for this dinosaur with proper null checks
             const progress = this.state.progress;
             const dinosaur = createDinosaurModel(dinoData, progress);
@@ -94,7 +93,7 @@ export class MapModel {
             const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino, "Triassic", periodName))
+                period.dinosaurs.map(dino => createDinosaur({ ...dino, id: dino.name }, "Triassic", periodName))
             );
         });
         periods.push(new PeriodModel("Triassic", triassicPeriods));
@@ -104,7 +103,7 @@ export class MapModel {
             const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino, "Jurassic", periodName))
+                period.dinosaurs.map(dino => createDinosaur({ ...dino, id: dino.name }, "Jurassic", periodName))
             );
         });
         periods.push(new PeriodModel("Jurassic", jurassicPeriods));
@@ -114,7 +113,7 @@ export class MapModel {
             const periodName = period.period.split(" ")[1];
             return new SubPeriodModel(
                 period.period,
-                period.dinosaurs.map(dino => createDinosaur(dino, "Cretaceous", periodName))
+                period.dinosaurs.map(dino => createDinosaur({ ...dino, id: dino.name }, "Cretaceous", periodName))
             );
         });
         periods.push(new PeriodModel("Cretaceous", cretaceousPeriods));
@@ -200,7 +199,6 @@ export class MapModel {
         if (!periodData?.dinosaurs) {
             return 0;
         }
-        debugger
         const dinosaur = periodData.dinosaurs.find(d => d?.id === dinoName);
         return dinosaur?.scanProgress || 0;
     }

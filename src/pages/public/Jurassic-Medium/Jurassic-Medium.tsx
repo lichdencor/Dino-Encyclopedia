@@ -40,7 +40,7 @@ export const JurassicMedium = () => {
 
   // Create the DinosaurModels with progress data
   const dinosaurs = mediumJurassicData.dinosaurs.map((dino) => {
-    return createDinosaurModel(dino, progress);
+    return createDinosaurModel({ ...dino, id: dino.name }, progress);
   });
 
   // Create the GalleryModel

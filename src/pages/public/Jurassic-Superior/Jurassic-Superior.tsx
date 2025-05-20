@@ -51,7 +51,7 @@ export const JurassicSuperior = () => {
 
   // Create the DinosaurModels with progress data
   const dinosaurs = superiorJurassicData.dinosaurs.map((dino) => {
-    return createDinosaurModel(dino, progress);
+    return createDinosaurModel({ ...dino, id: dino.name }, progress);
   });
 
   // Create the GalleryModel

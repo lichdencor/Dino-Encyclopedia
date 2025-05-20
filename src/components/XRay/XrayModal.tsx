@@ -98,7 +98,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const updateDinosaurProgress = (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
-      (p) => p.period === `${era} ${period}`
+      (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
     );
 
     if (periodData && selectedDinosaur !== null) {
@@ -114,25 +114,26 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         ...progress,
         galleries: [{
           ...progress.galleries[0],
-          [eraKey]: progress.galleries[0][eraKey].map(p => 
-            p.period === `${era} ${period}`
-              ? {
-                  ...p,
-                  dinosaurs: p.dinosaurs.map((d, idx) =>
-                    idx === selectedDinosaur
-                      ? {
-                          id: d.id,
-                          name: d.name,
-                          discovered: currentProgress >= 100,
-                          scanProgress: Math.min(Math.round(currentProgress), 100),
-                          visibleInfo,
-                          elapsedTime: currentElapsedTime,
-                          puzzlePieceFound
-                        }
-                      : d
-                  )
-                }
-              : p
+          [eraKey]: progress.galleries[0][eraKey].map(p => {
+                return p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
+                    ? {
+                      ...p,
+                      dinosaurs: p.dinosaurs.map((d, idx) =>
+                          idx === selectedDinosaur
+                              ? {
+                                id: d.id,
+                                name: d.id,
+                                discovered: currentProgress >= 100,
+                                scanProgress: Math.min(Math.round(currentProgress), 100),
+                                visibleInfo,
+                                elapsedTime: currentElapsedTime,
+                                puzzlePieceFound
+                              }
+                              : d
+                      )
+                    }
+                    : p;
+              }
           )
         }],
         minigames: progress.minigames
