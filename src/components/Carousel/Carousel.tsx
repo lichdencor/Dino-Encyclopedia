@@ -6,7 +6,7 @@ const TOTAL_CARDS = 6;
 
 interface CarouselProps {
   children: React.ReactNode;
-  links: [string];
+  links: string[];
   accessText: string;
 }
 
@@ -39,6 +39,8 @@ export function Carousel({ children, accessText, links }: CarouselProps) {
     navigate(route);
   };
 
+  console.log(children, 'children')
+
   return (
     <div id="carousel-container" className={styles["carousel__container"]}>
       <div className={styles["carousel__container--left"]}>
@@ -54,16 +56,14 @@ export function Carousel({ children, accessText, links }: CarouselProps) {
 
       <div className={styles["carousel"]}>
         {React.Children.map(children,(child,index)=> {
-
-          console.log(child);
-
           return(
-          <div className={`${getClass(index)} ${styles["carousel__item"]}`}>
+          <div className={getClass(index)}>
             {child}
             <button
             className={styles["carousel__visit-btn"]}
             onClick={() => navigatePage(links[index])}
           >
+            {accessText}
           </button>
           </div> )
           }

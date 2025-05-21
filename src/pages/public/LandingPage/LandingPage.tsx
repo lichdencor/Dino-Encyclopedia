@@ -23,8 +23,9 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
         super(props);
         this.model = new LandingPageModel();
         this.controller = new LandingPageController(this.model, props.navigate);
-        this.state = this.model.getState();
         this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+        this.controller.getAllGalleries();
+        this.state = this.model.getState();
     }
 
     componentWillUnmount() {
@@ -36,10 +37,7 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
     }
     render() {
         const modalPages = this.controller.getModalPages();
-        this.controller.getAllGalleries();
         const state = this.state as LandingPageState;
-
-        console.log(state.galleries, 'ACAAAA')
 
         return (
             <div className="homePage">
@@ -51,9 +49,11 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                         <div className="header-subtitle">Interactive Paleontology Museum</div>
                     </div>
                     <div className="periods-container">
-                     
-                        
-
+                        <Carousel links={state.galleries.map((gallery) => gallery.link)} accessText="Ver más" >
+                            {state.galleries.map((gallery, index) => (
+                                <GalleryFrame key={index} title={gallery.period} image={gallery.image} />
+                            ))}
+                        </Carousel>
                         <div id="ticket-purchase-container" className="ticket-purchase-container">
                             <div className="ticketImgContainer">
                                 <img className="ticketBackground" src="assets/img/alert/alertBorder.png"

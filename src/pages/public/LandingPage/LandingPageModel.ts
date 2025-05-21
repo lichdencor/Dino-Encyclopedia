@@ -38,13 +38,24 @@ export class LandingPageModel {
     }
 
     getAllGalleries(){
-        const getAllGalleries: any[] = [];
-        Object.values(this.state.galleries[0]).forEach((eraArray: any)=> {
-            eraArray.forEach((item: any) => {
-                getAllGalleries.push(item);
-            })
-        } )
+        const getAllGalleries: Gallery[] = [];
+        const eras = ['era_triassic', 'era_jurassic', 'era_cretaceous'];
+        
+        eras.forEach(era => {
+            const eraData = this.state.galleriesData[0][era];
+            if (Array.isArray(eraData)) {
+                eraData.forEach(period => {
+                    getAllGalleries.push({
+                        link: period.link,
+                        image: period.image,
+                        period: period.period
+                    });
+                });
+            }
+        });
+
         this.state.galleries = getAllGalleries;
+        this.notifyListeners();
     }
 
     getCarouselLinks(){        
