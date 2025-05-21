@@ -50,9 +50,6 @@ export function Carousel({ children, accessText, links }: CarouselProps) {
         >
         </button>
       </div>
-      {/* CAROUSEL ITEM */}
-
-
 
       <div className={styles["carousel"]}>
         {React.Children.map(children,(child,index)=> {

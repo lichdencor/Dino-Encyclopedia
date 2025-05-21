@@ -49,7 +49,7 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                         <div className="header-subtitle">Interactive Paleontology Museum</div>
                     </div>
                     <div className="periods-container">
-                        <Carousel links={state.galleries.map((gallery) => gallery.link)} accessText="Ver más" >
+                        <Carousel links={state.galleries.map((gallery) => gallery.link)} accessText="Visit" >
                             {state.galleries.map((gallery, index) => (
                                 <GalleryFrame key={index} title={gallery.period} image={gallery.image} />
                             ))}
