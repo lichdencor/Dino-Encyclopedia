@@ -1,0 +1,52 @@
+.gallery__frame {
+	transition: 2s ease-in-out;
+	filter: brightness(60%);
+	position: relative;
+}
+
+.gallery__item-title {
+    font-size: 0.6vw;
+	font-family: "MedusaGothic";
+	margin-top: 29%;
+	height: 12%;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(235, 234, 221);
+	line-height: 1vw;
+	letter-spacing: 0.15vw;
+	z-index: 3;
+}
+
+.gallery__item-image{
+	position: absolute;
+	z-index: 2;
+	height: 100%;
+}
+
+
+/* .carousel__item--triassic-1 {
+	background-image: url(/assets/img/building-descriptions/tri-1.png);
+}
+
+.carousel__item--triassic-2 {
+	background-image: url(/assets/img/building-descriptions/tri-2.png);
+}
+
+.carousel__item--jurassic-1 {
+	background-image: url(/assets/img/building-descriptions/jur-1.png);
+}
+
+.carousel__item--jurassic-2 {
+	background-image: url(/assets/img/building-descriptions/jur-2.png);
+}
+
+.carousel__item--cretaceous-1 {
+	background-image: url(/assets/img/building-descriptions/cre-1.png);
+}
+
+.carousel__item--cretaceous-2 {
+	background-image: url(/assets/img/building-descriptions/cre-2.png);
+} */

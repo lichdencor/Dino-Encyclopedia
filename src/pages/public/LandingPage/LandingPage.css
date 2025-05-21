@@ -4,28 +4,31 @@ body {
 }
 
 .homePage {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url(/assets/img/landing-page/bg.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/assets/img/landing-page/bg.png);
+    background-position: bottom;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header {
-  /* background-color: green; */
-  height: 32vh;
-  width: 100vw;
-  margin: 0;
-  position: absolute;
-  top: 10vw;
-  display: flex;
-  flex-direction: column;
+.home-container {
+    width: 90%;
+    height: 75%;
+    margin: 0 auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
 }
+
 
 .ticket-purchase-container {
-  /* background-color: green; */
   position: absolute;
   width: 19vw;
   height: 10vw;
@@ -35,6 +38,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-color: green; */
 }
 
 .ticket-purchase-container .ticket:hover {
@@ -154,6 +158,7 @@ header {
   justify-content: center;
   text-align: center;
 }
+
 .homePage .modal-content {
   width: 98%;
   height: 98%;
@@ -274,20 +279,16 @@ header {
   /* background-color: rebeccapurple; */
 }
 
-.text {
-  font-family: "MedusaGothic";
-  width: 100%;
-  height: 40%;
-  /* background-color: beige; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.title-container {
+  width: 60%;
+  height: 20%;
+   font-family: "MedusaGothic";
+   /* background-color: pink; */
 }
 
 .header-title {
-  height: 75%;
-  width: 50%;
+  height: 65%;
+  width: 100%;
   /* background-color: aquamarine; */
   background-image: url(/assets/img/landing-page/title-bg.png);
   display: flex;
@@ -300,8 +301,7 @@ header {
 
 .header-subtitle {
   height: 15%;
-  width: 50%;
-  /* background-color: red; */
+  width: 100%;
   font-size: 0.8vw;
   letter-spacing: 0.3vw;
   color: rgb(171, 171, 160);
@@ -309,8 +309,8 @@ header {
   justify-content: center;
   align-items: center;
   cursor: default;
+  /* background-color: rebeccapurple; */
 }
-
 
 .gallery-name {
   width: 50%;
@@ -334,10 +334,6 @@ header {
   position: absolute;
   left: 45%;
   bottom: 3vh;
-}
-
-.periods-container {
-  padding-bottom: calc(90px + 8vh); /* Altura del banner (90px) + margen (4vh) * 2 */
 }
 
 

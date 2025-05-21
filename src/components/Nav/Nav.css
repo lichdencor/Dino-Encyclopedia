@@ -1,11 +1,9 @@
 nav {
   width: 100vw;
   height: 12vh;
-  position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: flex-end;
+  
   align-items: top;
   z-index: 999;
   font-family: "MedusaGothic", sans-serif;

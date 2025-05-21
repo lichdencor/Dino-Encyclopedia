@@ -14,6 +14,14 @@ export class LandingPageController {
         this.model.openModal();
     }
 
+    getAllGalleries(){
+        this.model.getAllGalleries();
+    }
+
+    getCarouselLinks() {
+        this.model.getCarouselLinks();
+    }
+
     handleCloseModal() {
         this.model.closeModal();
     }

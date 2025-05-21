@@ -1,16 +1,27 @@
 import { VirtualAssistantDialogue } from "../../../data/";
+import json from '../../../context/data/galleries_data.json'
+
+export interface Gallery {
+    link: string,
+    image: string,
+    period: string,
+}
 
 export interface LandingPageState {
     isVirtualAssistantOpen: boolean;
     modalCurrentPage: number;
     isTutorialOpen: boolean;
+    galleriesData: any;
+    galleries: Array<Gallery>
 }
 
 export class LandingPageModel {
     private state: LandingPageState = {
         isVirtualAssistantOpen: false,
         modalCurrentPage: 0,
-        isTutorialOpen: false
+        isTutorialOpen: false,
+        galleriesData: json['galleries'],
+        galleries: [],
     };
 
     private listeners: ((state: LandingPageState) => void)[] = [];
@@ -24,6 +35,20 @@ export class LandingPageModel {
         return () => {
             this.listeners = this.listeners.filter(l => l !== listener);
         };
+    }
+
+    getAllGalleries(){
+        const getAllGalleries: any[] = [];
+        Object.values(this.state.galleries[0]).forEach((eraArray: any)=> {
+            eraArray.forEach((item: any) => {
+                getAllGalleries.push(item);
+            })
+        } )
+        this.state.galleries = getAllGalleries;
+    }
+
+    getCarouselLinks(){        
+        return this.state.galleries.map((gallery: Gallery) => gallery.link)
     }
 
     private notifyListeners() {

@@ -3,6 +3,7 @@ import { Nav } from "../../../components";
 import styles from "./Library.module.css";
 import Book from "../Book/Book.tsx";
 import { BookProgress } from "../../../components/BookProgress/BookProgress.tsx";
+import { BookCover } from "../BookCover/BookCover.tsx";
 
 enum BookType {
     templateImageLeft = "templateImageLeft",
@@ -16,6 +17,8 @@ enum BookType {
 const books = [
     {
         title: "Book 1",
+        summary: "Summary",
+        progress: 60,
         image: "/assets/img/bg/base.png",
         pages: [
             // DINOSAUR 1 - Ankylosaurus
@@ -329,6 +332,46 @@ const books = [
                 lowerText: "Tyrannosaurus rex lived during the Maastrichtian stage of the Late Cretaceous, about 68–66 Ma, right up to the K–Pg extinction event. Its name, meaning “tyrant lizard king,” reflects its position at the top of the food chain."
             }
         ]
+    },
+    {
+        title: "Book 2",
+        summary: "Lorem ipsum",
+        progress: 60,
+        image: "/assets/img/bg/base.png",
+        pages: []
+
+    },
+    {
+        title: "Book 3",
+        summary: "Lorem ipsum",
+        progress: 60,
+        image: "/assets/img/bg/base.png",
+        pages: []
+
+    },
+    {
+        title: "Book 4",
+        summary: "Lorem ipsum",
+        progress: 60,
+        image: "/assets/img/bg/base.png",
+        pages: []
+
+    },
+    {
+        title: "Book 5",
+        summary: "Lorem ipsum",
+        progress: 60,
+        image: "/assets/img/bg/base.png",
+        pages: []
+
+    },
+    {
+        title: "Book 6",
+        summary: "Lorem ipsum",
+        progress: 60,
+        image: "/assets/img/bg/base.png",
+        pages: []
+
     }
 ];
 
@@ -339,64 +382,12 @@ export const Library = () => {
     const [currentProgress, setCurrentProgress] = useState(0);
 
     return (
+
         <div className={styles["container-page"]}>
             <Nav />
-            <div className={styles["container-library"]}>
-                {/* BOOK 1 */}
-                <div className={styles["container-book"]}>
-                    <h1 className={styles["title"]}>TITLE</h1>
-                    <p className={styles["summary"]}>Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum bla bla bla. Lorem ipsum factum.</p>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-                {/* BOOK 2 */}
-                <div className={styles["container-book"]}>
-                    <h1 className={styles["title"]}></h1>
-                    <p className={styles["summary"]}></p>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-                {/* BOOK 3 */}
-                <div className={styles["container-book"]}>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["title"]}></div>
-                    <div className={styles["summary"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-                {/* BOOK 4 */}
-                <div className={styles["container-book"]}>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["title"]}></div>
-                    <div className={styles["summary"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-                {/* BOOK 5 */}
-                <div className={styles["container-book"]}>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["title"]}></div>
-                    <div className={styles["summary"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-                {/* BOOK 6 */}
-                <div className={styles["container-book"]}>
-                    <div className={styles["book"]}></div>
-                    <div className={styles["title"]}></div>
-                    <div className={styles["summary"]}></div>
-                    <div className={styles["container-progress"]}>
-                        <div className={styles["progress-bar"]}></div>
-                    </div>
-                </div>
-            </div>
+            {books.map(book =>
+                <BookCover></BookCover>
+            )}
             {/* <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
             <BookProgress pages={pagesCount} progress={currentProgress} /> */}
         </div>

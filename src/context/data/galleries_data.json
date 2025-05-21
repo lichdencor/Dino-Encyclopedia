@@ -5,6 +5,8 @@
         {
           "name": "Triassic",
           "period": "Triassic Inferior",
+          "link": "/triassic-inferior",
+          "image": "/public/assets/img/building-descriptions/tri-1.png",          
           "dinosaurs": [
             {
               "name": "Postosuchus",
@@ -53,6 +55,8 @@
         {
           "name": "Triassic",
           "period": "Triassic Medium",
+          "link": "/triassic-medium",
+          "image": "/public/assets/img/building-descriptions/tri-2.png", 
           "dinosaurs": [
             {
               "name": "Shuvosaurus",
@@ -101,6 +105,8 @@
         {
           "name": "Triassic",
           "period": "Triassic Superior",
+          "link": "triassic-superior",
+          "image": "/public/assets/img/building-descriptions/tri-3.png", 
           "dinosaurs": [
             {
               "name": "Coelophysis",
@@ -151,6 +157,8 @@
         {
           "name": "Jurassic",
           "period": "Jurassic Inferior",
+          "link": "/jurassic-inferior",
+          "image": "/public/assets/img/building-descriptions/jur-1.png", 
           "dinosaurs": [
             {
               "name": "Dilophosaurus",
@@ -199,6 +207,8 @@
         {
           "name": "Jurassic",
           "period": "Jurassic Medium",
+          "link": "/jurassic-medium",
+          "image": "/public/assets/img/building-descriptions/jur-2.png", 
           "dinosaurs": [
             {
               "name": "Allosaurus",
@@ -247,6 +257,8 @@
         {
           "name": "Jurassic",
           "period": "Jurassic Superior",
+          "link": "/jurassic-superior",
+          "image": "/public/assets/img/building-descriptions/jur-3.png", 
           "dinosaurs": [
             {
               "name": "Brachiosaurus",
@@ -297,6 +309,8 @@
         {
           "name": "Cretaceous",
           "period": "Cretaceous Inferior",
+          "link": "/cretaceous-inferior",
+          "image": "/public/assets/img/building-descriptions/cre-1.png",
           "dinosaurs": [
             {
               "name": "Pachycephalosaurus",
@@ -345,6 +359,8 @@
         {
           "name": "Cretaceous",
           "period": "Cretaceous Medium",
+          "link": "/cretaceous-medium",
+          "image": "/public/assets/img/building-descriptions/cre-2.png",   
           "dinosaurs": [
             {
               "name": "Spinosaurus",
@@ -393,6 +409,8 @@
         {
           "name": "Cretaceous",
           "period": "Cretaceous Superior",
+          "link": "/cretaceous-superior",
+          "image": "/public/assets/img/building-descriptions/cre-3.png", 
           "dinosaurs": [
             {
               "name": "Triceratops",
