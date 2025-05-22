@@ -38,7 +38,7 @@
   /* background-color: blue; */
 }
 
-.page {
+/* .page {
   width: 50%;
   height: 100%;
   position: absolute;
@@ -53,10 +53,10 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 40px;
-}
+} */
 
 /* KIDS PAGE */
-/* .page {
+.page {
   width: 50%;
   height: 100%;
   position: absolute;
@@ -76,8 +76,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-    background-color: rgb(244, 255, 236);
-} */
+    background-color: rgb(220, 229, 255);
+}
 
 .page::before {
   content: '';
