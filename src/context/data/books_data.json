@@ -271,14 +271,13 @@
             "coverImage": "/public/assets/img/books/kids-2/book-cover-kids2.png",
             "pages": [
                 {
+                    "type": "templateImage",
+                    "image": "/public/assets/img/books/kids-2/1.png"
+                },
+                {
                     "type": "templateText",
                     "title": "1. Morning Inspiration",
                     "text": "Paletteo woke in his sunlit meadow, the golden sunrays warming his scales as dew sparkled on every blade of grass. As he yawned, he spotted a rainbow of wildflowers and felt a rush of excitement—today, he would finally try painting with his plate-brushes!"
-                    
-                },
-                {
-                    "type": "templateImage",
-                    "image": "/public/assets/img/books/kids-2/story-1.png"
                 },
                 {
                     "type": "templateText",
@@ -287,7 +286,11 @@
                 },
                 {
                     "type": "templateImage",
-                    "image": "/public/assets/img/books/kids-2/story-2.png"
+                    "image": "/public/assets/img/books/kids-2/2.png"
+                },
+                {
+                    "type": "templateImage",
+                    "image": "/public/assets/img/books/kids-2/3.png"
                 },
                 {
                     "type": "templateText",
@@ -295,8 +298,31 @@
                     "text": "At the pond’s edge, Paletteo experimented with the wider plates near his tail. He twirled and tapped, creating rippling waves on the water’s surface. The sunlight danced on his brushstrokes, making the glassy pond shimmer like a living painting."
                 },
                 {
+                    "type": "templateText",
+                    "title": "4. Forest Studio",
+                    "text": "Under a grand oak, Paletteo set up his easel on a fallen log. He listened to birdsong and let his plates glide over the paper, capturing patches of shadow and sunshine. Every page glowed with the forest’s magic, from the rustle of leaves to the flutter of butterflies."
+                },
+                {
                     "type": "templateImage",
-                    "image": "/public/assets/img/books/kids-2/story-3.png"
+                    "image": "/public/assets/img/books/kids-2/4.png"
+                },
+                {
+                    "type": "templateImage",
+                    "image": "/public/assets/img/books/kids-2/5.png"
+                },
+                {
+                    "type": "templateText",
+                    "title": "5. Dinosaur Friends",
+                    "text": "Drawn by the colorful flutter of Paletteo’s brushes, three friends arrived: Toby the triceratops, Bella the brontosaurus, and Rocco the raptor. They each took turns painting beside him, adding their own stripes, spots, and leafy patterns to a grand mural of friendship."
+                },
+                {
+                    "type": "templateText",
+                    "title": "6. Proud Exhibition",
+                    "text": "As the day ended, Paletteo hung all six paintings on branches between the trees. Lantern fireflies lit up each work, and his dino-friends cheered. Paletteo beamed—his plates weren’t just armor, they were the perfect brushes for a watercolor adventure."
+                },
+                {
+                    "type": "templateImage",
+                    "image": "/public/assets/img/books/kids-2/6.png"
                 }
             ]
         },

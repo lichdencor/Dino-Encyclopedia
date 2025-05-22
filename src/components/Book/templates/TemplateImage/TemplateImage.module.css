@@ -1,0 +1,34 @@
+.kids-page {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-image: url(/public/assets/img/books/old-page-2.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+}
+
+.page-content {
+    width: 90%;
+    height: 90%;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.page-number {
+    font-family: "Lato";
+}

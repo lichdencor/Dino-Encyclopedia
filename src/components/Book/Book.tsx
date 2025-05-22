@@ -1,18 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { Nav } from "../index.ts";
 import styles from "./Book.module.css";
 
-import TemplateOnlyText, { TemplateImageBottomLeft } from "./templates/TemplateImageBottomLeft/TemplateImageBottomLeft.tsx";
+import TemplateImage from "./templates/TemplateImage/TemplateImage.tsx";
+import TemplateText from "./templates/TemplateText/TemplateText.tsx";
 import TemplateImageLeft from "./templates/TemplateImageLeft/TemplateImageLeft.tsx";
-import TemplateImageRightTop, { TemplateImageBottomRight } from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
 import TemplateImageBottomLeftAndTopRight from "./templates/TemplateImageBottomLeftAndTopRight/TemplateImageBottomLeftAndTopRight.tsx";
-import TemplateImageTopRight from "./templates/TemplateImageTopRightKids/TemplateImageTopRightKids.tsx";
+import TemplateImageBottomRight from "./templates/TemplateImageTopRight/TemplateImageTopRight.tsx";
 
 enum BookType {
+    templateImage = "templateImage",
+    templateText = "templateText",
     templateImageBottomLeftAndTopRight = "templateImageBottomLeftAndTopRight",
     templateImageLeft = "templateImageLeft",
-    templateOnlyText = "templateOnlyText",
-    templateImageTopRight = "templateImageTopRight",
     templateImageBottomRight = "templateImageBottomRight"
 }
 
@@ -78,7 +77,6 @@ type BookProps = {
                     <img src={book.image} className={styles.bookImage} />
                     <p className={styles.bookTitle}>{book.title}</p>
                 </div>
-                {/* <div className={styles["middle-line"]}></div> */}
                 {bookPages.map((page, i) => {
                     switch (page.type) {
                         case BookType.templateImageBottomLeftAndTopRight:
@@ -87,10 +85,10 @@ type BookProps = {
                             return (<TemplateImageLeft imageLeftSrc={page.imageLeftSrc} title={page.title} subtitle={page.subtitle} text={page.text} />);
                         case BookType.templateImageBottomRight:
                             return (<TemplateImageBottomRight upperText={page.upperText} imageTopRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
-                        case BookType.templateImageBottomRight:
-                            return (<TemplateImageTopRight upperText={page.upperText} imageTopRightKidsSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
+                        case BookType.templateImage:
+                            return (<TemplateImage image={page.image} />);
                         default:
-                            return (<TemplateImageBottomLeft upperText={page.upperText} imageBottomLeftSrc={page.imageBottomLeftSrc} lowerText={page.lowerText} />);
+                            return (<TemplateText title={page.title} text={page.text} />);
                     }
                 })}
                 <div className={`${styles.page} ${styles.backPage}`}>

@@ -1,0 +1,51 @@
+.header {
+    width: 100%;
+    height: 30%;
+    background-image: url(/public/assets/img/books/kids-2/page-top.png);
+    background-size: 100% 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title {
+    width: 100%;
+    font-family: "Kids";
+    margin-top: -5%;
+    text-indent: 10%;
+    font-size: 3vw;
+    letter-spacing: 0.3vw;
+    color: rgb(92, 92, 59);
+}
+
+.text {
+    font-family: "Lato";
+    color: rgb(90, 90, 41);
+    width: 75%;
+    font-size: 1.2vw;
+    letter-spacing: 0.1vw;
+    text-align: center;
+    line-height: 2.5vw;
+    font-weight: normal;
+    margin-top: 15%;
+}
+
+.page-number {
+    height: 15%;
+    width: 15%;
+    background-image: url(/public/assets/img/books/kids-2/page-number.png);
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: "Lato";
+    color: rgb(90, 90, 41);
+    font-size: 1.2vw;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -5%;
+}
