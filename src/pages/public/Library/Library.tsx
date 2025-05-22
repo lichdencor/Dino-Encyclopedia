@@ -1,22 +1,9 @@
-import { /*useEffect,*/ /*useRef,*/ useState } from "react";
 import { Carousel, Nav } from "../../../components";
-import { Book } from "../../../components/Book/Book.tsx";
-import { BookProgress } from "../../../components/BookProgress/BookProgress.tsx";
 import { BookCover } from "../../../components/BookCover/BookCover.tsx";
 import styles from "./Library.module.css";
 import booksData from '../../../context/data/books_data.json';
 
-
-enum BookType {
-    templateImageLeft = "templateImageLeft",
-    templateImageBottomLeftAndTopRight = "templateImageBottomLeftAndTopRight",
-    templateOnlyText = "templateOnlyText",
-    templateImageBottomRight = "templateImageBottomRight",
-    templateImageTopRight = "templateImageTopRight"
-}
-
 export const Library = () => {
-    const [currentProgress, setCurrentProgress] = useState(0);
     const { books } = booksData;
 
     return (
@@ -44,10 +31,6 @@ export const Library = () => {
                     />
                 ))}
             </Carousel>
-
-
-            {/* <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
-            <BookProgress pages={pagesCount} progress={currentProgress} /> */}
         </div>
     );
 };
