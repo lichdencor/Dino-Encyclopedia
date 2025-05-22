@@ -30,6 +30,7 @@ import { AuthProvider, useAuth } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import { PublicGuard } from "./guard/PublicGuard";
+import { Reading } from "./pages/public/Reading/Reading";
 
 const AppRouter = () => {
   const { isAuthenticated } = useAuth();
@@ -78,6 +79,15 @@ const AppRouter = () => {
             <Library />
           </PublicGuard>
         } />
+
+        <Route
+          path="/reading/:bookId"
+          element={
+            <PublicGuard isAuthenticated={isAuthenticated}>
+              <Reading />
+            </PublicGuard>
+          }
+        />
 
         <Route path="/wallet" element={
           <PublicGuard isAuthenticated={isAuthenticated}>

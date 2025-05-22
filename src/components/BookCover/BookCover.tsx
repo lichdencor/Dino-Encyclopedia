@@ -3,7 +3,6 @@ import styles from "./BookCover.module.css";
 interface BookCoverProps {
     image: string;
     title: string;
-    summary: string;
 }
 
 export const BookCover = ({ image, title }: BookCoverProps) => {
