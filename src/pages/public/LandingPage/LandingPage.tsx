@@ -7,7 +7,6 @@ import { ProgressData } from "../../../services/progress/types.ts";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useProgress } from "../../../context/Progress/ProgressProvider.tsx";
 import { GalleryFrame } from "../../../components/GalleryFrame/GalleryFrame.tsx";
-import { Gallery } from "./LandingPageModel";
 
 interface LandingPageProps {
     progress: ProgressData;
@@ -35,6 +34,7 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
     handleStateChange(newState: LandingPageState) {
         this.setState(newState);
     }
+    
     render() {
         const modalPages = this.controller.getModalPages();
         const state = this.state as LandingPageState;

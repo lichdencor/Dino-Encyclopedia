@@ -1,9 +1,9 @@
 import { /*useEffect,*/ /*useRef,*/ useState } from "react";
-import { Nav } from "../../../components";
+import { Carousel, Nav } from "../../../components";
 import styles from "./Library.module.css";
 import Book from "../Book/Book.tsx";
 import { BookProgress } from "../../../components/BookProgress/BookProgress.tsx";
-import { BookCover } from "../BookCover/BookCover.tsx";
+import { BookCover } from "../../../components/BookCover/BookCover.tsx";
 
 enum BookType {
     templateImageLeft = "templateImageLeft",
@@ -375,8 +375,45 @@ const books = [
     }
 ];
 
+const bookCovers = [
+    {
+        title: "Book 1",
+        summary: "Lorem ipsum",
+        progress: 60,
+        link: "/triassic-inferior",
+        image: "/public/assets/img/books/kids-1/book-cover-kids1.png",
+    },
+    {
+        title: "Book 2",
+        summary: "Lorem ipsum",
+        progress: 60,
+        link: "/triassic-inferior",
+        image: "/public/assets/img/books/adults-1/book-cover-adults1.png",
+    },
+    {
+        title: "Book 3",
+        summary: "Lorem ipsum",
+        progress: 60,
+        link: "/triassic-inferior",
+        image: "/public/assets/img/books/kids-2/book-cover-kids2.png",
+    },
+    {
+        title: "Book 4",
+        summary: "Lorem ipsum",
+        progress: 60,
+        link: "/triassic-inferior",
+        image: "/public/assets/img/books/adults-2/book-cover-adults2.png",
+    },
+    {
+        title: "Book 5",
+        summary: "Lorem ipsum",
+        progress: 60,
+        link: "/triassic-inferior",
+        image: "/public/assets/img/books/adults-3/book-cover-adults3.png",
+    }
+]
+
 const currentBook = books[0];
-const pagesCount = currentBook.pages.length / 2;
 
 export const Library = () => {
     const [currentProgress, setCurrentProgress] = useState(0);
@@ -385,13 +422,54 @@ export const Library = () => {
 
         <div className={styles["container-page"]}>
             <Nav />
-            {books.map(book =>
-                <BookCover></BookCover>
-            )}
+            <Carousel
+                links={bookCovers.map(book => book.link)}
+                accessText="Read"
+                width={80}
+                height={80}
+                itemWidth={22}
+                itemHeight={70}
+                transformMain="translate(-50%, -37%) scale(1)"
+                transformLeft="translate(-163%, -36%) scale(0.9)"
+                transformRight="translate(68%, -37%) scale(0.9)"
+                arrowOffset={6}
+                visitBtnBottom={-5}
+            >
+                {bookCovers.map((book, index) => (
+                    <BookCover
+                        key={index}
+                        title={book.title}
+                        image={book.image}
+                        summary={book.summary}
+                    />
+                ))}
+            </Carousel>
+
+
             {/* <Book book={currentBook} setCurrentProgress={setCurrentProgress} />
             <BookProgress pages={pagesCount} progress={currentProgress} /> */}
         </div>
     );
 };
+
+// ._carousel__item_mpdh4_1 {
+//     height: 70%;
+//     width: 22%;
+// }
+
+// carousel-item--main
+// transform: translate(-50%, -37%) scale(1);
+
+// carousel-item-left
+// transform: translate(-163%, -36%) scale(0.9);
+
+// carousel-item-right
+// transform: translate(68%, -37%) scale(0.9);
+
+// carousel-arrow--right
+// right: 6%;
+
+// carousel-arrow--left
+// left: 6%;
 
 export default Library;
