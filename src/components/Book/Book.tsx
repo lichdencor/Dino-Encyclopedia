@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Nav } from "../../../components";
+import { Nav } from "../index.ts";
 import styles from "./Book.module.css";
 
 import TemplateOnlyText, { TemplateImageBottomLeft } from "./templates/TemplateImageBottomLeft/TemplateImageBottomLeft.tsx";

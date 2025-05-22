@@ -1,7 +1,7 @@
 import { /*useEffect,*/ /*useRef,*/ useState } from "react";
 import { Carousel, Nav } from "../../../components";
 import styles from "./Library.module.css";
-import Book from "../Book/Book.tsx";
+import Book from "../../../components/Book/Book.tsx";
 import { BookProgress } from "../../../components/BookProgress/BookProgress.tsx";
 import { BookCover } from "../../../components/BookCover/BookCover.tsx";
 
