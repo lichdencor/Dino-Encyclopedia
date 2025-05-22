@@ -7,12 +7,13 @@ type TemplateImageLeftDownProps = {
     subtitle: string;
     imageLeftSrc: string;
     text: string;
+    className: string;
 }
 
 
-export const TemplateImageLeft = ({ imageLeftSrc, title, subtitle, text }: TemplateImageLeftDownProps) => {
+export const TemplateImageLeft = ({ className, imageLeftSrc, title, subtitle, text }: TemplateImageLeftDownProps) => {
     return (
-        <div className={bookStyles.page}>
+        <div className={`${bookStyles.page} ${styles[className]}`}>
             <p className={styles.title}>{title}</p>
             <p className={styles.subtitle}>{subtitle}</p>
             <div className={styles["container-image"]}>

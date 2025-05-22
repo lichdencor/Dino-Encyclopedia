@@ -38,47 +38,7 @@
   /* background-color: blue; */
 }
 
-/* .page {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  transform-origin: 0 0;
-  transition: transform 1.4s;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  user-select: none;
-  background-image: url(/public/assets/img/books/old-page-2.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  border-radius: 40px;
-} */
-
-/* KIDS PAGE */
-.page {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  transform-origin: 0 0;
-  transition: transform 1.4s;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  user-select: none;
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  border-radius: 40px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-    background-color: rgb(220, 229, 255);
-}
-
+/* DEFAULT */
 .page::before {
   content: '';
   position: absolute;
@@ -147,4 +107,37 @@
 
 .page.flipped:nth-child(even)::before {
   background: rgba(0, 0, 0, 0);
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+
+/* adults-1 */
+/* .page {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-image: url(/public/assets/img/books/old-page-2.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+} */
+
+.cover {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 40px;
 }

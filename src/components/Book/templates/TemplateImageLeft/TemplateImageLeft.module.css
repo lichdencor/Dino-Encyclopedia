@@ -63,3 +63,48 @@
     width: 95%;
     height: 98%;
 }
+
+.adults-1{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-image: url(/public/assets/img/books/old-page-2.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+}
+
+.kids-2 {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgb(220, 229, 255);
+}
+
+.kids-1{
+
+}
+

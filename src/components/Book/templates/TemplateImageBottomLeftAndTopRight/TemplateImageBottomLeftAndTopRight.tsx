@@ -7,14 +7,14 @@ type TemplateImageBottomLeftAndTopRightProps = {
     imageTopRightSrc: string;
     upperText: string;
     lowerText: string;
+    className: string;
 }
 
-export const TemplateImageBottomLeftAndTopRight = ({ upperText, imageBottomLeftSrc, foodName, imageTopRightSrc, lowerText }: TemplateImageBottomLeftAndTopRightProps) => {
+export const TemplateImageBottomLeftAndTopRight = ({ className, upperText, imageBottomLeftSrc, foodName, imageTopRightSrc, lowerText }: TemplateImageBottomLeftAndTopRightProps) => {
     return (
-        <div className={bookStyles.page}>
-            <p className={styles.subtitle}>FEEDING</p>
+        <div className={`${bookStyles.page} ${styles[className]}`}>
+        <p className={styles.subtitle}>FEEDING</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
-
             <div className={styles["container-image-bottom-left"]}>
                 <img src="/public/assets/img/books/frame-book-small.png" alt="frame" className={styles["image-frame"]} />
                 <img src={imageBottomLeftSrc} alt="" className={styles["image-bottom-left"]} />

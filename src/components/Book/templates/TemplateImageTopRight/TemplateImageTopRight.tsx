@@ -5,11 +5,15 @@ type TemplateImageRightBottomProps = {
     upperText: string;
     imageTopRightSrc: string;
     lowerText: string;
+    className: string;
 }
 
-export const TemplateImageBottomRight = ({ upperText, imageTopRightSrc, lowerText} : TemplateImageRightBottomProps) => {
+export const TemplateImageBottomRight = ({ className, upperText, imageTopRightSrc, lowerText} : TemplateImageRightBottomProps) => {
+
+    console.log(className, 'from template image bottom right');
+
     return (
-        <div className={bookStyles.page}>
+        <div className={`${bookStyles.page} ${styles[className]}`}>
             <p className={styles.subtitle}>BEHAVIOUR</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
             <div className={styles["container-image"]}>

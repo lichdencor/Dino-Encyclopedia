@@ -4,11 +4,15 @@ import bookStyles from "../../Book.module.css";
 type TemplateText = {
     title: string;
     text: string;
+    className: string;
 }
 
-export const TemplateText = ({ title, text }: TemplateText) => {
+export const TemplateText = ({ className, title, text }: TemplateText) => {
+
+    console.log(className, 'from template text');
+
     return (
-        <div className={bookStyles.page}>
+        <div className={`${bookStyles.page} ${styles[className]}`}>
             <div className={styles.header}>
                 <p className={styles.title}>{title}</p>
             </div>
