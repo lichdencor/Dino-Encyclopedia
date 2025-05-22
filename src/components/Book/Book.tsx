@@ -25,6 +25,8 @@ type BookProps = {
     const [bookPages, setBookPages] = useState(book.pages);
     const pagesContainerRef = useRef<HTMLDivElement>(null);
 
+    console.log(bookPages)
+
     useEffect(() => {
         const container = pagesContainerRef.current;
         if (!container) return;
