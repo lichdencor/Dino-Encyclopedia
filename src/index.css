@@ -30,3 +30,35 @@ code {
   align-items: center;
   margin-right: 0.7vw;
 }
+
+button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "MedusaGothic";
+  font-weight: lighter;
+  letter-spacing: 0.2vw;
+  margin: 0 auto;
+  border: 5px double rgb(27, 1, 1);
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+  transition: all 1s ease-in-out;
+  filter: brightness(90%);
+  color: rgb(25, 24, 24);
+  transition: all 500ms ease-in-out;
+    /* border: 6px double rgb(126, 118, 105); */
+  /* box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); */
+}
+
+button:hover {
+  transform: scale(105%);
+}
+
+input {
+  width: 60%;
+  height: 18%;
+  border-radius: 5px;
+  border: none;
+  background: #ECEAD2;
+  font-family: "Lato";
+  margin-left: 5%;
+  margin-right: 10%;
+}

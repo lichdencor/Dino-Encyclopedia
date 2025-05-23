@@ -58,10 +58,10 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                             <div className="ticketImgContainer">
                                 <img className="ticketBackground" src="assets/img/alert/alertBorder.png"
                                     alt="ticket background" />
-                                <button className="ticket-wrapper"
+                                <div className="ticket-wrapper"
                                     onClick={() => this.controller.handleNavigateToStore()}>
                                     <img className="ticket" src="assets/img/ticket/ticket.png" alt="tickets" />
-                                </button>
+                                </div>
                             </div>
                             <span>¡Comprá tus entradas!</span>
                         </div>

@@ -118,11 +118,6 @@
   font-size: 1vw;
 }
 
-.inputGroup input:focus {
-  border-color: #4CAF50;
-  outline: none;
-}
-
 .submitButton:hover,
 .guestButton:hover {
   scale: 103%;

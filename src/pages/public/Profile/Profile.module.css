@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 /* PET CONTAINER START */
@@ -32,15 +32,6 @@
     justify-content: space-between;
     /* background-color: yellowgreen; */
 }
-
-@keyframes breathing-pet {
-    0%, 100% {
-      transform: scaleY(1) translateY(0) scaleX(-1);
-    }
-    50% {
-      transform: scaleY(1.02) scaleX(-1);
-    }
-  }
 
 .petContainer {
     width: 100%;
@@ -73,12 +64,13 @@
 .mailContainer {
     width: 100%;
     height: 17%;
-    background-color: #eae4c0;
-    border-radius: 7px;
-    border: 7px double rgb(45, 1, 1);
     display: flex;
     align-items: center;
     position: relative;
+    border-radius: 5px;
+    border: none;
+    background: #ECEAD2;
+    font-family: "Lato";
 }
 
 .nameContainer p,
@@ -95,45 +87,12 @@
     width: 2.5vw;
     height: 2.5vw;
     right: -3%;
-    background-color: rgb(44, 1, 1);
-    border-radius: 6px;
-    font-size: 0.8vw;
-    color: #eae4c0;
-    border: 6px double rgb(125, 118, 79);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 300ms ease-in-out;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-}
-
-.editNameBtn:hover,
-.editMailBtn:hover {
-    transform: scale(105%);
 }
 
 .walletAccessBtn {
     height: 30%;
     width: 40%;
-    background-color: rgb(44, 1, 1);
-    border-radius: 6px;
-    font-family: "MedusaGothic";
     font-size: 0.9vw;
-    color: #eae4c0;
-    border: 6px double rgb(125, 118, 79);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.3vw;
-    text-align: center;
-    font-weight: unset;
-    transition: all 300ms ease-in-out;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-}
-
-
-.walletAccessBtn:hover {
-    transform: scale(105%);
 }
 
 /* PET CONTAINER END */
@@ -167,16 +126,15 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     font-family: "MedusaGothic";
-    font-size: 0.9vw;
-    color: rgb(43, 23, 3);
+    font-size: 1.2vw;
+    color: rgb(233, 235, 195);
     display: flex;
     justify-content: center;
     align-items: center;
     letter-spacing: 0.3vw;
     text-align: center;
-    border: 4px double #5e4528;
-    background: linear-gradient(135deg,#5e4528, #f0eccd,#eae4c0, #5e4528);
     border-radius: 5px;
+    background-image: url(/public/assets/img/landing-page/title-bg.png);
 }
 
 .progressBarContainer {
@@ -207,24 +165,7 @@
 .fidelitySystemAccessBtn {
     width: 19%;
     height: 6%;
-    background-color: rgb(44, 1, 1);
-    border-radius: 6px;
-    font-family: "MedusaGothic";
     font-size: 0.8vw;
-    color: #eae4c0;
-    border: 6px double rgb(125, 118, 79);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.2vw;
-    text-align: center;
-    font-weight: unset;
-    transition: all 300ms ease-in-out;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-}
-
-.fidelitySystemAccessBtn:hover {
-    transform: scale(105%);
 }
 
 .achievementDescriptionContainer {
@@ -297,3 +238,15 @@
 }
 
 /* FIDEILTY SYSTEM END */
+
+@keyframes breathing-pet {
+
+    0%,
+    100% {
+        transform: scaleY(1) translateY(0) scaleX(-1);
+    }
+
+    50% {
+        transform: scaleY(1.02) scaleX(-1);
+    }
+}

@@ -91,19 +91,8 @@
 	position: absolute;
 	width: 2.5vw;
 	height: 2.5vw;
-	background-color: rgb(24, 1, 1);
-	border-radius: 6px;
-	font-size: 0.8vw;
-	color: #eae4c0;
-	border: 6px double rgb(125, 118, 79);
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 	bottom: -11%;
-	font-family: 'MedusaGothic';
-	letter-spacing: 0.2vw;
-	transition: all 1s ease-in-out;
 }
 
 .carousel__item--main:hover .carousel__visit-btn {
