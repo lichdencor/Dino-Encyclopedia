@@ -19,8 +19,8 @@
 	grid-template-columns: auto 100rem auto;
 	justify-content: space-between;
 	align-items: center;
-	/* background-color: red; */
 	margin: 0 auto;
+	/* background-color: red; */
 }
 
 .carousel__item {
