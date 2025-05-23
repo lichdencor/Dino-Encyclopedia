@@ -21,11 +21,10 @@
 
 .container-pet {
   position: absolute;
-  transition: left 0.3s ease;
+  transition: all 0.3s ease-in-out;
   z-index: 5;
   width: 4vw;
   height: 4vw;
-  margin-left: 1vw;
   background-image: url(/assets/img/frames/profile-frame.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -59,11 +58,11 @@
   width: 3vw;
   height: 3vw;
   z-index: 1;
+  position: relative;
 }
 
 /* ANIMATIONS */
 @keyframes breathing-pet {
-
   0%,
   100% {
     transform: scaleY(1) translateY(0);
