@@ -80,7 +80,6 @@ type BookProps = {
             <div id="pages" className={styles.pages} ref={pagesContainerRef}>
                 <div className={`${styles.frontPage} ${styles.page}`}>
                     <img src={book.frontImage} className={styles.bookImage} />
-                    <p className={styles.bookTitle}>{book.title}</p>
                 </div>
                 {bookPages.map((page: any, i: number) => {
                     switch (page.type) {
