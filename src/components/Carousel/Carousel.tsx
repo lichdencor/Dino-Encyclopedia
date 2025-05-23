@@ -15,6 +15,7 @@ interface CarouselProps {
   transformRight: string;   // ej. "translate(68%, -37%) scale(0.9)"
   arrowOffset: number;      // en %
   visitBtnBottom: number;   // en %, puede ser negativo
+  needHoverAnimation: boolean;
 }
 
 export function Carousel({
@@ -29,7 +30,8 @@ export function Carousel({
   transformLeft,
   transformRight,
   arrowOffset,
-  visitBtnBottom
+  visitBtnBottom,
+  needHoverAnimation = true,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(1);
   const navigate = useNavigate();
@@ -63,10 +65,10 @@ export function Carousel({
   };
 
   const getClass = (idx: number) => {
-    if (idx === currentIndex) return `${styles['carousel__item']} ${styles['carousel__item--main']}`;
-    if (idx === (currentIndex - 1 + TOTAL_CARDS) % TOTAL_CARDS) return `${styles['carousel__item']} ${styles['carousel__item--left']}`;
-    if (idx === (currentIndex + 1) % TOTAL_CARDS) return `${styles['carousel__item']} ${styles['carousel__item--right']}`;
-    return `${styles['carousel__item']} ${styles['carousel__item--hidden']}`;
+    if (idx === currentIndex) return `${styles['carousel__item']} ${styles['carousel__item--main']} ${!needHoverAnimation ? styles['carousel__item--disabled'] : ''}`;
+    if (idx === (currentIndex - 1 + TOTAL_CARDS) % TOTAL_CARDS) return `${styles['carousel__item']} ${styles['carousel__item--left']} ${!needHoverAnimation ? styles['carousel__item--disabled'] : ''}`;
+    if (idx === (currentIndex + 1) % TOTAL_CARDS) return `${styles['carousel__item']} ${styles['carousel__item--right']} ${!needHoverAnimation ? styles['carousel__item--disabled'] : ''}`;
+    return `${styles['carousel__item']} ${styles['carousel__item--hidden']} ${!needHoverAnimation ? styles['carousel__item--disabled'] : ''}`;
   };
 
   return (

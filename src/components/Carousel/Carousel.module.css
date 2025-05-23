@@ -8,6 +8,7 @@
 	filter: brightness(100%);
 }
 
+
 /* CAROUSEL */
 
 .carousel__container {
@@ -66,9 +67,6 @@
 	cursor: pointer;
 }
 
-.carousel__item--main:hover {
-	transform: translate(-47.5%, -50%) scale(1.03);
-}
 
 .carousel__btn {
 	background-color: transparent;
@@ -137,4 +135,9 @@
 .carousel__arrow--left:hover,
 .carousel__arrow--right:hover {
 	scale: 108%;
+}
+
+.carousel__item--disabled:hover {
+	scale: none;
+	filter: none;
 }

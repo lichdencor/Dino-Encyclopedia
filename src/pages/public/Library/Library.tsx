@@ -22,6 +22,7 @@ export const Library = () => {
                 transformRight="translate(68%, -37%) scale(0.9)"
                 arrowOffset={6}
                 visitBtnBottom={-5}
+                needHoverAnimation={false}
             >
                 {books.map((book) => (
                     <BookCover
