@@ -105,13 +105,6 @@ export class Login extends Component<{}, LoginState> {
                     <div className={`${styles["gold-line"]} ${styles["gold-line1"]
                         }`} />
                     <div className={styles["login-content"]}>
-                        <button
-                            className={styles.closeButton}
-                            onClick={() => window.location.href = '/'}
-                            aria-label="Cerrar"
-                        >
-                            ×
-                        </button>
                         <h1>Iniciar Sesión</h1>
 
                         {this.context?.registrationSuccess && (
@@ -126,10 +119,10 @@ export class Login extends Component<{}, LoginState> {
 
                         <div className={styles["links-container"]}>
                             <p className={styles["register-link"]}>
-                                ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+                                ¿No tienes una cuenta? <Link to="/register" className={styles.link}>Regístrate aquí</Link>
                             </p>
                             <p className={styles["recovery-link"]}>
-                                ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
+                                ¿Olvidaste tu contraseña? <Link to="/recovery-password" className={styles.link}>Recupérala aquí</Link >
                             </p>
                         </div>
                     </div>
