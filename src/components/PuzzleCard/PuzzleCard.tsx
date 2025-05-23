@@ -6,7 +6,7 @@ interface PuzzleCardProps {
     id: number;
     name: string;
     logoPuzzle: string;
-    difficultiesLogo: string[];
+    difficultysLogo: string[];
   };
   onClick: (difficulty: 'easy' | 'medium' | 'hard') => void;
 }
@@ -30,7 +30,7 @@ const PuzzleCard: React.FC<PuzzleCardProps> = ({ puzzle, onClick }) => {
       <h3 className={styles.title}>{puzzle.name}</h3>
 
       <div className={styles.difficultyContainer}>
-        {puzzle.difficultiesLogo.map((logo, index) => (
+        {puzzle.difficultysLogo.map((logo, index) => (
           <button
             key={index}
             onClick={() => onClick(difficulties[index])}
