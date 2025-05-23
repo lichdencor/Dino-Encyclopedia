@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from "./Profile.module.css";
 import { Nav } from '../../../components';
+import { ProgressBar } from '../../../components/XRay/components/ProgressBar';
+import { ProgressBar } from '../../../components/ProgressBar/ProgressBar';
 
 export const Profile = () => {
     return (
@@ -21,7 +23,9 @@ export const Profile = () => {
                     <div className={styles.fidelitySystemTitleContainer}>
                         <span className={styles.fidelitySystemTitle}>SISTEMA DE FIDELIDAD</span>
                     </div>
-                    <div className={styles.progressBarContainer}>PROGRESS BAR</div>
+                    <div className={styles["progress-bar"]}>
+                        <BookProgressBar achievementSrc='/public/assets/img/achievements/icons/achievement-book-icon.png'></BookProgressBar>
+                    </div>
                     <div className={styles.achievementsContainer}>
                         <div className={styles.achievementContainer}>
                             <div className={styles.achievementDescriptionContainer}>

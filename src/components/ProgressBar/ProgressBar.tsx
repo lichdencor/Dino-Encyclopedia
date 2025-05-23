@@ -1,10 +1,10 @@
-import styles from "./BookProgressBar.module.css";
+import styles from "./ProgressBar.module.css";
 
-interface BookProgressBarProps {
-    src: string;
+interface ProgressBarProps {
+    achievementSrc: string;
 }
 
-export const BookProgressBar = ({ src }: BookProgressBarProps) => {
+export const ProgressBar = ({ achievementSrc }: ProgressBarProps) => {
     return (
         <div className={styles["progress-container"]}>
             <div className={styles["progress-bar-container"]}>
@@ -15,7 +15,7 @@ export const BookProgressBar = ({ src }: BookProgressBarProps) => {
                 >
                 </div>
                 <div className={styles["achievement-img-container"]}>
-                    <img src={src} alt="" className="achievement-img" />
+                    <img src={achievementSrc} alt="" className="achievement-img" />
                 </div>
             </div>
         </div>

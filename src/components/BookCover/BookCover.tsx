@@ -1,4 +1,4 @@
-import { BookProgressBar } from "../BookProgressBar/BookProgressBar";
+import { BookProgressBar } from "../ProgressBar/ProgressBar";
 import styles from "./BookCover.module.css";
 
 interface BookCoverProps {
