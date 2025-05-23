@@ -4,15 +4,17 @@ import bookStyles from "../../Book.module.css";
 type TemplateImage = {
     image: string;
     className: string;
+    index: number;
 }
 
-export const TemplateImageTopRight = ({ className, image }: TemplateImage) => {
+export const TemplateImageTopRight = ({ className, image, index }: TemplateImage) => {
+    const isPagePar = (index + 1) % 2 === 0;
     return (
       <div className={`${bookStyles.page} ${styles.kidsPage} ${styles[className]}`}>
             <div className={styles["page-content"]}>
                 <img src={image} alt="" className={styles["image"]} />
-                <p className={styles["page-number"]}>n</p>
             </div>
+            <p className={`${styles["page-number"]} ${isPagePar ? styles["page-number-par"] : styles["page-number-impar"]}` }>{index + 1}</p>
         </div>
     );
 };
