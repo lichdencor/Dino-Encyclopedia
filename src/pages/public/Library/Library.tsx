@@ -7,7 +7,6 @@ export const Library = () => {
     const { books } = booksData;
 
     return (
-
         <div className={styles["container-page"]}>
             <Nav />
             <Carousel
@@ -29,6 +28,8 @@ export const Library = () => {
                         key={book.isbn}
                         title={book.title}
                         image={book.coverImage}
+                        backImage={book.coverBackImage}
+                        backText={book.summary}
                     />
                 ))}
             </Carousel>
