@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  width: 250px;
-  height: 280px;
+  width: 30%;
+  height: 45%;
   background: transparent;
+  background-color: blue;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .puzzleCard:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
 }
 
 .imageContainer {
@@ -21,19 +24,15 @@
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
   border: none;
-}
-
-.puzzleCard:hover .imageContainer {
-  transform: scale(1.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .puzzleImage {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
-  position: static;
 }
 
 .content {
@@ -45,6 +44,7 @@
   display: flex;
   gap: 0.8rem;
   justify-content: center;
+  background-color: yellowgreen;
 }
 
 .difficultyButton {
@@ -71,10 +71,6 @@
   transition: transform 0.3s ease;
 }
 
-.puzzleCard:hover .difficultyIcon {
-  transform: scale(1.1);
-}
-
 .overlay {
   display: none;
 }
@@ -92,4 +88,8 @@
   line-height: 1.2;
   width: 100%;
   justify-content: center;
+  background-color: pink;
+  background: linear-gradient(135deg, #645942, #a88d5d, #645942);
+  letter-spacing: 0.2vw;
+  color: rgb(240, 240, 200);
 } 

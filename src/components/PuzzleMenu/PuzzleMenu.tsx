@@ -89,7 +89,7 @@ const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
 
   return (
     <div className={styles.puzzleMenu}>
-      <div className={styles.puzzlesGrid}>
+      
         {puzzles.map((puzzle) => (
           <PuzzleCard 
             key={puzzle.id} 
@@ -98,7 +98,7 @@ const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
           />
         ))}
       </div>
-    </div>
+   
   );
 };
 

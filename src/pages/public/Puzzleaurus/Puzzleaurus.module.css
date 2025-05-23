@@ -18,19 +18,9 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
-}
-
-.memodyn {
-  width: 60vh;
-  height: 50vh;
-  background-image: url(/assets/img/era-bg/room-bg-9.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 300ms ease-in-out;
-  filter: grayscale(1);
+  /* background-color: red; */
 }
 
 .puzzleaurus:hover,
@@ -164,3 +154,13 @@
   }
 }
 
+.memodyn {
+  width: 60vh;
+  height: 50vh;
+  background-image: url(/assets/img/era-bg/room-bg-9.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 300ms ease-in-out;
+  filter: grayscale(1);
+}
