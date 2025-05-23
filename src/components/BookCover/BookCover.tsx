@@ -1,3 +1,4 @@
+import { BookProgressBar } from "../BookProgressBar/BookProgressBar";
 import styles from "./BookCover.module.css";
 
 interface BookCoverProps {
@@ -12,7 +13,7 @@ export const BookCover = ({ image, title }: BookCoverProps) => {
             <h1 id="title" className={styles.title}>{title}</h1>
             <img src={image} alt="book cover" className={styles.book} />
             <div className={styles["container-progress"]}>
-                <div className={styles["progress-bar"]}></div>
+                <BookProgressBar src="/public/assets/img/achievements/icons/achievement-book-icon.png"></BookProgressBar>
             </div>
         </div>
     )

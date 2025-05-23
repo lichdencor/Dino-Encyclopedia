@@ -1,17 +1,22 @@
-import styles from "BookProgressBar.module.css"
+import styles from "./BookProgressBar.module.css";
 
-export const BookProgressBar = () => {
+interface BookProgressBarProps {
+    src: string;
+}
+
+export const BookProgressBar = ({ src }: BookProgressBarProps) => {
     return (
         <div className={styles["progress-container"]}>
             <div className={styles["progress-bar-container"]}>
                 <span className={styles["progress-text"]}>n%</span>
                 <div
                     className={styles["progress-bar"]}
-                    // style={{ width: `${getDinosaurProgress(index)}%` }}
-                ></div>
-            </div>
-            <div className={styles["achievement-img-container"]}>
-                <img src="" alt="" className="achievement-img"/>
+                // style={{ width: `${getDinosaurProgress(index)}%` }}
+                >
+                </div>
+                <div className={styles["achievement-img-container"]}>
+                    <img src={src} alt="" className="achievement-img" />
+                </div>
             </div>
         </div>
     )

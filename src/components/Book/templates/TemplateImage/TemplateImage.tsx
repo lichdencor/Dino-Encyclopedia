@@ -6,7 +6,7 @@ type TemplateImage = {
     className: string;
 }
 
-export const TemplateImageTopRight = ({ className, image }: TemplateImage) => {
+export const TemplateImage = ({ className, image }: TemplateImage) => {
     return (
       <div className={`${bookStyles.page} ${styles.kidsPage} ${styles[className]}`}>
             <div className={styles["page-content"]}>
@@ -17,4 +17,4 @@ export const TemplateImageTopRight = ({ className, image }: TemplateImage) => {
     );
 };
 
-export default TemplateImageTopRight;
+export default TemplateImage;

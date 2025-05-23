@@ -8,7 +8,6 @@
   transform-style: preserve-3d;
   cursor: pointer;
   user-select: none;
-  background-image: url(/public/assets/img/books/old-page-2.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -18,10 +17,10 @@
 .page-content {
     width: 90%;
     height: 90%;
-    /* background-color: brown; */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: brown; */
 }
 
 .image {
@@ -30,7 +29,7 @@
 }
 
 .kids-1 {
-    width: 50%;
+  width: 50%;
   height: 100%;
   position: absolute;
   transform-origin: 0 0;
@@ -39,17 +38,19 @@
   transform-style: preserve-3d;
   cursor: pointer;
   user-select: none;
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   border-radius: 40px;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: red;
+  background-color: #122D64;
+}
+
+.kids-1 img {
+    width: auto;
+    height: 120%;
+    border: 15px solid #ECD685;
 }
 
 .kids-2 {
@@ -66,7 +67,6 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 40px;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -8,9 +8,6 @@ type TemplateText = {
 }
 
 export const TemplateText = ({ className, title, text }: TemplateText) => {
-
-    console.log(className, 'from template text');
-
     return (
         <div className={`${bookStyles.page} ${styles[className]}`}>
             <div className={styles.header}>
