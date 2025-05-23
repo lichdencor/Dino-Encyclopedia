@@ -39,7 +39,6 @@ export function Carousel({
     width: `${width}vw`,
     height: `${height}vh`
   };
-
   const arrowLeftStyle: CSSProperties = {
     left: `${arrowOffset}%`
   };
