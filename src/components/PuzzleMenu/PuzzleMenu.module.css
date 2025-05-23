@@ -1,5 +1,5 @@
 .puzzleMenu {
-  width: 90%;
+  width: 80%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -8,11 +8,11 @@
   background: transparent;
   margin-top: 0;
   position: relative;
-  background-color: yellow;
   display: flex;
   justify-content: space-between;
   align-content: space-between;
   flex-wrap: wrap;
+  /* background-color: yellow; */
 }
 
 .puzzleMenu h1 {

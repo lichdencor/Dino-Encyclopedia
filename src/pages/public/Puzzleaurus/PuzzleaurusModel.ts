@@ -2,7 +2,7 @@ export interface Puzzle {
     id: number;
     name: string;
     logoPuzzle: string;
-    difficultysLogo: string[];
+    difficultiesLogo: string[];
 }
 
 export interface PuzzleaurusState {

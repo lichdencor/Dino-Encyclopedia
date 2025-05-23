@@ -6,7 +6,7 @@ interface PuzzleCardProps {
     id: number;
     name: string;
     logoPuzzle: string;
-    difficultysLogo: string[];
+    difficultiesLogo: string[];
   };
   onClick: (difficulty: 'easy' | 'medium' | 'hard') => void;
 }
@@ -17,30 +17,32 @@ const PuzzleCard: React.FC<PuzzleCardProps> = ({ puzzle, onClick }) => {
   return (
     <div className={styles.puzzleCard}>
       <div className={styles.imageContainer}>
-        <img 
-          src={puzzle.logoPuzzle} 
-          alt={puzzle.name} 
+        {/* <img
+          src={puzzle.logoPuzzle}
+          alt={puzzle.name}
           className={styles.puzzleImage}
-        />
+        /> */}
+        <div className={styles.puzzleImage} style={{
+          backgroundImage: `url(${puzzle.logoPuzzle})`
+        }}></div>
         <div className={styles.overlay} />
       </div>
       <h3 className={styles.title}>{puzzle.name}</h3>
-      <div className={styles.content}>
-        <div className={styles.difficultyContainer}>
-          {puzzle.difficultysLogo.map((logo, index) => (
-            <button
-              key={index}
-              onClick={() => onClick(difficulties[index])}
-              className={styles.difficultyButton}
-            >
-              <img
-                src={logo}
-                alt={`Dificultad ${difficulties[index]}`}
-                className={styles.difficultyIcon}
-              />
-            </button>
-          ))}
-        </div>
+
+      <div className={styles.difficultyContainer}>
+        {puzzle.difficultiesLogo.map((logo, index) => (
+          <button
+            key={index}
+            onClick={() => onClick(difficulties[index])}
+            className={styles.difficultyButton}
+          >
+            <img
+              src={logo}
+              alt={`Dificultad ${difficulties[index]}`}
+              className={styles.difficultyIcon}
+            />
+          </button>
+        ))}
       </div>
     </div>
   );

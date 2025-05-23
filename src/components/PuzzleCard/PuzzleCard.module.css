@@ -7,20 +7,16 @@
   width: 30%;
   height: 45%;
   background: transparent;
-  background-color: blue;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.puzzleCard:hover {
-  /* transform: translateY(-5px); */
+  /* background-color: blue; */
 }
 
 .imageContainer {
-  width: 160px;
-  height: 160px;
+  height: 60%;
+  width: 45%;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -28,32 +24,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45, #ECEAD2, #987B45);
 }
 
 .puzzleImage {
-  width: auto;
-  height: 100%;
-}
-
-.content {
-  padding: 0;
-  background: transparent;
+  width: 95%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
 }
 
 .difficultyContainer {
+  height: 20%;
+  width: 40%;
   display: flex;
-  gap: 0.8rem;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   background-color: yellowgreen;
 }
 
 .difficultyButton {
-  background: none;
-  border: none;
-  padding: 0;
+  height: 100%;
+  width: 30%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
   transition: transform 0.3s ease;
-  outline: none;
 }
 
 .difficultyButton:hover {
@@ -65,31 +65,29 @@
 }
 
 .difficultyIcon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
   transition: transform 0.3s ease;
-}
-
-.overlay {
-  display: none;
+  background-color: blue;
 }
 
 .title {
+  width: 80%;
+  height: 10%;
   color: white;
   margin: 0;
-  font-size: 1.1rem;
   text-align: center;
   font-family: "MedusaGothic";
+  font-size: 1.1rem;
+  font-weight: lighter;
+  letter-spacing: 0.2vw;
+  line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  min-height: 2.4rem;
   display: flex;
   align-items: center;
-  line-height: 1.2;
-  width: 100%;
   justify-content: center;
-  background-color: pink;
-  background: linear-gradient(135deg, #645942, #a88d5d, #645942);
-  letter-spacing: 0.2vw;
+  border-top: 2px solid rgb(240, 240, 200);
+  border-bottom: 2px solid rgb(240, 240, 200);
   color: rgb(240, 240, 200);
+  /* background-color: pink; */
 } 

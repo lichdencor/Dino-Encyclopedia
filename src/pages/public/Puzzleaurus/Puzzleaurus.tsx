@@ -12,7 +12,7 @@ const puzzles: Puzzle[] = [
         id: 1,
         name: "Dinosaurio",
         logoPuzzle: "/assets/img/puzzles/puzzle-1/puzzle-1.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
@@ -22,7 +22,7 @@ const puzzles: Puzzle[] = [
         id: 2,
         name: "Fósil",
         logoPuzzle: "/assets/img/puzzles/puzzle-2/puzzle-2.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
@@ -32,7 +32,7 @@ const puzzles: Puzzle[] = [
         id: 3,
         name: "Era Mesozoica",
         logoPuzzle: "/assets/img/puzzles/puzzle-3/puzzle-3.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
@@ -42,7 +42,7 @@ const puzzles: Puzzle[] = [
         id: 4,
         name: "Paleontología",
         logoPuzzle: "/assets/img/puzzles/puzzle-4/puzzle-4.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
@@ -52,7 +52,7 @@ const puzzles: Puzzle[] = [
         id: 5,
         name: "Excavación",
         logoPuzzle: "/assets/img/puzzles/puzzle-5/puzzle-5.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
@@ -62,7 +62,7 @@ const puzzles: Puzzle[] = [
         id: 6,
         name: "Museo",
         logoPuzzle: "/assets/img/puzzles/puzzle-6/puzzle-6.jpg",
-        difficultysLogo: [
+        difficultiesLogo: [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"

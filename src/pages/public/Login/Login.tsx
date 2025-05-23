@@ -39,7 +39,7 @@ export class Login extends Component<{}, LoginState> {
             this.mostrarError(errorPasswordInvalida);
             return;
         }
-        
+
         try {
             if (!this.context) {
                 throw new Error('Auth context is not available');
@@ -81,52 +81,60 @@ export class Login extends Component<{}, LoginState> {
             </div>
 
             <button type="submit" className={styles.submitButton}>
-                Iniciar Sesión
+                Login
             </button>
 
-            <button 
-                type="button" 
+            <button
+                type="button"
                 onClick={() => {
                     if (this.context) {
                         this.context.loginAsGuest();
                     }
-                }} 
+                }}
                 className={styles.guestButton}
             >
-                Acceder como Invitado
+                Guest
             </button>
         </form>;
     }
 
     render() {
         return (
-            <div className={styles.loginContainer}>
-                <div className={styles.loginBox}>
-                    <button
-                        className={styles.closeButton}
-                        onClick={() => window.location.href = '/'}
-                        aria-label="Cerrar"
-                    >
-                        ×
-                    </button>
-                    <h1>Iniciar Sesión</h1>
+            <div className={styles["login-page"]}>
+                <div className={styles["login-container"]}>
+                    <div className={`${styles["gold-line"]} ${styles["gold-line1"]
+                        }`} />
+                    <div className={styles["login-content"]}>
+                        <button
+                            className={styles.closeButton}
+                            onClick={() => window.location.href = '/'}
+                            aria-label="Cerrar"
+                        >
+                            ×
+                        </button>
+                        <h1>Iniciar Sesión</h1>
 
-                    {this.context?.registrationSuccess && (
-                        <div className={styles.successMessage}>
-                            ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+                        {this.context?.registrationSuccess && (
+                            <div className={styles.successMessage}>
+                                ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+                            </div>
+                        )}
+
+                        {this.state.error && <div className={styles.error}>{this.state.error}</div>}
+
+                        {this.mostrarFormularioLogin()}
+
+                        <div className={styles["links-container"]}>
+                            <p className={styles["register-link"]}>
+                                ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+                            </p>
+                            <p className={styles["recovery-link"]}>
+                                ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
+                            </p>
                         </div>
-                    )}
-
-                    {this.state.error && <div className={styles.error}>{this.state.error}</div>}
-
-                    {this.mostrarFormularioLogin()}
-
-                    <p className={styles.registerLink}>
-                        ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
-                    </p>
-                    <p className={styles.recoveryLink}>
-                        ¿Olvidaste tu contraseña? <Link to="/recovery-password">Recupérala aquí</Link>
-                    </p>
+                    </div>
+                    <div className={`${styles["gold-line"]} ${styles["gold-line2"]
+                        }`} />
                 </div>
             </div>
         );
