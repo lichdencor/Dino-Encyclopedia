@@ -77,19 +77,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
 }
 
 .back-text {
-    font-size: 0.7vw;
-    line-height: 1.4;
+    font-family: "Lato";
+    font-size: 0.8vw;
+    line-height: 1.5;
+    letter-spacing: 0.05vw;
     text-align: center;
     color: white;
-    max-width: 80%;
+    width: 50%;
     margin: 0 auto;
     position: absolute;
-    top: 20%;
-    left: 17%;
+    top: 17%;
+    left: 19%;
     max-width: 58%;
+    /* background-color: red; */
+    border-bottom: 3px solid rgb(221, 207, 142);
+    padding-bottom: 0.5vw;
 }
 
 .back-title {
