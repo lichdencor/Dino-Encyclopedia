@@ -67,6 +67,9 @@
 	cursor: pointer;
 }
 
+.carousel__item--main:hover {
+	transform: translate(-47.5%, -50%) scale(1.03);
+}
 
 .carousel__btn {
 	background-color: transparent;
