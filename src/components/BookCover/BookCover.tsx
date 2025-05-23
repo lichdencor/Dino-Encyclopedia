@@ -1,4 +1,4 @@
-import { BookProgressBar } from "../ProgressBar/ProgressBar";
+import { ProgressBar } from "../ProgressBar/ProgressBar";
 import styles from "./BookCover.module.css";
 
 interface BookCoverProps {
@@ -25,7 +25,7 @@ export const BookCover = ({ image, title, backImage, backText = "Lorem ipsum dol
                 </div>
             </div>
             <div className={styles["container-progress"]}>
-                <BookProgressBar src="/public/assets/img/achievements/icons/achievement-book-icon.png"></BookProgressBar>
+                <ProgressBar imgSrc="/public/assets/img/achievements/icons/achievement-book-icon.png"></ProgressBar>
             </div>
         </div>
     )

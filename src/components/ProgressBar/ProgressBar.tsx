@@ -1,21 +1,35 @@
 import styles from "./ProgressBar.module.css";
 
-interface ProgressBarProps {
-    achievementSrc: string;
+interface CustomStyles {
+    container?: string;
+    barContainer?: string;
+    text?: string;
+    bar?: string;
+    imgContainer?: string;
 }
 
-export const ProgressBar = ({ achievementSrc }: ProgressBarProps) => {
+interface ProgressBarProps {
+    imgSrc: string;
+    customStyles?: CustomStyles;
+}
+
+export const ProgressBar = ({ imgSrc, customStyles = {} }: ProgressBarProps) => {
+    const containerClass = customStyles.container || styles["progress-container"];
+    const barContainerClass = customStyles.barContainer || styles["progress-bar-container"];
+    const textClass = customStyles.text || styles["progress-text"];
+    const barClass = customStyles.bar || styles["progress-bar"];
+    const imgContainerClass = customStyles.imgContainer || styles["achievement-img-container"];
+
     return (
-        <div className={styles["progress-container"]}>
-            <div className={styles["progress-bar-container"]}>
-                <span className={styles["progress-text"]}>n%</span>
-                <div
-                    className={styles["progress-bar"]}
+        <div className={containerClass}>
+            <div className={barContainerClass}>
+                <span className={textClass}>n%</span>
+                <div className={barClass}
                 // style={{ width: `${getDinosaurProgress(index)}%` }}
                 >
                 </div>
-                <div className={styles["achievement-img-container"]}>
-                    <img src={achievementSrc} alt="" className="achievement-img" />
+                <div className={imgContainerClass}>
+                    <img src={imgSrc} alt="" className="achievement-img" />
                 </div>
             </div>
         </div>
