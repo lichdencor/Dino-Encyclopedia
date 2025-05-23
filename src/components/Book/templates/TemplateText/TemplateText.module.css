@@ -47,7 +47,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -5%;
+    bottom: 0;
+}
+
+.page-number-par {
+  margin-bottom: -15%;
+  margin-left: 75%;
+}
+
+.page-number-impar {
+  margin-bottom: -15%;
+  margin-left: -75%;
 }
 
 .kids-1 {

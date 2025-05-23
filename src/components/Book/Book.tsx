@@ -91,9 +91,9 @@ type BookProps = {
                         case BookType.templateImageBottomRight:
                             return (<TemplateImageBottomRight className={book.styles} upperText={page.upperText} imageTopRightSrc={page.imageBottomRightSrc} lowerText={page.lowerText} />);
                         case BookType.templateImage:
-                            return (<TemplateImage className={book.styles} image={page.image} />);
+                            return (<TemplateImage className={book.styles} image={page.image} index={i} />);
                         default:
-                            return (<TemplateText className={book.styles} title={page.title} text={page.text} />);
+                            return (<TemplateText className={book.styles} title={page.title} text={page.text} index={i} />);
                     }
                 })}
                 <div className={`${styles.backPage} ${styles.page}`}>

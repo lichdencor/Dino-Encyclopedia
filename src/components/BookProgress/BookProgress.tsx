@@ -8,6 +8,8 @@ type BookProgressProps = {
 export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress }) => {
   const petLeftPercentage = pages > 1 ? (progress / (pages - 1)) * 100 : 0;
 
+  console.log(progress, 'progress')
+
   return (
     <div className={styles["container-book-progress"]}>
 
@@ -24,7 +26,7 @@ export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress }) =
 
         <div className={styles["line-progress"]}></div>
 
-        {[...Array(pages)].map((_, index) => (
+        {[...Array(pages + 1)].map((_, index) => (
           <img
             key={index}
             src={
