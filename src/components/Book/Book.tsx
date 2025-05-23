@@ -78,11 +78,11 @@ type BookProps = {
     return (
         <div className={styles.book}>
             <div id="pages" className={styles.pages} ref={pagesContainerRef}>
-                <div className={`${styles.page} ${styles.frontPage}`}>
+                <div className={`${styles.frontPage} ${styles.page}`}>
                     <img src={book.frontImage} className={styles.bookImage} />
                     <p className={styles.bookTitle}>{book.title}</p>
                 </div>
-                {bookPages.map((page, i) => {
+                {bookPages.map((page: any, i: number) => {
                     switch (page.type) {
                         case BookType.templateImageBottomLeftAndTopRight:
                             return (<TemplateImageBottomLeftAndTopRight className={book.styles} upperText={page.upperText} foodName={page.foodName} imageBottomLeftSrc={page.imageBottomLeftSrc} imageTopRightSrc={page.imageTopRightSrc} lowerText={page.lowerText} />);
@@ -96,7 +96,7 @@ type BookProps = {
                             return (<TemplateText className={book.styles} title={page.title} text={page.text} />);
                     }
                 })}
-                <div className={`${styles.page} ${styles.backPage}`}>
+                <div className={`${styles.backPage} ${styles.page}`}>
                     <img src={book.backImage} className={styles.bookImage} />
                 </div>
             </div>
