@@ -24,7 +24,7 @@
 /* PET CONTAINER START */
 
 .petUserDataContainer {
-    width: 45%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@
 }
 
 .userDataContainer {
-    width: 60%;
+    width: 80%;
     height: 22%;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
     height: 30%;
     width: 40%;
     font-size: 0.9vw;
-    background-color: red;
+    /* background-color: red; */
 }
 
 /* PET CONTAINER END */
@@ -101,20 +101,20 @@
 /* FIDEILTY SYSTEM START */
 
 .fidelitySystemContainer {
-    width: 50%;
+    width: 62%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     /* background-color: brown; */
 }
 
 .fidelitySystemTitleContainer {
     width: 100%;
-    height: 10%;
+    height: 8%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     cursor: default;
     /* background-color: lightblue; */
@@ -122,7 +122,7 @@
 
 .fidelitySystemTitle {
     width: 60%;
-    height: 70%;
+    height: 100%;
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -136,27 +136,39 @@
     text-align: center;
     border-radius: 5px;
     background-image: url(/public/assets/img/landing-page/title-bg.png);
+    margin-top: 0;
+    margin-right: 10%;
+}
+
+.achievement-img-container {
+    width: 4.5vw;
+    height: 4.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0%;
+    background-image: url(/public/assets/img/progress/achievement-container.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .progress-bar {
-    width: 100%;
-    height: 6%;
+    width: 80%;
+    height: 5%;
+    margin-bottom: 2%;
     /* background-color: lightcoral; */
 }
 
-/* .container {
-  width: 100%;
-  height: 80%;
-} */
-
 .achievementsContainer {
     width: 100%;
-    height: 70%;
-    background-color: lightgoldenrodyellow;
+    height: 76%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    /* background-color: lightgoldenrodyellow; */
 }
 
 /* FIDEILTY SYSTEM END */

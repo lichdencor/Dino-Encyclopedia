@@ -50,8 +50,8 @@
   background-repeat: no-repeat;
 }
 
-.achievement-img-container img {
-  width: auto;
-  height: 80%;
-  /* filter: brightness(20%); */
+.achievement-img {
+  width: 5vw;
+  height: auto;
+  filter: brightness(20%);
 }

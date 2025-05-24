@@ -29,11 +29,15 @@ export const Profile = () => {
                         <span className={styles.fidelitySystemTitle}>SISTEMA DE FIDELIDAD</span>
                     </div>
                     <div className={styles["progress-bar"]}>
-                        <ProgressBar imgSrc='/public/assets/img/achievements/achievement-final.png' customStyles={{ container: styles["container"] }} progress={23} ></ProgressBar>
+                        <ProgressBar imgSrc='/public/assets/img/achievements/gold/achievement-final-gold.png' customStyles={{ container: styles["container"], imgContainer: styles["achievement-img-container"] }} progress={23}></ProgressBar>
                     </div>
                     <div className={styles.achievementsContainer}>
 
-                        <ProfileAchievement  ></ProfileAchievement>
+                        <ProfileAchievement name="Galleries Explorer" tier="bronze" tiers={3} shortDescription="Complete the Galleries tour" description="Complete the Galleries tour Complete the Galleries tour Complete the Galleries tour"></ProfileAchievement>
+
+                        <ProfileAchievement name="Fragment Hunter" tier="gold" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement."></ProfileAchievement>
+
+                        <ProfileAchievement name="Reader" tier="silver" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement."></ProfileAchievement>
 
                     </div>
                 </div>
