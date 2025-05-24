@@ -25,6 +25,7 @@ export const Library = () => {
             >
                 {books.map((book) => (
                     <BookCover
+                        bookId={book.isbn}
                         key={book.isbn}
                         title={book.title}
                         image={book.coverImage}

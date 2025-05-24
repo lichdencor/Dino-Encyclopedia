@@ -5,6 +5,14 @@ export interface BookModelState {
   pages: number;
   progress: number;
   isComplete: boolean;
+  isbn: string;
+  title: string;
+  styles: string;
+  summary: string;
+  coverBackImage: string;
+  coverImage: string;
+  frontImage: string;
+  backImage: string;
 }
 
 export class BookModel {
@@ -17,9 +25,17 @@ export class BookModel {
     const book = booksData.books.find((b: any) => b.isbn === bookId);
     const pages = book ? book.pages.length : 0;
     this.state = {
-      pages,
-      progress: 0,
+      pages: pages / 2,
+      progress: 1,
       isComplete: false,
+      isbn: book?.isbn || '',
+      title: book?.title || '',
+      styles: book?.styles || '',
+      summary: book?.summary || '',
+      coverBackImage: book?.coverBackImage || '',
+      coverImage: book?.coverImage || '',
+      frontImage: book?.frontImage || '',
+      backImage: book?.backImage || '',
     };
     this.loadProgress();
   }
