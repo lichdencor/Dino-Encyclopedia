@@ -6,6 +6,7 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  background-color: #000; /* Fondo negro para evitar cualquier flash blanco */
 }
 
 .imageContainer {
@@ -16,14 +17,24 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  transition: opacity 1s ease-in-out, transform 6s ease-in-out;
   opacity: 1;
   transform: scale(1.1);
   animation: zoomAndPan 6s ease-in-out infinite;
 }
 
-.transitioning {
+.nextImage {
   opacity: 0;
+  z-index: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
 }
 
 @keyframes zoomAndPan {

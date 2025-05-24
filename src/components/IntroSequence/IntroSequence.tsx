@@ -12,6 +12,7 @@ const introImages = [
 
 export const IntroSequence: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
@@ -19,20 +20,27 @@ export const IntroSequence: React.FC = () => {
     const timer = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % introImages.length);
+        setCurrentImageIndex(nextImageIndex);
+        setNextImageIndex((nextImageIndex + 1) % introImages.length);
         setIsTransitioning(false);
       }, 1000); // 1 segundo para el fade out/in
     }, transitionTime);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [nextImageIndex]);
 
   return (
     <div className={styles.introSequence}>
       <div 
-        className={`${styles.imageContainer} ${isTransitioning ? styles.transitioning : ''}`}
+        className={`${styles.imageContainer} ${isTransitioning ? styles.fadeOut : ''}`}
         style={{
           backgroundImage: `url(${introImages[currentImageIndex]})`,
+        }}
+      />
+      <div 
+        className={`${styles.imageContainer} ${styles.nextImage} ${isTransitioning ? styles.fadeIn : ''}`}
+        style={{
+          backgroundImage: `url(${introImages[nextImageIndex]})`,
         }}
       />
     </div>
