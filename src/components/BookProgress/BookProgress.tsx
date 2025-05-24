@@ -4,27 +4,33 @@ import React, { useRef, useEffect, useState } from "react";
 type BookProgressProps = {
   pages: number;
   progress: number;
+  currentIndex: number;
 };
 
-export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress }) => {
+export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress, currentIndex }) => {
   const totalPaws = pages + 1;
   const pawRefs = useRef<(HTMLImageElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [petLeft, setPetLeft] = useState<string>("0px");
 
   useEffect(() => {
-    //Cuando se dibuja la pantalla toma los valores de paw y del dino
-    const paw = pawRefs.current[progress];
     const container = containerRef.current;
-    if (paw && container) {
-      const pawRect = paw.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
+    if (!container) return;
 
-      const pawCenter = pawRect.left + pawRect.width / 2;
-      const left = pawCenter - containerRect.left;
-      setPetLeft(`${left}px`);
-    }
-  }, [progress, pages]);
+    const updatePetPosition = (index: number) => {
+      const paw = pawRefs.current[index];
+      if (paw) {
+        const pawRect = paw.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        const pawCenter = pawRect.left + pawRect.width / 2;
+        const left = pawCenter - containerRect.left;
+        setPetLeft(`${left}px`);
+      }
+    };
+
+    updatePetPosition(currentIndex);
+  }, [currentIndex, pages]);
 
   return (
     <div className={styles["container-book-progress"]}>

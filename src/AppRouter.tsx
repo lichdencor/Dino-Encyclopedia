@@ -15,7 +15,6 @@ import {
   JurassicSuperior,
   Login,
   PetSelection,
-  SignIn,
   MemoDyn,
   Minijuegos,
   Puzzleaurus,
@@ -26,11 +25,11 @@ import {
   Register,
   RecuperarContrasenia
 } from "./pages/";
-import { AuthProvider, useAuth } from "./context";
+import { useAuth } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import { PublicGuard } from "./guard/PublicGuard";
-import { Reading } from "./pages/public/Reading/Reading";
+import Reading from "./pages/public/Reading/Reading.tsx";
 
 const AppRouter = () => {
   const { isAuthenticated } = useAuth();

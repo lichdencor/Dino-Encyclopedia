@@ -1,37 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from '../../../components';
 import styles from './Reading.module.css';
 import booksData from '../../../context/data/books_data.json';
 import Book from '../../../components/Book/Book';
 import BookProgress from '../../../components/BookProgress/BookProgress';
+import { ReadingModel, ReadingState } from './ReadingModel';
+import { ReadingController } from './ReadingController';
 
-export const Reading = () => {
-  const { books } = booksData;
-  const { bookId } = useParams<{ bookId: string }>();
-  const book = books.find(b => b.isbn === bookId);
+interface ReadingProps {
+  bookId: string;
+}
 
-  const [currentProgress, setCurrentProgress] = useState(0);
-  const [pagesCount, setPagesCount] = useState(0);
+interface ReadingComponentState {
+  progress: number;
+  pagesCount: number;
+  book: any;
+  currentPageIndex: number;
+}
 
-  // Initialize pages count when book changes
-  useEffect(() => {
-    if (book) {
-      setPagesCount(book.pages.length/2);
-    }
-  }, [book]);
+export class ReadingComponent extends Component<ReadingProps, ReadingComponentState> {
+  private model: ReadingModel;
+  private controller: ReadingController;
+  private unsubscribe: () => void;
 
-  if (!book) {
-    return <div>No book found.</div>;
+  constructor(props: ReadingProps) {
+    super(props);
+
+    const { bookId } = props;
+    const { books } = booksData;
+    const book = books.find((b: any) => b.isbn === bookId);
+
+    this.model = new ReadingModel(bookId);
+    this.controller = new ReadingController(this.model);
+    this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+
+    this.state = {
+      progress: this.model.getState().progress,
+      pagesCount: book ? book.pages.length / 2 : 0,
+      book,
+      currentPageIndex: 0,
+    };
   }
 
-  return (
-    <div className={styles['reading-page']}>
-      <Nav />
-      <div className={styles['reading-page__content']}>
-        <Book book={book} setCurrentProgress={setCurrentProgress} />
-        <BookProgress pages={pagesCount} progress={currentProgress} />
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  handleStateChange(newState: ReadingState) {
+    this.setState({ 
+      progress: newState.progress,
+      currentPageIndex: newState.currentPageIndex
+    });
+  }
+
+  handleNextPage = () => {
+    this.controller.goToNextPage();
+  };
+
+  handlePreviousPage = () => {
+    this.controller.goToPreviousPage();
+  };
+
+  render() {
+    const { book, pagesCount, progress, currentPageIndex } = this.state;
+    if (!book) {
+      return <div>No book found.</div>;
+    }
+
+    return (
+      <div className={styles['reading-page']}>
+        <Nav />
+        <div className={styles['reading-page__content']}>
+          <Book 
+            book={book} 
+            onNextPage={this.handleNextPage} 
+            onPreviousPage={this.handlePreviousPage} 
+          />
+          <BookProgress pages={pagesCount} progress={progress} currentIndex={currentPageIndex} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+
+const Reading = () => {
+  const { bookId = '' } = useParams<{ bookId: string }>();
+  return <ReadingComponent bookId={bookId} />;
 };
+
+export default Reading;

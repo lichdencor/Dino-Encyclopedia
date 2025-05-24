@@ -16,11 +16,12 @@ enum BookType {
 }
 
 type BookProps = {
-    book: any; // Puedes reemplazar `any` por el tipo correcto de tu libro si lo tienes
-    setCurrentProgress: React.Dispatch<React.SetStateAction<number>>;
+    book: any;
+    onNextPage: () => void;
+    onPreviousPage: () => void;
   };
   
-  export const Book = ({ book, setCurrentProgress }: BookProps) => {
+  export const Book = ({ book, onNextPage, onPreviousPage }: BookProps) => {
     const [bookPages, setBookPages] = useState(book.pages);
     const pagesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -58,13 +59,13 @@ type BookProps = {
                 page.classList.remove(styles.flipped);
                 const previousPage = pagesArray[pageIndex - 1] as HTMLElement | undefined;
                 previousPage?.classList.remove(styles.flipped);
-                setCurrentProgress(prev => Math.max(prev - 1, 0));
+                onPreviousPage();
             } else {
                 // Página IMPAR -> pasar página
                 page.classList.add(styles.flipped);
                 const nextPage = pagesArray[pageIndex + 1] as HTMLElement | undefined;
                 nextPage?.classList.add(styles.flipped);
-                setCurrentProgress(prev => Math.min(prev + 1, bookPages.length));
+                onNextPage();
             }
         };
 
@@ -73,7 +74,7 @@ type BookProps = {
         return () => {
             container.removeEventListener("click", handlePageClick);
         };
-    }, []);
+    }, [onNextPage, onPreviousPage]);
 
     return (
         <div className={styles.book}>
