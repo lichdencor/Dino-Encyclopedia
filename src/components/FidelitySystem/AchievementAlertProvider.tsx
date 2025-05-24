@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useFidelityProgress } from './FidelityProgressProvider';
-import { Alert } from '../Alert/Alert';
-import achievementsConfigData from './data/achievements_config.json';
-import { AchievementsConfig, TierType } from './types/fidelity';
-import { useAuth } from '../../context/Auth/AuthProvider';
+import { useFidelityProgress } from './FidelityProgressProvider.tsx';
+import { Alert } from '../Alert/Alert.tsx';
+import achievementsConfigData from './data/achievements_data.json';
+import { AchievementsConfig, TierType } from './types/fidelity.ts';
+import { useAuth } from '../../context/Auth/AuthProvider.tsx';
 
 interface LastAchievementState {
     achievementId: string;

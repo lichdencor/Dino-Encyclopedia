@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import achievementsConfigData from './data/achievements_config.json';
-import { IFidelityRepository } from './repositories/IFidelityRepository';
-import { LocalStorageFidelityRepository } from './repositories/LocalStorageFidelityRepository';
-import { useAuth } from '../../context/Auth/AuthProvider';
+import achievementsConfigData from './data/achievements_data.json';
+import { IFidelityRepository } from './repositories/IFidelityRepository.ts';
+import { LocalStorageFidelityRepository } from './repositories/LocalStorageFidelityRepository.ts';
+import { useAuth } from '../../context/Auth/AuthProvider.tsx';
 import { 
     AchievementProgress, 
     AchievementsConfig,
@@ -11,7 +11,7 @@ import {
     SingleTierAchievement,
     MultiTierAchievement,
     AchievementConfig
-} from './types/fidelity';
+} from './types/fidelity.ts';
 
 interface FidelityProgressContextType {
     achievements: UserAchievements;

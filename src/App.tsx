@@ -4,8 +4,8 @@ import { SupabaseProvider } from "./context";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import React, { useContext } from 'react';
 import { NavigationProvider } from './context/NavigationContext';
-import { FidelityProgressProvider } from './components/context/FidelityProgressProvider';
-import { AchievementAlertProvider } from './components/context/AchievementAlertProvider';
+import { FidelityProgressProvider } from './components/FidelitySystem/FidelityProgressProvider.tsx';
+import { AchievementAlertProvider } from './components/FidelitySystem/AchievementAlertProvider.tsx';
 import { AuthContext } from './context/Auth/AuthContext';
 
 const AppContent = () => {

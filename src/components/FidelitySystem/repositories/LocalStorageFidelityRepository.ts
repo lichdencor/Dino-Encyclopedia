@@ -1,4 +1,4 @@
-import { IFidelityRepository } from './IFidelityRepository';
+import { IFidelityRepository } from './IFidelityRepository.ts';
 
 export class LocalStorageFidelityRepository implements IFidelityRepository {
     private getProgressKey(userId: string): string {

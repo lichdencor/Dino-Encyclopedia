@@ -10,7 +10,7 @@ import { InfoList } from "./components/InfoList";
 import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurrentDinosaurProgress } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
-import { useFidelityProgress } from "../../components/context/FidelityProgressProvider";
+import { useFidelityProgress } from "../FidelitySystem/FidelityProgressProvider.tsx";
 
 type PuzzlePieceStatus = {
   isFound: boolean;
@@ -135,7 +135,6 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         const dinoName = dinosaurInfo.name.toLowerCase()
           .replace(/[^a-z0-9]/g, '')
           .replace(/\s+/g, '');
-        console.log(`scan_dino_${dinoName}`);
         await updateFidelityProgress('dynotective', `scan_dino_${dinoName}`).catch(console.error);
       }
 
