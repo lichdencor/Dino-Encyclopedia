@@ -7,7 +7,7 @@
 }
 
 .progress-bar-container {
-  width: 85%;
+  width: 100%;
   height: 80%;
   display: flex;
   justify-content: flex-start;
@@ -16,6 +16,7 @@
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .progress-text {
@@ -24,25 +25,25 @@
   letter-spacing: 0.1vw;
   font-weight: bold;
   position: absolute;
-  right: 50%;
+  left: 40%;
 }
 
 .progress-bar {
   width: 60%;
   height: 60%;
   background: linear-gradient(135deg, #372715, #f4d5a6, #7b664d, #f4d5a6);
-  border-radius: 4px;
-  margin-left: 2%;
+  border-radius: 10px;
+  margin-left: 1%;
 }
 
 .achievement-img-container {
-  width: 18%;
-  height: 12%;
+  width: 5vw;
+  height: 5vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 0%;
+  right: 3%;
   background-image: url(/public/assets/img/progress/achievement-container.png);
   background-position: center;
   background-size: 100% 100%;

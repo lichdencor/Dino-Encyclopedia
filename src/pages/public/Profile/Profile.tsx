@@ -23,7 +23,7 @@ export const Profile = () => {
                         <span className={styles.fidelitySystemTitle}>SISTEMA DE FIDELIDAD</span>
                     </div>
                     <div className={styles["progress-bar"]}>
-                        <ProgressBar imgSrc='/public/assets/img/achievements/icons/achievement-book-icon.png' ></ProgressBar>
+                        <ProgressBar imgSrc='/public/assets/img/achievements/icons/achievement-book-icon.png' customStyles={{container: styles["container"]}}></ProgressBar>
                     </div>
                     <div className={styles.achievementsContainer}>
                         <div className={styles.achievementContainer}>
