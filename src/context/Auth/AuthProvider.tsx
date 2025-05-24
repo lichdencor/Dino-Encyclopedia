@@ -12,6 +12,7 @@ interface User {
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
+  isGuest: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
   logout: () => void;
@@ -114,6 +115,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const value = {
     user,
     isAuthenticated: !!user && user.id !== 'guest',
+    isGuest: !!user && user.id === 'guest',
     login,
     register: registrar,
     logout,
