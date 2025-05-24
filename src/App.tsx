@@ -5,16 +5,19 @@ import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import React, { useContext } from 'react';
 import { NavigationProvider } from './context/NavigationContext';
 import { FidelityProgressProvider } from './components/context/FidelityProgressProvider';
+import { AchievementAlertProvider } from './components/context/AchievementAlertProvider';
 import { AuthContext } from './context/Auth/AuthContext';
 
 const AppContent = () => {
   const auth = useContext(AuthContext);
 
   return (
-    <FidelityProgressProvider userId={auth?.user?.uid || 'guest'}>
-      <PuzzleProvider>
-        <AppRouter />
-      </PuzzleProvider>
+    <FidelityProgressProvider>
+      <AchievementAlertProvider>
+        <PuzzleProvider>
+          <AppRouter />
+        </PuzzleProvider>
+      </AchievementAlertProvider>
     </FidelityProgressProvider>
   );
 };
