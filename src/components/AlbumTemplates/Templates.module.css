@@ -1,0 +1,188 @@
+.templateContainer {
+    display: flex;
+    width: 100%;
+    height: 78vh;
+    background-color: #2a0f0f;
+    padding: 1vh;
+    gap: 1vh;
+    box-sizing: border-box;
+}
+
+.leftSection {
+    flex: 2;
+    position: relative;
+    background-image: url('/public/assets/img/album-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 1vh;
+    overflow: hidden;
+    padding: 1vh;
+    height: 100%;
+    display: flex;
+}
+
+.rightSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    height: 100%;
+}
+
+.slotGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+    padding: 1vh;
+    height: 100%;
+    position: relative;
+}
+
+/* Template 1 Layout */
+.template1Layout {
+    position: relative;
+    height: 100%;
+    width: 80vh;
+}
+
+.template1Layout .slot {
+    position: absolute;
+}
+
+.template1Layout .slot:nth-child(1) {
+    left: 10%;
+    top: 15%;
+}
+
+.template1Layout .slot:nth-child(2) {
+    left: 10%;
+    top: 40%;
+}
+
+.template1Layout .slot:nth-child(3) {
+    left: 10%;
+    top: 65%;
+}
+
+.template1Layout .slot:nth-child(4) {
+    right: 15%;
+    top: 40%;
+}
+
+/* Template 2 Layout */
+.template2Layout {
+    position: relative;
+    height: 100%;
+    width: 80vh;
+}
+
+.template2Layout .slot {
+    position: absolute;
+}
+
+.template2Layout .slot:nth-child(1) {
+    left: 15%;
+    top: 15%;
+}
+
+.template2Layout .slot:nth-child(2) {
+    right: 15%;
+    top: 15%;
+}
+
+.template2Layout .slot:nth-child(3) {
+    left: 15%;
+    bottom: 15%;
+}
+
+.template2Layout .slot:nth-child(4) {
+    right: 15%;
+    bottom: 15%;
+}
+
+/* Template 3 Layout */
+.template3Layout {
+    position: relative;
+    height: 100%;
+    width: 80vh;
+}
+
+.template3Layout .slot {
+    position: absolute;
+}
+
+.template3Layout .slot:nth-child(1) {
+    left: 15%;
+    top: 15%;
+}
+
+.template3Layout .slot:nth-child(2) {
+    right: 15%;
+    top: 15%;
+}
+
+.template3Layout .slot:nth-child(3) {
+    left: 35%;
+    top: 40%;
+}
+
+.template3Layout .slot:nth-child(4) {
+    right: 15%;
+    bottom: 15%;
+}
+
+.slot {
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 192, 203, 0.2);
+    border: 0.2vh dashed rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.slot:hover {
+    background-color: rgba(255, 192, 203, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.stickerImage {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    pointer-events: none;
+    padding: 0.5vh;
+}
+
+.infoBox {
+    background-color: #8B4513;
+    color: #FFE4B5;
+    padding: 1vh;
+    border-radius: 0.5vh;
+    font-family: 'MedusaGothic', serif;
+    height: auto;
+    min-height: 15vh;
+}
+
+.infoBox h3 {
+    margin-bottom: 0.5vh;
+    font-size: 2vh;
+    color: #FFD700;
+}
+
+.infoBox p {
+    font-size: 1.5vh;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
+}
+
+.decorativeSquare {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 0.5vh;
+    margin-bottom: 0.5vh;
+    min-height: 10vh;
+} 

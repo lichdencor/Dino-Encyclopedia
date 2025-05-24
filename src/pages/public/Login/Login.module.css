@@ -4,12 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(90deg, #000000, transparent, #000000); */
-  background-image: url(/public/assets/giph/login-bg.gif);
-  background-image: url(/public/assets/giph/zoom.gif);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  position: relative;
+  background: transparent;
 }
 
 .gold-line {
@@ -39,7 +35,9 @@
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  /* background-color: red; */
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .login-content {

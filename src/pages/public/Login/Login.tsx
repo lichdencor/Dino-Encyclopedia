@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context";
 import styles from "./Login.module.css";
+import { IntroSequence } from "../../../components/IntroSequence/IntroSequence";
 
 interface LoginState {
     email: string;
@@ -101,6 +102,7 @@ export class Login extends Component<{}, LoginState> {
     render() {
         return (
             <div className={styles["login-page"]}>
+                <IntroSequence />
                 <div className={styles["login-container"]}>
                     <div className={`${styles["gold-line"]} ${styles["gold-line1"]
                         }`} />
