@@ -65,6 +65,7 @@ export const ProfileAchievement = ({
                 alt={`${name} ${badgeTier}`}
                 className={styles["badge-img"]}
               />
+              <div className={styles["goal-number"]}>12</div>
             </div>
           ))}
         </div>
