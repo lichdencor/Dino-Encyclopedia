@@ -28,31 +28,10 @@ export const Profile = () => {
                         <span className={styles.fidelitySystemTitle}>SISTEMA DE FIDELIDAD</span>
                     </div>
                     <div className={styles["progress-bar"]}>
-                        <ProgressBar imgSrc='/public/assets/img/achievements/icons/achievement-book-icon.png' customStyles={{container: styles["container"]}}></ProgressBar>
+                        <ProgressBar imgSrc='/public/assets/img/achievements/achievement-final.png' customStyles={{container: styles["container"]}} progress={23} ></ProgressBar>
                     </div>
                     <div className={styles.achievementsContainer}>
-                        <div className={styles.achievementContainer}>
-                            <div className={styles.achievementDescriptionContainer}>
-                                <img src="" alt="" className={styles.achievementImg} />
-                                <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
-                            </div>
-                            <div className={styles.achievementBadgesContainer}>
-                                {/* BADGES */}
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div className={styles.achievementContainer}>
                         <div className={styles.achievementDescriptionContainer}>
