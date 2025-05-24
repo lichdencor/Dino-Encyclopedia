@@ -29,6 +29,7 @@ import { useAuth } from "./context";
 import { Profile } from "./pages/public/Profile/Profile";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import { PublicGuard } from "./guard/PublicGuard";
+import { PrivateGuard } from "./guard/PrivateGuard";
 import Reading from "./pages/public/Reading/Reading.tsx";
 
 const AppRouter = () => {
@@ -37,142 +38,160 @@ const AppRouter = () => {
   return (
     <ErrorBoundary>
       <RoutesWithNotFound>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/recovery-password" element={<RecuperarContrasenia />} />
-
-        <Route path="/" element={
+        {/* Rutas públicas - solo accesibles si NO está autenticado */}
+        <Route path="/login" element={
           <PublicGuard isAuthenticated={isAuthenticated}>
-            <LandingPage />
+            <Login />
           </PublicGuard>
+        } />
+        <Route path="/register" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <Register />
+          </PublicGuard>
+        } />
+        <Route path="/recovery-password" element={
+          <PublicGuard isAuthenticated={isAuthenticated}>
+            <RecuperarContrasenia />
+          </PublicGuard>
+        } />
+
+        {/* Rutas privadas - solo accesibles si está autenticado */}
+        <Route path="/" element={
+          <PrivateGuard isAuthenticated={isAuthenticated}>
+            <LandingPage />
+          </PrivateGuard>
         } />
 
         <Route path="/games" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <PuzzleProvider>
               <Minijuegos />
             </PuzzleProvider>
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/album" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Album />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/map" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Map />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/store" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Store />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/library" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Library />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route
           path="/reading/:bookId"
           element={
-            <PublicGuard isAuthenticated={isAuthenticated}>
+            <PrivateGuard isAuthenticated={isAuthenticated}>
               <Reading />
-            </PublicGuard>
+            </PrivateGuard>
           }
         />
 
         <Route path="/wallet" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Wallet />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/tips" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Tips />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/profile" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Profile />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/memodyn" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <MemoDyn />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/puzzleaurus" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <Puzzleaurus />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/cretaceous-inferior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <CretaceousInferior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/cretaceous-medium" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <CretaceousMedium />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/cretaceous-superior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <CretaceousSuperior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/jurassic-inferior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <JurassicInferior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/jurassic-medium" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <JurassicMedium />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/jurassic-superior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <JurassicSuperior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/triassic-inferior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <TriassicInferior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/triassic-medium" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <TriassicMedium />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
         <Route path="/triassic-superior" element={
-          <PublicGuard isAuthenticated={isAuthenticated}>
+          <PrivateGuard isAuthenticated={isAuthenticated}>
             <TriassicSuperior />
-          </PublicGuard>
+          </PrivateGuard>
         } />
 
-        <Route path="/pet-selection" element={<PetSelection />} />
+        <Route path="/pet-selection" element={
+          <PrivateGuard isAuthenticated={isAuthenticated}>
+            <PetSelection />
+          </PrivateGuard>
+        } />
       </RoutesWithNotFound>
     </ErrorBoundary>
   );

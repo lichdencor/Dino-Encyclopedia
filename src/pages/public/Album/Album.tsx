@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styles from "./Album.module.css";
-import { Template1 } from '../../../components/AlbumTemplates/Template1';
-import { Template2 } from '../../../components/AlbumTemplates/Template2';
-import { Template3 } from '../../../components/AlbumTemplates/Template3';
-import { Slot, Sticker, AlbumPage, TemplateType } from '../../../types/album';
+import {Template1} from '../../../components/AlbumTemplates/Template1';
+import {Template2} from '../../../components/AlbumTemplates/Template2';
+import {Template3} from '../../../components/AlbumTemplates/Template3';
+import {AlbumPage, Slot, Sticker, TemplateType} from '../../../types/album';
 
 interface AlbumState {
     currentPage: number;

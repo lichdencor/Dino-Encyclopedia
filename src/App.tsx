@@ -2,16 +2,31 @@ import "./App.css";
 import AppRouter from "./AppRouter";
 import { SupabaseProvider } from "./context";
 import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationProvider } from './context/NavigationContext';
+import { FidelityProgressProvider } from './components/context/FidelityProgressProvider';
+import { AchievementAlertProvider } from './components/context/AchievementAlertProvider';
+import { AuthContext } from './context/Auth/AuthContext';
+
+const AppContent = () => {
+  const auth = useContext(AuthContext);
+
+  return (
+    <FidelityProgressProvider>
+      <AchievementAlertProvider>
+        <PuzzleProvider>
+          <AppRouter />
+        </PuzzleProvider>
+      </AchievementAlertProvider>
+    </FidelityProgressProvider>
+  );
+};
 
 function App() {
   return (
     <NavigationProvider>
       <SupabaseProvider>
-        <PuzzleProvider>
-          <AppRouter />
-        </PuzzleProvider>
+        <AppContent />
       </SupabaseProvider>
     </NavigationProvider>
   );

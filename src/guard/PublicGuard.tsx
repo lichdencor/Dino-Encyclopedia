@@ -8,5 +8,7 @@ export const PublicGuard = ({
   children: JSX.Element;
   isAuthenticated: boolean;
 }) => {
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
+  // Si no está autenticado o es guest, mostrar el contenido
+  // Si está autenticado, redirigir a la landing page
+  return !isAuthenticated ? children : <Navigate to="/" replace />;
 }; 

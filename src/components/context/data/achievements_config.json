@@ -1,0 +1,171 @@
+{
+    "first_hatch": {
+        "title": "First Hatch",
+        "short_description": "Begin your dinosaur journey",
+        "long_description": "Welcome to the world of dinosaurs! Create your account and start your prehistoric adventure.",
+        "tiers": {
+            "GOLD": {
+                "value": 1
+            }
+        },
+        "referrals": ["account_creation"]
+    },
+    "periods_explorer": {
+        "title": "Periods Explorer",
+        "short_description": "Travel through time",
+        "long_description": "Explore the different prehistoric periods and learn about how Earth and its inhabitants evolved through time.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 2
+            },
+            "GOLD": {
+                "value": 3
+            }
+        },
+        "referrals": ["visit_triassic", "visit_jurassic", "visit_cretaceous"]
+    },
+    "galleries_explorer": {
+        "title": "Galleries Explorer",
+        "short_description": "Visit the museum galleries",
+        "long_description": "Discover the different galleries in our virtual museum and learn about different species of dinosaurs.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 4
+            },
+            "GOLD": {
+                "value": 9
+            }
+        },
+        "referrals": ["visit_gallery_carnivores", "visit_gallery_herbivores", "visit_gallery_marine", "visit_gallery_flying", "visit_gallery_prehistoric", "visit_gallery_extinction", "visit_gallery_fossils", "visit_gallery_evolution", "visit_gallery_discoveries"]
+    },
+    "dynotective": {
+        "title": "Dynotective",
+        "short_description": "Study dinosaur characteristics",
+        "long_description": "Become a dinosaur detective by analyzing and learning about different dinosaur species and their unique features.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 8
+            },
+            "GOLD": {
+                "value": 27
+            }
+        },
+        "referrals": [
+            "scan_dino_postosuchus",
+            "scan_dino_eoraptor",
+            "scan_dino_herrerasaurus",
+            "scan_dino_shuvosaurus",
+            "scan_dino_fukuiraptor",
+            "scan_dino_chindesaurus",
+            "scan_dino_coelophysis",
+            "scan_dino_plateosaurus",
+            "scan_dino_rauisuchus",
+            "scan_dino_dilophosaurus",
+            "scan_dino_compsognathus",
+            "scan_dino_cryolophosaurus",
+            "scan_dino_allosaurus",
+            "scan_dino_apatosaurus",
+            "scan_dino_camarasaurus",
+            "scan_dino_brachiosaurus",
+            "scan_dino_diplodocus",
+            "scan_dino_stegosaurus",
+            "scan_dino_pachycephalosaurus",
+            "scan_dino_microceratus",
+            "scan_dino_gallimimus",
+            "scan_dino_spinosaurus",
+            "scan_dino_baryonyx",
+            "scan_dino_irritator",
+            "scan_dino_triceratops",
+            "scan_dino_ankylosaurus",
+            "scan_dino_tyrannosaurus"
+        ]
+    },
+    "fragment_hunter": {
+        "title": "Fragment Hunter",
+        "short_description": "Collect puzzle pieces",
+        "long_description": "Search and collect puzzle pieces throughout your journey to complete dinosaur puzzles.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 6
+            },
+            "GOLD": {
+                "value": 10
+            }
+        },
+        "referrals": ["find_piece_skull", "find_piece_vertebrae", "find_piece_ribs", "find_piece_arms", "find_piece_legs", "find_piece_tail", "find_piece_claws", "find_piece_teeth", "find_piece_armor", "find_piece_special"]
+    },
+    "reader": {
+        "title": "Reader",
+        "short_description": "Read dinosaur books",
+        "long_description": "Expand your knowledge by reading books about dinosaurs and prehistoric life.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 2
+            },
+            "GOLD": {
+                "value": 3
+            }
+        },
+        "referrals": ["read_book_basics", "read_book_advanced", "read_book_expert"]
+    },
+    "cerebrosaurus": {
+        "title": "Cerebrosaurus",
+        "short_description": "Master puzzle solving",
+        "long_description": "Put your brain to work by completing dinosaur puzzles and proving your problem-solving skills.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 4
+            },
+            "GOLD": {
+                "value": 10
+            }
+        },
+        "referrals": ["complete_puzzle_easy", "complete_puzzle_medium", "complete_puzzle_hard", "complete_puzzle_expert", "complete_puzzle_master", "complete_puzzle_legendary", "complete_puzzle_mythic", "complete_puzzle_divine", "complete_puzzle_cosmic", "complete_puzzle_ultimate"]
+    },
+    "cerebrasauryn": {
+        "title": "Cerebrasauryn",
+        "short_description": "Memory match master",
+        "long_description": "Test and improve your memory by making successful matches in the memory game.",
+        "tiers": {
+            "BRONZE": {
+                "value": 10
+            },
+            "SILVER": {
+                "value": 50
+            },
+            "GOLD": {
+                "value": 100
+            }
+        },
+        "referrals": ["match_pair"]
+    },
+    "cult_dino": {
+        "title": "Cult Dino",
+        "short_description": "Complete mastery",
+        "long_description": "Achieve the ultimate recognition by earning all other achievements at their highest tier.",
+        "tiers": {
+            "GOLD": {
+                "value": 8
+            }
+        },
+        "referrals": ["all_gold"]
+    }
+} 

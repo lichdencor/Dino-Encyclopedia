@@ -10,6 +10,7 @@ import { InfoList } from "./components/InfoList";
 import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurrentDinosaurProgress } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
+import { useFidelityProgress } from "../../components/context/FidelityProgressProvider";
 
 type PuzzlePieceStatus = {
   isFound: boolean;
@@ -31,6 +32,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   period
 }) => {
   const { progress, setProgress } = useProgress();
+  const { updateProgress: updateFidelityProgress } = useFidelityProgress();
   
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
   const [piecePosition, setPiecePosition] = useState<{ left: number; top: number } | null>(null);
@@ -94,13 +96,17 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     }
   };
 
-  const updateDinosaurProgress = (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
+  const updateDinosaurProgress = async (currentProgress: number, currentElapsedTime: number, visibleInfo: string[] = []) => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
     const periodData = progress.galleries[0][eraKey].find(
       (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
     );
 
     if (periodData && selectedDinosaur !== null) {
+      const currentDinosaur = periodData.dinosaurs[selectedDinosaur];
+      const wasDiscovered = currentDinosaur.discovered;
+      const willBeDiscovered = currentProgress >= 100;
+
       const newProgress = {
         ...progress,
         galleries: [{
@@ -113,7 +119,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                     idx === selectedDinosaur
                       ? { 
                           ...d, 
-                          discovered: currentProgress >= 100,
+                          discovered: willBeDiscovered,
                           scanProgress: Math.min(Math.round(currentProgress), 100),
                           visibleInfo,
                           elapsedTime: currentElapsedTime
@@ -125,6 +131,14 @@ export const XRayModal: React.FC<XRayModalProps> = ({
           )
         }]
       };
+      if (!wasDiscovered && willBeDiscovered) {
+        const dinoName = dinosaurInfo.name.toLowerCase()
+          .replace(/[^a-z0-9]/g, '')
+          .replace(/\s+/g, '');
+        console.log(`scan_dino_${dinoName}`);
+        await updateFidelityProgress('dynotective', `scan_dino_${dinoName}`).catch(console.error);
+      }
+
       setProgress(newProgress);
     }
   };
@@ -356,7 +370,14 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   return (
     <div className={stylesContainer["modal-overlay"] + " preview-scan-dino"}>
       <button className={styles.closeBtn} onClick={onClose}>×</button>
-      {showAlert && <Alert onClose={handleAlertClose} />}
+      {showAlert && (
+        <Alert 
+          onClose={handleAlertClose}
+          imageSrc="/assets/img/puzzles/puzzle-piece.png"
+          messageText="¡Felicidades! Has encontrado una pieza de puzzle"
+          spanText="Visitá el minijuego Puzzleaurus para ver tu progreso total de piezas"
+        />
+      )}
 
       <div className={styles.modalBg}>
         <div
