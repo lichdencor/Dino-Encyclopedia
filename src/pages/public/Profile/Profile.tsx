@@ -38,11 +38,11 @@ export const Profile = () => {
                     </div>
                     <div className={styles.achievementsContainer}>
 
-                        <ProfileAchievement name="Galleries Explorer" tier="bronze" tiers={3} shortDescription="Complete the Galleries tour" description="Complete the Galleries tour Complete the Galleries tour Complete the Galleries tour"></ProfileAchievement>
+                        <ProfileAchievement name="Galleries Explorer" tier="bronze" tiers={3} shortDescription="Complete the Galleries tour" description="Complete the Galleries tour Complete the Galleries tour Complete the Galleries tour" value={5}></ProfileAchievement>
 
-                        <ProfileAchievement name="Fragment Hunter" tier="gold" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement."></ProfileAchievement>
+                        <ProfileAchievement name="Fragment Hunter" tier="gold" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement." value={12}></ProfileAchievement>
 
-                        <ProfileAchievement name="Reader" tier="silver" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement."></ProfileAchievement>
+                        <ProfileAchievement name="Reader" tier="silver" tiers={3} shortDescription="Create an account" description="Create an account to unlock this achievement." value={15}></ProfileAchievement>
 
                     </div>
                 </div>

@@ -7,6 +7,7 @@ interface ProfileAchievementProps {
   tiers: number;              // number of badge tiers to show (1–3)
   shortDescription: string;
   description: string;
+  value: number;
 }
 
 const TIER_NAMES = ["bronze", "silver", "gold"];
@@ -17,6 +18,7 @@ export const ProfileAchievement = ({
   shortDescription,
   description,
   tiers,
+  value
 }: ProfileAchievementProps) => {
   const keyName = name.trim().toLowerCase().replace(/\s+/g, "-");
 
@@ -65,7 +67,7 @@ export const ProfileAchievement = ({
                 alt={`${name} ${badgeTier}`}
                 className={styles["badge-img"]}
               />
-              <div className={styles["goal-number"]}>12</div>
+              <div className={styles["goal-number"]}>{value}</div>
             </div>
           ))}
         </div>
