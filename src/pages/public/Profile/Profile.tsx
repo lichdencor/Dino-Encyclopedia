@@ -3,19 +3,20 @@ import styles from "./Profile.module.css";
 import { Nav } from '../../../components';
 import { ProgressBar } from '../../../components/ProgressBar/ProgressBar';
 import { Link, useNavigate } from 'react-router-dom';
+import { ProfileAchievement } from '../../../components/AchievementProfile/ProfileAchievement';
 
 export const Profile = () => {
     const navigate = useNavigate();
 
     const accederAWallet = () => navigate('/wallet');
-    
+
     return (
         <div className={styles.profilePage}>
             <Nav></Nav>
             <div className={styles.profileContainer}>
                 <div className={styles.petUserDataContainer}>
                     <div className={styles.petContainer}>
-                        <img src="/public/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg}/>
+                        <img src="/public/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg} />
                     </div>
                     <div className={styles.userDataContainer}>
                         <div className={styles.nameContainer}><p>Gemdelle Dynosaur</p><button className={styles.editNameBtn}></button></div>
@@ -28,81 +29,13 @@ export const Profile = () => {
                         <span className={styles.fidelitySystemTitle}>SISTEMA DE FIDELIDAD</span>
                     </div>
                     <div className={styles["progress-bar"]}>
-                        <ProgressBar imgSrc='/public/assets/img/achievements/achievement-final.png' customStyles={{container: styles["container"]}} progress={23} ></ProgressBar>
+                        <ProgressBar imgSrc='/public/assets/img/achievements/achievement-final.png' customStyles={{ container: styles["container"] }} progress={23} ></ProgressBar>
                     </div>
                     <div className={styles.achievementsContainer}>
-                        
 
-                        <div className={styles.achievementContainer}>
-                        <div className={styles.achievementDescriptionContainer}>
-                                <img src="" alt="" className={styles.achievementImg} />
-                                <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
-                            </div>
-                            <div className={styles.achievementBadgesContainer}>
-                                {/* BADGES */}
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ProfileAchievement  ></ProfileAchievement>
 
-                        <div className={styles.achievementContainer}>
-                        <div className={styles.achievementDescriptionContainer}>
-                                <img src="" alt="" className={styles.achievementImg} />
-                                <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
-                            </div>
-                            <div className={styles.achievementBadgesContainer}>
-                                {/* BADGES */}
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.achievementContainer}>
-                        <div className={styles.achievementDescriptionContainer}>
-                                <img src="" alt="" className={styles.achievementImg} />
-                                <span className={styles.achievementName}>ACHIEVEMENT NAME</span>
-                                <p className={styles.achievementTxt}>Achievement description Achievement description Achievement description Achievement description Achievement</p>
-                            </div>
-                            <div className={styles.achievementBadgesContainer}>
-                                {/* BADGES */}
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                                <div className={styles.badgeContainer}>
-                                    <img src="" alt="" />
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <button className={styles.fidelitySystemAccessBtn}>VER MÁS</button>
                 </div>
             </div>
         </div>
