@@ -20,7 +20,7 @@ export const Profile = () => {
 
                         <img src="/public/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg} />
                     </div>
-                    <div className={styles.userDataContainer}>
+                    <div className={styles["user-data-container"]}>
                         <button className={styles["settings-btn"]}>SETTINGS</button>
 
                         <div className={styles.nameContainer}><p>Gemdelle Dynosaur</p></div>
