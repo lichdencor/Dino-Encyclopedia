@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { NavigateFunction } from "react-router-dom";
 import { useProgress } from "../../../context/Progress/ProgressProvider";
 import { ProgressData } from "../../../services/progress/types";
+import { ProgressBar } from "../../../components/ProgressBar/ProgressBar";
 
 interface MapProps {
     progress: ProgressData;
@@ -54,6 +55,9 @@ class MapComponent extends Component<MapProps, MapComponentState> {
             <div className="mapPage">
                 <Nav />
                 <div className="map">
+                    <div className="progress-container">
+                        <ProgressBar></ProgressBar>
+                    </div>
                     <div className="periodTitleGoldBg period1Container">
                         <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
                         <div className="periodTitleFrame periodTitleFrame1">

@@ -18,12 +18,20 @@ body {
   width: 90%;
   height: 75%;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 8%;
   background-image: url(/public/assets/img/map/map.png);
   background-position: top;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   /* background-color: red; */
+}
+
+.progress-container {
+  position: absolute;
+  left: 4%;
+  top: 18%;
+  width: 32%;
+  height: 5.5%;
 }
 
 @keyframes breathe {
@@ -95,7 +103,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/public/assets/giph/silverTower.gif);
+  background-image: url(/public/assets/giph/tower.gif);
   width: 2%;
   height: 12%;
   filter: brightness(100%);
@@ -125,50 +133,50 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/public/assets/giph/silverTower.gif);
+  background-image: url(/public/assets/giph/tower.gif);
   width: 2.8%;
   height: 18%;
 }
 
 .main-entrance {
   left: 18%;
-  bottom: 20%;
+  bottom: 17%;
 }
 
 .entrance {
   right: 8%;
-  bottom: 20%;
+  bottom: 17%;
 }
 
 .library {
   left: 60%;
-  bottom: 14%;
+  bottom: 11%;
 }
 
 .store {
   left: 8%;
-  bottom: 55%;
+  bottom: 52%;
 }
 
 .kids-room {
   left: 50%;
-  bottom: 59%;
+  bottom: 56%;
   background-image: url(/public/assets/giph/pinkTower.gif);
 }
 
 .restroom-1 {
   left: 39%;
-  bottom: 41%;
+  bottom: 38%;
 }
 
 .restroom-2 {
   left: 57%;
-  bottom: 67%;
+  bottom: 64%;
 }
 
 .restroom-3 {
   right: 8%;
-  bottom: 58%;
+  bottom: 55%;
 }
 
 /* COMMON ROOMS */
@@ -185,17 +193,17 @@ body {
 
 .stage-1 {
   left: 22%;
-  bottom: 40%;
+  bottom: 37%;
 }
 
 .stage-2 {
   left: 32%;
-  bottom: 50%;
+  bottom: 47%;
 }
 
 .stage-3 {
   left: 39%;
-  bottom: 65%;
+  bottom: 62%;
 }
 
 .stage-4,
@@ -206,17 +214,17 @@ body {
 
 .stage-4 {
   left: 48%;
-  bottom: 29%;
+  bottom: 26%;
 }
 
 .stage-5 {
   left: 61%;
-  bottom: 40%;
+  bottom: 37%;
 }
 
 .stage-6 {
   right: 30%;
-  bottom: 60%;
+  bottom: 57%;
 }
 
 .stage-7,
@@ -227,17 +235,17 @@ body {
 
 .stage-7 {
   right: 21%;
-  bottom: 25%;
+  bottom: 22%;
 }
 
 .stage-8 {
   right: 12%;
-  bottom: 38%;
+  bottom: 35%;
 }
 
 .stage-9 {
   right: 18%;
-  bottom: 50%;
+  bottom: 47%;
 }
 
 /* PERIOD FRAMES START */
@@ -284,17 +292,17 @@ body {
 }
 
 .period1Container {
-  top: 29%;
+  top: 31%;
   left: 15%;
 }
 
 .period2Container {
-  bottom: 16%;
+  bottom: 12%;
   left: 40%;
 }
 
 .period3Container {
-  top: 18%;
+  top: 20%;
   left: 75%;
 }
 

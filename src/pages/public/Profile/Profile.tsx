@@ -2,8 +2,13 @@ import React from 'react'
 import styles from "./Profile.module.css";
 import { Nav } from '../../../components';
 import { ProgressBar } from '../../../components/ProgressBar/ProgressBar';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Profile = () => {
+    const navigate = useNavigate();
+
+    const accederAWallet = () => navigate('/wallet');
+    
     return (
         <div className={styles.profilePage}>
             <Nav></Nav>
@@ -15,7 +20,7 @@ export const Profile = () => {
                     <div className={styles.userDataContainer}>
                         <div className={styles.nameContainer}><p>Gemdelle Dynosaur</p><button className={styles.editNameBtn}></button></div>
                         <div className={styles.mailContainer}><p>gemdelle.dynosaur@gmail.com</p><button className={styles.editMailBtn}></button></div>
-                        <button className={styles.walletAccessBtn}>WALLET</button>
+                        <button className={styles.walletAccessBtn} onClick={accederAWallet}>WALLET</button>
                     </div>
                 </div>
                 <div className={styles.fidelitySystemContainer}>

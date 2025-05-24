@@ -23,7 +23,7 @@
   color: white;
   font-family: "Lato";
   letter-spacing: 0.1vw;
-  font-weight: bold;
+  font-size: 0.9vw;
   position: absolute;
   left: 45%;
 }
@@ -43,7 +43,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 3%;
+  right: 0%;
   background-image: url(/public/assets/img/progress/achievement-container.png);
   background-position: center;
   background-size: 100% 100%;
