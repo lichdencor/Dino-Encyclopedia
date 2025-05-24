@@ -79,6 +79,33 @@ const getErrorMessage = (error: ApiError): string => {
 };
 
 export const authService = {
+  async checkSession(): Promise<User | null> {
+    try {
+      const response = await fetch(`${API_URL}/auth/me`, {
+        method: 'GET',
+        credentials: 'include', // Importante para las cookies
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          return null;
+        }
+        const data = await response.json();
+        throw {
+          detail: data.detail || data.message,
+          code: data.code,
+          status: response.status
+        };
+      }
+
+      const data = await response.json();
+      return data.profile;
+    } catch (error) {
+      console.error('Error checking session:', error);
+      return null;
+    }
+  },
+
   async postLogin(credentials: LoginCredentials): Promise<LoginResponse> {
     try {
       const response = await fetch(`${API_URL}/auth/login`, {

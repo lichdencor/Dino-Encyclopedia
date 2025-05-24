@@ -3,9 +3,17 @@ import styles from "./Alert.module.css";
 
 type AlertProps = {
     onClose: () => void;
+    imageSrc?: string;
+    messageText?: string;
+    spanText?: string;
 };
 
-export const Alert = ({ onClose }: AlertProps) => {
+export const Alert = ({ 
+    onClose, 
+    imageSrc,
+    messageText,
+    spanText
+}: AlertProps) => {
     const handleClick = (e: React.MouseEvent) => {
         e.stopPropagation();
         onClose();
@@ -16,10 +24,10 @@ export const Alert = ({ onClose }: AlertProps) => {
             <div className={styles.alertContainer}>
                 <div className={styles.puzzleImgContainer}>
                     <div className={styles.puzzleBackground}></div>
-                    <img src="/assets/img/puzzles/puzzle-piece.png" alt="puzzle piece" className={styles.puzzleImg} />
+                    <img src={imageSrc} alt="alert image" className={styles.puzzleImg} />
                 </div>
-                <p>¡Felicidades! Has encontrado una pieza de puzzle</p>
-                <span>Visitá el minijuego Puzzleaurus para ver tu progreso total de piezas</span>
+                <p>{messageText}</p>
+                <span>{spanText}</span>
                 <button className={styles.closeBtn} onClick={handleClick}>CERRAR</button>
             </div>
         </div>

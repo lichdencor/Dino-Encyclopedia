@@ -1,0 +1,134 @@
+{
+    "first_hatch": {
+        "title": "First Hatch",
+        "short_description": "Begin your dinosaur journey",
+        "long_description": "Welcome to the world of dinosaurs! Create your account and start your prehistoric adventure.",
+        "tiers": {
+            "GOLD": {
+                "value": 1
+            }
+        }
+    },
+    "periods_explorer": {
+        "title": "Periods Explorer",
+        "short_description": "Travel through time",
+        "long_description": "Explore the different prehistoric periods and learn about how Earth and its inhabitants evolved through time.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 2
+            },
+            "GOLD": {
+                "value": 3
+            }
+        }
+    },
+    "galleries_explorer": {
+        "title": "Galleries Explorer",
+        "short_description": "Visit the museum galleries",
+        "long_description": "Discover the different galleries in our virtual museum and learn about different species of dinosaurs.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 4
+            },
+            "GOLD": {
+                "value": 9
+            }
+        }
+    },
+    "dynotective": {
+        "title": "Dynotective",
+        "short_description": "Study dinosaur characteristics",
+        "long_description": "Become a dinosaur detective by analyzing and learning about different dinosaur species and their unique features.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 8
+            },
+            "GOLD": {
+                "value": 27
+            }
+        }
+    },
+    "fragment_hunter": {
+        "title": "Fragment Hunter",
+        "short_description": "Collect puzzle pieces",
+        "long_description": "Search and collect puzzle pieces throughout your journey to complete dinosaur puzzles.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 6
+            },
+            "GOLD": {
+                "value": 10
+            }
+        }
+    },
+    "reader": {
+        "title": "Reader",
+        "short_description": "Read dinosaur books",
+        "long_description": "Expand your knowledge by reading books about dinosaurs and prehistoric life.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 2
+            },
+            "GOLD": {
+                "value": 3
+            }
+        }
+    },
+    "cerebrosaurus": {
+        "title": "Cerebrosaurus",
+        "short_description": "Master puzzle solving",
+        "long_description": "Put your brain to work by completing dinosaur puzzles and proving your problem-solving skills.",
+        "tiers": {
+            "BRONZE": {
+                "value": 1
+            },
+            "SILVER": {
+                "value": 4
+            },
+            "GOLD": {
+                "value": 10
+            }
+        }
+    },
+    "cerebrasauryn": {
+        "title": "Cerebrasauryn",
+        "short_description": "Memory match master",
+        "long_description": "Test and improve your memory by making successful matches in the memory game.",
+        "tiers": {
+            "BRONZE": {
+                "value": 10
+            },
+            "SILVER": {
+                "value": 50
+            },
+            "GOLD": {
+                "value": 100
+            }
+        }
+    },
+    "cult_dino": {
+        "title": "Cult Dino",
+        "short_description": "Complete mastery",
+        "long_description": "Achieve the ultimate recognition by earning all other achievements at their highest tier.",
+        "tiers": {
+            "GOLD": {
+                "value": 8
+            }
+        }
+    }
+} 

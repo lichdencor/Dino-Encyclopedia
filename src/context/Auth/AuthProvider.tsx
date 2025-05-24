@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { authService } from '../../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,6 +19,7 @@ interface AuthContextType {
   registrationSuccess: boolean;
   clearRegistrationSuccess: () => void;
   loginAsGuest: () => void;
+  isLoading: boolean;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -34,7 +35,25 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const profile = await authService.checkSession();
+        if (profile) {
+          setUser(profile);
+        }
+      } catch (error) {
+        console.error('Error checking session:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkSession();
+  }, []);
 
   const login = async (email: string, password: string) => {
     try {
@@ -94,7 +113,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const value = {
     user,
-    isAuthenticated: !!user,
+    isAuthenticated: !!user && user.id !== 'guest',
     login,
     register: registrar,
     logout,
@@ -102,7 +121,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     registrationSuccess,
     clearRegistrationSuccess,
     loginAsGuest,
+    isLoading,
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>; // O tu componente de loading personalizado
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
