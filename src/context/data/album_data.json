@@ -1,0 +1,59 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "description": "Todo sobre los huevos de los dinosaurios",
+      "scenarios": [
+        {
+          "id": 1,
+          "layout": "horizontal",    
+          "species": {
+            "name": "Troodon",
+            "text": {
+              "title": "¿Sabías que…?",
+              "content": "Troodon tenía uno de los cerebros más grandes en relación a su tamaño corporal."
+            },
+            "stickers": [
+              { "id": "trod-1", "src": "https://cdn.com/stickers/troodon1.png" },
+              { "id": "trod-2", "src": "https://cdn.com/stickers/troodon2.png" },
+              { "id": "trod-3", "src": "https://cdn.com/stickers/troodon3.png" }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "layout": "vertical",
+          "species": {
+            "name": "Velociraptor",
+            "text": {
+              "title": "¿Sabías que…?",
+              "content": "Velociraptor podía picotear la cáscara de su huevo desde dentro con un diente especial."
+            },
+            "stickers": [
+              { "id": "velo-1", "src": "https://cdn.com/stickers/velociraptor1.png" },
+              { "id": "velo-2", "src": "https://cdn.com/stickers/velociraptor2.png" },
+              { "id": "velo-3", "src": "https://cdn.com/stickers/velociraptor3.png" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "description": "Desarrollo de crías y cuidados parentales",
+      "scenarios": [
+        {
+          "id": 1,
+          "layout": "grid",
+          "species": {
+            "name": "Oviraptor",
+            "text": { },
+            "stickers": []
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
