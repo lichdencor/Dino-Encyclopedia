@@ -1,41 +1,33 @@
 import { Component } from 'react';
 import styles from './Tips.module.css';
 import { Nav } from '../../../components';
-
-const PUZZLEAURUS_TIPS_KEY = 'showPuzzleaurusTipsDialog';
-const MEMODYN_TIPS_KEY = 'showMemoDynTipsDialog';
-
-interface TipsState {
-    puzzleaurusEnabled: boolean;
-    memoDynEnabled: boolean;
-}
+import { TipsModel, TipsState } from './TipsModel';
+import { TipsController } from './TipsController';
 
 export class Tips extends Component<{}, TipsState> {
-    state: TipsState = {
-        puzzleaurusEnabled: false,
-        memoDynEnabled: false
-    };
+    private model: TipsModel;
+    private controller: TipsController;
+    private unsubscribe: (() => void) | null = null;
 
-    componentDidMount() {
-        const puzzleaurusStored = localStorage.getItem(PUZZLEAURUS_TIPS_KEY);
-        const memoDynStored = localStorage.getItem(MEMODYN_TIPS_KEY);
-        this.setState({
-            puzzleaurusEnabled: puzzleaurusStored === 'true',
-            memoDynEnabled: memoDynStored === 'true'
-        });
+    constructor(props: {}) {
+        super(props);
+        this.model = new TipsModel();
+        this.controller = new TipsController(this.model);
+        this.state = this.model.getState();
     }
 
-    handlePuzzleaurusToggle = () => {
-        const newValue = !this.state.puzzleaurusEnabled;
-        localStorage.setItem(PUZZLEAURUS_TIPS_KEY, String(newValue));
-        this.setState({ puzzleaurusEnabled: newValue });
-    };
+    componentDidMount() {        
+        this.unsubscribe = this.model.subscribe((state) => {
+            this.setState(state);
+        });
+        this.model.initialize();
+    }
 
-    handleMemoDynToggle = () => {
-        const newValue = !this.state.memoDynEnabled;
-        localStorage.setItem(MEMODYN_TIPS_KEY, String(newValue));
-        this.setState({ memoDynEnabled: newValue });
-    };
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
+    }
 
     mostrarTips() {
         return <div className={styles.tipsBackofficeContainer}>
@@ -48,7 +40,7 @@ export class Tips extends Component<{}, TipsState> {
                     id="puzzleaurus-tips-switch"
                     type="checkbox"
                     checked={this.state.puzzleaurusEnabled}
-                    onChange={this.handlePuzzleaurusToggle}
+                    onChange={this.controller.onPuzzleaurusCheckboxClicked}
                     className={styles.switch}
                 />
             </div>
@@ -63,7 +55,7 @@ export class Tips extends Component<{}, TipsState> {
                     id="memoDyn-tips-switch"
                     type="checkbox"
                     checked={this.state.memoDynEnabled}
-                    onChange={this.handleMemoDynToggle}
+                    onChange={this.controller.onMemoDynCheckboxClicked}
                     className={styles.switch}
                 />
             </div>
