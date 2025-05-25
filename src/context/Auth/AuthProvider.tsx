@@ -21,6 +21,7 @@ interface AuthContextType {
   clearRegistrationSuccess: () => void;
   loginAsGuest: () => void;
   isLoading: boolean;
+  updateUser: (user: User | null) => void;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -34,7 +35,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, updateUser] = useState<User | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       try {
         const profile = await authService.checkSession();
         if (profile) {
-          setUser(profile);
+          updateUser(profile);
         }
       } catch (error) {
         console.error('Error checking session:', error);
@@ -59,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await authService.postLogin({ email, password });
-      setUser(response.profile);
+      updateUser(response.profile);
       navigate('/');
     } catch (error) {
       console.error('Error de login:', error);
@@ -70,7 +71,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
       const response = await authService.postRegistro(data);
-      setUser(response.profile);
+      updateUser(response.profile);
       setRegistrationSuccess(true);
       navigate('/login');
     } catch (error) {
@@ -91,7 +92,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     try {
       await authService.logout();
-      setUser(null);
+      updateUser(null);
       navigate('/login');
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
@@ -108,7 +109,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       email: 'guest@guest.com',
       full_name: 'Guest User'
     };
-    setUser(guestUser);
+    updateUser(guestUser);
     navigate('/');
   };
 
@@ -124,6 +125,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     clearRegistrationSuccess,
     loginAsGuest,
     isLoading,
+    updateUser
   };
 
   if (isLoading) {
