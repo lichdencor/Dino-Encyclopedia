@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from "./Album.module.css";
-import {Template1} from '../../../components/AlbumTemplates/Template1';
-import {Template2} from '../../../components/AlbumTemplates/Template2';
-import {Template3} from '../../../components/AlbumTemplates/Template3';
-import {AlbumPage, Slot, Sticker, TemplateType} from '../../../types/album';
+import { Template1 } from '../../../components/AlbumTemplates/Template1';
+import { Template2 } from '../../../components/AlbumTemplates/Template2';
+import { Template3 } from '../../../components/AlbumTemplates/Template3';
+import { AlbumPage, Slot, Sticker, TemplateType } from '../../../types/album';
 
 interface AlbumState {
     currentPage: number;
@@ -54,9 +54,22 @@ export class Album extends Component<{}, AlbumState> {
                 }
             ],
             stickers: [
-                { id: 'Card01', image: "/assets/Cards/Card01.png" },
-                { id: 'Card02', image: "/assets/Cards/Card02.png" },
-                { id: 'Card03', image: "/assets/Cards/Card03.png" },
+                { id: 'Card01', image: "/public/assets/img/dinosaurs/cr-1-Gallimimus.png" },
+                { id: 'Card02', image: "/public/assets/img/dinosaurs/cr-1-Microceratus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-2-Baryonyx.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-2-Irritator.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-2-Spinosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Ankylosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Triceratops.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Tyrannosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Compsognathus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Cryolophosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Dilophosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-2-Apatosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-2-Camarasaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-3-Stegosaurus.png" },
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png" }
             ],
             draggingSticker: null,
             mousePos: { x: 0, y: 0 }
@@ -170,49 +183,66 @@ export class Album extends Component<{}, AlbumState> {
         const { stickers, draggingSticker, pages, currentPage } = this.state;
 
         return (
-            <div className={styles.albumContainer}>
-                <div className={styles.stickerSection}>
-                    <h2>Stickers Disponibles</h2>
-                    <div className={styles.stickersGrid}>
-                        {stickers.map(sticker => (
-                            <img
-                                key={sticker.id}
-                                src={sticker.image}
-                                alt={sticker.id}
-                                onMouseDown={e => {
-                                    e.preventDefault();
+            <div className={styles["album-container"]}>
+                <div className={styles["album"]}>
+                    <div className={styles["sticker-section-gold-container"]}>
+                        <div className={styles["sticker-section"]}>
+                            <div className={styles["stickers-content"]}>
+                                <p className={styles["stickers-title"]}>Stickers</p>
+                                <div className={styles["stickers-grid"]}>
+                                    {stickers.map(sticker => (
+                                        <div className={styles["sticker-container"]}>
+                                        <img
+                                            key={sticker.id}
+                                            src={sticker.image}
+                                            alt={sticker.id}
+                                            onMouseDown={e => {
+                                                e.preventDefault();
+                                                this.setState({
+                                                    draggingSticker: sticker,
+                                                    mousePos: { x: e.clientX, y: e.clientY }
+                                                });
+                                            }}
+                                            className={styles["sticker"]}
+                                        />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={styles["album-section"]}>
+                        <div className={styles["navigation"]}>
+                            <button
+                                onClick={() =>
+                                    this.setState({ currentPage: Math.max(0, currentPage - 1) })
+                                }
+                                disabled={currentPage === 0}
+                            >
+                                Anterior
+                            </button>
+                            <span>
+                                Página {currentPage + 1} de {pages.length}
+                            </span>
+                            <button
+                                onClick={() =>
                                     this.setState({
-                                        draggingSticker: sticker,
-                                        mousePos: { x: e.clientX, y: e.clientY }
-                                    });
-                                }}
-                                className={styles.sticker}
-                            />
-                        ))}
-                    </div>
-                </div>
+                                        currentPage: Math.min(pages.length - 1, currentPage + 1)
+                                    })
+                                }
+                                disabled={currentPage === pages.length - 1}
+                            >
+                                Siguiente
+                            </button>
+                        </div>
 
-                <div className={styles.albumSection}>
-                    <div className={styles.navigation}>
-                        <button
-                            onClick={() => this.setState({ currentPage: Math.max(0, currentPage - 1) })}
-                            disabled={currentPage === 0}
-                        >
-                            Anterior
-                        </button>
-                        <span>Página {currentPage + 1} de {pages.length}</span>
-                        <button
-                            onClick={() => this.setState({ currentPage: Math.min(pages.length - 1, currentPage + 1) })}
-                            disabled={currentPage === pages.length - 1}
-                        >
-                            Siguiente
-                        </button>
+                        {this.renderCurrentTemplate()}
                     </div>
 
-                    {this.renderCurrentTemplate()}
+                    {draggingSticker && this.createGhostSticker()}
                 </div>
 
-                {draggingSticker && this.createGhostSticker()}
             </div>
         );
     }
