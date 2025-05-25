@@ -56,7 +56,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                 <Nav />
                 <div className="map">
                     <div className="progress-container">
-                        <ProgressBar></ProgressBar>
+                        <ProgressBar imgSrc="/public/assets/img/achievements/bronze/achievement-periods-explorer-bronze.png" progress={23}></ProgressBar>
                     </div>
                     <div className="periodTitleGoldBg period1Container">
                         <img src="/public/assets/img/map/period1Paws.png" alt="period level" />

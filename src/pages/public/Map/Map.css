@@ -5,7 +5,7 @@ body {
 .mapPage {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/bg/rockBg.png);
+  background-image: url(/public/assets/img/bg/brown-rock-bg.png);
   background-position: bottom;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -467,32 +467,7 @@ body {
   width: 60%;
   height: 15%;
   bottom: 1vw;
-  border-radius: 6px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(33, 1, 1);
-  
-  border: 5px double rgb(125, 118, 79);
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-  
-  font-family: "MedusaGothic";
-  letter-spacing: 0.15vw;
   font-size: 0.5vw;
-
-  filter: brightness(50%);
-  cursor: pointer;
-  transition: all 500ms ease-in-out;
-}
-
-.linkVisitBtn {
-  color: #eae4c0 !important;
-}
-
-.visitBtn:hover {
-  filter: brightness(100%);
-  transform: scale(103%);
 }
 
 .paperContainer {

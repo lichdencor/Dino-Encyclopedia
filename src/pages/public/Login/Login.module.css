@@ -8,6 +8,23 @@
   background: transparent;
 }
 
+.login-container {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/assets/img/login-bg/form-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
 .gold-line {
   position: absolute;
   width: 100%;
@@ -24,29 +41,13 @@
   bottom: 0;
 }
 
-.login-container {
-  width: 70%;
-  height: 60%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(/public/assets/img/login-bg/form-bg.png);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: 1;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
 .login-content {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 45%;
+  width: 35%;
   height: 75%;
   border-top: 2px solid rgb(214, 192, 112);
   border-bottom: 2px solid rgb(214, 192, 112);
@@ -61,6 +62,7 @@
 }
 
 .form {
+  height: 48%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -88,19 +90,9 @@
 .submitButton,
 .guestButton {
   width: 30%;
-  height: 20%;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-family: "MedusaGothic";
-  font-weight: lighter;
-  letter-spacing: 0.2vw;
-  margin: 0 auto;
+  height: 25%;
   margin-top: 3%;
   border: 5px double rgb(27, 1, 1);
-  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
-  transition: all 500ms ease-in-out;
-  filter: brightness(90%);
 }
 
 .inputGroup {

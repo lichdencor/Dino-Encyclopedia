@@ -51,6 +51,7 @@ button {
 
 button:hover {
   transform: scale(105%);
+    filter: brightness(100%);
 }
 
 input {
