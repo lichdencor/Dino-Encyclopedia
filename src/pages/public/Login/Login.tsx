@@ -1,69 +1,54 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context";
 import styles from "./Login.module.css";
 import { IntroSequence } from "../../../components/IntroSequence/IntroSequence";
+import { UserSessionModel, UserSessionState } from "../../../models/UserSessionModel";
+import { LoginController } from "./LoginController";
+import { AuthService } from "../../../services/AuthService";
+import { withAuth } from "../../../hoc/withAuth";
 
-interface LoginState {
-    email: string;
-    password: string;
-    error: string;
+interface LoginProps {
+    authService: AuthService;
 }
 
-export class Login extends Component<{}, LoginState> {
-    static contextType = AuthContext;
-    declare context: React.ContextType<typeof AuthContext>;
+interface LoginComponentState extends UserSessionState {}
 
-    state: LoginState = {
-        email: "",
-        password: "",
-        error: ""
-    };
+class LoginComponent extends Component<LoginProps, LoginComponentState> {
+    private model: UserSessionModel;
+    private controller: LoginController;
+    private unsubscribe: (() => void) | null = null;
 
-    componentWillUnmount() {
-        this.context.clearRegistrationSuccess();
+    constructor(props: LoginProps) {
+        super(props);
+        this.model = new UserSessionModel(props.authService);
+        this.controller = new LoginController(this.model);
+        this.state = {
+            ...this.model.getState(),
+        };
     }
 
-    handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        this.setState({ error: "" });
+    componentDidMount() {
+        this.unsubscribe = this.model.subscribe((state) => {
+            this.setState({ ...state });
+        });
+    }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(this.state.email)) {
-            const errorEmailInvalido = 'Error email invalido';
-            this.mostrarError(errorEmailInvalido);
-            return;
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
         }
-
-        if (this.state.password.length < 8) {
-            const errorPasswordInvalida = 'Error password invalida';
-            this.mostrarError(errorPasswordInvalida);
-            return;
-        }
-
-        try {
-            if (!this.context) {
-                throw new Error('Auth context is not available');
-            }
-            await this.context.login(this.state.email, this.state.password);
-        } catch (err) {
-            this.setState({ error: err instanceof Error ? err.message : "Error al iniciar sesión" });
-        }
-    };
-
-    mostrarError(error: string) {
-        this.setState({ error });
+        this.controller.clearRegistrationSuccess();
     }
 
     mostrarFormularioLogin() {
-        return <form onSubmit={this.handleSubmit} className={styles.form}>
+        return <form onSubmit={this.controller.onSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
                 <label htmlFor="email">Email</label>
                 <input
                     type="email"
                     id="email"
-                    value={this.state.email}
-                    onChange={(e) => this.setState({ email: e.target.value })}
+                    value={this.state.formData.email}
+                    onChange={(e) => this.controller.onEmailChange(e.target.value)}
                     required
                     placeholder="tu@email.com"
                 />
@@ -74,8 +59,8 @@ export class Login extends Component<{}, LoginState> {
                 <input
                     type="password"
                     id="password"
-                    value={this.state.password}
-                    onChange={(e) => this.setState({ password: e.target.value })}
+                    value={this.state.formData.password}
+                    onChange={(e) => this.controller.onPasswordChange(e.target.value)}
                     required
                     placeholder="Tu contraseña"
                 />
@@ -87,11 +72,7 @@ export class Login extends Component<{}, LoginState> {
 
             <button
                 type="button"
-                onClick={() => {
-                    if (this.context) {
-                        this.context.loginAsGuest();
-                    }
-                }}
+                onClick={() => this.controller.onGuestLogin()}
                 className={styles.guestButton}
             >
                 Guest
@@ -104,12 +85,11 @@ export class Login extends Component<{}, LoginState> {
             <div className={styles["login-page"]}>
                 <IntroSequence />
                 <div className={styles["login-container"]}>
-                    <div className={`${styles["gold-line"]} ${styles["gold-line1"]
-                        }`} />
+                    <div className={`${styles["gold-line"]} ${styles["gold-line1"]}`} />
                     <div className={styles["login-content"]}>
                         <h1>Iniciar Sesión</h1>
 
-                        {this.context?.registrationSuccess && (
+                        {this.state.registrationSuccess && (
                             <div className={styles.successMessage}>
                                 ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
                             </div>
@@ -124,14 +104,15 @@ export class Login extends Component<{}, LoginState> {
                                 ¿No tienes una cuenta? <Link to="/register" className={styles.link}>Regístrate aquí</Link>
                             </p>
                             <p className={styles["recovery-link"]}>
-                                ¿Olvidaste tu contraseña? <Link to="/recovery-password" className={styles.link}>Recupérala aquí</Link >
+                                ¿Olvidaste tu contraseña? <Link to="/recovery-password" className={styles.link}>Recupérala aquí</Link>
                             </p>
                         </div>
                     </div>
-                    <div className={`${styles["gold-line"]} ${styles["gold-line2"]
-                        }`} />
+                    <div className={`${styles["gold-line"]} ${styles["gold-line2"]}`} />
                 </div>
             </div>
         );
     }
 }
+
+export const Login = withAuth(LoginComponent);

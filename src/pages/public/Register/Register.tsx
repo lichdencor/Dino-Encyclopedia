@@ -1,75 +1,49 @@
 import { Component } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { AuthContext } from '../../../context';
+import { Link } from 'react-router-dom';
 import styles from './Register.module.css';
+import { UserSessionModel, UserSessionState } from '../../../models/UserSessionModel';
+import { RegisterController } from './RegisterController';
+import { AuthService } from '../../../services/AuthService';
+import { withAuth } from '../../../hoc/withAuth';
 
-interface RegisterState {
-    formData: {
-        email: string;
-        password: string;
-        full_name: string;
-    };
-    error: string;
+interface RegisterProps {
+    authService: AuthService;
 }
 
-export class Register extends Component<{}, RegisterState> {
-    static contextType = AuthContext;
-    declare context: React.ContextType<typeof AuthContext>;
+interface RegisterComponentState extends UserSessionState {}
 
-    state: RegisterState = {
-        formData: {
-            email: '',
-            password: '',
-            full_name: '',
-        },
-        error: '',
-    };
+class RegisterComponent extends Component<RegisterProps, RegisterComponentState> {
+    private model: UserSessionModel;
+    private controller: RegisterController;
+    private unsubscribe: (() => void) | null = null;
 
-    handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        this.setState({ error: '' });
+    constructor(props: RegisterProps) {
+        super(props);
+        this.model = new UserSessionModel(props.authService);
+        this.controller = new RegisterController(this.model);
+        this.state = {
+            ...this.model.getState(),
+        };
+    }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(this.state.formData.email)) {
-            const errorEmailInvalido = 'Error email invalido';
-            this.mostrarError(errorEmailInvalido);
-            return;
-        }
-
-        if (this.state.formData.password.length < 8) {
-            const errorPasswordInvalida = 'Error password invalida';
-            this.mostrarError(errorPasswordInvalida);
-            return;
-        }
-        
-        try {
-            if (!this.context) {
-                throw new Error('Auth context is not available');
-            }
-            await this.context.register(this.state.formData);
-        } catch (err) {
-            this.setState({ error: err instanceof Error ? err.message : 'Error en el registro' });
-        }
-    };
-
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({
-            formData: {
-                ...this.state.formData,
-                [e.target.name]: e.target.value
-            }
+    componentDidMount() {
+        this.unsubscribe = this.model.subscribe((state) => {
+            this.setState({ ...state });
         });
-    };
+    }
 
-    mostrarError(error: string) {
-        this.setState({ error });
+    componentWillUnmount() {
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
     }
 
     mostrarFormularioRegistro() {
+
         return <div className={styles.formWrapper}>
             <h2>Registro</h2>
             {this.state.error && <p className={styles.error}>{this.state.error}</p>}
-            <form onSubmit={this.handleSubmit} className={styles.form}>
+            <form onSubmit={(e) => this.controller.onSubmit(e)} className={styles.form}>
                 <div className={styles.inputGroup}>
                     <label htmlFor="full_name">Nombre completo</label>
                     <input
@@ -77,7 +51,7 @@ export class Register extends Component<{}, RegisterState> {
                         id="full_name"
                         name="full_name"
                         value={this.state.formData.full_name}
-                        onChange={this.handleChange}
+                        onChange={(e) => this.controller.onFullNameChange(e.target.value)}
                         required
                         placeholder="Ingresa tu nombre completo"
                     />
@@ -90,7 +64,7 @@ export class Register extends Component<{}, RegisterState> {
                         id="email"
                         name="email"
                         value={this.state.formData.email}
-                        onChange={this.handleChange}
+                        onChange={(e) => this.controller.onEmailChange(e.target.value)}
                         required
                         placeholder="Ingresa tu email"
                     />
@@ -103,7 +77,7 @@ export class Register extends Component<{}, RegisterState> {
                         id="password"
                         name="password"
                         value={this.state.formData.password}
-                        onChange={this.handleChange}
+                        onChange={(e) => this.controller.onPasswordChange(e.target.value)}
                         required
                         placeholder="Ingresa tu contraseña"
                     />
@@ -126,4 +100,6 @@ export class Register extends Component<{}, RegisterState> {
             </div>
         );
     }
-} 
+}
+
+export const Register = withAuth(RegisterComponent); 
