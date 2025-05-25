@@ -1,90 +1,158 @@
-import { useState } from "react";
+import { Component } from "react";
 import { GalleryDinosaurNames, Nav } from "../../components";
 import { GalleryArrows } from "../GalleryArrows/GalleryArrows";
 import { GalleryCurtains } from "./GalleryCurtains";
 import { GalleryDinosaurs } from "./GalleryDinosaurs";
 import { XRayModal } from "../XRay/XrayModal";
-import { DinosaurInfo, GalleryStyles } from "./types";
-import styles from './Gallery.module.css';
 import GalleryTitle from "../GalleryTitle/GalleryTitle";
+import { GalleryStyles } from "./types";
+import { DinosaurInfo as XRayDinosaurInfo } from "../XRay/types";
+import { SubPeriodModel } from "../../models/PeriodModel";
+import { GalleryModel } from "./GalleryModel";
 
 interface GalleryProps {
+  subPeriodModel: SubPeriodModel;
+  customStyles: GalleryStyles;
   previousPage: string;
   nextPage: string;
-  customStyles: GalleryStyles;
   imagePrefix: string;
   skeletonPrefix: string;
-  dinosaursInfo: DinosaurInfo[];
   era: "triassic" | "jurassic" | "cretaceous";
   period: "Inferior" | "Medium" | "Superior";
 }
 
-export const Gallery = ({
-  previousPage,
-  nextPage,
-  customStyles,
-  imagePrefix,
-  skeletonPrefix,
-  dinosaursInfo,
-  era,
-  period
-}: GalleryProps) => {
-  const [activeDinosaur, setActiveDinosaur] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDinosaur, setSelectedDinosaur] = useState<number>(0);
+interface GalleryState {
+  activeDinosaur: number | null;
+  isModalOpen: boolean;
+  selectedDinosaur: number;
+  customStyles: GalleryStyles;
+  previousPage: string;
+  nextPage: string;
+  dinosaurNames: string[];
+  currentDinosaurInfo: XRayDinosaurInfo;
+  era: "triassic" | "jurassic" | "cretaceous";
+  period: "Inferior" | "Medium" | "Superior";
+  dinosaurImage: string;
+  dinosaurBone: string;
+}
 
-  const handleDinosaurClick = (index: number) => {
-    setSelectedDinosaur(index);
-    setIsModalOpen(true);
+export class Gallery extends Component<GalleryProps, GalleryState> {
+  private model: GalleryModel;
+  private unsubscribe: (() => void) | null = null;
+
+  constructor(props: GalleryProps) {
+    super(props);
+    const { 
+      subPeriodModel, 
+      customStyles, 
+      previousPage, 
+      nextPage, 
+      imagePrefix, 
+      skeletonPrefix, 
+      era, 
+      period 
+    } = props;
+
+    this.model = new GalleryModel(
+      subPeriodModel,
+      customStyles,
+      previousPage,
+      nextPage,
+      imagePrefix,
+      skeletonPrefix,
+      era,
+      period
+    );
+    this.state = this.model.getState();
+  }
+
+  componentDidMount() {
+    this.unsubscribe = this.model.subscribe((state) => {
+      this.setState(state);
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
+  }
+
+  handleDinosaurClick = (index: number) => {
+    this.model.handleDinosaurClick(index);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedDinosaur(0);
+  closeModal = () => {
+    this.model.closeModal();
   };
 
-  return (
-    <div>
-      <Nav />
-      <div className={customStyles.containerClass}>
-        <GalleryCurtains 
-          customStyles={customStyles}
-          era={era}
-          period={period}
-        />
-        
-        <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
+  setActiveDinosaur = (dinosaur: number | null) => {
+    this.model.setActiveDinosaur(dinosaur);
+  };
 
-        <GalleryArrows previousPage={previousPage} nextPage={nextPage} />
-        <GalleryDinosaurNames 
-          dinosaurs={dinosaursInfo.map(dino => dino.name)}
-          era={era}
-          period={period}
-        />
+  render() {
+    const { 
+      activeDinosaur, 
+      isModalOpen, 
+      selectedDinosaur,
+      customStyles,
+      previousPage,
+      nextPage,
+      dinosaurNames,
+      currentDinosaurInfo,
+      era,
+      period,
+      dinosaurImage,
+      dinosaurBone
+    } = this.state;
 
-        <GalleryDinosaurs 
-          customStyles={customStyles}
-          onDinosaurClick={handleDinosaurClick}
-        />
+    return (
+      <div>
+        <Nav />
+        <div className={customStyles.containerClass}>
+          <GalleryCurtains 
+            customStyles={customStyles}
+            era={era}
+            period={period}
+          />
+          
+          <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
-        <GalleryTitle
-          period={era}
-          subperiod={period}
-        ></GalleryTitle>
+          <GalleryArrows 
+            previousPage={previousPage} 
+            nextPage={nextPage} 
+          />
+          
+          <GalleryDinosaurNames 
+            dinosaurs={dinosaurNames}
+            era={era}
+            period={period}
+          />
 
-        <XRayModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          selectedDinosaur={selectedDinosaur}
-          activeDinosaur={activeDinosaur}
-          setActiveDinosaur={setActiveDinosaur}
-          dinosaurInfo={dinosaursInfo[selectedDinosaur]}
-          dinosaurImage={`${imagePrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
-          dinosaurBone={`${skeletonPrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
-          era={era}
-          period={period}
-        />
+          <GalleryDinosaurs 
+            customStyles={customStyles}
+            onDinosaurClick={this.handleDinosaurClick}
+          />
+
+          <GalleryTitle
+            period={era}
+            subperiod={period}
+          />
+
+          <XRayModal
+            isOpen={isModalOpen}
+            onClose={this.closeModal}
+            selectedDinosaur={selectedDinosaur}
+            activeDinosaur={activeDinosaur}
+            setActiveDinosaur={this.setActiveDinosaur}
+            dinosaurInfo={currentDinosaurInfo}
+            dinosaurImage={dinosaurImage}
+            dinosaurBone={dinosaurBone}
+            era={era}
+            period={period}
+          />
+        </div>
       </div>
-    </div>
-  );
-}; 
+    );
+  }
+} 

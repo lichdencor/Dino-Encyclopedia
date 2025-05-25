@@ -4,6 +4,7 @@ import { Gallery } from "../../../components/Gallery/Gallery";
 import galleries_data from "../../../context/data/galleries_data.json";
 import { TransitionScreen } from '../../../components/TransitionScreen';
 import { usePreviousRoute } from '../../../context/NavigationContext';
+import { SubPeriodModel, Dinosaur } from "../../../models/PeriodModel";
 
 export const CretaceousSuperior = () => {
   const [showTransition, setShowTransition] = useState(false);
@@ -39,40 +40,44 @@ export const CretaceousSuperior = () => {
     (era) => era.period === "Cretaceous Superior"
   );
 
-  const dinosaursInfo = superiorCretaceousData?.dinosaurs.map(dino => ({
-    name: dino.name,
-    nombreCientifico: dino.scientific_name,
-    altura: dino.height,
-    peso: dino.weight,
-    clasificacion: dino.classification,
-    dieta: dino.diet_type,
-    velocidad: dino.speed,
-    caracteristicas: dino.special_features,
-    naturaleza: dino.defense_attack_mechanism,
-    fosiles: dino.fossils_found_in,
-    sociabilidad: dino.social_behaviour,
-    relacionEvolutiva: dino.evolutionary_relationship
-  })) || [];
+  if (!superiorCretaceousData) {
+    throw new Error("Could not find Cretaceous Superior data");
+  }
 
-  const handleTransitionEnd = () => {
-    setShowTransition(false);
-  };
+  const dinosaurs: Dinosaur[] = superiorCretaceousData.dinosaurs.map(dino => ({
+    info: {
+      name: dino.name,
+      scientific_name: dino.scientific_name,
+      height: dino.height,
+      weight: dino.weight,
+      classification: dino.classification,
+      diet_type: dino.diet_type,
+      speed: dino.speed,
+      special_features: dino.special_features,
+      defense_attack_mechanism: dino.defense_attack_mechanism,
+      fossils_found_in: dino.fossils_found_in,
+      social_behaviour: dino.social_behaviour,
+      evolutionary_relationship: dino.evolutionary_relationship
+    }
+  }));
+
+  const subPeriodModel = new SubPeriodModel("Cretaceous Superior", dinosaurs);
 
   return (
     <>
       {showTransition && (
         <TransitionScreen 
-          eraName="Cretaceous Period" 
-          onTransitionEnd={handleTransitionEnd} 
+          eraName="Cretaceous Period"
+          onTransitionEnd={() => setShowTransition(false)} 
         />
       )}
       <Gallery
-        previousPage="cretaceous-medium"
-        nextPage="map"
+        subPeriodModel={subPeriodModel}
         customStyles={customStyles}
+        previousPage="cretaceous-medium"
+        nextPage="triassic-inferior"
         imagePrefix="/assets/img/dinosaurs/cr-3-"
         skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-cr-3-"
-        dinosaursInfo={dinosaursInfo}
         era="cretaceous"
         period="Superior"
       />

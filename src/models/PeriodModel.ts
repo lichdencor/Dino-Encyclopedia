@@ -13,6 +13,10 @@ export interface DinosaurInfo {
     evolutionary_relationship: string;
 }
 
+export interface Dinosaur {
+    info: DinosaurInfo;
+}
+
 export class DinosaurModel {
     private _info: DinosaurInfo;
     private _discovered: boolean;
@@ -59,9 +63,9 @@ export class SubPeriodModel {
     private _name: string;
     private _completed: boolean;
     private _progress: number;
-    private _dinosaurs: DinosaurModel[];
+    private _dinosaurs: Dinosaur[];
 
-    constructor(name: string, dinosaurs: DinosaurModel[]) {
+    constructor(name: string, dinosaurs: Dinosaur[]) {
         this._name = name;
         this._completed = false;
         this._progress = 0;
@@ -88,7 +92,7 @@ export class SubPeriodModel {
         this._progress = value;
     }
 
-    get dinosaurs(): DinosaurModel[] {
+    get dinosaurs(): Dinosaur[] {
         return this._dinosaurs;
     }
 
@@ -99,7 +103,7 @@ export class SubPeriodModel {
             return;
         }
 
-        const discoveredDinosaurs = this._dinosaurs.filter(dino => dino.discovered).length;
+        const discoveredDinosaurs = this._dinosaurs.filter(dino => dino.info.name).length;
         this._progress = (discoveredDinosaurs / totalDinosaurs) * 100;
         this._completed = this._progress === 100;
     }
