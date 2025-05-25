@@ -15,7 +15,7 @@ html {
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -28,19 +28,29 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 1rem;
 }
 
-.puzzle-layout {
-  position: relative;
+.puzzle-frame {
+    position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+}
+
+.puzzle-layout {
+  position: relative;
+  width: 99%;
+  height: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -48,7 +58,6 @@ html {
 .puzzle-container {
   width: 100%;
   height: 100%;
-  background-color: rgba(42, 42, 42, 0.8);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -105,7 +114,6 @@ html {
   padding: 0.5rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: #2a2a2a;
 }
 
 .difficulty-selector label {
@@ -116,9 +124,8 @@ html {
 .difficulty-selector select {
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  border: 2px solid #3a3a3a;
+  border: 2px solid white;
   font-size: 1rem;
-  background-color: #2a2a2a;
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -145,7 +152,6 @@ html {
 .puzzle-piece {
   position: absolute;
   cursor: move;
-  background-color: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   will-change: transform;
   user-select: none;
@@ -157,9 +163,8 @@ html {
   width: 100%;
   height: auto;
   aspect-ratio: 1;
-  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .puzzle-piece.dragging {
@@ -193,11 +198,12 @@ html {
 }
 
 .timer-container {
+  height: 100%;
   width: 100%;
-  margin: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: red;
 }
 
 .puzzle-header {
@@ -242,33 +248,38 @@ html {
 }
 
 .timer-bar-container {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 10%;
+  height: 100%;
   padding: 1rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  background-color: blue;
   z-index: 1000;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/assets/img/progress/progress-bar.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .timer-bar {
-  width: 80%;
-  height: 8px;
-  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 90%;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(244, 213, 166, 0.3);
-  margin: 0 auto;
+  background-color: red;
 }
 
 .timer-progress {
   height: 100%;
   background: linear-gradient(135deg, #372715, #f4d5a6, #7b664d, #f4d5a6);
-  transition: width 0.1s linear;
-  will-change: width;
+  transition: height 0.1s linear;
+  will-change: height;
   backface-visibility: hidden;
-  transform: translateZ(0);
 }
 
 .timer-progress.time-critical {

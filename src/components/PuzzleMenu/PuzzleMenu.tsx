@@ -7,7 +7,7 @@ interface Puzzle {
   id: number;
   name: string;
   logoPuzzle: string;
-  difficultysLogo: string[];
+  difficultiesLogo: string[];
 }
 
 interface PuzzleMenuProps {
@@ -19,7 +19,7 @@ const puzzles = [
     id: 1,
     name: "Tyranosaurus Rex",
     logoPuzzle: "/assets/img/puzzles/puzzle-1/puzzle-1.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"
@@ -29,7 +29,7 @@ const puzzles = [
     id: 2,
     name: "Spinosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-2/puzzle-2.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"
@@ -39,7 +39,7 @@ const puzzles = [
     id: 3,
     name: "Gigantosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-3/puzzle-3.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"
@@ -49,7 +49,7 @@ const puzzles = [
     id: 4,
     name: "Baryonyx",
     logoPuzzle: "/assets/img/puzzles/puzzle-4/puzzle-4.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"
@@ -59,7 +59,7 @@ const puzzles = [
     id: 5,
     name: "Allosaurus",
     logoPuzzle: "/assets/img/puzzles/puzzle-5/puzzle-5.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"
@@ -69,7 +69,7 @@ const puzzles = [
     id: 6,
     name: "Velociraptor",
     logoPuzzle: "/assets/img/puzzles/puzzle-6/puzzle-6.jpg",
-    difficultysLogo: [
+    difficultiesLogo: [
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png",
       "/assets/img/puzzles/dificultad/incomplete.png"

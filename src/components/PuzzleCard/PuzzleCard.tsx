@@ -6,7 +6,7 @@ interface PuzzleCardProps {
     id: number;
     name: string;
     logoPuzzle: string;
-    difficultysLogo: string[];
+    difficultiesLogo: string[];
   };
   onClick: (difficulty: 'easy' | 'medium' | 'hard') => void;
 }
@@ -15,33 +15,31 @@ const PuzzleCard: React.FC<PuzzleCardProps> = ({ puzzle, onClick }) => {
   const difficulties: ('easy' | 'medium' | 'hard')[] = ['easy', 'medium', 'hard'];
 
   return (
-    <div className={styles.puzzleCard}>
-      <div className={styles.imageContainer}>
-        {/* <img
-          src={puzzle.logoPuzzle}
-          alt={puzzle.name}
-          className={styles.puzzleImage}
-        /> */}
-        <div className={styles.puzzleImage} style={{
-          backgroundImage: `url(${puzzle.logoPuzzle})`
-        }}></div>
-        <div className={styles.overlay} />
-      </div>
+    <div className={styles["puzzle-card"]}>
+
+      <img src={puzzle.logoPuzzle} className={styles["puzzle-img"]} alt="puzzle" />
+
       <h3 className={styles.title}>{puzzle.name}</h3>
 
-      <div className={styles.difficultyContainer}>
-        {puzzle.difficultysLogo.map((logo, index) => (
-          <button
-            key={index}
-            onClick={() => onClick(difficulties[index])}
-            className={styles.difficultyButton}
-          >
-            <img
-              src={logo}
-              alt={`Dificultad ${difficulties[index]}`}
-              className={styles.difficultyIcon}
-            />
-          </button>
+      <div className={styles["difficulties-container"]}>
+        {puzzle.difficultiesLogo.map((logo, index) => (
+          <div className={styles["difficulty-container"]}>
+
+
+            <button
+              key={index}
+              onClick={() => onClick(difficulties[index])}
+              className={styles["difficulty-button"]}
+            >
+
+              <img
+                src={logo}
+                alt={`Dificultad ${difficulties[index]}`}
+                className={styles["difficulty-icon"]}
+              />
+            </button>
+            <p className={styles["difficulty"]}>{difficulties[index]}</p>
+          </div>
         ))}
       </div>
     </div>

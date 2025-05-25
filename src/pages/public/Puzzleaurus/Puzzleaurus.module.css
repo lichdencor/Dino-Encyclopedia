@@ -2,9 +2,9 @@
   width: 100vw;
   height: 88vh;
   margin-top: 12vh;
-  background-image: url(/assets/img/bg/rockBg.png);
+  background-image: url(/public/assets/img/bg/puzzle-pieces-bg.png);
   background-position: bottom;
-  background-size: cover;
+  background-size: 100% 120%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;

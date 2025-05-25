@@ -82,6 +82,19 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
     <>
       <div className="puzzle-game">
         <div className="puzzle-box">
+
+          {!isComplete && !showTimeoutMessage && (
+            <div className="timer-bar-container">
+              <div className="timer-bar">
+                <div
+                  className={`timer-progress ${timeProgress <= 25 ? 'time-critical' : ''}`}
+                  style={{ width: `${timeProgress}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+
           <div>
             <button className="return-to-menu" onClick={onReturnToMenu}>
               Volver al menú
@@ -90,45 +103,39 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
               <Timer />
             </div>
           </div>
-          <div className="puzzle-layout">
-            <div
-              className={`puzzle-container ${isComplete ? "completed" : ""}`}
-              ref={containerRef}
-            >
-              {isComplete ? (
-                <img
-                  className="puzzle-completed"
-                  src={getCompletedImage(selectedPuzzle.id)}
-                  alt="Puzzle completado"
-                />
-              ) : (
-                pieces.map((piece) => (
-                  <PuzzlePiece
-                    key={piece.id}
-                    piece={piece}
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleDragEnd}
-                    onDrop={handleDrop}
-                    onDragOver={(e) => e.preventDefault()}
+
+          <div className="puzzle-frame">
+            <div className="puzzle-layout">
+              <div
+                className={`puzzle-container ${isComplete ? "completed" : ""}`}
+                ref={containerRef}
+              >
+                {isComplete ? (
+                  <img
+                    className="puzzle-completed"
+                    src={getCompletedImage(selectedPuzzle.id)}
+                    alt="Puzzle completado"
                   />
-                ))
-              )}
+                ) : (
+                  pieces.map((piece) => (
+                    <PuzzlePiece
+                      key={piece.id}
+                      piece={piece}
+                      onDragStart={handleDragStart}
+                      onDragEnd={handleDragEnd}
+                      onDrop={handleDrop}
+                      onDragOver={(e) => e.preventDefault()}
+                    />
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>
         {isComplete && <CompletionMessage />}
         {showTimeoutMessage && <TimeoutMessage onClose={handleTimeoutClose} />}
       </div>
-      {!isComplete && !showTimeoutMessage && (
-        <div className="timer-bar-container">
-          <div className="timer-bar">
-            <div 
-              className={`timer-progress ${timeProgress <= 25 ? 'time-critical' : ''}`}
-              style={{ width: `${timeProgress}%` }}
-            />
-          </div>
-        </div>
-      )}
+
     </>
   );
 };
