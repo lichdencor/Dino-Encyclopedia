@@ -3,7 +3,7 @@ import { GalleryDinosaurNames, Nav } from "../../components";
 import { GalleryArrows } from "../GalleryArrows/GalleryArrows";
 import { GalleryCurtains } from "./GalleryCurtains";
 import { GalleryDinosaurs } from "./GalleryDinosaurs";
-import { GalleryXRayModal } from "./GalleryXRayModal";
+import { XRayModal } from "../XRay/XrayModal";
 import { DinosaurInfo, GalleryStyles } from "./types";
 import styles from './Gallery.module.css';
 import GalleryTitle from "../GalleryTitle/GalleryTitle";
@@ -72,15 +72,15 @@ export const Gallery = ({
           subperiod={period}
         ></GalleryTitle>
 
-        <GalleryXRayModal
+        <XRayModal
           isOpen={isModalOpen}
           onClose={closeModal}
           selectedDinosaur={selectedDinosaur}
           activeDinosaur={activeDinosaur}
           setActiveDinosaur={setActiveDinosaur}
-          dinosaursInfo={dinosaursInfo}
-          imagePrefix={imagePrefix}
-          skeletonPrefix={skeletonPrefix}
+          dinosaurInfo={dinosaursInfo[selectedDinosaur]}
+          dinosaurImage={`${imagePrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
+          dinosaurBone={`${skeletonPrefix}${dinosaursInfo[selectedDinosaur].name}.png`}
           era={era}
           period={period}
         />
