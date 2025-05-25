@@ -1,5 +1,4 @@
 .timer {
-  background-color: rgba(42, 42, 42, 0.9);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -12,28 +11,30 @@
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
+  background-image: url(/public/assets/img/progress/progress-container.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .timer h2 {
   margin: 0;
   color: white;
   font-size: 1.2rem;
-  background-color: rgba(42, 42, 42, 0.9) ;
   font-weight: bold;
 }
 
 .timeDisplay {
+  font-family: "Lato";
   font-size: 2rem;
-  font-weight: bold;
-  color: #ff1744;
-  margin: 0;
+  letter-spacing: 0.2vw;
+  color: #ede3c9;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .timelineContainer {
   width: 100%;
   height: 6px;
-  background-color: #3a3a3a;
   border-radius: 3px;
   overflow: hidden;
   position: relative;

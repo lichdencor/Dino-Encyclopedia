@@ -18,11 +18,9 @@ function Timer() {
 
   return (
     <div className={styles.timer}>
-      <h2>Tiempo</h2>
       <div className={styles.timeDisplay}>
         {formatTime(time)}
       </div>
-  
     </div>
   );
 }

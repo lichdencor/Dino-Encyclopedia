@@ -37,8 +37,8 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
     const { rows, cols } = DIFFICULTY_LEVELS[difficulty];
     const totalPieces = rows * cols;
 
-    const containerWidth = containerRef.current.clientWidth;
-    const containerHeight = containerRef.current.clientHeight;
+    const containerWidth = containerRef.current.clientWidth - 55;
+    const containerHeight = containerRef.current.clientHeight - 100;
 
     const pieceWidth = containerWidth / cols;
     const pieceHeight = containerHeight / rows;
@@ -81,60 +81,64 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
   return (
     <>
       <div className="puzzle-game">
-        <div className="puzzle-box">
+        <>  
+              <div className="puzzle-time-container">
+                {!isComplete && !showTimeoutMessage && (
+                  <div className="bar-container">
+                    <div className="bar">
+                      <div className="timer-bar-container">
+                        <div className="timer-bar">
+                          <div
+                            className={`timer-progress ${timeProgress <= 25 ? 'time-critical' : ''}`}
+                            style={{ width: `${timeProgress}%` }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-          {!isComplete && !showTimeoutMessage && (
-            <div className="timer-bar-container">
-              <div className="timer-bar">
-                <div
-                  className={`timer-progress ${timeProgress <= 25 ? 'time-critical' : ''}`}
-                  style={{ width: `${timeProgress}%` }}
-                />
+                <div className="puzzle-time-bottom">
+                  <div className="timer-container">
+                    <Timer />
+                  </div>
+
+                  <button className="return-to-menu" onClick={onReturnToMenu}>
+                    BACK
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
 
-
-          <div>
-            <button className="return-to-menu" onClick={onReturnToMenu}>
-              Volver al menú
-            </button>
-            <div className="timer-container">
-              <Timer />
-            </div>
-          </div>
-
-          <div className="puzzle-frame">
-            <div className="puzzle-layout">
               <div
                 className={`puzzle-container ${isComplete ? "completed" : ""}`}
                 ref={containerRef}
               >
-                {isComplete ? (
-                  <img
-                    className="puzzle-completed"
-                    src={getCompletedImage(selectedPuzzle.id)}
-                    alt="Puzzle completado"
-                  />
-                ) : (
-                  pieces.map((piece) => (
-                    <PuzzlePiece
-                      key={piece.id}
-                      piece={piece}
-                      onDragStart={handleDragStart}
-                      onDragEnd={handleDragEnd}
-                      onDrop={handleDrop}
-                      onDragOver={(e) => e.preventDefault()}
+                <div className="puzzle-pieces">
+                  {isComplete ? (
+                    <img
+                      className="puzzle-completed"
+                      src={getCompletedImage(selectedPuzzle.id)}
+                      alt="Puzzle completado"
                     />
-                  ))
-                )}
+                  ) : (
+                    pieces.map((piece) => (
+                      <PuzzlePiece
+                        key={piece.id}
+                        piece={piece}
+                        onDragStart={handleDragStart}
+                        onDragEnd={handleDragEnd}
+                        onDrop={handleDrop}
+                        onDragOver={(e) => e.preventDefault()}
+                      />
+                    ))
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
+          </>
         </div>
         {isComplete && <CompletionMessage />}
         {showTimeoutMessage && <TimeoutMessage onClose={handleTimeoutClose} />}
-      </div>
+     
 
     </>
   );
