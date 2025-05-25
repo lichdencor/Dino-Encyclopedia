@@ -32,6 +32,8 @@ export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress, cur
     updatePetPosition(currentIndex);
   }, [currentIndex, pages]);
 
+  console.log(currentIndex, pages, "aca ");
+
   return (
     <div className={styles["container-book-progress"]}>
       <div className={styles["container-line-progress"]} ref={containerRef}>
@@ -56,7 +58,7 @@ export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress, cur
             key={index}
             ref={el => pawRefs.current[index] = el}
             src={
-              index < progress
+              index <= progress
                 ? "/public/assets/img/paws/level-paw-complete.png"
                 : "/public/assets/img/paws/level-paw-incomplete.png"
             }

@@ -14,4 +14,7 @@ export class ReadingController {
   async goToPreviousPage() {
     await this.model.goToPreviousPage();
   }
+  async isFinished() {
+    return this.model.isFinished();
+  }
 } 

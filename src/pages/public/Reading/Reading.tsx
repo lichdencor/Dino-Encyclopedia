@@ -62,6 +62,10 @@ export class ReadingComponent extends Component<ReadingProps, ReadingComponentSt
     this.controller.goToPreviousPage();
   };
 
+  handleFinish = async () => {
+    await this.model.markAsFinished();
+  };
+
   render() {
     const { book, pagesCount, progress, currentPageIndex } = this.state;
     if (!book) {
@@ -75,7 +79,8 @@ export class ReadingComponent extends Component<ReadingProps, ReadingComponentSt
           <Book 
             book={book} 
             onNextPage={this.handleNextPage} 
-            onPreviousPage={this.handlePreviousPage} 
+            onPreviousPage={this.handlePreviousPage}
+            onFinish={this.handleFinish}
           />
           <BookProgress pages={pagesCount} progress={progress} currentIndex={currentPageIndex} />
         </div>

@@ -19,10 +19,12 @@ type BookProps = {
     book: any;
     onNextPage: () => void;
     onPreviousPage: () => void;
-  };
+    onFinish?: () => void;
+};
   
-  export const Book = ({ book, onNextPage, onPreviousPage }: BookProps) => {
+export const Book = ({ book, onNextPage, onPreviousPage, onFinish }: BookProps) => {
     const [bookPages, setBookPages] = useState(book.pages);
+    const [currentPage, setCurrentPage] = useState(0);
     const pagesContainerRef = useRef<HTMLDivElement>(null);
 
     // const returnStyle:any(bookName:any) => {
@@ -60,12 +62,19 @@ type BookProps = {
                 const previousPage = pagesArray[pageIndex - 1] as HTMLElement | undefined;
                 previousPage?.classList.remove(styles.flipped);
                 onPreviousPage();
+                setCurrentPage(curr => Math.max(0, curr - 1));
             } else {
                 // Página IMPAR -> pasar página
                 page.classList.add(styles.flipped);
                 const nextPage = pagesArray[pageIndex + 1] as HTMLElement | undefined;
                 nextPage?.classList.add(styles.flipped);
                 onNextPage();
+                setCurrentPage(curr => curr + 1);
+                
+                // Si es la última página, marcar como completado
+                if (pageIndex === pagesArray.length - 2 && onFinish) {
+                    onFinish();
+                }
             }
         };
 
@@ -74,7 +83,7 @@ type BookProps = {
         return () => {
             container.removeEventListener("click", handlePageClick);
         };
-    }, [onNextPage, onPreviousPage]);
+    }, [onNextPage, onPreviousPage, onFinish]);
 
     return (
         <div className={styles.book}>

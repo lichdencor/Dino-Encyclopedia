@@ -49,14 +49,18 @@ export class ReadingModel {
     }
   }
 
+  async isFinished() {
+    return this.currentPageIndex >= this.bookModel.getState().pages;
+  }
+
+  async markAsFinished() {
+    await this.setProgress(this.bookModel.getState().pages);
+    this.notifyListeners();
+  }
+
   async goToPreviousPage() {
-    const currentProgress = this.bookModel.getState().progress;
-    const newProgress = currentProgress - 1;
-    if (newProgress >= 0) {
-      if (this.currentPageIndex > 0) {
-        this.currentPageIndex--;
-      }
-      this.notifyListeners();
-    }
+    this.currentPageIndex--;
+    this.notifyListeners();
+
   }
 } 
