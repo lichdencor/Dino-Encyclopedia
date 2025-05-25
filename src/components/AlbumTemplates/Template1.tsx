@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Templates.module.css';
+import templateStyles from './Templates.module.css';
+import styles from './Template1.module.css';
 import { Slot } from '../../types/album';
 
 interface Template1Props {
@@ -11,7 +12,7 @@ interface Template1Props {
 export const Template1: React.FC<Template1Props> = ({ slots, onDrop, getStickerImageById }) => {
     return (
 
-        <div className={styles["template-container"]}>
+        <div className={templateStyles["template-container"]}>
             <div className={styles["top-section"]}>
                 <div className={styles["scene-1"]}></div>
                 <div className={styles["individual-stickers-container"]}>

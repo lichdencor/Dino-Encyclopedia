@@ -1,0 +1,138 @@
+/* TOP SECTION START */
+
+.top-section {
+    height: 40%;
+    width: 100%;
+    background-color: violet;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 3;
+    position: relative;
+}
+
+.individual-sticker-left-container {
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    top: 2%;
+    left: 2%;
+}
+
+.individual-sticker-left {
+    width: 90%;
+    height: auto;
+}
+
+.scene-1-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45%;
+    height: 140%;
+    background-color: orange;
+}
+
+.scene-1 {
+    width: 100%;
+    height: 100%;
+}
+
+.info-and-shiny {
+    width: 53%;
+    height: 80%;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.info-box {
+    width: 50%;
+    height: 100%;
+    background-color: brown;
+}
+
+.shiny-sticker-container {
+    width: 40%;
+    height: 100%;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    top: 2%;
+    left: 2%;
+}
+
+.shiny-sticker {
+    width: auto;
+    height: 90%;
+}
+
+/* TOP SECTION START */
+
+/* BOTTOM SECTION START */
+
+.bottom-section {
+    height: 60%;
+    width: 60%;
+    position: relative;
+    background-color: lightblue;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.scene-2-container {
+    height: 100%;
+    width: 100%;
+}
+
+.scene-2 {
+    width: 100%;
+    height: 120%;
+}
+
+.individual-sticker-container {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    top: 5%;
+    right: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: blue;
+}
+
+.individual-sticker-title {
+    height: 15%;
+    margin: 0;
+    background-color: pink;
+}
+
+.individual-sticker-right-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
+
+.individual-sticker-right {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+}
+
+/* BOTTOM SECTION END */
