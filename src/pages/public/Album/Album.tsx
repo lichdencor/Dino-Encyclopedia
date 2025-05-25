@@ -63,13 +63,7 @@ export class Album extends Component<{}, AlbumState> {
                 { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Ankylosaurus.png" },
                 { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Triceratops.png" },
                 { id: 'Card03', image: "/public/assets/img/dinosaurs/cr-3-Tyrannosaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Compsognathus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Cryolophosaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Dilophosaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-2-Apatosaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-2-Camarasaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-3-Stegosaurus.png" },
-                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-3-Brachiosaurus.png" }
+                { id: 'Card03', image: "/public/assets/img/dinosaurs/ju-1-Compsognathus.png" }
             ],
             draggingSticker: null,
             mousePos: { x: 0, y: 0 }
@@ -192,19 +186,19 @@ export class Album extends Component<{}, AlbumState> {
                                 <div className={styles["stickers-grid"]}>
                                     {stickers.map(sticker => (
                                         <div className={styles["sticker-container"]}>
-                                        <img
-                                            key={sticker.id}
-                                            src={sticker.image}
-                                            alt={sticker.id}
-                                            onMouseDown={e => {
-                                                e.preventDefault();
-                                                this.setState({
-                                                    draggingSticker: sticker,
-                                                    mousePos: { x: e.clientX, y: e.clientY }
-                                                });
-                                            }}
-                                            className={styles["sticker"]}
-                                        />
+                                            <img
+                                                key={sticker.id}
+                                                src={sticker.image}
+                                                alt={sticker.id}
+                                                onMouseDown={e => {
+                                                    e.preventDefault();
+                                                    this.setState({
+                                                        draggingSticker: sticker,
+                                                        mousePos: { x: e.clientX, y: e.clientY }
+                                                    });
+                                                }}
+                                                className={styles["sticker"]}
+                                            />
                                         </div>
                                     ))}
                                 </div>
@@ -213,17 +207,17 @@ export class Album extends Component<{}, AlbumState> {
                     </div>
 
                     <div className={styles["album-section"]}>
-                        <div className={styles["navigation"]}>
+                        <div className={styles.navigation}>
                             <button
                                 onClick={() =>
                                     this.setState({ currentPage: Math.max(0, currentPage - 1) })
                                 }
                                 disabled={currentPage === 0}
                             >
-                                Anterior
+                                Previous
                             </button>
                             <span>
-                                Página {currentPage + 1} de {pages.length}
+                                Page {currentPage + 1} of {pages.length}
                             </span>
                             <button
                                 onClick={() =>
@@ -233,7 +227,7 @@ export class Album extends Component<{}, AlbumState> {
                                 }
                                 disabled={currentPage === pages.length - 1}
                             >
-                                Siguiente
+                                Next
                             </button>
                         </div>
 
