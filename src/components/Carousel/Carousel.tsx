@@ -84,7 +84,6 @@ export function Carousel({
           onClick={() => setCurrentIndex(prev => (prev - 1 + TOTAL_CARDS) % TOTAL_CARDS)}
         />
       </div>
-
       <div className={styles['carousel']}>
         {React.Children.map(children, (child, index) => (
           <div

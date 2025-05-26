@@ -100,7 +100,9 @@
 }
 
 .carousel__item--main:hover .carousel__visit-btn {
-	scale: 1.1;
+	width: 6vw;
+	opacity: 1;
+
 }
 
 /* ARROWS */
