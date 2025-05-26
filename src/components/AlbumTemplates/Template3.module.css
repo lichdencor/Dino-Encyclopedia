@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .top-section,
 .bottom-section {
     height: 50%;
@@ -144,3 +145,135 @@
     object-fit: contain;
     pointer-events: none;
 } 
+=======
+.template-container {
+    display: flex;
+    width: 95%;
+    height: 95%;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: yellow;
+}
+
+/* LEFT SECTION START */
+.left-section {
+    width: 40%;
+    height: 60%;
+    background-color: violet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shiny-sticker-info-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellowgreen;
+}
+
+.shiny-sticker-name {
+    height: 12%;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+}
+
+.shiny-sticker-container {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(19, 77, 71);
+}
+
+.shiny-sticker {
+    width: 80%;
+    height: auto;
+    background-color: gray;
+}
+
+.default-stickers-container {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    background-color: blueviolet;
+}
+
+.default-sticker-container-1,
+.default-sticker-container-2 {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+}
+
+.default-sticker-1,
+.default-sticker-2 {
+    width: 80%;
+    height: 80%;
+    background-color: gray;
+}
+
+/* LEFT SECTION END */
+
+/* RIGHT SECTION START */
+.right-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    background-color: lightblue;
+}
+
+.info-box {
+    width: 80%;
+    height: 30%;
+    background-color: burlywood;
+    z-index: 2;
+}
+
+.scene-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 90%;
+    width: 110%;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+}
+
+.default-sticker-container {
+    height: 35%;
+    width: 30%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+.default-sticker {
+    width: 80%;
+    height: auto;
+    background-color: gray;
+}
+
+/* RIGHT SECTION END */
+>>>>>>> 7f5d545bcf1ff8f12b38f8247eabb32b90d79790

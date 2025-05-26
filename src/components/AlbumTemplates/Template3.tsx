@@ -11,136 +11,67 @@ interface Template3Props {
 
 export const Template3: React.FC<Template3Props> = ({ slots, onDrop, getStickerImageById }) => {
     return (
-        <div className={templateStyles["template-container"]}>
-            <div className={styles["top-section"]}>
-                <div className={styles["scene-1-container"]}>
-                    <img src="/public/assets/img/album/template-3/1-pterodactyl/scene-1.png" alt="scene 1" className={styles["scene-1"]} />
-                    {/* Scene 1 drop zones */}
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
-                        onMouseUp={() => onDrop(slots[0].id)}
-                    >
-                        {slots[0].occupied && slots[0].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[0].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
+        <div className={styles["template-container"]}>
+            <div className={styles["left-section"]}>
+
+                <div className={styles["shiny-sticker-info-container"]}>
+                    <p className={styles["shiny-sticker-name"]}></p>
+                    <div className={styles["shiny-sticker-container"]}>
+                        <img src="/public/assets/img/dinosaurs/tr-2-Fukuiraptor.png" alt="shiny sticker" className={styles["shiny-sticker"]} />
                     </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
-                        onMouseUp={() => onDrop(slots[1].id)}
-                    >
-                        {slots[1].occupied && slots[1].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[1].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
+                </div>
+                <div className={styles["default-stickers-container"]}>
+                    <div className={styles["default-sticker-container-1"]}>
+                        <img src="/public/assets/img/dinosaurs/cr-2-Spinosaurus.png" alt="sticker" className={styles["default-sticker-1"]} />
                     </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
-                        onMouseUp={() => onDrop(slots[2].id)}
-                    >
-                        {slots[2].occupied && slots[2].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[2].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
+                    <div className={styles["default-sticker-container-2"]}>
+                        <img src="/public/assets/img/dinosaurs/ju-3-Stegosaurus.png" alt="sticker" className={styles["default-sticker-2"]} />
                     </div>
                 </div>
             </div>
-            
-            <div className={styles["bottom-section"]}>
-                <div className={styles["scene-2-container"]}>
-                    <img src="/public/assets/img/album/template-3/1-pterodactyl/scene-2.png" alt="scene 2" className={styles["scene-2"]} />
-                    {/* Scene 2 drop zones */}
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
-                        onMouseUp={() => onDrop(slots[3].id)}
-                    >
-                        {slots[3].occupied && slots[3].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[3].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
-                        onMouseUp={() => onDrop(slots[4].id)}
-                    >
-                        {slots[4].occupied && slots[4].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[4].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
-                        onMouseUp={() => onDrop(slots[5].id)}
-                    >
-                        {slots[5].occupied && slots[5].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[5].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                </div>
-                <div className={styles["scene-3-container"]}>
-                    <img src="/public/assets/img/album/template-3/1-pterodactyl/scene-3.png" alt="scene 3" className={styles["scene-3"]} />
-                    {/* Scene 3 drop zones */}
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
-                        onMouseUp={() => onDrop(slots[6].id)}
-                    >
-                        {slots[6].occupied && slots[6].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[6].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
-                        onMouseUp={() => onDrop(slots[7].id)}
-                    >
-                        {slots[7].occupied && slots[7].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[7].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                    <div 
-                        className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
-                        onMouseUp={() => onDrop(slots[8].id)}
-                    >
-                        {slots[8].occupied && slots[8].stickerId && (
-                            <img
-                                src={getStickerImageById(slots[8].stickerId)}
-                                alt="Sticker en slot"
-                                className={styles["sticker-image"]}
-                            />
-                        )}
-                    </div>
-                </div>
+            <div className={styles["right-section"]}>
                 <div className={styles["info-box"]}>
                     <h3>Sabías que...</h3>
                     <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
                 </div>
+                <div className={styles["scene-container"]}>
+                    <img src="/public/assets/img/album/template-3/1-triceratops/scene.png" alt="scene" className={styles["scene"]} />
+                </div>
+                <div className={styles["default-sticker-container"]}>
+                    <img src="/public/assets/img/dinosaurs/ju-1-Cryolophosaurus.png" alt="sticker" className={styles["default-sticker"]} />
+                </div>
             </div>
         </div>
+
+
+        // <div className={styles.templateContainer}>
+        //     <div className={styles.leftSection}>
+        //         <div className={`${styles.slotGroup} ${styles.template3Layout}`}>
+        //             {slots.slice(0, 4).map((slot) => (
+        //                 <div
+        //                     key={slot.id}
+        //                     className={styles.slot}
+        //                     onMouseUp={() => onDrop(slot.id)}
+        //                 >
+        //                     {slot.occupied && slot.stickerId && (
+        //                         <img
+        //                             src={getStickerImageById(slot.stickerId)}
+        //                             alt="Sticker en slot"
+        //                             className={styles.stickerImage}
+        //                         />
+        //                     )}
+        //                 </div>
+        //             ))}
+        //         </div>
+        //     </div>
+        //     <div className={styles.rightSection}>
+        //         <div className={styles.infoBox}>
+        //             <h3>Sabías que...</h3>
+        //             <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
+        //         </div>
+        //         <div className={styles.decorativeSquare} style={{ backgroundColor: '#FFD700' }} />
+        //         <div className={styles.decorativeSquare} style={{ backgroundColor: '#DEB887' }} />
+        //     </div>
+        // </div>
     );
 }; 
