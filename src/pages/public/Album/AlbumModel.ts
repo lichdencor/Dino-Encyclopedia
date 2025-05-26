@@ -24,7 +24,7 @@ export class AlbumModel {
                     id: 'page-1',
                     templateType: TemplateType.TEMPLATE_1,
                     slots: [
-                        { id: 'slot-1-1', occupied: false },
+                        { id: 'slot-1-1', occupied: false,  },
                         { id: 'slot-1-2', occupied: false },
                         { id: 'slot-1-3', occupied: false },
                         { id: 'slot-1-4', occupied: false },
@@ -57,15 +57,13 @@ export class AlbumModel {
                     id: 'page-3',
                     templateType: TemplateType.TEMPLATE_3,
                     slots: [
-                        { id: 'slot-3-1', occupied: false },
+                        { id: 'slot-3-1', occupied: false, stickerId: "cr-1-Gallimimus" },
                         { id: 'slot-3-2', occupied: false },
                         { id: 'slot-3-3', occupied: false },
                         { id: 'slot-3-4', occupied: false },
                         { id: 'slot-3-5', occupied: false },
                         { id: 'slot-3-6', occupied: false },
                         { id: 'slot-3-7', occupied: false },
-                        { id: 'slot-3-8', occupied: false },
-                        { id: 'slot-3-9', occupied: false },
                     ],
                     infoText: "Los dinosaurios voladores..."
                 }
