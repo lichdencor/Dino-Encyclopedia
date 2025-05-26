@@ -114,3 +114,98 @@
 }
 
 /* INFO BOX END */
+
+/* DROP ZONES */
+.scene-1,
+.scene-2,
+.scene-3 {
+    position: relative;
+}
+
+.drop-zone {
+    position: absolute;
+    width: 12vh;
+    height: 8vh;
+    border: 0.3vh dashed rgba(255, 255, 255, 0.5);
+    border-radius: 50%/60%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Scene 1 drop zones */
+.scene-1 .drop-zone-left {
+    top: 20%;
+    left: 15%;
+}
+
+.scene-1 .drop-zone-center {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-1 .drop-zone-right {
+    top: 20%;
+    right: 15%;
+}
+
+/* Scene 2 drop zones */
+.scene-2 .drop-zone-left {
+    top: 30%;
+    left: 15%;
+}
+
+.scene-2 .drop-zone-center {
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-2 .drop-zone-right {
+    top: 30%;
+    right: 15%;
+}
+
+/* Scene 3 drop zones */
+.scene-3 .drop-zone-left {
+    top: 25%;
+    left: 15%;
+}
+
+.scene-3 .drop-zone-center {
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-3 .drop-zone-right {
+    top: 25%;
+    right: 15%;
+}
+
+
+/* INDIVIDUAL STICKERS DROP ZONES */
+.individual-stickers-container .drop-zone-individual-sticker-1 {
+    top: 10%;
+}
+
+.individual-stickers-container .drop-zone-individual-sticker-2 {
+    top: 25%;
+}
+
+
+.sticker-image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    pointer-events: none;
+}

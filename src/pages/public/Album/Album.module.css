@@ -142,3 +142,46 @@
   font-family: 'MedusaGothic', serif;
   font-size: 1.8vh;
 }
+
+.stickers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination-button {
+    background-color: #8B4513;
+    color: red;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #A0522D;
+}
+
+.pagination-button:disabled {
+    background-color: #6B4423;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.page-indicator {
+    color: #8B4513;
+    font-weight: bold;
+    font-size: 1rem;
+}

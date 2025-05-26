@@ -1,0 +1,146 @@
+.top-section,
+.bottom-section {
+    height: 50%;
+    width: 100%;
+}
+
+/* TOP SECTION */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.scene-1-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.scene-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOTTOM SECTION */
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.scene-2-container,
+.scene-3-container {
+    width: 45%;
+    height: 100%;
+    position: relative;
+}
+
+.scene-2,
+.scene-3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO BOX */
+.info-box {
+    width: 30%;
+    height: 75%;
+    background-color: #8B4513;
+    color: #FFE4B5;
+    border-radius: 15px;
+    font-family: 'MedusaGothic', serif;
+    padding: 2vh;
+}
+
+.info-box h3 {
+    margin-bottom: 0.5vh;
+    font-size: 2vh;
+    color: #FFD700;
+}
+
+.info-box p {
+    font-size: 1.5vh;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
+}
+
+/* DROP ZONES */
+.drop-zone {
+    position: absolute;
+    width: 12vh;
+    height: 8vh;
+    border: 0.3vh dashed rgba(255, 255, 255, 0.5);
+    border-radius: 50%/60%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Scene 1 drop zones */
+.scene-1-container .drop-zone-left {
+    top: 20%;
+    left: 15%;
+}
+
+.scene-1-container .drop-zone-center {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-1-container .drop-zone-right {
+    top: 20%;
+    right: 15%;
+}
+
+/* Scene 2 drop zones */
+.scene-2-container .drop-zone-left {
+    top: 30%;
+    left: 15%;
+}
+
+.scene-2-container .drop-zone-center {
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-2-container .drop-zone-right {
+    top: 30%;
+    right: 15%;
+}
+
+/* Scene 3 drop zones */
+.scene-3-container .drop-zone-left {
+    top: 25%;
+    left: 15%;
+}
+
+.scene-3-container .drop-zone-center {
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene-3-container .drop-zone-right {
+    top: 25%;
+    right: 15%;
+}
+
+.sticker-image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    pointer-events: none;
+} 
