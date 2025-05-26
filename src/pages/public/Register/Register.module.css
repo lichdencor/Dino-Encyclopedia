@@ -1,100 +1,192 @@
-.container {
-  height: 100vh;
+/* Outer page wrapper */
+.login-page {
   width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/public/assets/img/landing-page/bg\ wine.png);
-  padding: 20px;
+  position: relative;
+  background: transparent;
 }
 
-h2{
-  background-color:white;
-}
-
-.formWrapper {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Glassy form background */
+.login-container {
   width: 100%;
-  max-width: 400px;
+  height: 60%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/assets/img/login-bg/form-bg.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.formWrapper h2 {
+/* Decorative gold lines */
+.gold-line {
+  position: absolute;
+  width: 100%;
+  height: 2%;
+  left: 0;
+  background: linear-gradient(135deg,
+      transparent,
+      transparent,
+      #987B45,
+      #ECEAD2,
+      #987B45,
+      #ECEAD2,
+      #987B45,
+      #ECEAD2,
+      #987B45,
+      transparent,
+      transparent);
+}
+
+.gold-line1 {
+  top: 0;
+}
+
+.gold-line2 {
+  bottom: 0;
+}
+
+.login-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  height: 75%;
+  border-top: 2px solid rgb(214, 192, 112);
+  border-bottom: 2px solid rgb(214, 192, 112);
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  font-size: 2em;
+  /* background-color: pink; */
 }
 
+/* Heading */
+.login-content h1 {
+  height: 10%;
+  font-family: "MedusaGothic";
+  color: rgb(233, 218, 162);
+  letter-spacing: 0.4vw;
+  font-weight: lighter;
+  /* background-color: blue; */
+}
+
+/* Form block */
 .form {
+  height: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  font-family: "Lato";
+  /* background-color: orange; */
 }
 
-.inputGroup {
+/* Inputs */
+.input-group {
+  height: 20%;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+  /* background-color: red; */
 }
 
-.inputGroup label {
-  color: #666;
-  font-size: 0.9em;
+.input-group label {
+  color: #d2d5b1;
+  font-size: 1vw;
 }
 
-.inputGroup input {
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  font-size: 1em;
-  transition: border-color 0.3s ease;
-}
-
-.inputGroup input:focus {
-  border-color: #4CAF50;
-  outline: none;
-}
-
-.submitButton {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px;
+.input-group input {
+  width: 60%;
+  height: 18%;
+  border-radius: 5px;
   border: none;
-  border-radius: 6px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  background: #ECEAD2;
+  font-family: "Lato";
+  margin-left: 5%;
+  margin-right: 10%;
 }
 
-.submitButton:hover {
-  background-color: #45a049;
+.input-group input::placeholder {
+  color: rgb(75, 69, 69);
+  letter-spacing: 0.08vw;
+  font-style: italic;
 }
 
+/* Buttons */
+.submit-button {
+  width: 7vw;
+  height: 2vw;
+  margin-top: 3%;
+}
+
+/* Error & Success */
 .error {
   background-color: #ffebee;
   color: #c62828;
   padding: 12px;
   border-radius: 6px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
-.loginLink {
+.successMessage {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 6px;
   text-align: center;
-  margin-top: 20px;
-  color: #666;
+  border: 1px solid #a5d6a7;
+  animation: fadeIn 0.5s ease-in;
 }
 
-.loginLink a {
-  color: #4CAF50;
+/* Links under form */
+.links-container {
+  width: 70%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 5px double rgb(123, 72, 90);
+  padding-top: 1%;
+  /* background-color: blueviolet; */
+}
+
+.register-link,
+.recovery-link {
+  font-family: "Lato";
+  color: rgb(157, 143, 148);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.link {
+  margin-left: 2%;
+  color: #ffe9c0;
   text-decoration: none;
   font-weight: bold;
 }
 
-.loginLink a:hover {
+.register-link a:hover,
+.recovery-link a:hover {
   text-decoration: underline;
-} 
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

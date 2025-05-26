@@ -45,29 +45,30 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 35%;
   height: 75%;
   border-top: 2px solid rgb(214, 192, 112);
   border-bottom: 2px solid rgb(214, 192, 112);
-  /* background-color: red; */
+  /* background-color: pink; */
 }
 
 .login-content h1 {
+  height: 10%;
   font-family: "MedusaGothic";
   color: rgb(233, 218, 162);
   letter-spacing: 0.4vw;
   font-weight: lighter;
+  /* background-color: blue; */
 }
 
 .form {
-  height: 48%;
+  height: 60%;
   width: 100%;
   display: flex;
   flex-direction: column;
   font-family: "Lato";
-  /* background-color: pink; */
+  /* background-color: orange; */
 }
 
 .form input {
@@ -89,13 +90,14 @@
 
 .submitButton,
 .guestButton {
-  width: 30%;
-  height: 25%;
+  width: 7vw;
+  height: 2vw;
   margin-top: 3%;
-  border: 5px double rgb(27, 1, 1);
+  /* background-color: red; */
 }
 
 .inputGroup {
+  height: 20%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -132,8 +134,8 @@
   align-items: center;
   border-top: 5px double rgb(123, 72, 90);
   margin-bottom: 4%;
-  /* background-color: blue; */
   padding-top: 1%;
+  /* background-color: blueviolet; */
 }
 
 .register-link,
@@ -179,32 +181,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #666;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.closeButton:hover {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.closeButton:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
 }
