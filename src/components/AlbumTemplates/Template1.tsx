@@ -57,17 +57,19 @@ export const Template1: React.FC<Template1Props> = ({
           </div>
         </div>
         <div className={styles["individual-stickers-container"]}>
-          <div
-            className={`${styles["individual-sticker"]} ${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-1"]} ${styles["individual-sticker-1"]}`}
-            onMouseUp={() => onDrop(slots[9].id)}
-          >
-            {slots[9].occupied && slots[9].stickerId && (
-              <img
-                src={getStickerImageById(slots[9].stickerId)}
-                alt="Sticker en slot"
-                className={styles["sticker-image"]}
-              />
-            )}
+          <div className={styles["individual-sticker-1-container"]}>
+            <div
+              className={`${styles["individual-sticker"]} ${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-1"]} ${styles["individual-sticker-1"]}`}
+              onMouseUp={() => onDrop(slots[9].id)}
+            >
+              {slots[9].occupied && slots[9].stickerId && (
+                <img
+                  src={getStickerImageById(slots[9].stickerId)}
+                  alt="Sticker en slot"
+                  className={styles["sticker-image"]}
+                />
+              )}
+            </div>
           </div>
           <div
             className={`${styles["individual-sticker"]}  ${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-2"]} ${styles["individual-sticker-2"]}`}

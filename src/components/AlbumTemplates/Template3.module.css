@@ -4,17 +4,17 @@
     height: 95%;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 /* LEFT SECTION START */
 .left-section {
     width: 40%;
     height: 60%;
-    background-color: violet;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: violet; */
 }
 
 .shiny-sticker-info-container {
@@ -88,14 +88,14 @@
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 
 .info-box {
-    width: 80%;
-    height: 30%;
-    background-color: burlywood;
+    width: 90%;
+    height: 20%;
     z-index: 2;
+    background-color: burlywood;
 }
 
 .scene-container {
@@ -104,7 +104,7 @@
     right: 0;
     height: 90%;
     width: 110%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .scene {
@@ -114,8 +114,8 @@
 }
 
 .default-sticker-container {
-    height: 35%;
-    width: 30%;
+    height: 30%;
+    width: 25%;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -160,11 +160,13 @@
     top: 50%;
     left: 15%;
 }
+
 .drop-zone-center {
     top: 80%;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .drop-zone-right {
     top: 50%;
     right: 15%;

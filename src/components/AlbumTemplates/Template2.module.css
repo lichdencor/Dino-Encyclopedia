@@ -21,7 +21,7 @@
     border-radius: 15px;
     top: 2%;
     left: 2%;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .individual-sticker-left {
@@ -35,7 +35,7 @@
     top: 0;
     width: 45%;
     height: 140%;
-    background-color: orange;
+    /* background-color: orange; */
 }
 
 .scene-1 {
@@ -50,7 +50,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 2;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .info-box {
@@ -62,13 +62,13 @@
 .shiny-sticker-container {
     width: 40%;
     height: 100%;
-    background-color: yellowgreen;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     top: 2%;
     left: 2%;
+    /* background-color: yellowgreen; */
 }
 
 .shiny-sticker {
@@ -87,7 +87,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    background-color: lightblue;
+    /* background-color: lightblue; */
 }
 
 .scene-2-container {
@@ -95,7 +95,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    background-color: orange;
+    /* background-color: orange; */
 }
 
 .scene-2 {

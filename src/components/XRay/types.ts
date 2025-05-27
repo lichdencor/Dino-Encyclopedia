@@ -7,6 +7,7 @@ export type DinosaurProgress = {
   puzzlePieceFound: boolean;
 };
 
+// DATA CLASS
 export type DinosaurInfo = {
   name: string;
   nombreCientifico: string;
@@ -38,9 +39,9 @@ export type XRayModalProps = {
 };
 
 export interface PuzzlePieceProps {
-  position: { 
-    left: number; 
-    top: number; 
+  position: {
+    left: number;
+    top: number;
   };
   showAlert: boolean;
   onMouseEnter: () => void;

@@ -6,7 +6,7 @@ interface CustomStyles {
     text?: string;
     bar?: string;
     imgContainer?: string;
-    img ?: string;
+    img?: string;
 }
 
 interface ProgressBarProps {

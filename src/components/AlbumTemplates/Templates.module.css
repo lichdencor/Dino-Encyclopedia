@@ -5,7 +5,10 @@
     height: 95%;
     justify-content: space-between;
     align-items: flex-end;
-    background-color: yellow;
+    border-radius: 15px;
+    background-image: url(/public/assets/img/bg/album-container.png);
+    background-size: 100% 100%;
+    /* backdrop-filter: blur(5px); */
 }
 
 /* .leftSection {
