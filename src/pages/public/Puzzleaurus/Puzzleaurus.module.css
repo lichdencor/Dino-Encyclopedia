@@ -1,4 +1,4 @@
-.gamesPage {
+.games-page {
   width: 100vw;
   height: 88vh;
   margin-top: 12vh;
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.gamesContainer {
+.games-container {
   width: 90%;
   height: 90%;
   margin: 0 auto;
@@ -108,7 +108,7 @@
 }
 
 /* Contenedor del puzzle y navegación */
-.puzzleContent {
+.puzzle-content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -148,7 +148,7 @@
 }
 
 @media (max-width: 768px) {
-  .gamesContainer {
+  .games-container {
     padding: 1rem;
   }
 }

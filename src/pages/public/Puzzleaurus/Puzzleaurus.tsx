@@ -101,9 +101,9 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
         const { selectedPuzzle, showTransition, showTips } = this.state;
 
         return (
-            <div className={styles.gamesPage}>
+            <div className={styles["games-page"]}>
                 <Nav />
-                <div className={styles.gamesContainer}>
+                <div className={styles["games-container"]}>
                     {selectedPuzzle ? (
                         <>
                             {showTransition && showTips ? (
@@ -112,9 +112,9 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                                     puzzleName={selectedPuzzle.name}
                                 />
                             ) : (
-                                <div className={styles.puzzleContent}>
-                                    <PuzzleContainer 
-                                        onReturnToMenu={this.controller.handleReturnToMenu} 
+                                <div className={styles["puzzle-content"]}>
+                                    <PuzzleContainer
+                                        onReturnToMenu={this.controller.handleReturnToMenu}
                                         selectedPuzzle={selectedPuzzle}
                                         key={selectedPuzzle.id}
                                     />
