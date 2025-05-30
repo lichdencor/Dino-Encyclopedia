@@ -45,33 +45,33 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
     return (
         <div>
             {dinosaurs.map((dinosaur, index) => (
-                <div key={index} className={`${styles.dinosaurData} ${styles[`dinosaurData${index + 1}`]}`}>
-                    <div className={styles.progressContainer}>
-                        <div className={`${styles.progressBarContainer} ${
-                  era === 'triassic'
-                    ? styles['progressBarContainer-triassic']
-                    : era === 'jurassic'
-                    ? styles['progressBarContainer-jurassic']
-                    : styles['progressBarContainer-cretaceous']
-                }`}>
-                            <span className={styles.progressText}>{Math.round(getDinosaurProgress(index))}%</span>
+                <div key={index} className={`${styles['dinosaur-data']} ${styles[`dinosaur-data-${index + 1}`]}`}>
+                    <div className={styles['progress-container']}>
+                        <div className={`${styles['progress-bar-container']} ${
+                            era === 'triassic'
+                                ? styles['progress-bar-container-triassic']
+                                : era === 'jurassic'
+                                    ? styles['progress-bar-container-jurassic']
+                                    : styles['progress-bar-container-cretaceous']
+                        }`}>
+                            <span className={styles['progress-text']}>{Math.round(getDinosaurProgress(index))}%</span>
                             <div 
-                                className={styles.progressBar}
+                                className={styles['progress-bar']}
                                 style={{ width: `${getDinosaurProgress(index)}%` }}
                             ></div>
                         </div>
-                        <div className={`${styles.puzzlePieceContainer} ${
-                  era === 'triassic'
-                    ? styles['puzzlePieceContainer-triassic']
-                    : era === 'jurassic'
-                    ? styles['puzzlePieceContainer-jurassic']
-                    : styles['puzzlePieceContainer-cretaceous']
-                }`}>
-                            <div className={`${styles.puzzlePiece} ${isPuzzlePieceFound(index) ? styles.found : ''}`}></div>
+                        <div className={`${styles['puzzle-piece-container']} ${
+                            era === 'triassic'
+                                ? styles['puzzle-piece-container-triassic']
+                                : era === 'jurassic'
+                                    ? styles['puzzle-piece-container-jurassic']
+                                    : styles['puzzle-piece-container-cretaceous']
+                        }`}>
+                            <div className={`${styles['puzzle-piece']} ${isPuzzlePieceFound(index) ? styles.found : ''}`}></div>
                         </div>
                     </div>
 
-                    <div className={`${styles.nameFrame} ${styles[`nameFrame${index + 1}`]}`}>
+                    <div className={styles['name-frame']}>
                         {dinosaur}
                     </div>
                 </div>

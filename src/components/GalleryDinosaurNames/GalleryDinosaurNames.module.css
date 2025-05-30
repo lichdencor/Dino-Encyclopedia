@@ -1,5 +1,5 @@
 /* NAME FRAMES START */
-.dinosaurData {
+.dinosaur-data {
     top: 20%;
     width: 22.5%;
     height: 68%;
@@ -25,22 +25,22 @@
     background-color: red;
 } */
 
-.dinosaurData1 {
+.dinosaur-data-1 {
     left: 10.5%;
     /* background-color: pink; */
 }
 
-.dinosaurData2 {
+.dinosaur-data-2 {
     left: 38.8%;
     /* background-color: blue; */
 }
 
-.dinosaurData3 {
+.dinosaur-data-3 {
     right: 10.5%;
     /* background-color: violet; */
 }
 
-.progressContainer {
+.progress-container {
     margin-top: 4%;
     width: 75%;
     height: 7%;
@@ -50,8 +50,8 @@
     /* background-color: red; */
 }
 
-.progressBarContainer {
-        width: 85%;
+.progress-bar-container {
+    width: 85%;
     height: 80%;
     
     display: flex;
@@ -63,19 +63,19 @@
     /* background-color: blue; */
 }
 
-.progressBarContainer-triassic {
+.progress-bar-container-triassic {
     background-image: url(/assets/img/gallery-progress/progressBarContainer-1.png);
 }
 
-.progressBarContainer-jurassic {
+.progress-bar-container-jurassic {
     background-image: url(/assets/img/gallery-progress/progressBarContainer-2.png);
 }
 
-.progressBarContainer-cretaceous {
+.progress-bar-container-cretaceous {
     background-image: url(/assets/img/gallery-progress/progressBarContainer-3.png);
 }
 
-.progressText {
+.progress-text {
     color: white;
     font-family: "Lato";
     letter-spacing: 0.1vw;
@@ -84,7 +84,7 @@
     right: 50%;
 }
 
-.progressBar {
+.progress-bar {
     width: 60%;
     height: 60%;
     background: linear-gradient(135deg,#372715, #f4d5a6, #7b664d, #f4d5a6);
@@ -92,7 +92,7 @@
     margin-left: 2%;
 }
 
-.puzzlePieceContainer {
+.puzzle-piece-container {
     width: 18%;
     height: 12%;
     display: flex;
@@ -105,19 +105,19 @@
     background-repeat: no-repeat;
 }
 
-.puzzlePieceContainer-triassic {
+.puzzle-piece-container-triassic {
     background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-1.png);
 }
 
-.puzzlePieceContainer-jurassic {
+.puzzle-piece-container-jurassic {
     background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-2.png);
 }
 
-.puzzlePieceContainer-cretaceous {
+.puzzle-piece-container-cretaceous {
     background-image: url(/assets/img/gallery-progress/puzzlePieceContainer-3.png);
 }
 
-.puzzlePiece {
+.puzzle-piece {
     width: 80%;
     height: 90%;
     display: flex;
@@ -130,11 +130,11 @@
     filter: brightness(20%);
 }
 
-.puzzlePiece.found {
+.puzzle-piece.found {
     filter: brightness(100%);
 }
 
-.nameFrame {
+.name-frame {
     width: 100%;
     height: 8%;
     background-position: center;
