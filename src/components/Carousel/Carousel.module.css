@@ -56,13 +56,13 @@
 }
 
 .carousel__item--right:hover {
-	transform: translate(64%, -50%) scale(0.95);
+	transform: translate(64%, -50%) scale(0.92);
 	z-index: 3;
 	cursor: pointer;
 }
 
 .carousel__item--left:hover {
-	transform: translate(-160%, -50%) scale(0.95);
+	transform: translate(-160%, -50%) scale(0.92);
 	z-index: 3;
 	cursor: pointer;
 }
