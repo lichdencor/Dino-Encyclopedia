@@ -95,7 +95,9 @@
 	bottom: -11%;
 }
 
-.carousel__item--main:hover .carousel__visit-btn {
+.carousel__item--main:hover .carousel__visit-btn,
+.carousel__item--left:hover .carousel__visit-btn,
+.carousel__item--right:hover .carousel__visit-btn {
 	width: 6vw;
 	opacity: 1;
 }
