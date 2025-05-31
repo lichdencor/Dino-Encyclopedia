@@ -56,13 +56,13 @@
 }
 
 .carousel__item--right:hover {
-	transform: translate(58%, -50%) scale(1.03);
+	transform: translate(64%, -50%) scale(0.95);
 	z-index: 3;
 	cursor: pointer;
 }
 
 .carousel__item--left:hover {
-	transform: translate(-158%, -50%) scale(1.03);
+	transform: translate(-160%, -50%) scale(0.95);
 	z-index: 3;
 	cursor: pointer;
 }
@@ -118,12 +118,12 @@
 
 .carousel__arrow--left {
 	background-image: url(/assets/img/arrows/arrow-left.png);
-	left: 18%;
+	left: 16%;
 }
 
 .carousel__arrow--right {
 	background-image: url(/assets/img/arrows/arrow-right.png);
-	right: 18%;
+	right: 16%;
 }
 
 .carousel__arrow--left:hover,
