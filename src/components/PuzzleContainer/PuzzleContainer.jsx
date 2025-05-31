@@ -1,44 +1,66 @@
-import React, { useEffect, useRef } from "react";
+import React, { Component } from "react";
 import PuzzlePiece from "../PuzzlePiece/PuzzlePiece";
 import CompletionMessage from "../CompletionMessage/CompletionMessage";
-import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
 import { DIFFICULTY_LEVELS } from "../../context/Puzzle/PuzzleContext";
 import "./PuzzleContainer.css";
 import Timer from "../Timer/Timer";
+import TimerBar from "../TimerBar/TimerBar";
 import TimeoutMessage from "../TimeoutMessage/TimeoutMessage";
+import TimerModel from "../../models/TimerModel";
+import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
 
-const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
-  const containerRef = useRef(null);
-  const {
-    pieces,
-    isComplete,
-    difficulty,
-    resetCounter,
-    setPieces,
-    handleDragStart,
-    handleDragEnd,
-    handleDrop,
-    showTimeoutMessage,
-    handleTimeoutClose,
-    getPuzzleImage,
-    getCompletedImage,
-    setSelectedPuzzleId,
-    time,
-  } = usePuzzle();
+class PuzzleContainerComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.containerRef = React.createRef();
+    this.timerModel = new TimerModel(props.difficulty);
 
-  // Efecto para actualizar el selectedPuzzleId cuando cambie el puzzle seleccionado
-  useEffect(() => {
-    setSelectedPuzzleId(selectedPuzzle.id);
-  }, [selectedPuzzle.id, setSelectedPuzzleId]);
+    // Bind methods
+    this.initializePuzzle = this.initializePuzzle.bind(this);
+  }
 
-  useEffect(() => {
-    if (!containerRef.current) return;
+  componentDidMount() {
+    this.props.setSelectedPuzzleId(this.props.selectedPuzzle.id);
+    this.initializePuzzle();
+  }
 
+  componentDidUpdate(prevProps) {
+    const { selectedPuzzle, time, showTimeoutMessage, difficulty } = this.props;
+
+    if (prevProps.selectedPuzzle.id !== selectedPuzzle.id) {
+      this.props.setSelectedPuzzleId(selectedPuzzle.id);
+    }
+
+    if (prevProps.time !== time) {
+      this.timerModel.setTime(time);
+    }
+
+    if (prevProps.showTimeoutMessage !== showTimeoutMessage) {
+      this.timerModel.setShowTimeoutMessage(showTimeoutMessage);
+    }
+
+    if (prevProps.difficulty !== difficulty) {
+      this.timerModel = new TimerModel(difficulty);
+    }
+
+    if (
+      prevProps.difficulty !== difficulty ||
+      prevProps.resetCounter !== this.props.resetCounter ||
+      prevProps.selectedPuzzle.id !== selectedPuzzle.id
+    ) {
+      this.initializePuzzle();
+    }
+  }
+
+  initializePuzzle() {
+    if (!this.containerRef.current) return;
+
+    const { difficulty, selectedPuzzle, getPuzzleImage, setPieces } = this.props;
     const { rows, cols } = DIFFICULTY_LEVELS[difficulty];
     const totalPieces = rows * cols;
 
-    const containerWidth = containerRef.current.clientWidth - 55;
-    const containerHeight = containerRef.current.clientHeight - 100;
+    const containerWidth = this.containerRef.current.clientWidth - 55;
+    const containerHeight = this.containerRef.current.clientHeight - 100;
 
     const pieceWidth = containerWidth / cols;
     const pieceHeight = containerHeight / rows;
@@ -72,76 +94,83 @@ const PuzzleContainer = ({ onReturnToMenu, selectedPuzzle }) => {
       }));
 
     setPieces(randomizedPieces);
-  }, [difficulty, resetCounter, setPieces, selectedPuzzle.id, getPuzzleImage]);
+  }
 
-  // Calculate time progress percentage
-  const totalTime = DIFFICULTY_LEVELS[difficulty].time;
-  const timeProgress = (time / totalTime) * 100;
+  render() {
+    const {
+      isComplete,
+      pieces = [],
+      showTimeoutMessage,
+      handleDragStart,
+      handleDragEnd,
+      handleDrop,
+      handleTimeoutClose,
+      getCompletedImage,
+      selectedPuzzle,
+      onReturnToMenu
+    } = this.props;
 
-  return (
-    <>
-      <div className="puzzle-game">
-        <>  
-              <div className="puzzle-time-container">
-                {!isComplete && !showTimeoutMessage && (
-                  <div className="bar-container">
-                    <div className="bar">
-                      <div className="timer-bar-container">
-                        <div className="timer-bar">
-                          <div
-                            className={`timer-progress ${timeProgress <= 25 ? 'time-critical' : ''}`}
-                            style={{ width: `${timeProgress}%` }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div className="puzzle-time-bottom">
-                  <div className="timer-container">
-                    <Timer />
-                  </div>
-
-                  <button className="return-to-menu" onClick={onReturnToMenu}>
-                    BACK
-                  </button>
-                </div>
-              </div>
-
-              <div
-                className={`puzzle-container ${isComplete ? "completed" : ""}`}
-                ref={containerRef}
-              >
-                <div className="puzzle-pieces">
-                  {isComplete ? (
-                    <img
-                      className="puzzle-completed"
-                      src={getCompletedImage(selectedPuzzle.id)}
-                      alt="Puzzle completado"
+    return (
+      <>
+        <div className="puzzle-game">
+          <>  
+                <div className="puzzle-time-container">
+                  {!isComplete && (
+                    <TimerBar 
+                      model={this.timerModel} 
+                      isComplete={isComplete} 
                     />
-                  ) : (
-                    pieces.map((piece) => (
-                      <PuzzlePiece
-                        key={piece.id}
-                        piece={piece}
-                        onDragStart={handleDragStart}
-                        onDragEnd={handleDragEnd}
-                        onDrop={handleDrop}
-                        onDragOver={(e) => e.preventDefault()}
-                      />
-                    ))
                   )}
-                </div>
-              </div>
-          </>
-        </div>
-        {isComplete && <CompletionMessage />}
-        {showTimeoutMessage && <TimeoutMessage onClose={handleTimeoutClose} />}
-     
 
-    </>
-  );
+                  <div className="puzzle-time-bottom">
+                    <div className="timer-container">
+                      <Timer model={this.timerModel} />
+                    </div>
+
+                    <button className="return-to-menu" onClick={onReturnToMenu}>
+                      BACK
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  className={`puzzle-container ${isComplete ? "completed" : ""}`}
+                  ref={this.containerRef}
+                >
+                  <div className="puzzle-pieces">
+                    {isComplete ? (
+                      <img
+                        className="puzzle-completed"
+                        src={getCompletedImage(selectedPuzzle.id)}
+                        alt="Puzzle completado"
+                      />
+                    ) : (
+                      pieces.map((piece) => (
+                        <PuzzlePiece
+                          key={piece.id}
+                          piece={piece}
+                          onDragStart={handleDragStart}
+                          onDragEnd={handleDragEnd}
+                          onDrop={handleDrop}
+                          onDragOver={(e) => e.preventDefault()}
+                        />
+                      ))
+                    )}
+                  </div>
+                </div>
+            </>
+          </div>
+          {isComplete && <CompletionMessage />}
+          {showTimeoutMessage && <TimeoutMessage onClose={handleTimeoutClose} />}
+      </>
+    );
+  }
+}
+
+// HOC para conectar el componente con el contexto
+const PuzzleContainer = (props) => {
+  const puzzleContext = usePuzzle();
+  return <PuzzleContainerComponent {...props} {...puzzleContext} />;
 };
 
 export default PuzzleContainer;

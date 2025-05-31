@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './Timer.module.css';
-import { usePuzzle } from '../../context/Puzzle/PuzzleContext';
-import { DIFFICULTY_LEVELS } from '../../context/Puzzle/PuzzleContext';
 
-function Timer() {
-  const { time, formatTime, showTimeoutMessage, difficulty } = usePuzzle();
+class Timer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            formattedTime: '0:00',
+            showTimeoutMessage: false
+        };
+        this.handleModelUpdate = this.handleModelUpdate.bind(this);
+    }
 
-  // No mostrar el timer cuando aparece el mensaje de timeout
-  if (showTimeoutMessage) return null;
+    componentDidMount() {
+        this.props.model.subscribe(this.handleModelUpdate);
+    }
 
-  // Calcular el porcentaje de tiempo restante
-  const totalTime = DIFFICULTY_LEVELS[difficulty].time;
-  const timePercentage = (time / totalTime) * 100;
+    componentWillUnmount() {
+        this.props.model.unsubscribe(this.handleModelUpdate);
+    }
 
-  // Determinar si queda poco tiempo (menos del 25%)
-  const isWarning = timePercentage <= 25;
+    handleModelUpdate(newState) {
+        this.setState({
+            formattedTime: newState.formattedTime,
+            showTimeoutMessage: newState.showTimeoutMessage
+        });
+    }
 
-  return (
-    <div className={styles.timer}>
-      <div className={styles.timeDisplay}>
-        {formatTime(time)}
-      </div>
-    </div>
-  );
+    render() {
+        const { showTimeoutMessage, formattedTime } = this.state;
+
+        if (showTimeoutMessage) return null;
+
+        return (
+            <div className={styles.timer}>
+                <div className={styles.timeDisplay}>
+                    {formattedTime}
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Timer; 
