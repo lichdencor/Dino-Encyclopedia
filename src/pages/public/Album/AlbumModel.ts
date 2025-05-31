@@ -69,26 +69,35 @@ export class AlbumModel {
                 }
             ],  
             stickers: [
-                { id: 'cr-1-Gallimimus', image: "/public/assets/img/dinosaurs/cr-1-Gallimimus.png" },
-                { id: 'cr-1-Microceratus', image: "/public/assets/img/dinosaurs/cr-1-Microceratus.png" },
-                { id: 'cr-1-Pachycephalosaurus', image: "/public/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png" },
-                { id: 'cr-2-Baryonyx', image: "/public/assets/img/dinosaurs/cr-2-Baryonyx.png" },
-                { id: 'cr-2-Irritator', image: "/public/assets/img/dinosaurs/cr-2-Irritator.png" },
-                { id: 'cr-2-Spinosaurus', image: "/public/assets/img/dinosaurs/cr-2-Spinosaurus.png" },
-                { id: 'cr-3-Ankylosaurus', image: "/public/assets/img/dinosaurs/cr-3-Ankylosaurus.png" },
-                { id: 'cr-3-Triceratops', image: "/public/assets/img/dinosaurs/cr-3-Triceratops.png" },
-                { id: 'cr-3-Tyrannosaurus', image: "/public/assets/img/dinosaurs/cr-3-Tyrannosaurus.png" },
-                { id: 'ju-1-Compsognathus', image: "/public/assets/img/dinosaurs/ju-1-Compsognathus.png" },
-                { id: 'ju-1-Dilophosaurus', image: "/public/assets/img/dinosaurs/ju-1-Dilophosaurus.png" },
-                { id: 'ju-1-Cryolophosaurus', image: "/public/assets/img/dinosaurs/ju-1-Cryolophosaurus.png" },
-                { id: 'ju-2-Allosaurus', image: "/public/assets/img/dinosaurs/ju-2-Allosaurus.png" },
-                { id: 'ju-2-Camarasaurus', image: "/public/assets/img/dinosaurs/ju-2-Camarasaurus.png" },
-                { id: 'ju-2-Apatosaurus', image: "/public/assets/img/dinosaurs/ju-2-Apatosaurus.png" },
-                { id: 'ju-3-Diplodocus', image: "/public/assets/img/dinosaurs/ju-3-Diplodocus.png" },
-                { id: 'ju-3-Stegosaurus', image: "/public/assets/img/dinosaurs/ju-3-Stegosaurus.png" },
-                { id: 'tr-1-Herrerasaurus', image: "/public/assets/img/dinosaurs/tr-1-Herrerasaurus.png" },
-                { id: 'tr-1-Eoraptor', image: "/public/assets/img/dinosaurs/tr-1-Eoraptor.png" },
-                { id: 'tr-3-Coelophysis', image: "/public/assets/img/dinosaurs/tr-3-Coelophysis.png" },
+                // TEMPLATE 1 - Eggs
+                { id: '01', image: "/public/assets/img/album/stickers/01.png" },
+                { id: '02', image: "/public/assets/img/album/stickers/02.png" },
+                { id: '03', image: "/public/assets/img/album/stickers/03.png" },
+                { id: '04', image: "/public/assets/img/album/stickers/04.png" },
+                { id: '05', image: "/public/assets/img/album/stickers/5.png" },
+                { id: '06', image: "/public/assets/img/album/stickers/6.png" },
+                { id: '07', image: "/public/assets/img/album/stickers/7.png" },
+                { id: '08', image: "/public/assets/img/album/stickers/8.png" },
+                { id: '09', image: "/public/assets/img/album/stickers/9.png" },
+                { id: '10', image: "/public/assets/img/album/stickers/10.png" },
+                { id: '11', image: "/public/assets/img/album/stickers/11.png" },
+                // TEMPLATE 2 - Dryosaurus
+                { id: '50', image: "/public/assets/img/album/stickers/50.png" },
+                { id: '51', image: "/public/assets/img/album/stickers/51.png" },
+                { id: '52', image: "/public/assets/img/album/stickers/52.png" },
+                { id: '53', image: "/public/assets/img/album/stickers/53.png" },
+                { id: '54', image: "/public/assets/img/album/stickers/54.png" },
+                { id: '55', image: "/public/assets/img/album/stickers/55.png" },
+                { id: '56', image: "/public/assets/img/album/stickers/56.png" },
+                { id: '57', image: "/public/assets/img/album/stickers/57.png" },
+                // TEMPLATE 3 - Triceratops
+                { id: '58', image: "/public/assets/img/album/stickers/58.png" },
+                { id: '59', image: "/public/assets/img/album/stickers/59.png" },
+                { id: '60', image: "/public/assets/img/album/stickers/60.png" },
+                { id: '61', image: "/public/assets/img/album/stickers/61.png" },
+                { id: '62', image: "/public/assets/img/album/stickers/62.png" },
+                { id: '63', image: "/public/assets/img/album/stickers/63.png" },
+                { id: '64', image: "/public/assets/img/album/stickers/64.png" }
             ],
             draggingSticker: null,
             mousePos: { x: 0, y: 0 }
@@ -157,7 +166,7 @@ export class AlbumModel {
     }
 
     public getStickerImageById(id: string): string {
-        return `/assets/img/dinosaurs/${id}.png`;
+        return `/assets/img/album/stickers/sticker-${id}.png`;
     }
 
     public getCurrentPageStickers(): Sticker[] {
