@@ -13,7 +13,17 @@ class PuzzleContainerComponent extends Component {
   constructor(props) {
     super(props);
     this.containerRef = React.createRef();
-    this.timerModel = new TimerModel(props.difficulty);
+    // Inicializar con valores por defecto si no hay selectedPuzzle
+    const defaultConfig = {
+      name: 'easy',
+      rows: 3,
+      cols: 5,
+      color: '#4CAF50',
+      time: 60
+    };
+    const { selectedPuzzle, difficulty } = props;
+    const difficultyConfig = selectedPuzzle?.difficulties?.[difficulty] || defaultConfig;
+    this.timerModel = new TimerModel(difficultyConfig);
 
     // Bind methods
     this.initializePuzzle = this.initializePuzzle.bind(this);
@@ -27,7 +37,7 @@ class PuzzleContainerComponent extends Component {
   componentDidUpdate(prevProps) {
     const { selectedPuzzle, time, showTimeoutMessage, difficulty } = this.props;
 
-    if (prevProps.selectedPuzzle.id !== selectedPuzzle.id) {
+    if (prevProps.selectedPuzzle?.id !== selectedPuzzle?.id) {
       this.props.setSelectedPuzzleId(selectedPuzzle.id);
     }
 
@@ -39,14 +49,15 @@ class PuzzleContainerComponent extends Component {
       this.timerModel.setShowTimeoutMessage(showTimeoutMessage);
     }
 
-    if (prevProps.difficulty !== difficulty) {
-      this.timerModel = new TimerModel(difficulty);
+    if (prevProps.difficulty !== difficulty || prevProps.selectedPuzzle !== selectedPuzzle) {
+      const difficultyConfig = selectedPuzzle.difficulties[difficulty];
+      this.timerModel = new TimerModel(difficultyConfig);
     }
 
     if (
       prevProps.difficulty !== difficulty ||
       prevProps.resetCounter !== this.props.resetCounter ||
-      prevProps.selectedPuzzle.id !== selectedPuzzle.id
+      prevProps.selectedPuzzle?.id !== selectedPuzzle?.id
     ) {
       this.initializePuzzle();
     }

@@ -6,6 +6,7 @@ import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
 import { PuzzleaurusModel, PuzzleaurusState, Puzzle } from './PuzzleaurusModel';
 import { PuzzleaurusController } from './PuzzleaurusController';
+import { DIFFICULTY_LEVELS } from '../../../context/Puzzle/PuzzleContext';
 
 const puzzles: Puzzle[] = [
     {
@@ -16,7 +17,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     },
     {
         id: 2,
@@ -26,7 +32,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     },
     {
         id: 3,
@@ -36,7 +47,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     },
     {
         id: 4,
@@ -46,7 +62,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     },
     {
         id: 5,
@@ -56,7 +77,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     },
     {
         id: 6,
@@ -66,7 +92,12 @@ const puzzles: Puzzle[] = [
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png",
             "/assets/img/puzzles/dificultad/incomplete.png"
-        ]
+        ],
+        difficulties: {
+            easy: { ...DIFFICULTY_LEVELS.easy },
+            medium: { ...DIFFICULTY_LEVELS.medium },
+            hard: { ...DIFFICULTY_LEVELS.hard }
+        }
     }
 ];
 

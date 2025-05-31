@@ -1,8 +1,21 @@
+export interface PuzzleDifficultyConfig {
+    name: string;
+    rows: number;
+    cols: number;
+    color: string;
+    time: number;
+}
+
 export interface Puzzle {
     id: number;
     name: string;
     logoPuzzle: string;
     difficultiesLogo: string[];
+    difficulties: {
+        easy: PuzzleDifficultyConfig;
+        medium: PuzzleDifficultyConfig;
+        hard: PuzzleDifficultyConfig;
+    };
 }
 
 export interface PuzzleaurusState {

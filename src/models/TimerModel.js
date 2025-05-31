@@ -1,13 +1,13 @@
 import {DIFFICULTY_LEVELS} from "../context/Puzzle/PuzzleContext.jsx";
 
 class TimerModel {
-    constructor(difficulty) {
-        this.difficulty = difficulty;
-        const initialTime = this.getTotalTimeForDifficulty();
+    constructor(difficultyConfig) {
+        this.difficultyConfig = difficultyConfig;
+        this.time = difficultyConfig.time;
         this.observers = [];
         this.state = {
-            time: initialTime,
-            formattedTime: this.formatTime(initialTime),
+            time: this.time,
+            formattedTime: this.formatTime(this.time),
             timePercentage: this.calculateTimePercentage(),
             isWarning: false,
             showTimeoutMessage: false
@@ -54,12 +54,7 @@ class TimerModel {
     }
 
     calculateTimePercentage() {
-        const totalTime = this.getTotalTimeForDifficulty();
-        return (this.time / totalTime) * 100;
-    }
-
-    getTotalTimeForDifficulty() {
-        return this.difficulty ? DIFFICULTY_LEVELS[this.difficulty].time : 0;
+        return (this.time / this.difficultyConfig.time) * 100;
     }
 
     isWarningTime(timePercentage) {
