@@ -4,6 +4,7 @@
 }
 
 .carousel__item:hover {
+	scale: 105%;
 	filter: brightness(100%);
 }
 
@@ -55,19 +56,19 @@
 }
 
 .carousel__item--right:hover {
-	transform: translate(80%, -50%) scale(1.05);
+	transform: translate(58%, -50%) scale(1.03);
 	z-index: 3;
 	cursor: pointer;
 }
 
 .carousel__item--left:hover {
-	transform: translate(-180%, -50%) scale(1.05);
+	transform: translate(-158%, -50%) scale(1.03);
 	z-index: 3;
 	cursor: pointer;
 }
 
 .carousel__item--main:hover {
-	transform: translate(-50%, -50%) scale(1.05);
+	transform: translate(-47.5%, -50%) scale(1.03);
 }
 
 .carousel__btn {
@@ -88,21 +89,15 @@
 .carousel__visit-btn {
 	opacity: 0;
 	position: absolute;
-	width: 6vw;
+	width: 2.5vw;
 	height: 2.5vw;
 	align-items: center;
 	bottom: -11%;
-	transition: opacity 0.3s ease;
-}
-
-.carousel__item:hover .carousel__visit-btn {
-	opacity: 1;
 }
 
 .carousel__item--main:hover .carousel__visit-btn {
 	width: 6vw;
 	opacity: 1;
-
 }
 
 /* ARROWS */
