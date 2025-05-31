@@ -26,7 +26,7 @@ export const Template2: React.FC<Template2Props> = ({
         </div>
         <div className={styles["scene-1-container"]}>
           <img
-            src="/public/assets/img/album/template-2/1-compsognathus/sene-1.png"
+            src="/public/assets/img/album/scenes/template-2-1/scene-1.png"
             alt="scene 1"
             className={styles["scene-1"]}
           />
@@ -93,7 +93,7 @@ export const Template2: React.FC<Template2Props> = ({
       <div className={styles["bottom-section"]}>
         <div className={styles["scene-2-container"]}>
           <img
-            src="/public/assets/img/album/template-2/1-compsognathus/scene-2.png"
+            src="/public/assets/img/album/scenes/template-2-1/scene-2.png"
             alt="scene 2"
             className={styles["scene-2"]}
           />
