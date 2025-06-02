@@ -72,11 +72,11 @@ export const Template3: React.FC<Template3Props> = ({
           <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
         </div>
         <div className={styles["scene-container"]}>
-            <img
-                src="/public/assets/img/album/scenes/template-3-1/scene.png"
-                alt="scene"
-                className={styles["scene"]}
-            />
+          <img
+            src="/public/assets/giph/template-3.gif"
+            alt="scene"
+            className={styles["scene"]}
+          />
           <div
             className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
             onMouseUp={() => onDrop(slots[3].id)}
