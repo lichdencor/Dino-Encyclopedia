@@ -4,13 +4,7 @@
 }
 
 /* SCENES */
-.scene-1,
-.scene-2,
-.scene-3 {
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 
 
 /* TOP SECTION START */
@@ -20,23 +14,22 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     /* background-color: violet; */
 }
 
-.scene-1,
-.scene-2 {
+.scene-1-container,
+.scene-2-container {
     width: 43%;
     height: 120%;
     /* background-color: orange; */
 }
 
-.scene-1 {
-    background-image: url(/public/assets/img/album/template-1/1-eggs/scene-1.png);
-}
-
-.scene-2 {
-    background-image: url(/public/assets/img/album/template-1/1-eggs/scene-2.png);
+.scene-1,
+.scene-2,
+.scene-3 {
+    width: 100%;
+    height: 100%;
 }
 
 .individual-stickers-container {
@@ -84,10 +77,9 @@
     /* background-color: lightblue; */
 }
 
-.scene-3 {
-    width: 60%;
+.scene-3-container {
+    width: 65%;
     height: 100%;
-    background-image: url(/public/assets/img/album/template-1/1-eggs/scene-3.png);
     /* background-color: lightpink; */
 }
 

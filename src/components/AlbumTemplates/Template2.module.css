@@ -1,11 +1,8 @@
 /* TOP SECTION START */
 
 .top-section {
-    height: 40%;
+    height: 45%;
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
     z-index: 3;
     position: relative;
     /* background-color: violet; */
@@ -14,14 +11,15 @@
 .individual-sticker-left-container {
     position: absolute;
     width: 10%;
-    height: 20%;
+    height: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     top: 2%;
     left: 2%;
-    /* background-color: blue; */
+    z-index: 10;
+    background-color: blue;
 }
 
 .individual-sticker-left {
@@ -33,24 +31,32 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 45%;
-    height: 140%;
+    width: 65%;
+    height: 135%;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 1;
     /* background-color: orange; */
 }
 
 .scene-1 {
     width: 100%;
     height: 100%;
+    margin-left: -10%;
+    /* background-color: beige; */
 }
 
 .info-and-shiny {
-    width: 53%;
-    height: 80%;
+    width: 47%;
+    height: 65%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
-    /* background-color: blueviolet; */
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    background-color: blue;
 }
 
 .info-box {
@@ -68,7 +74,7 @@
     border-radius: 15px;
     top: 2%;
     left: 2%;
-    /* background-color: yellowgreen; */
+    background-color: yellowgreen;
 }
 
 .shiny-sticker {
@@ -76,12 +82,12 @@
     height: 90%;
 }
 
-/* TOP SECTION START */
+/* TOP SECTION END */
 
 /* BOTTOM SECTION START */
 
 .bottom-section {
-    height: 60%;
+    height: 50%;
     width: 60%;
     position: relative;
     display: flex;
@@ -91,10 +97,11 @@
 }
 
 .scene-2-container {
-    height: 120%;
+    height: 150%;
     width: 100%;
     position: absolute;
     bottom: 0;
+    z-index: 5;
     /* background-color: orange; */
 }
 
@@ -105,14 +112,15 @@
 
 .individual-sticker-container {
     position: absolute;
-    width: 25%;
-    height: 60%;
-    top: 0%;
-    right: 0%;
+    width: 20%;
+    height: 45%;
+    top: -35%;
+    right: 45%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
+    z-index: 20;
     background-color: blue;
 }
 

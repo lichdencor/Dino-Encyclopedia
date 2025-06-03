@@ -76,7 +76,7 @@ export const Template3: React.FC<Template3Props> = ({
         </div>
         <div className={styles["scene-container"]}>
           <img
-            src="/public/assets/giph/template-3.gif"
+            src="/public/assets/giph/scenes/template-3.gif"
             alt="scene"
             className={styles["scene"]}
           />
