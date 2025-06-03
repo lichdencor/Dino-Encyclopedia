@@ -23,6 +23,7 @@ export const Template3: React.FC<Template3Props> = ({
               className={`${styles["drop-zone"]} ${styles["drop-zone-shiny"]}`}
               onMouseUp={() => onDrop(slots[0].id)}
             >
+              <span className={styles["slot-id"]}>{slots[0].correctStickerId}</span>
               {slots[0].occupied && slots[0].stickerId && (
                 <img
                   src={getStickerImageById(slots[0].stickerId)}
@@ -40,6 +41,7 @@ export const Template3: React.FC<Template3Props> = ({
                 className={`${styles["drop-zone"]}`}
                 onMouseUp={() => onDrop(slots[1].id)}
               >
+                <span className={styles["slot-id"]}>{slots[1].correctStickerId}</span>
                 {slots[1].occupied && slots[1].stickerId && (
                   <img
                     src={getStickerImageById(slots[1].stickerId)}
@@ -55,6 +57,7 @@ export const Template3: React.FC<Template3Props> = ({
               className={`${styles["drop-zone"]}`}
               onMouseUp={() => onDrop(slots[2].id)}
             >
+              <span className={styles["slot-id"]}>{slots[2].correctStickerId}</span>
               {slots[2].occupied && slots[2].stickerId && (
                 <img
                   src={getStickerImageById(slots[2].stickerId)}
@@ -81,6 +84,7 @@ export const Template3: React.FC<Template3Props> = ({
             className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
             onMouseUp={() => onDrop(slots[3].id)}
           >
+            <span className={styles["slot-id"]}>{slots[3].correctStickerId}</span>
             {slots[3].occupied && slots[3].stickerId && (
               <img
                 src={getStickerImageById(slots[3].stickerId)}
@@ -93,6 +97,7 @@ export const Template3: React.FC<Template3Props> = ({
             className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
             onMouseUp={() => onDrop(slots[4].id)}
           >
+            <span className={styles["slot-id"]}>{slots[4].correctStickerId}</span>
             {slots[4].occupied && slots[4].stickerId && (
               <img
                 src={getStickerImageById(slots[4].stickerId)}
@@ -105,6 +110,7 @@ export const Template3: React.FC<Template3Props> = ({
             className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
             onMouseUp={() => onDrop(slots[5].id)}
           >
+            <span className={styles["slot-id"]}>{slots[5].correctStickerId}</span>
             {slots[5].occupied && slots[5].stickerId && (
               <img
                 src={getStickerImageById(slots[5].stickerId)}
@@ -119,6 +125,7 @@ export const Template3: React.FC<Template3Props> = ({
             className={`${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-1"]}`}
             onMouseUp={() => onDrop(slots[6].id)}
           >
+            <span className={styles["slot-id"]}>{slots[6].correctStickerId}</span>
             {slots[6].occupied && slots[6].stickerId && (
               <img
                 src={getStickerImageById(slots[6].stickerId)}

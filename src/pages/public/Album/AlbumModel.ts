@@ -24,17 +24,17 @@ export class AlbumModel {
                     id: 'page-1',
                     templateType: TemplateType.TEMPLATE_1,
                     slots: [
-                        { id: 'slot-1-1', occupied: false,  },
-                        { id: 'slot-1-2', occupied: false },
-                        { id: 'slot-1-3', occupied: false },
-                        { id: 'slot-1-4', occupied: false },
-                        { id: 'slot-1-5', occupied: false },
-                        { id: 'slot-1-6', occupied: false },
-                        { id: 'slot-1-7', occupied: false },
-                        { id: 'slot-1-8', occupied: false },
-                        { id: 'slot-1-9', occupied: false },
-                        { id: 'slot-1-10', occupied: false },
-                        { id: 'slot-1-11', occupied: false },
+                        { id: 'slot-1-1', occupied: false, correctStickerId: '01' },
+                        { id: 'slot-1-2', occupied: false, correctStickerId: '02' },
+                        { id: 'slot-1-3', occupied: false, correctStickerId: '03' },
+                        { id: 'slot-1-4', occupied: false, correctStickerId: '04' },
+                        { id: 'slot-1-5', occupied: false, correctStickerId: '05' },
+                        { id: 'slot-1-6', occupied: false, correctStickerId: '06' },
+                        { id: 'slot-1-7', occupied: false, correctStickerId: '07' },
+                        { id: 'slot-1-8', occupied: false, correctStickerId: '08' },
+                        { id: 'slot-1-9', occupied: false, correctStickerId: '09' },
+                        { id: 'slot-1-10', occupied: false, correctStickerId: '10' },
+                        { id: 'slot-1-11', occupied: false, correctStickerId: '11' },
                     ],
                     infoText: "Los dinosaurios más grandes..."
                 },
@@ -42,14 +42,14 @@ export class AlbumModel {
                     id: 'page-2',
                     templateType: TemplateType.TEMPLATE_2,
                     slots: [
-                        { id: 'slot-2-1', occupied: false },
-                        { id: 'slot-2-2', occupied: false },
-                        { id: 'slot-2-3', occupied: false },
-                        { id: 'slot-2-4', occupied: false },
-                        { id: 'slot-2-5', occupied: false },
-                        { id: 'slot-2-6', occupied: false },
-                        { id: 'slot-2-7', occupied: false },
-                        { id: 'slot-2-8', occupied: false },
+                        { id: 'slot-2-1', occupied: false, correctStickerId: '51' },
+                        { id: 'slot-2-2', occupied: false, correctStickerId: '52' },
+                        { id: 'slot-2-3', occupied: false, correctStickerId: '53' },
+                        { id: 'slot-2-4', occupied: false, correctStickerId: '54' },
+                        { id: 'slot-2-5', occupied: false, correctStickerId: '55' },
+                        { id: 'slot-2-6', occupied: false, correctStickerId: '56' },
+                        { id: 'slot-2-7', occupied: false, correctStickerId: '57' },
+                        { id: 'slot-2-8', occupied: false, correctStickerId: '58' },
                     ],
                     infoText: "Los dinosaurios carnívoros..."
                 },
@@ -57,13 +57,13 @@ export class AlbumModel {
                     id: 'page-3',
                     templateType: TemplateType.TEMPLATE_3,
                     slots: [
-                        { id: 'slot-3-1', occupied: false, stickerId: "cr-1-Gallimimus" },
-                        { id: 'slot-3-2', occupied: false },
-                        { id: 'slot-3-3', occupied: false },
-                        { id: 'slot-3-4', occupied: false },
-                        { id: 'slot-3-5', occupied: false },
-                        { id: 'slot-3-6', occupied: false },
-                        { id: 'slot-3-7', occupied: false },
+                        { id: 'slot-3-1', occupied: false, correctStickerId: '58' },
+                        { id: 'slot-3-2', occupied: false, correctStickerId: '59' },
+                        { id: 'slot-3-3', occupied: false, correctStickerId: '60' },
+                        { id: 'slot-3-4', occupied: false, correctStickerId: '61' },
+                        { id: 'slot-3-5', occupied: false, correctStickerId: '62' },
+                        { id: 'slot-3-6', occupied: false, correctStickerId: '63' },
+                        { id: 'slot-3-7', occupied: false, correctStickerId: '64' },
                     ],
                     infoText: "Los dinosaurios voladores..."
                 }
@@ -134,13 +134,31 @@ export class AlbumModel {
     }
 
     public isSlotAvailable(slot: Slot | undefined): boolean {
-        return slot ? !slot.occupied : false;
+        if (!slot || slot.occupied) return false;
+        
+        const { draggingSticker } = this.state;
+        if (!draggingSticker) return false;
+
+        // Verificar si el sticker corresponde al slot
+        return slot.correctStickerId === draggingSticker.id;
     }
 
     public putStickerOnSlot(slotId: string) {
         const { draggingSticker } = this.state;
         if (!draggingSticker) return;
 
+        // Encontrar el slot
+        const slot = this.state.pages.flatMap(page => page.slots).find(s => s.id === slotId);
+        if (!slot) return;
+
+        // Verificar si el sticker corresponde al slot
+        if (slot.correctStickerId !== draggingSticker.id) {
+            // Si el sticker no corresponde, no hacer nada y dejar que vuelva a la grilla
+            this.stopDraggingSticker();
+            return;
+        }
+
+        // Si el sticker corresponde, actualizar el estado
         this.state.pages = this.state.pages.map(page => ({
             ...page,
             slots: page.slots.map(slot =>
@@ -150,6 +168,7 @@ export class AlbumModel {
             )
         }));
 
+        // Remover el sticker de la lista de stickers disponibles
         this.state.stickers = this.state.stickers.filter(sticker => 
             sticker.id !== draggingSticker.id
         );

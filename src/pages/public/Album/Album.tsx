@@ -119,6 +119,7 @@ export class Album extends Component<{}, AlbumState> {
                                 <div className={styles["stickers-grid"]}>
                                     {stickers.map(sticker => (
                                         <div key={sticker.id} className={styles["sticker-container"]}>
+                                            <span className={styles["sticker-id"]}>{sticker.id}</span>
                                             <img
                                                 src={sticker.image}
                                                 alt={sticker.id}

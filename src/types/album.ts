@@ -8,6 +8,7 @@ export type Slot = {
     id: string;
     occupied: boolean;
     stickerId?: string;
+    correctStickerId: string;
 };
 
 export type Sticker = {
