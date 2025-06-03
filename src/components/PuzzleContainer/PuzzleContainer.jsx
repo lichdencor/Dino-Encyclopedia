@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, forwardRef, useImperativeHandle } from "react";
 import PuzzlePiece from "../PuzzlePiece/PuzzlePiece";
 import CompletionMessage from "../CompletionMessage/CompletionMessage";
 import { DIFFICULTY_LEVELS } from "../../context/Puzzle/PuzzleContext";
@@ -9,7 +9,8 @@ import TimeoutMessage from "../TimeoutMessage/TimeoutMessage";
 import TimerModel from "../../models/TimerModel";
 import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
 
-class PuzzleContainerComponent extends Component {
+// Componente base que maneja la lógica del puzzle
+class PuzzleContainerBase extends Component {
   constructor(props) {
     super(props);
     this.containerRef = React.createRef();
@@ -21,12 +22,15 @@ class PuzzleContainerComponent extends Component {
       color: '#4CAF50',
       time: 60
     };
+    
     const { selectedPuzzle, difficulty } = props;
+    // Usar 'easy' como dificultad por defecto
     const difficultyConfig = selectedPuzzle?.difficulties?.[difficulty] || defaultConfig;
     this.timerModel = new TimerModel(difficultyConfig);
 
     // Bind methods
     this.initializePuzzle = this.initializePuzzle.bind(this);
+    this.completePuzzle = this.completePuzzle.bind(this);
   }
 
   componentDidMount() {
@@ -49,13 +53,19 @@ class PuzzleContainerComponent extends Component {
       this.timerModel.setShowTimeoutMessage(showTimeoutMessage);
     }
 
-    if (prevProps.difficulty !== difficulty || prevProps.selectedPuzzle !== selectedPuzzle) {
-      const difficultyConfig = selectedPuzzle.difficulties[difficulty];
+    // Usar 'easy' como dificultad por defecto
+    if (prevProps.selectedPuzzle !== selectedPuzzle) {
+      const difficultyConfig = selectedPuzzle?.difficulties?.[difficulty] || {
+        name: 'easy',
+        rows: 3,
+        cols: 5,
+        color: '#4CAF50',
+        time: 60
+      };
       this.timerModel = new TimerModel(difficultyConfig);
     }
 
     if (
-      prevProps.difficulty !== difficulty ||
       prevProps.resetCounter !== this.props.resetCounter ||
       prevProps.selectedPuzzle?.id !== selectedPuzzle?.id
     ) {
@@ -65,9 +75,10 @@ class PuzzleContainerComponent extends Component {
 
   initializePuzzle() {
     if (!this.containerRef.current) return;
-
-    const { difficulty, selectedPuzzle, getPuzzleImage, setPieces } = this.props;
-    const { rows, cols } = DIFFICULTY_LEVELS[difficulty];
+    const { selectedPuzzle, getPuzzleImage, difficulty } = this.props;
+    // Usar configuración fija para el puzzle
+    const rows = selectedPuzzle?.difficulties?.[difficulty].rows;
+    const cols = selectedPuzzle?.difficulties?.[difficulty].cols;
     const totalPieces = rows * cols;
 
     const containerWidth = this.containerRef.current.clientWidth - 55;
@@ -104,7 +115,45 @@ class PuzzleContainerComponent extends Component {
         currentY: Math.floor(index / cols) * pieceHeight,
       }));
 
-    setPieces(randomizedPieces);
+    this.props.setPieces(randomizedPieces);
+  }
+
+  completePuzzle() {
+    if (!this.containerRef.current) return;
+
+    const { selectedPuzzle, getPuzzleImage, difficulty } = this.props;
+    const rows = selectedPuzzle?.difficulties?.[difficulty].rows;
+    const cols = selectedPuzzle?.difficulties?.[difficulty].cols;
+    const totalPieces = rows * cols;
+
+    const containerWidth = this.containerRef.current.clientWidth - 55;
+    const containerHeight = this.containerRef.current.clientHeight - 100;
+
+    const pieceWidth = containerWidth / cols;
+    const pieceHeight = containerHeight / rows;
+
+    // Crear las piezas en sus posiciones correctas
+    const orderedPieces = Array.from({ length: totalPieces }, (_, i) => {
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+      return {
+        id: i.toString(),
+        currentX: col * pieceWidth,
+        currentY: row * pieceHeight,
+        correctX: col * pieceWidth,
+        correctY: row * pieceHeight,
+        width: pieceWidth,
+        height: pieceHeight,
+        image: getPuzzleImage(selectedPuzzle.id, difficulty),
+        isDragging: false,
+        backgroundX: -col * pieceWidth,
+        backgroundY: -row * pieceHeight,
+        backgroundWidth: containerWidth,
+        backgroundHeight: containerHeight,
+      };
+    });
+
+    this.props.setPieces(orderedPieces);
   }
 
   render() {
@@ -178,10 +227,20 @@ class PuzzleContainerComponent extends Component {
   }
 }
 
-// HOC para conectar el componente con el contexto
-const PuzzleContainer = (props) => {
+// HOC para conectar el componente con el contexto y manejar la referencia
+const PuzzleContainer = forwardRef((props, ref) => {
   const puzzleContext = usePuzzle();
-  return <PuzzleContainerComponent {...props} {...puzzleContext} />;
-};
+  const componentRef = React.useRef();
+
+  useImperativeHandle(ref, () => ({
+    completePuzzle: () => {
+      if (componentRef.current) {
+        componentRef.current.completePuzzle();
+      }
+    }
+  }));
+
+  return <PuzzleContainerBase ref={componentRef} {...props} {...puzzleContext} />;
+});
 
 export default PuzzleContainer;

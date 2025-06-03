@@ -1,115 +1,27 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Nav } from "../../../components";
 import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer";
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
 import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
-import { PuzzleaurusModel, PuzzleaurusState, Puzzle } from './PuzzleaurusModel';
+import { PuzzleaurusModel, PuzzleaurusState } from './PuzzleaurusModel';
 import { PuzzleaurusController } from './PuzzleaurusController';
-import { DIFFICULTY_LEVELS } from '../../../context/Puzzle/PuzzleContext';
 
-const puzzles: Puzzle[] = [
-    {
-        id: 1,
-        name: "Dinosaurio",
-        logoPuzzle: "/assets/img/puzzles/puzzle-1/puzzle-1.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    },
-    {
-        id: 2,
-        name: "Fósil",
-        logoPuzzle: "/assets/img/puzzles/puzzle-2/puzzle-2.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    },
-    {
-        id: 3,
-        name: "Era Mesozoica",
-        logoPuzzle: "/assets/img/puzzles/puzzle-3/puzzle-3.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    },
-    {
-        id: 4,
-        name: "Paleontología",
-        logoPuzzle: "/assets/img/puzzles/puzzle-4/puzzle-4.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    },
-    {
-        id: 5,
-        name: "Excavación",
-        logoPuzzle: "/assets/img/puzzles/puzzle-5/puzzle-5.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    },
-    {
-        id: 6,
-        name: "Museo",
-        logoPuzzle: "/assets/img/puzzles/puzzle-6/puzzle-6.jpg",
-        difficultiesLogo: [
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png",
-            "/assets/img/puzzles/dificultad/incomplete.png"
-        ],
-        difficulties: {
-            easy: { ...DIFFICULTY_LEVELS.easy },
-            medium: { ...DIFFICULTY_LEVELS.medium },
-            hard: { ...DIFFICULTY_LEVELS.hard }
-        }
-    }
-];
+// Define el tipo para la referencia del PuzzleContainer para el Cheat
+type PuzzleContainerRef = {
+    completePuzzle: () => void;
+};
 
 export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
     private model: PuzzleaurusModel;
     private controller: PuzzleaurusController;
     private unsubscribe: (() => void) | null = null;
+    private puzzleContainerRef = React.createRef<PuzzleContainerRef>();
 
     constructor(props: {}) {
         super(props);
         this.model = new PuzzleaurusModel();
-        this.controller = new PuzzleaurusController(this.model, puzzles);
+        this.controller = new PuzzleaurusController(this.model);
         this.state = this.model.getState();
     }
 
@@ -144,28 +56,24 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                                 />
                             ) : (
                                 <div className={styles["puzzle-content"]}>
+                                    <div className={styles["puzzle-controls"]}>
+                                        <button 
+                                            className={styles["cheat-button"]}
+                                            onClick={() => {
+                                                if (this.puzzleContainerRef?.current) {
+                                                    this.puzzleContainerRef.current.completePuzzle();
+                                                }
+                                            }}
+                                        >
+                                            CHEAT
+                                        </button>
+                                    </div>
                                     <PuzzleContainer
+                                        ref={this.puzzleContainerRef}
                                         onReturnToMenu={this.controller.handleReturnToMenu}
                                         selectedPuzzle={selectedPuzzle}
                                         key={selectedPuzzle.id}
                                     />
-                                    {/* Botones de navegación entre puzzles 
-                                    <div className={styles.navigationButtons}>
-                                        <button 
-                                            className={`${styles.navButton} ${styles.prevButton}`}
-                                            onClick={this.controller.handlePrevPuzzle}
-                                            disabled={selectedPuzzle.id === 1}
-                                        >
-                                            ← Puzzle Anterior
-                                        </button>
-                                        <button 
-                                            className={`${styles.navButton} ${styles.nextButton}`}
-                                            onClick={this.controller.handleNextPuzzle}
-                                            disabled={selectedPuzzle.id === 6}
-                                        >
-                                            Siguiente Puzzle →
-                                        </button>
-                                    </div>*/}
                                 </div>
                             )}
                         </>
