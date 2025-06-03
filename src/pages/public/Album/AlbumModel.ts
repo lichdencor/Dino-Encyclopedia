@@ -14,7 +14,49 @@ export class AlbumModel {
     private state: AlbumState;
     private listeners: ((state: AlbumState) => void)[] = [];
 
+    private shuffleStickers(stickers: Sticker[]): Sticker[] {
+        // Crear una copia del array para no mutar el original
+        const shuffled = [...stickers];
+        // Algoritmo de Fisher-Yates
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
     constructor() {
+        const initialStickers = [
+            // TEMPLATE 1 - Eggs
+            { id: '01', image: "/public/assets/img/album/stickers/sticker-01.png" },
+            { id: '02', image: "/public/assets/img/album/stickers/sticker-02.png" },
+            { id: '03', image: "/public/assets/img/album/stickers/sticker-03.png" },
+            { id: '04', image: "/public/assets/img/album/stickers/sticker-04.png" },
+            { id: '05', image: "/public/assets/img/album/stickers/sticker-05.png" },
+            { id: '06', image: "/public/assets/img/album/stickers/sticker-06.png" },
+            { id: '07', image: "/public/assets/img/album/stickers/sticker-07.png" },
+            { id: '08', image: "/public/assets/img/album/stickers/sticker-08.png" },
+            { id: '09', image: "/public/assets/img/album/stickers/sticker-09.png" },
+            { id: '10', image: "/public/assets/img/album/stickers/sticker-10.png" },
+            { id: '11', image: "/public/assets/img/album/stickers/sticker-11.png" },
+            // TEMPLATE 2 - Dryosaurus
+            { id: '51', image: "/public/assets/img/album/stickers/sticker-51.png" },
+            { id: '52', image: "/public/assets/img/album/stickers/sticker-52.png" },
+            { id: '53', image: "/public/assets/img/album/stickers/sticker-53.png" },
+            { id: '54', image: "/public/assets/img/album/stickers/sticker-54.png" },
+            { id: '55', image: "/public/assets/img/album/stickers/sticker-55.png" },
+            { id: '56', image: "/public/assets/img/album/stickers/sticker-56.png" },
+            { id: '57', image: "/public/assets/img/album/stickers/sticker-57.png" },
+            // TEMPLATE 3 - Triceratops
+            { id: '58', image: "/public/assets/img/album/stickers/sticker-58.png" },
+            { id: '59', image: "/public/assets/img/album/stickers/sticker-59.png" },
+            { id: '60', image: "/public/assets/img/album/stickers/sticker-60.png" },
+            { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" },
+            { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" },
+            { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" },
+            { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" }
+        ];
+
         this.state = {
             currentPage: 0,
             currentStickerPage: 0,
@@ -67,37 +109,8 @@ export class AlbumModel {
                     ],
                     infoText: "Los dinosaurios voladores..."
                 }
-            ],  
-            stickers: [
-                // TEMPLATE 1 - Eggs
-                { id: '01', image: "/public/assets/img/album/stickers/sticker-01.png" },
-                { id: '02', image: "/public/assets/img/album/stickers/sticker-02.png" },
-                { id: '03', image: "/public/assets/img/album/stickers/sticker-03.png" },
-                { id: '04', image: "/public/assets/img/album/stickers/sticker-04.png" },
-                { id: '05', image: "/public/assets/img/album/stickers/sticker-05.png" },
-                { id: '06', image: "/public/assets/img/album/stickers/sticker-06.png" },
-                { id: '07', image: "/public/assets/img/album/stickers/sticker-07.png" },
-                { id: '08', image: "/public/assets/img/album/stickers/sticker-08.png" },
-                { id: '09', image: "/public/assets/img/album/stickers/sticker-09.png" },
-                { id: '10', image: "/public/assets/img/album/stickers/sticker-10.png" },
-                { id: '11', image: "/public/assets/img/album/stickers/sticker-11.png" },
-                // TEMPLATE 2 - Dryosaurus
-                { id: '51', image: "/public/assets/img/album/stickers/sticker-51.png" },
-                { id: '52', image: "/public/assets/img/album/stickers/sticker-52.png" },
-                { id: '53', image: "/public/assets/img/album/stickers/sticker-53.png" },
-                { id: '54', image: "/public/assets/img/album/stickers/sticker-54.png" },
-                { id: '55', image: "/public/assets/img/album/stickers/sticker-55.png" },
-                { id: '56', image: "/public/assets/img/album/stickers/sticker-56.png" },
-                { id: '57', image: "/public/assets/img/album/stickers/sticker-57.png" },
-                // TEMPLATE 3 - Triceratops
-                { id: '58', image: "/public/assets/img/album/stickers/sticker-58.png" },
-                { id: '59', image: "/public/assets/img/album/stickers/sticker-59.png" },
-                { id: '60', image: "/public/assets/img/album/stickers/sticker-60.png" },
-                { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" },
-                { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" },
-                { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" },
-                { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" }
             ],
+            stickers: this.shuffleStickers(initialStickers),
             draggingSticker: null,
             mousePos: { x: 0, y: 0 }
         };
