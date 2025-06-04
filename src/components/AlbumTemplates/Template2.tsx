@@ -17,13 +17,6 @@ export const Template2: React.FC<Template2Props> = ({
   return (
     <div className={templateStyles["template-container"]}>
       <div className={styles["top-section"]}>
-        <div className={styles["individual-sticker-left-container"]}>
-          <img
-            src="/public/assets/img/dinosaurs/cr-1-Microceratus.png"
-            alt="sticker"
-            className={styles["individual-sticker-left"]}
-          />
-        </div>
         <div className={styles["scene-1-container"]}>
           <img
             src="/public/assets/giph/scenes/template-2-1.gif"

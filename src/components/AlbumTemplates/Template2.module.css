@@ -199,32 +199,39 @@
 
 /* Scene 1 drop zones */
 .scene-1-container .drop-zone-1 {
-    top: 35%;
-    left: 26%;
-    width: 28%;
+    bottom: 20%;
+    left: 10%;
+    width: 13%;
     height: auto;
     /* background-color: red; */
 }
 
 .scene-1-container .drop-zone-2 {
-    bottom: 20%;
-    right: 25%;
-    transform: translateX(-50%);
-    width: 15%;
+    top: 25%;
+    left: 22%;
+    width: 33%;
     height: auto;
     /* background-color: violet; */
 }
 
 .scene-1-container .drop-zone-3 {
     bottom: 20%;
-    left: 10%;
-    width: 15%;
+    right: 35%;
+    width: 16%;
     height: auto;
     /* background-color: green; */
 }
 
 /* Scene 2 drop zones */
 .scene-2-container .drop-zone-1 {
+    top: 35%;
+    left: 10%;
+    width: 15%;
+    height: auto;
+    background-color: orange;
+}
+
+.scene-2-container .drop-zone-2 {
     bottom: 20%;
     left: 30%;
     width: 35%;
@@ -232,21 +239,12 @@
     background-color: violet;
 }
 
-.scene-2-container .drop-zone-2 {
+.scene-2-container .drop-zone-3 {
     bottom: 25%;
-    right: 0%;
-    transform: translateX(-50%);
+    right: 10%;
     width: 20%;
     height: auto;
     background-color: red;
-}
-
-.scene-2-container .drop-zone-3 {
-    top: 35%;
-    left: 10%;
-    width: 15%;
-    height: auto;
-    background-color: orange;
 }
 
 /* Individual sticker container drop zones */
