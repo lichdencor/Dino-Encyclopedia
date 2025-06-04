@@ -120,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: aquamarine;
 }
 
 .default-sticker {
@@ -130,7 +130,6 @@
 }
 
 .drop-zone {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,7 +154,7 @@
     height: 100%;
     object-fit: contain;
     filter: brightness(0.3) contrast(0.5);
-    opacity: 0.6;
+    filter: brightness(100) grayscale(1) contrast(10);
     pointer-events: none;
 }
 
@@ -175,9 +174,10 @@
 /* Scene drop zones */
 .scene .drop-zone-1 {
     top: 50%;
-    left: 15%;
-    width: 15vh;
+    left: 50%;
+    width: 20%;
     height: 10vh;
+    background-color: red;
 }
 
 .scene .drop-zone-2 {
@@ -186,6 +186,7 @@
     transform: translateX(-50%);
     width: 18vh;
     height: 12vh;
+    background-color: orange;
 }
 
 .scene .drop-zone-3 {
@@ -193,6 +194,7 @@
     right: 15%;
     width: 15vh;
     height: 10vh;
+    background-color: lightseagreen;
 }
 
 .slot-id {

@@ -5,8 +5,6 @@
 
 /* SCENES */
 
-
-
 /* TOP SECTION START */
 
 .top-section {
@@ -40,7 +38,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: blue;
+    background-color: green;
 }
 
 .individual-sticker-1-container {
@@ -165,71 +163,78 @@
 
 /* Scene 1 drop zones */
 .scene-1-container .drop-zone-1 {
-    left: 11vh;
-    bottom: 5vh;
-    width: 25vh;
-    height: 35vh;
+    left: 10%;
+    bottom: 18%;
+    width: 33%;
+    height: auto;
+    /* background-color: red; */
 }
 
 .scene-1-container .drop-zone-2 {
-    top: 70%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
-    width: 18vh;
-    height: 12vh;
+    width: auto;
+    height: 18%;
 }
 
 .scene-1-container .drop-zone-3 {
-    top: 47%;
-    right: 17%;
-    width: 23vh;
-    height: 25vh;
+    top: 42%;
+    right: 12%;
+    width: 32%;
+    height: auto;
 }
 
 /* Scene 2 drop zones */
 .scene-2-container .drop-zone-1 {
-    top: 41%;
-    left: 11%;
-    width: 22vh;
-    height: 22vh;
+    bottom: 25%;
+    left: 13%;
+    width: 33%;
+    height: auto;
+    /* background-color: blue; */
 }
 
 .scene-2-container .drop-zone-2 {
-    top: 62%;
-    left: 45%;
+    bottom: 15%;
+    left: 50%;
     transform: translateX(-50%);
-    width: 14vh;
-    height: 13vh;
+    width: 20%;
+    height: auto;
+    /* background-color: red; */
 }
 
 .scene-2-container .drop-zone-3 {
-    top: 56%;
-    right: 20%;
-    width: 20vh;
-    height: 17vh;
+    bottom: 22%;
+    right: 8%;
+    width: 35%;
+    height: auto;
+    /* background-color: green; */
 }
 
 /* Scene 3 drop zones */
 .scene-3-container .drop-zone-1 {
-    top: 47%;
-    left: 10%;
-    width: 14vh;
-    height: 16vh;
+    bottom: 25%;
+    left: 7%;
+    width: 25%;
+    height: auto;
+    /* background-color: red; */
 }
 
 .scene-3-container .drop-zone-2 {
-    top: 33%;
+    bottom: 25%;
     left: 60%;
-    width: 25vh;
-    height: 27vh;
+    width: 35%;
+    height: auto;
     transform: rotateY(180deg);
+    /* background-color: blue; */
 }
 
 .scene-3-container .drop-zone-3 {
-    top: 47%;
-    right: 39%;
-    width: 19vh;
-    height: 20vh;
+    bottom: 10%;
+    right: 35%;
+    width: 30%;
+    height: auto;
+    /* background-color: green; */
 }
 
 /* Individual stickers drop zones */
