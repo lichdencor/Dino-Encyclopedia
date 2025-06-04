@@ -81,7 +81,7 @@ export const Template3: React.FC<Template3Props> = ({
             className={styles["scene"]}
           />
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[3].id)}
           >
             <span className={styles["slot-id"]}>{slots[3].correctStickerId}</span>
@@ -94,7 +94,7 @@ export const Template3: React.FC<Template3Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-2"]}`}
             onMouseUp={() => onDrop(slots[4].id)}
           >
             <span className={styles["slot-id"]}>{slots[4].correctStickerId}</span>
@@ -107,7 +107,7 @@ export const Template3: React.FC<Template3Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-3"]}`}
             onMouseUp={() => onDrop(slots[5].id)}
           >
             <span className={styles["slot-id"]}>{slots[5].correctStickerId}</span>

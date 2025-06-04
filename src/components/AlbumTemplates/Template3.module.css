@@ -155,21 +155,27 @@
     pointer-events: none;
 }
 
-
-.drop-zone-left {
+/* Scene drop zones */
+.scene .drop-zone-1 {
     top: 50%;
     left: 15%;
+    width: 15vh;
+    height: 10vh;
 }
 
-.drop-zone-center {
+.scene .drop-zone-2 {
     top: 80%;
     left: 50%;
     transform: translateX(-50%);
+    width: 18vh;
+    height: 12vh;
 }
 
-.drop-zone-right {
+.scene .drop-zone-3 {
     top: 50%;
     right: 15%;
+    width: 15vh;
+    height: 10vh;
 }
 
 .slot-id {

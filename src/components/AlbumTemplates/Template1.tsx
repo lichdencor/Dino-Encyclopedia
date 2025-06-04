@@ -21,7 +21,7 @@ export const Template1: React.FC<Template1Props> = ({
         <div className={styles["scene-1-container"]}>
           <img className={styles["scene-1"]} src="/public/assets/giph/scenes/template-1-1.gif" alt="Scene 1" />
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[0].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[0].correctStickerId}</span>
@@ -34,7 +34,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-2"]}`}
             onMouseUp={() => onDrop(slots[1].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[1].correctStickerId}</span>
@@ -47,7 +47,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-3"]}`}
             onMouseUp={() => onDrop(slots[2].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[2].correctStickerId}</span>
@@ -63,7 +63,7 @@ export const Template1: React.FC<Template1Props> = ({
         <div className={styles["individual-stickers-container"]}>
           <div className={styles["individual-sticker-1-container"]}>
             <div
-              className={`${styles["individual-sticker"]} ${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-1"]} ${styles["individual-sticker-1"]}`}
+              className={`${styles["individual-sticker"]} ${styles["drop-zone"]} ${styles["drop-zone-1"]} ${styles["individual-sticker-1"]}`}
               onMouseUp={() => onDrop(slots[9].id)}
             >
               <span className={templateStyles["slot-id"]}>{slots[9].correctStickerId}</span>
@@ -77,7 +77,7 @@ export const Template1: React.FC<Template1Props> = ({
             </div>
           </div>
           <div
-            className={`${styles["individual-sticker"]}  ${styles["drop-zone"]} ${styles["drop-zone-individual-sticker-2"]} ${styles["individual-sticker-2"]}`}
+            className={`${styles["individual-sticker"]}  ${styles["drop-zone"]} ${styles["drop-zone-2"]} ${styles["individual-sticker-2"]}`}
             onMouseUp={() => onDrop(slots[10].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[10].correctStickerId}</span>
@@ -93,7 +93,7 @@ export const Template1: React.FC<Template1Props> = ({
         <div className={styles["scene-2-container"]}>
           <img className={styles["scene-2"]} src="/public/assets/giph/scenes/template-1-2.gif" alt="Scene 2" />
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[3].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[3].correctStickerId}</span>
@@ -106,7 +106,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-2"]}`}
             onMouseUp={() => onDrop(slots[4].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[4].correctStickerId}</span>
@@ -119,7 +119,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-3"]}`}
             onMouseUp={() => onDrop(slots[5].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[5].correctStickerId}</span>
@@ -137,7 +137,7 @@ export const Template1: React.FC<Template1Props> = ({
         <div className={styles["scene-3-container"]}>
           <img className={styles["scene-3"]} src="/public/assets/giph/scenes/template-1-3.gif" alt="Scene 3" />
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-left"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[6].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[6].correctStickerId}</span>
@@ -150,7 +150,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-center"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-2"]}`}
             onMouseUp={() => onDrop(slots[7].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[7].correctStickerId}</span>
@@ -163,7 +163,7 @@ export const Template1: React.FC<Template1Props> = ({
             )}
           </div>
           <div
-            className={`${styles["drop-zone"]} ${styles["drop-zone-right"]}`}
+            className={`${styles["drop-zone"]} ${styles["drop-zone-3"]}`}
             onMouseUp={() => onDrop(slots[8].id)}
           >
             <span className={templateStyles["slot-id"]}>{slots[8].correctStickerId}</span>

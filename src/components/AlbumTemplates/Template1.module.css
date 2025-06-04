@@ -22,6 +22,7 @@
 .scene-2-container {
     width: 43%;
     height: 120%;
+    position: relative;
     /* background-color: orange; */
 }
 
@@ -80,6 +81,7 @@
 .scene-3-container {
     width: 65%;
     height: 100%;
+    position: relative;
     /* background-color: lightpink; */
 }
 
@@ -144,66 +146,86 @@
 }
 
 /* Scene 1 drop zones */
-.scene-1 .drop-zone-left {
-    top: 20%;
-    left: 15%;
+.scene-1-container .drop-zone-1 {
+    left: 11vh;
+    bottom: 5vh;
+    width: 25vh;
+    height: 35vh;
 }
 
-.scene-1 .drop-zone-center {
-    top: 50%;
+.scene-1-container .drop-zone-2 {
+    top: 70%;
     left: 50%;
     transform: translateX(-50%);
+    width: 18vh;
+    height: 12vh;
 }
 
-.scene-1 .drop-zone-right {
-    top: 20%;
-    right: 15%;
+.scene-1-container .drop-zone-3 {
+    top: 47%;
+    right: 17%;
+    width: 23vh;
+    height: 25vh;
 }
 
 /* Scene 2 drop zones */
-.scene-2 .drop-zone-left {
-    top: 30%;
-    left: 15%;
+.scene-2-container .drop-zone-1 {
+    top: 41%;
+    left: 11%;
+    width: 22vh;
+    height: 22vh;
 }
 
-.scene-2 .drop-zone-center {
-    top: 60%;
-    left: 50%;
+.scene-2-container .drop-zone-2 {
+    top: 62%;
+    left: 45%;
     transform: translateX(-50%);
+    width: 14vh;
+    height: 13vh;
 }
 
-.scene-2 .drop-zone-right {
-    top: 30%;
-    right: 15%;
+.scene-2-container .drop-zone-3 {
+    top: 56%;
+    right: 20%;
+    width: 20vh;
+    height: 17vh;
 }
 
 /* Scene 3 drop zones */
-.scene-3 .drop-zone-left {
-    top: 25%;
-    left: 15%;
+.scene-3-container .drop-zone-1 {
+    top: 47%;
+    left: 10%;
+    width: 14vh;
+    height: 16vh;
 }
 
-.scene-3 .drop-zone-center {
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
+.scene-3-container .drop-zone-2 {
+    top: 33%;
+    left: 60%;
+    width: 25vh;
+    height: 27vh;
+    transform: rotateY(180deg);
 }
 
-.scene-3 .drop-zone-right {
-    top: 25%;
-    right: 15%;
+.scene-3-container .drop-zone-3 {
+    top: 47%;
+    right: 39%;
+    width: 19vh;
+    height: 20vh;
 }
 
-
-/* INDIVIDUAL STICKERS DROP ZONES */
-.individual-stickers-container .drop-zone-individual-sticker-1 {
+/* Individual stickers drop zones */
+.individual-stickers-container .drop-zone-1 {
     top: 10%;
+    width: 10vh;
+    height: 7vh;
 }
 
-.individual-stickers-container .drop-zone-individual-sticker-2 {
+.individual-stickers-container .drop-zone-2 {
     top: 25%;
+    width: 10vh;
+    height: 7vh;
 }
-
 
 .sticker-image {
     width: 90%;
