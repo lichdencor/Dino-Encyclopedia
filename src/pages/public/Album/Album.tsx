@@ -20,7 +20,7 @@ export class Album extends Component<{}, AlbumState> {
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((newState) => {
+        this.unsubscribe = this.model.subscribe((newState: AlbumState) => {
             this.setState(newState);
         });
         window.addEventListener('mousemove', this.controller.handleMouseMove);
@@ -82,11 +82,8 @@ export class Album extends Component<{}, AlbumState> {
     }
 
     render() {
-        const state = this.state;
-        const currentTemplate = this.renderCurrentTemplate();
         const stickers = this.model.getCurrentPageStickers();
         const totalPages = this.model.getTotalStickerPages();
-        const currentPage = state.currentStickerPage;
 
         return (
             <div className={styles["album-container"]}>
@@ -99,17 +96,17 @@ export class Album extends Component<{}, AlbumState> {
                                     <div className={styles["pagination-controls"]}>
                                         <button 
                                             onClick={this.controller.handlePreviousStickerPage}
-                                            disabled={currentPage === 0}
+                                            disabled={this.state.currentStickerPage === 0}
                                             className={styles["pagination-button"]}
                                         >
                                             ←
                                         </button>
                                         <span className={styles["page-indicator"]}>
-                                            {currentPage + 1} / {totalPages}
+                                            {this.state.currentStickerPage + 1} / {totalPages}
                                         </span>
                                         <button 
                                             onClick={this.controller.handleNextStickerPage}
-                                            disabled={currentPage === totalPages - 1}
+                                            disabled={this.state.currentStickerPage === totalPages - 1}
                                             className={styles["pagination-button"]}
                                         >
                                             →
@@ -137,25 +134,31 @@ export class Album extends Component<{}, AlbumState> {
                         <div className={styles.navigation}>
                             <button
                                 onClick={() => this.controller.handlePageNavigation('previous')}
-                                disabled={currentPage === 0}
+                                disabled={this.state.currentPage === 0}
                             >
                                 Previous
                             </button>
                             <span>
-                                Page {currentPage + 1} of {totalPages}
+                                Page {this.state.currentPage + 1} of {this.state.pages.length}
                             </span>
                             <button
                                 onClick={() => this.controller.handlePageNavigation('next')}
-                                disabled={currentPage === totalPages - 1}
+                                disabled={this.state.currentPage === this.state.pages.length - 1}
                             >
                                 Next
                             </button>
+                            <button
+                                onClick={this.controller.handleCheat}
+                                className={styles["cheat-button"]}
+                            >
+                                CHEAT
+                            </button>
                         </div>
 
-                        {currentTemplate}
+                        {this.renderCurrentTemplate()}
                     </div>
 
-                    {state.draggingSticker && this.createGhostSticker()}
+                    {this.state.draggingSticker && this.createGhostSticker()}
                 </div>
             </div>
         );

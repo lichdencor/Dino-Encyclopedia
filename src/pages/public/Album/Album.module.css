@@ -193,3 +193,23 @@
   font-weight: bold;
   font-size: 1rem;
 }
+
+.cheat-button {
+  background-color: #ff4444;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.cheat-button:hover {
+  background-color: #ff6666;
+}
+
+.cheat-button:active {
+  background-color: #cc0000;
+}

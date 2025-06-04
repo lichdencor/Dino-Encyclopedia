@@ -60,4 +60,8 @@ export class AlbumController {
     public handlePreviousStickerPage = () => {
         this.model.previousStickerPage();
     }
+
+    public handleCheat = () => {
+        this.model.cheatPlaceAllStickers();
+    }
 } 

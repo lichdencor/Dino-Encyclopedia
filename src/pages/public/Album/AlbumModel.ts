@@ -124,7 +124,10 @@ export class AlbumModel {
     }
 
     private notifyListeners() {
-        this.listeners.forEach(listener => listener(this.getState()));
+        const newState = this.getState();
+        this.listeners.forEach(listener => {
+            listener(newState);
+        });
     }
 
     public getState(): AlbumState {
@@ -212,16 +215,44 @@ export class AlbumModel {
 
     public nextStickerPage() {
         const totalPages = this.getTotalStickerPages();
+        
         if (this.state.currentStickerPage < totalPages - 1) {
-            this.state.currentStickerPage++;
+            const nextPage = this.state.currentStickerPage + 1;
+            
+            this.state = {
+                ...this.state,
+                currentStickerPage: nextPage
+            };
+
             this.notifyListeners();
         }
     }
 
     public previousStickerPage() {
         if (this.state.currentStickerPage > 0) {
-            this.state.currentStickerPage--;
+            const prevPage = this.state.currentStickerPage - 1;
+            
+            this.state = {
+                ...this.state,
+                currentStickerPage: prevPage
+            };
+
             this.notifyListeners();
         }
+    }
+
+    public cheatPlaceAllStickers() {
+        this.state.pages = this.state.pages.map(page => ({
+            ...page,
+            slots: page.slots.map(slot => ({
+                ...slot,
+                occupied: true,
+                stickerId: slot.correctStickerId
+            }))
+        }));
+
+        this.state.stickers = [];
+        this.state.currentStickerPage = 0;
+        this.notifyListeners();
     }
 } 
