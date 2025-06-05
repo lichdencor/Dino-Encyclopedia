@@ -207,6 +207,7 @@
     left: 50%;
     bottom: 5%;
     transform: translateX(-50%);
+    background-color: red;
 }
 
 /* Sticker Image within Drop Zone */
@@ -240,12 +241,9 @@
 
 .slot-id {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 12px;
+    top: 25%;
+    left: 25%;
+    color: black;
+    font-size: 1vw;
     z-index: 2;
 }
