@@ -19,17 +19,28 @@ type GameProps = {
     imagen: ImagenProps;
     simbolo: SimboloProps;
     link: string;
+    disabled?: boolean;
 }
 
-export const Game = ({ nombre, cuadro, imagen, simbolo, link }: GameProps) => {
+export const Game = ({ nombre, cuadro, imagen, simbolo, link, disabled = false }: GameProps) => {
     return (
-        <div className={styles.gameContainer}>
+        <div className={`${styles.gameContainer} ${disabled ? styles.disabled : ''}`}>
             <div className={styles.gameImgContainer} style={{ backgroundImage: `url(${cuadro})`}}>
-                <Link
-                    to={link}
-                    className={styles.gameImg}
-                    style={{ backgroundImage: `url(${imagen.src})` }}
-                />
+                {disabled ? (
+                    <div 
+                        className={styles.gameImg} 
+                        style={{ 
+                            backgroundImage: `url(${imagen.src})`,
+                            cursor: 'not-allowed'
+                        }} 
+                    />
+                ) : (
+                    <Link
+                        to={link}
+                        className={styles.gameImg}
+                        style={{ backgroundImage: `url(${imagen.src})` }}
+                    />
+                )}
             </div>
             <img src="/public/assets/img/gamesPage/gameNameDivisionLine.png" alt="gold line" className={styles.goldLine} />
             <div className={styles.gameNameContainer}>
@@ -38,6 +49,7 @@ export const Game = ({ nombre, cuadro, imagen, simbolo, link }: GameProps) => {
                     <img src={simbolo.src} alt={simbolo.alt} className={styles.symbol} style={{ height: `${simbolo.altura}`}}/>
                 </div>
                 <span className={styles.gameName}>{nombre}</span>
+                {disabled && <span className={styles.disabledText}>Solo usuarios registrados</span>}
             </div>
         </div>
     )
