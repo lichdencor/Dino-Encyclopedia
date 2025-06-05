@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import "./Nav.css";
 
 interface NavProps {
@@ -7,6 +8,7 @@ interface NavProps {
 
 export const Nav = ({ id }: NavProps) => {
   const navigate = useNavigate();
+  const { isGuest } = useAuth();
 
   const accederAPerfil = () => navigate('/profile');
   const accederATips = () => navigate('/tips');
@@ -42,13 +44,13 @@ export const Nav = ({ id }: NavProps) => {
 
       <div className="routes">
         <div className="routes-left">
-          <div onClick={accederATips} className="nav-item">TIPS</div>
+          {!isGuest && <div onClick={accederATips} className="nav-item">TIPS</div>}
           <div onClick={accederAHome} className="nav-item">HOME</div>
           <div onClick={accederAMap} className="nav-item">MAP</div>
           <div id="nav-store" onClick={accederATienda} className="nav-item">STORE</div>
         </div>
         <div className="routes-right">
-          <div onClick={accederAlAlbum} className="nav-item">ALBUM</div>
+          {!isGuest && <div onClick={accederAlAlbum} className="nav-item">ALBUM</div>}
           <div onClick={accederAMinijuegos} className="nav-item">GAMES</div>
           <div onClick={accederABiblioteca} className="nav-item">LIBRARY</div>
           <div onClick={accederACine} className="nav-item">CINEMA</div>
