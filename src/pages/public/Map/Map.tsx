@@ -7,12 +7,14 @@ import { MapController } from "./MapController";
 import { useNavigate } from "react-router-dom";
 import { NavigateFunction } from "react-router-dom";
 import { useProgress } from "../../../context/Progress/ProgressProvider";
+import { useAuth } from "../../../context/Auth/AuthProvider";
 import { ProgressData } from "../../../services/progress/types";
 import { ProgressBar } from "../../../components/ProgressBar/ProgressBar";
 
 interface MapProps {
     progress: ProgressData;
     navigate: NavigateFunction;
+    isGuest: boolean;
 }
 
 interface MapComponentState {
@@ -50,14 +52,17 @@ class MapComponent extends Component<MapProps, MapComponentState> {
 
     render() {
         const { state } = this.state;
+        const { isGuest } = this.props;
         
         return (
             <div className="mapPage">
                 <Nav />
                 <div className="map">
-                    <div className="progress-container">
-                        <ProgressBar imgSrc="/public/assets/img/achievements/bronze/achievement-periods-explorer-bronze.png" progress={23}></ProgressBar>
-                    </div>
+                    {!isGuest && (
+                        <div className="progress-container">
+                            <ProgressBar imgSrc="/public/assets/img/achievements/bronze/achievement-periods-explorer-bronze.png" progress={23}></ProgressBar>
+                        </div>
+                    )}
                     <div className="periodTitleGoldBg period1Container">
                         <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
                         <div className="periodTitleFrame periodTitleFrame1">
@@ -247,7 +252,8 @@ function withNavigateAndProgress(WrappedComponent: typeof MapComponent) {
     return function WithNavigateComponent() {
         const navigate = useNavigate();
         const { progress } = useProgress();
-        return <WrappedComponent progress={progress} navigate={navigate} />;
+        const { isGuest } = useAuth();
+        return <WrappedComponent progress={progress} navigate={navigate} isGuest={isGuest} />;
     };
 }
 
