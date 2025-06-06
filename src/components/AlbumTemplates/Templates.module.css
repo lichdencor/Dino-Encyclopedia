@@ -3,11 +3,9 @@
     flex-direction: column;
     width: 95%;
     height: 95%;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
-    background-image: url(/public/assets/img/bg/album-container.png);
-    background-size: 100% 100%;
     /* backdrop-filter: blur(5px); */
     width: 100%;
     height: 100%;
@@ -246,4 +244,11 @@
     color: black;
     font-size: 1vw;
     z-index: 2;
+}
+
+.info-box { 
+    background-image: url("/public/assets/img/album/tip-container.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }

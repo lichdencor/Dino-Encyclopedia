@@ -60,7 +60,7 @@ export class AlbumModel {
         this.state = {
             currentPage: 0,
             currentStickerPage: 0,
-            stickersPerPage: 10,
+            stickersPerPage: 8,
             pages: [
                 {
                     id: 'page-1',

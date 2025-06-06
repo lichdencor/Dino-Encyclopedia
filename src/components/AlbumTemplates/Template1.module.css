@@ -1,6 +1,6 @@
 .top-section,
 .bottom-section {
-    height: 50%;
+    height: 45%;
 }
 
 /* SCENES */
@@ -10,16 +10,17 @@
 .top-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
+    align-items: center;
+    width: 95%;
     z-index: 3;
     /* background-color: violet; */
+    margin: 0 auto;
 }
 
 .scene-1-container,
 .scene-2-container {
-    width: 43%;
-    height: 120%;
+    width: 45%;
+    height: 100%;
     position: relative;
     /* background-color: orange; */
 }
@@ -32,35 +33,52 @@
 }
 
 .individual-stickers-container {
-    width: 10%;
-    height: 90%;
+    width: 8%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    /* background-color: green; */
 }
 
-.individual-sticker-1-container {
+.individual-sticker-1-container,
+.individual-sticker-2-container {
     width: 100%;
-    height: 40%;
+    aspect-ratio: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: brown;
+}
+
+.individual-sticker-1-container {
+    /* background-color: brown; */
+}
+
+.individual-sticker-2-container {
+    /* background-color: yellow; */
 }
 
 .individual-sticker {
     width: 100%;
-    height: 40%;
+    height: 100%;
+    background-image: url("/assets/img/album/individual-sticker-frame.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .individual-sticker-1 {
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .individual-sticker-2 {
-    background-color: rgb(70, 28, 13);
+    /* background-color: blue; */
+}
+
+.sticker-image {
+    height: 90%;
+    width: auto;
 }
 
 /* TOP SECTION END */
@@ -70,15 +88,16 @@
 .bottom-section {
     width: 62%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-start;
     z-index: 2;
+    margin-right: -30%;
     /* background-color: lightblue; */
 }
 
 .scene-3-container {
-    width: 65%;
-    height: 100%;
+    width: 60%;
+    height: 95%;
     position: relative;
     /* background-color: lightpink; */
 }
@@ -88,11 +107,12 @@
 /* INFO BOX START */
 
 .info-box {
-    height: 75%;
-    color: #FFE4B5;
+    height: 90%;
+    width: 30%;
+    margin-left: 3%;
+    color: #1f1e1b;
     border-radius: 15px;
     font-family: 'MedusaGothic', serif;
-    background-color: #8B4513;
 }
 
 .info-box h3 {
@@ -105,14 +125,6 @@
     font-size: 1.5vh;
     line-height: 1.4;
     font-family: 'Lato', sans-serif;
-}
-
-.decorative-square {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 0.5vh;
-    margin-bottom: 0.5vh;
-    min-height: 10vh;
 }
 
 /* INFO BOX END */
@@ -147,6 +159,14 @@
 .drop-zone .placeholder-image {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    filter: brightness(100) grayscale(1) contrast(10);
+    pointer-events: none;
+}
+
+.drop-zone .placeholder-image-individual {
+    height: 100%;
+    width: 70%;
     object-fit: contain;
     filter: brightness(100) grayscale(1) contrast(10);
     pointer-events: none;
@@ -238,21 +258,9 @@
 }
 
 /* Individual stickers drop zones */
-.individual-stickers-container .drop-zone-1 {
-    top: 10%;
-    width: 10vh;
-    height: 7vh;
-}
-
+.individual-stickers-container .drop-zone-1,
 .individual-stickers-container .drop-zone-2 {
-    top: 25%;
-    width: 10vh;
-    height: 7vh;
-}
-
-.sticker-image {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-    pointer-events: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }

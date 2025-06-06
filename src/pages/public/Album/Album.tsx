@@ -89,7 +89,7 @@ export class Album extends Component<{}, AlbumState> {
             <div className={styles["album-container"]}>
                 <div className={styles["album"]}>
                     <div className={styles["sticker-section-gold-container"]}>
-                        <div className={styles["sticker-section"]}>
+                        
                             <div className={styles["stickers-content"]}>
                                 <div className={styles["stickers-header"]}>
                                     <p className={styles["stickers-title"]}>Stickers</p>
@@ -126,7 +126,7 @@ export class Album extends Component<{}, AlbumState> {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
 
