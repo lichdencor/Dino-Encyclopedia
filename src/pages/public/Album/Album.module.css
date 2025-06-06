@@ -8,7 +8,6 @@
 }
 
 .album {
-  margin-top: 3%;
   width: 95%;
   height: 90%;
   background-image: url("/public/assets/img/bg/album-bg.png");
@@ -23,7 +22,7 @@
 
 .sticker-section-gold-container {
   position: absolute;
-  bottom: 9%;
+  bottom: 13%;
   left: 6.5%;
   height: 32%;
   width: 30%;
@@ -53,9 +52,9 @@
   justify-content: center;
   align-items: center;
   gap: 5%;
-  background-color: black;
   width: 100%;
   height: 20%;
+  /* background-color: black; */
 }
 
 .stickers-title {
@@ -144,23 +143,51 @@
 }
 
 .navigation {
-  top: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: black;
+  height: 6vh;
+  width: 40vw;
+  top: 2.5%;
+  left: 30%;
   position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 5;
+  border-radius: 20px;
+  background-color: violet;
+  background-color: rgb(48, 3, 3);
+  border: 3px solid #F9E7B5;
+}
+
+.navigation-text {
+  width: 25%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2vh;
-  z-index: 5;
-  padding: 0.8vh 2vh;
-  border-radius: 5px;
+  /* background-color: red; */
+}
+
+.navigation-cheat {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: green; */
+}
+
+.navigation-buttons {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blue; */
 }
 
 .navigation button {
-  padding: 0.5vh 1vh;
   font-size: 1.5vh;
+  /* background-color: red; */
 }
 
 .navigation button:disabled {
@@ -173,9 +200,12 @@
 }
 
 .text {
-  color: #FFD700;
+  color: rgb(240, 232, 169);
   font-family: 'MedusaGothic', serif;
   font-size: 1.8vh;
+  letter-spacing: 0.2vw;
+  margin: 5%;
+   /* background-color: blue; */
 }
 
 .number {
@@ -187,7 +217,7 @@
 .pagination-controls {
   display: flex;
   align-items: center;
-  gap: 2vh;
+  /* background-color: green; */
 }
 
 .page-indicator {
@@ -197,7 +227,7 @@
   min-width: 5vh;
   color: white;
   text-align: center;
-  margin-right: 2vh;
+  /* background-color: red; */
 }
 
 .pagination-button {
@@ -210,6 +240,8 @@
   border: none;
   cursor: pointer;
   transition: all 300ms ease-in-out;
+  margin: 1vw;
+  /* background-color: red; */
 }
 
 .pagination-button:hover:not(:disabled) {
@@ -230,12 +262,8 @@
 }
 
 .cheat-button {
-  padding: 0.5vh 1vh;
   font-size: 1.5vh;
-  margin-left: 4vh;
-  font-weight: bold;
   border-left: 2px solid #987B45;
-  padding-left: 4vh;
 }
 
 .cheat-button:hover {

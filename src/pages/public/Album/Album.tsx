@@ -89,46 +89,49 @@ export class Album extends Component<{}, AlbumState> {
             <div className={styles["album-container"]}>
                 <div className={styles["album"]}>
                     <div className={styles["sticker-section-gold-container"]}>
-                        
-                            <div className={styles["stickers-content"]}>
-                                <div className={styles["stickers-header"]}>
-                                    <p className={styles["stickers-title"]}>Stickers</p>
-                                    <div className={styles["pagination-controls"]}>
-                                        <button 
-                                            onClick={this.controller.handlePreviousStickerPage}
-                                            disabled={this.state.currentStickerPage === 0}
-                                            className={`${styles["pagination-button"]} ${styles["pagination-button-prev"]}`}
-                                        />
-                                        <span className={styles["page-indicator"]}>
-                                            {this.state.currentStickerPage + 1} / {totalPages}
-                                        </span>
-                                        <button 
-                                            onClick={this.controller.handleNextStickerPage}
-                                            disabled={this.state.currentStickerPage === totalPages - 1}
-                                            className={`${styles["pagination-button"]} ${styles["pagination-button-next"]}`}
+
+                        <div className={styles["stickers-content"]}>
+                            <div className={styles["stickers-header"]}>
+                                <p className={styles["stickers-title"]}>Stickers</p>
+                                <div className={styles["pagination-controls"]}>
+                                    <button
+                                        onClick={this.controller.handlePreviousStickerPage}
+                                        disabled={this.state.currentStickerPage === 0}
+                                        className={`${styles["pagination-button"]} ${styles["pagination-button-prev"]}`}
+                                    />
+                                    <span className={styles["page-indicator"]}>
+                                        {this.state.currentStickerPage + 1} / {totalPages}
+                                    </span>
+                                    <button
+                                        onClick={this.controller.handleNextStickerPage}
+                                        disabled={this.state.currentStickerPage === totalPages - 1}
+                                        className={`${styles["pagination-button"]} ${styles["pagination-button-next"]}`}
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles["stickers-grid"]}>
+                                {stickers.map(sticker => (
+                                    <div key={sticker.id} className={styles["sticker-container"]}>
+                                        <span className={styles["sticker-id"]}>{sticker.id}</span>
+                                        <img
+                                            src={sticker.image}
+                                            alt={sticker.id}
+                                            onMouseDown={(e) => this.controller.handleStickerDragStart(e, sticker)}
+                                            className={styles["sticker"]}
                                         />
                                     </div>
-                                </div>
-                                <div className={styles["stickers-grid"]}>
-                                    {stickers.map(sticker => (
-                                        <div key={sticker.id} className={styles["sticker-container"]}>
-                                            <span className={styles["sticker-id"]}>{sticker.id}</span>
-                                            <img
-                                                src={sticker.image}
-                                                alt={sticker.id}
-                                                onMouseDown={(e) => this.controller.handleStickerDragStart(e, sticker)}
-                                                className={styles["sticker"]}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            
+                                ))}
+                            </div>
+
                         </div>
                     </div>
 
                     <div className={styles["album-section"]}>
                         <div className={styles.navigation}>
-                            <span className={styles.text}>Page</span> <span className={styles.number}>{this.state.currentPage + 1}</span> <span className={styles.text}>of</span> <span className={styles.number}>{this.state.pages.length}</span>
+                            <div className={styles["navigation-text"]}>
+                                <span className={styles.text}>Page</span> <span className={styles.number}>{this.state.currentPage + 1}</span> <span className={styles.text}>of</span> <span className={styles.number}>{this.state.pages.length}</span>
+                            </div>
+                            <div className={styles["navigation-buttons"]}>
                             <button
                                 onClick={() => this.controller.handlePageNavigation('previous')}
                                 disabled={this.state.currentPage === 0}
@@ -141,12 +144,15 @@ export class Album extends Component<{}, AlbumState> {
                             >
                                 Next
                             </button>
+                            </div>
+                            <div className={styles["navigation-cheat"]}>
                             <button
                                 onClick={this.controller.handleCheat}
                                 className={styles["cheat-button"]}
                             >
                                 CHEAT
                             </button>
+                            </div>
                         </div>
 
                         {this.renderCurrentTemplate()}

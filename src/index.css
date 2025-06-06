@@ -38,8 +38,7 @@ button {
   font-weight: lighter;
   letter-spacing: 0.2vw;
   margin: 0 auto;
-  border: 5px double rgb(27, 1, 1);
-    border: 5px ridge  #d6bf8d;
+  border: 4px ridge  #d6bf8d;
   background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
   transition: all 1s ease-in-out;
   filter: brightness(90%);
