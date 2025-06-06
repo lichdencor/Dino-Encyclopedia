@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { GalleryDinosaurNames, Nav } from "../../components";
+import { GalleryDinosaurFrame, Nav } from "../../components";
 import { GalleryArrows } from "../GalleryArrows/GalleryArrows";
 import { GalleryCurtains } from "./GalleryCurtains";
 import { GalleryDinosaurs } from "./GalleryDinosaurs";
@@ -123,7 +123,7 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
             nextPage={nextPage} 
           />
           
-          <GalleryDinosaurNames 
+          <GalleryDinosaurFrame
             dinosaurs={dinosaurNames}
             era={era}
             period={period}

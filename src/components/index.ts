@@ -2,7 +2,7 @@ export * from "./Alert/Alert.tsx";
 export * from "./Carousel/Carousel.tsx";
 export * from "./ErrorBoundary/ErrorBoundary.tsx";
 export * from "./GalleryArrows/GalleryArrows.tsx";
-export * from "./GalleryDinosaurNames/GalleryDinosaurNames.tsx";
+export * from "./GalleryDinosaurFrame/GalleryDinosaurFrame.tsx";
 export * from "./GalleryTitle/GalleryTitle.tsx";
 export * from "./ImageUploader/ImageUploader.tsx";
 export * from "./Nav/Nav.tsx";

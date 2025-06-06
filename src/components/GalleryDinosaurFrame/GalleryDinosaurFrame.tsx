@@ -1,6 +1,7 @@
-import styles from "./GalleryDinosaurNames.module.css";
+import styles from "./GalleryDinosaurFrame.module.css";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 import { DinosaurProgress } from "../XRay/types";
+import { ProgressBar } from "../ProgressBar/ProgressBar";
 
 type GalleryDinosaurNamesProps = {
     dinosaurs: string[];
@@ -8,7 +9,7 @@ type GalleryDinosaurNamesProps = {
     period: "Inferior" | "Medium" | "Superior";
 }
 
-export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaurNamesProps) => {
+export const GalleryDinosaurFrame = ({ dinosaurs, era, period }: GalleryDinosaurNamesProps) => {
     const { progress } = useProgress();
 
     const getDinosaurProgress = (index: number) => {
@@ -47,30 +48,30 @@ export const GalleryDinosaurNames = ({ dinosaurs, era, period }: GalleryDinosaur
             {dinosaurs.map((dinosaur, index) => (
                 <div key={index} className={`${styles['dinosaur-data']} ${styles[`dinosaur-data-${index + 1}`]}`}>
                     <div className={styles['progress-container']}>
-                        <div className={`${styles['progress-bar-container']} ${
-                            era === 'triassic'
-                                ? styles['progress-bar-container-triassic']
-                                : era === 'jurassic'
-                                    ? styles['progress-bar-container-jurassic']
-                                    : styles['progress-bar-container-cretaceous']
-                        }`}>
-                            <span className={styles['progress-text']}>{Math.round(getDinosaurProgress(index))}%</span>
-                            <div 
-                                className={styles['progress-bar']}
-                                style={{ width: `${getDinosaurProgress(index)}%` }}
-                            ></div>
-                        </div>
-                        <div className={`${styles['puzzle-piece-container']} ${
-                            era === 'triassic'
-                                ? styles['puzzle-piece-container-triassic']
-                                : era === 'jurassic'
-                                    ? styles['puzzle-piece-container-jurassic']
-                                    : styles['puzzle-piece-container-cretaceous']
-                        }`}>
-                            <div className={`${styles['puzzle-piece']} ${isPuzzlePieceFound(index) ? styles.found : ''}`}></div>
-                        </div>
+                        <ProgressBar 
+                            progress={getDinosaurProgress(index)}
+                            customStyles={{
+                                barContainer: `${styles['progress-bar-container']} ${
+                                    era === 'triassic'
+                                        ? styles['progress-bar-container-triassic']
+                                        : era === 'jurassic'
+                                            ? styles['progress-bar-container-jurassic']
+                                            : styles['progress-bar-container-cretaceous']
+                                }`,
+                                text: styles['progress-text'],
+                                bar: styles['progress-bar'],
+                                imgContainer: `${styles['puzzle-piece-container']} ${
+                                    era === 'triassic'
+                                        ? styles['puzzle-piece-container-triassic']
+                                        : era === 'jurassic'
+                                            ? styles['puzzle-piece-container-jurassic']
+                                            : styles['puzzle-piece-container-cretaceous']
+                                }`,
+                                img: `${styles['puzzle-piece']} ${isPuzzlePieceFound(index) ? styles.found : ''}`
+                            }}
+                            imgSrc="/assets/img/puzzles/puzzle-piece.png"
+                        />
                     </div>
-
                     <div className={styles['name-frame']}>
                         {dinosaur}
                     </div>
