@@ -8,6 +8,7 @@ interface User {
   email: string;
   full_name: string;
   profile_picture?: string;
+  rol: 'CLIENTE' | 'ADMINISTRADOR' | 'INVITADO';
 }
 
 interface LoginResponse {

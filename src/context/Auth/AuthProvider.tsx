@@ -36,42 +36,55 @@ export const useAuth = () => {
   return context;
 };
 
+const STORAGE_KEY = 'dino_user';
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, updateUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    try {
+      const storedUser = localStorage.getItem(STORAGE_KEY);
+      if (!storedUser) return null;
+      
+      const parsedUser = JSON.parse(storedUser);
+      if (parsedUser.rol === 'INVITADO') {
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
+      return parsedUser;
+    } catch (error) {
+      console.error('Error parsing stored user:', error);
+      return null;
+    }
+  });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const checkSession = async () => {
-      try {
-        const profile = await authService.checkSession();
-        if (profile) {
-          updateUser(profile);
-        }
-      } catch (error) {
-        console.error('Error checking session:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkSession();
-  }, []);
+  const updateUser = (newUser: User | null) => {
+    setUser(newUser);
+    if (newUser && newUser.rol !== 'INVITADO') {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  };
 
   const login = async (email: string, password: string) => {
     try {
+      setIsLoading(true);
       const response = await authService.postLogin({ email, password });
       updateUser(response.profile);
       navigate('/');
     } catch (error) {
       console.error('Error de login:', error);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const registrar = async (data: { email: string; password: string; full_name: string }) => {
     try {
+      setIsLoading(true);
       const response = await authService.postRegistro(data);
       updateUser(response.profile);
       setRegistrationSuccess(true);
@@ -79,25 +92,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } catch (error) {
       console.error('Error de registro:', error);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const recuperarContrasenia = async (email: string) => {
     try {
+      setIsLoading(true);
       await authService.postRecuperarContrasenia(email);
     } catch (error) {
       console.error('Error al enviar el correo de recuperación:', error);
       throw error;
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const logout = async () => {
     try {
+      setIsLoading(true);
       await authService.logout();
       updateUser(null);
       navigate('/login');
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
+      updateUser(null);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -112,14 +134,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       full_name: 'Guest User',
       rol: 'INVITADO'
     };
-    updateUser(guestUser);
+    setUser(guestUser);
     navigate('/');
   };
 
   const value = {
     user,
     isAuthenticated: !!user && user.id !== 'guest',
-    isGuest: !!user && user.id === 'guest',
+    isGuest: !!user && user.rol === 'INVITADO',
     isAdmin: !!user && user.rol === 'ADMINISTRADOR',
     login,
     register: registrar,
@@ -133,7 +155,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>; // O tu componente de loading personalizado
+    return <div>Loading...</div>;
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
