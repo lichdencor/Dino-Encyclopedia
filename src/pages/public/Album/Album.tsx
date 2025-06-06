@@ -97,20 +97,16 @@ export class Album extends Component<{}, AlbumState> {
                                         <button 
                                             onClick={this.controller.handlePreviousStickerPage}
                                             disabled={this.state.currentStickerPage === 0}
-                                            className={styles["pagination-button"]}
-                                        >
-                                            ←
-                                        </button>
+                                            className={`${styles["pagination-button"]} ${styles["pagination-button-prev"]}`}
+                                        />
                                         <span className={styles["page-indicator"]}>
                                             {this.state.currentStickerPage + 1} / {totalPages}
                                         </span>
                                         <button 
                                             onClick={this.controller.handleNextStickerPage}
                                             disabled={this.state.currentStickerPage === totalPages - 1}
-                                            className={styles["pagination-button"]}
-                                        >
-                                            →
-                                        </button>
+                                            className={`${styles["pagination-button"]} ${styles["pagination-button-next"]}`}
+                                        />
                                     </div>
                                 </div>
                                 <div className={styles["stickers-grid"]}>

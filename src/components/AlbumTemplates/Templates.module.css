@@ -239,10 +239,15 @@
 
 .slot-id {
     position: absolute;
-    top: 25%;
-    left: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Black Chancery", serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    /* font-family: Geneva, Tahoma, sans-serif; */
     color: black;
-    font-size: 1vw;
+    font-size: 1.5vw;
+    font-weight: 600;
     z-index: 2;
 }
 
