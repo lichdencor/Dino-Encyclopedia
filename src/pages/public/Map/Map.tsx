@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./Map.css";
-import { Nav, PeriodsButtonHover } from "../../../components/";
+import { Nav, PeriodsButtonHover, AsistenteVirtual } from "../../../components/";
 import { PeriodsButtonPremium } from "../../../components/PeriodsButtonPremium/PeriodsButtonPremium";
 import { MapModel, MapState } from "./MapModel";
 import { MapController } from "./MapController";
@@ -53,6 +53,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
     render() {
         const { state } = this.state;
         const { isGuest } = this.props;
+        const modalPages = this.controller.getModalPages();
         
         return (
             <div className="mapPage">
@@ -89,6 +90,54 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                             Period
                         </div>
                     </div>
+
+                    <div className="dynardContainer">
+                        {!state.isVirtualAssistantOpen && (
+                            <AsistenteVirtual
+                                onClick={() => this.controller.handleOpenModal()}
+                                text="¿Necesitas Ayuda?"
+                                boldWords={["Ayuda"]}
+                                looped={true}
+                            />
+                        )}
+                    </div>
+
+                    {state.isVirtualAssistantOpen && (
+                        <div className="modal-overlay" onClick={() => this.controller.handleCloseModal()}>
+                            <button 
+                                className="dynardModalCloseBtn" 
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    this.controller.handleCloseModal();
+                                }}
+                            >×</button>
+                            <div className="modalContentGoldBg">
+                                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                    <img src="assets/giph/logo.gif" alt="logoGiph" className="modalLogoGiph" />
+                                    <div className="dynardQuestion">{modalPages[state.modalCurrentPage].question}</div>
+                                    <div className="dynardOptionsWrapper">
+                                        {modalPages[state.modalCurrentPage].options.map((option, index) => {
+                                            const isBack = option.text === "Back";
+                                            const isButton = option.goesToPageIndex !== undefined;
+                                            const className = isButton
+                                                ? `dynardQuestionOption ${isBack ? "dynardBtnBack" : ""}`
+                                                : "dynardQuestionText";
+
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className={className}
+                                                    onClick={isButton ? () => this.controller.handleChangeModalPage(option.goesToPageIndex) : undefined}
+                                                >
+                                                    <p>{option.text}</p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <img src="/public/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites" />
 

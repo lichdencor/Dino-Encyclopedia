@@ -14,4 +14,21 @@ export class MapController {
     this.navigate(route);
   }
 
+  handleOpenModal(): void {
+    this.model.toggleVirtualAssistant();
+  }
+
+  handleCloseModal(): void {
+    this.model.toggleVirtualAssistant();
+  }
+
+  handleChangeModalPage(pageIndex: number | undefined): void {
+    if (pageIndex !== undefined) {
+      this.model.setModalPage(pageIndex);
+    }
+  }
+
+  getModalPages() {
+    return this.model.getModalPages();
+  }
 } 

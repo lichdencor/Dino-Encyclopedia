@@ -1,6 +1,55 @@
 import {ProgressData} from "../../../services/progress/types";
 import { PeriodModel, SubPeriodModel, DinosaurModel, DinosaurInfo } from "../../../models/PeriodModel";
 import galleriesData from "../../../context/data/galleries_data.json";
+import { VirtualAssistantDialogue } from "../../../data";
+
+interface ModalOption {
+    text: string;
+    goesToPageIndex?: number;
+}
+
+interface ModalPage {
+    question: string;
+    options: ModalOption[];
+}
+
+const modalPages: ModalPage[] = [
+    {
+        question: "¿En qué puedo ayudarte?",
+        options: [
+            { text: "¿Cómo navego por el mapa?", goesToPageIndex: 1 },
+            { text: "¿Qué significan los colores de las salas?", goesToPageIndex: 2 },
+            { text: "¿Cómo desbloqueo nuevas salas?", goesToPageIndex: 3 }
+        ]
+    },
+    {
+        question: "Para navegar por el mapa:",
+        options: [
+            { text: "1. Usa los botones de las salas para ver información sobre los dinosaurios" },
+            { text: "2. Haz clic en una sala para entrar y explorar" },
+            { text: "3. Las salas están organizadas por períodos: Triásico, Jurásico y Cretácico" },
+            { text: "Back", goesToPageIndex: 0 }
+        ]
+    },
+    {
+        question: "Los colores de las salas indican:",
+        options: [
+            { text: "Verde: Salas disponibles para explorar" },
+            { text: "Gris: Salas bloqueadas (necesitas desbloquearlas)" },
+            { text: "Dorado: Salas completadas al 100%" },
+            { text: "Back", goesToPageIndex: 0 }
+        ]
+    },
+    {
+        question: "Para desbloquear nuevas salas:",
+        options: [
+            { text: "1. Completa las salas anteriores" },
+            { text: "2. Colecciona todos los dinosaurios de una sala" },
+            { text: "3. Gana puntos de experiencia explorando" },
+            { text: "Back", goesToPageIndex: 0 }
+        ]
+    }
+];
 
 export class DinosaurMapModel {
     private _dinosaur: DinosaurModel;
@@ -42,6 +91,8 @@ export interface MapState {
         [key: string]: boolean[]; // key format: "era-period" (e.g., "triassic-inferior")
     };
     periods: PeriodModel[];
+    isVirtualAssistantOpen: boolean;
+    modalCurrentPage: number;
 }
 
 export class MapModel {
@@ -57,7 +108,9 @@ export class MapModel {
         this.state = {
             displayNames: {},
             discoveredSilhouettes: {},
-            periods: this.periods
+            periods: this.periods,
+            isVirtualAssistantOpen: false,
+            modalCurrentPage: 0
         };
     }
 
@@ -243,5 +296,29 @@ export class MapModel {
 
         const dinosaur = periodData.dinosaurs.find(d => d.id === scientificName);
         return dinosaur?.scanProgress || 0;
+    }
+
+    public toggleVirtualAssistant() {
+        this.state.isVirtualAssistantOpen = !this.state.isVirtualAssistantOpen;
+        if (!this.state.isVirtualAssistantOpen) {
+            this.state.modalCurrentPage = 0;
+        }
+        this.notifyListeners();
+    }
+
+    public setModalPage(pageIndex: number) {
+        this.state.modalCurrentPage = pageIndex;
+        this.notifyListeners();
+    }
+
+    public getModalPages() {
+        const dialogueWithoutTutorial = [...VirtualAssistantDialogue];
+        // Remove tutorial option from main menu
+        if (dialogueWithoutTutorial[0] && dialogueWithoutTutorial[0].options) {
+            dialogueWithoutTutorial[0].options = dialogueWithoutTutorial[0].options.filter(
+                option => option.text !== "Tutorial"
+            );
+        }
+        return dialogueWithoutTutorial;
     }
 }
