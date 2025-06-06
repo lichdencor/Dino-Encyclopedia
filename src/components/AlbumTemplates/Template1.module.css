@@ -161,12 +161,16 @@
 }
 
 .drop-zone .sticker-image {
-    position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     pointer-events: none;
     z-index: 2;
+}
+
+.individual-sticker img.sticker-image {
+    position: absolute;
+    width: 70%;
 }
 
 /* Scene 1 drop zones */
