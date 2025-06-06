@@ -93,13 +93,19 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                                                     : "dynardQuestionText";
 
                                                 return (
-                                                    <div
+                                                    !isBack ? <div
                                                         key={index}
                                                         className={className}
                                                         onClick={isButton ? () => this.controller.handleChangeModalPage(option.goesToPageIndex) : undefined}
                                                     >
                                                         <p>{option.text}</p>
-                                                    </div>
+                                                    </div> : <button
+                                                        key={index}
+                                                        className={className}
+                                                        onClick={isButton ? () => this.controller.handleChangeModalPage(option.goesToPageIndex) : undefined}
+                                                    >
+                                                        <p>{option.text}</p>
+                                                    </button>
                                                 );
                                             })}
                                         </div>

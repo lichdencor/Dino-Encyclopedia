@@ -884,8 +884,6 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: rgb(76, 7, 39);
-  border: 3px double rgb(222, 220, 209);
   border-radius: 10px;
   font-family: 'MedusaGothic';
   font-size: 0.9vw;
