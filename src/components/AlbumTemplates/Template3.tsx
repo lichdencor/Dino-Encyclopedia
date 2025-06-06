@@ -92,11 +92,12 @@ export const Template3: React.FC<Template3Props> = ({
       </div>
       <div className={styles["right-section"]}>
         <div className={`${styles["info-box"]} ${styles["info-box"]}`}>
+          <img 
+            src="/public/assets/giph/logo.gif" 
+            alt="Dynard" 
+            className={styles["dynard-mascot"]}
+          />
           <div className={styles["title-container"]}>
-            <img 
-              src="/public/assets/giph/logo.gif" 
-              alt="Dynard" 
-            />
             <h3>Did you know...</h3>
           </div>
           <p>

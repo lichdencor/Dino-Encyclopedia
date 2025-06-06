@@ -252,11 +252,12 @@ export const Template1: React.FC<Template1Props> = ({
           </div>
         </div>
         <div className={`${styles["info-box"]} ${templateStyles["info-box"]}`}>
+          <img 
+            src="/public/assets/giph/logo.gif" 
+            alt="Dynard" 
+            className={templateStyles["dynard-mascot"]}
+          />
           <div className={templateStyles["title-container"]}>
-            <img 
-              src="/public/assets/giph/logo.gif" 
-              alt="Dynard" 
-            />
             <h3>Did you know...</h3>
           </div>
           <p>
