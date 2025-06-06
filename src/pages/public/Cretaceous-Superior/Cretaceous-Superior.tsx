@@ -11,7 +11,7 @@ export const CretaceousSuperior = () => {
   const previousRoute = usePreviousRoute();
 
   useEffect(() => {
-    if (previousRoute === '/map') {
+    if (previousRoute === '/triassic-inferior' || previousRoute === '/map') {
       setShowTransition(true);
     }
   }, [previousRoute]);
