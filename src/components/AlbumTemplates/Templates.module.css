@@ -257,3 +257,19 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.fact-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
