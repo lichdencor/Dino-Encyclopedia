@@ -229,24 +229,24 @@ class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleCont
       <>
         <div className="puzzle-game">
           <>  
-                <div className="puzzle-time-container">
-                  {!isComplete && (
+                {!isComplete && !showTimeoutMessage && (
+                  <div className="puzzle-time-container">
                     <TimerBar 
                       model={this.timerModel} 
                       isComplete={isComplete} 
                     />
-                  )}
 
-                  <div className="puzzle-time-bottom">
-                    <div className="timer-container">
-                      <Timer model={this.timerModel} />
+                    <div className="puzzle-time-bottom">
+                      <div className="timer-container">
+                        <Timer model={this.timerModel} />
+                      </div>
+
+                      <button className="return-to-menu" onClick={onReturnToMenu}>
+                        BACK
+                      </button>
                     </div>
-
-                    <button className="return-to-menu" onClick={onReturnToMenu}>
-                      BACK
-                    </button>
                   </div>
-                </div>
+                )}
 
                 <div
                   className={`puzzle-container ${isComplete ? "completed" : ""}`}
