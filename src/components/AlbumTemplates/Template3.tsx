@@ -92,14 +92,20 @@ export const Template3: React.FC<Template3Props> = ({
       </div>
       <div className={styles["right-section"]}>
         <div className={`${styles["info-box"]} ${styles["info-box"]}`}>
-          <h3>Did you know...</h3>
+          <div className={styles["title-container"]}>
+            <img 
+              src="/public/assets/giph/logo.gif" 
+              alt="Dynard" 
+            />
+            <h3>Did you know...</h3>
+          </div>
           <p>
             <img 
               src="/public/assets/img/paws/level-paw-complete.png" 
               alt="Dinosaur paw" 
               className={styles["fact-icon"]}
             />
-            Some young Triceratops walked in herds separate from adults, like a mini gang.
+            <span>Some young Triceratops walked in herds separate from adults, like a mini gang.</span>
           </p>
         </div>
         <div className={styles["scene-container"]}>

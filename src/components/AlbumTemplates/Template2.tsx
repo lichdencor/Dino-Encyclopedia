@@ -87,14 +87,20 @@ export const Template2: React.FC<Template2Props> = ({
         </div>
         <div className={styles["info-and-shiny"]}>
           <div className={`${styles["info-box"]} ${templateStyles["info-box"]}`}>
-            <h3>Did you know...</h3>
+            <div className={templateStyles["title-container"]}>
+              <img 
+                src="/public/assets/giph/logo.gif" 
+                alt="Dynard" 
+              />
+              <h3>Did you know...</h3>
+            </div>
             <p>
               <img 
                 src="/public/assets/img/paws/level-paw-complete.png" 
                 alt="Dinosaur paw" 
                 className={templateStyles["fact-icon"]}
               />
-              The Dryosaurus used its long tail to balance while running between trees.
+              <span>The Dryosaurus used its long tail to balance while running between trees.</span>
             </p>
             <p>
               <img 
@@ -102,7 +108,7 @@ export const Template2: React.FC<Template2Props> = ({
                 alt="Dinosaur paw" 
                 className={templateStyles["fact-icon"]}
               />
-              When it saw a predator, it made quick zigzag jumps to confuse them.
+              <span>When it saw a predator, it made quick zigzag jumps to confuse them.</span>
             </p>
           </div>
           <div className={styles["shiny-sticker-container"]}>

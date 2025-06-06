@@ -252,14 +252,20 @@ export const Template1: React.FC<Template1Props> = ({
           </div>
         </div>
         <div className={`${styles["info-box"]} ${templateStyles["info-box"]}`}>
-          <h3>Did you know...</h3>
+          <div className={templateStyles["title-container"]}>
+            <img 
+              src="/public/assets/giph/logo.gif" 
+              alt="Dynard" 
+            />
+            <h3>Did you know...</h3>
+          </div>
           <p>
             <img 
               src="/public/assets/img/paws/level-paw-complete.png" 
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />
-            Maiasaura built communal nests
+            <span>Maiasaura built communal nests</span>
           </p>
           <p>
             <img 
@@ -267,7 +273,7 @@ export const Template1: React.FC<Template1Props> = ({
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />
-            The Oviraptor was found on a nest, protecting its eggs
+            <span>The Oviraptor was found on a nest, protecting its eggs</span>
           </p>
           <p>
             <img 
@@ -275,7 +281,7 @@ export const Template1: React.FC<Template1Props> = ({
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />
-            Troodon laid their eggs in circles and covered them with soil
+            <span>Troodon laid their eggs in circles and covered them with soil</span>
           </p>
         </div>
       </div>

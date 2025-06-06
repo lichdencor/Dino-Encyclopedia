@@ -115,18 +115,6 @@
     font-family: 'MedusaGothic', serif;
 }
 
-.info-box h3 {
-    margin-bottom: 0.5vh;
-    font-size: 2vh;
-    color: #FFD700;
-}
-
-.info-box p {
-    font-size: 1.5vh;
-    line-height: 1.4;
-    font-family: 'Lato', sans-serif;
-}
-
 /* INFO BOX END */
 
 /* DROP ZONES */
