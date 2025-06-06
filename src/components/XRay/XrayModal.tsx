@@ -11,6 +11,7 @@ import { ProgressBar } from "./components/ProgressBar";
 import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurrentDinosaurProgress } from "./utils";
 import { useProgress } from "../../context/Progress/ProgressProvider";
 import { useFidelityProgress } from "../FidelitySystem/FidelityProgressProvider.tsx";
+import { useAuth } from "../../context";
 
 type PuzzlePieceStatus = {
   isFound: boolean;
@@ -33,6 +34,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 }) => {
   const { progress, setProgress } = useProgress();
   const { updateProgress: updateFidelityProgress } = useFidelityProgress();
+  const { isGuest } = useAuth();
   
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
   const [piecePosition, setPiecePosition] = useState<{ left: number; top: number } | null>(null);
@@ -357,15 +359,21 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   };
 
   const updatePuzzlePiecePosition = () => {
-    const margin = 0.1;
-    setPiecePosition({
-      left: margin + Math.random() * (1 - 2 * margin),
-      top: margin + Math.random() * (1 - 2 * margin)
-    });
+    if (dinosaurInfo.name === "Postosuchus") {
+      setPiecePosition({
+        left: 0.61,
+        top: 0.55
+      });
+    } else {
+      const margin = 0.1;
+      setPiecePosition({
+        left: margin + Math.random() * (1 - 2 * margin),
+        top: margin + Math.random() * (1 - 2 * margin)
+      });
+    }
   };
 
   if (!isOpen || selectedDinosaur === null) return null;
-
   return (
     <div className={stylesContainer["modal-overlay"] + " preview-scan-dino"}>
       <button className={styles.closeBtn} onClick={onClose}>×</button>
@@ -395,7 +403,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               dinosaurImage={dinosaurImage}
               dinosaurBone={dinosaurBone}
             >
-              {!hasPieceBeenFound && showPuzzlePiece && piecePosition && (
+              {!isGuest && !hasPieceBeenFound && showPuzzlePiece && piecePosition && (
                 <PuzzlePiece
                   position={piecePosition}
                   showAlert={showAlert}

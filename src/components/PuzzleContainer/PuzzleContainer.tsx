@@ -1,7 +1,6 @@
-import React, { Component, forwardRef, useImperativeHandle } from "react";
+import React, { Component, forwardRef, useImperativeHandle, RefObject } from "react";
 import PuzzlePiece from "../PuzzlePiece/PuzzlePiece";
 import CompletionMessage from "../CompletionMessage/CompletionMessage";
-import { DIFFICULTY_LEVELS } from "../../context/Puzzle/PuzzleContext";
 import "./PuzzleContainer.css";
 import Timer from "../Timer/Timer";
 import TimerBar from "../TimerBar/TimerBar";
@@ -9,13 +8,67 @@ import TimeoutMessage from "../TimeoutMessage/TimeoutMessage";
 import TimerModel from "../../models/TimerModel";
 import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
 
-// Componente base que maneja la lógica del puzzle
-class PuzzleContainerBase extends Component {
-  constructor(props) {
+interface PuzzlePieceType {
+  id: string;
+  currentX: number;
+  currentY: number;
+  correctX: number;
+  correctY: number;
+  width: number;
+  height: number;
+  image: string;
+  isDragging: boolean;
+  backgroundX: number;
+  backgroundY: number;
+  backgroundWidth: number;
+  backgroundHeight: number;
+}
+
+interface DifficultyConfig {
+  name: string;
+  rows: number;
+  cols: number;
+  color: string;
+  time: number;
+}
+
+interface SelectedPuzzle {
+  id: string;
+  difficulties: {
+    [key: string]: DifficultyConfig;
+  };
+}
+
+interface PuzzleContainerBaseProps {
+  selectedPuzzle: SelectedPuzzle;
+  difficulty: string;
+  time: number;
+  showTimeoutMessage: boolean;
+  resetCounter: number;
+  isComplete: boolean;
+  pieces: PuzzlePieceType[];
+  setSelectedPuzzleId: (id: string) => void;
+  setPieces: (pieces: PuzzlePieceType[]) => void;
+  handleDragStart: (e: React.DragEvent, piece: PuzzlePieceType) => void;
+  handleDragEnd: (e: React.DragEvent, piece: PuzzlePieceType) => void;
+  handleDrop: (e: React.DragEvent, targetPiece: PuzzlePieceType) => void;
+  handleTimeoutClose: () => void;
+  getCompletedImage: (id: string) => string;
+  getPuzzleImage: (id: string, difficulty: string) => string;
+  onReturnToMenu: () => void;
+}
+
+interface PuzzleContainerBaseState {}
+
+class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleContainerBaseState> {
+  private containerRef: RefObject<HTMLDivElement>;
+  private timerModel: TimerModel;
+
+  constructor(props: PuzzleContainerBaseProps) {
     super(props);
     this.containerRef = React.createRef();
     // Inicializar con valores por defecto si no hay selectedPuzzle
-    const defaultConfig = {
+    const defaultConfig: DifficultyConfig = {
       name: 'easy',
       rows: 3,
       cols: 5,
@@ -33,12 +86,12 @@ class PuzzleContainerBase extends Component {
     this.completePuzzle = this.completePuzzle.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.props.setSelectedPuzzleId(this.props.selectedPuzzle.id);
     this.initializePuzzle();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: PuzzleContainerBaseProps): void {
     const { selectedPuzzle, time, showTimeoutMessage, difficulty } = this.props;
 
     if (prevProps.selectedPuzzle?.id !== selectedPuzzle?.id) {
@@ -73,7 +126,7 @@ class PuzzleContainerBase extends Component {
     }
   }
 
-  initializePuzzle() {
+  initializePuzzle(): void {
     if (!this.containerRef.current) return;
     const { selectedPuzzle, getPuzzleImage, difficulty } = this.props;
     // Usar configuración fija para el puzzle
@@ -87,7 +140,7 @@ class PuzzleContainerBase extends Component {
     const pieceWidth = containerWidth / cols;
     const pieceHeight = containerHeight / rows;
 
-    const newPieces = Array.from({ length: totalPieces }, (_, i) => {
+    const newPieces: PuzzlePieceType[] = Array.from({ length: totalPieces }, (_, i) => {
       const row = Math.floor(i / cols);
       const col = i % cols;
       return {
@@ -118,7 +171,7 @@ class PuzzleContainerBase extends Component {
     this.props.setPieces(randomizedPieces);
   }
 
-  completePuzzle() {
+  completePuzzle(): void {
     if (!this.containerRef.current) return;
 
     const { selectedPuzzle, getPuzzleImage, difficulty } = this.props;
@@ -132,8 +185,7 @@ class PuzzleContainerBase extends Component {
     const pieceWidth = containerWidth / cols;
     const pieceHeight = containerHeight / rows;
 
-    // Crear las piezas en sus posiciones correctas
-    const orderedPieces = Array.from({ length: totalPieces }, (_, i) => {
+    const orderedPieces: PuzzlePieceType[] = Array.from({ length: totalPieces }, (_, i) => {
       const row = Math.floor(i / cols);
       const col = i % cols;
       return {
@@ -156,7 +208,7 @@ class PuzzleContainerBase extends Component {
     this.props.setPieces(orderedPieces);
   }
 
-  render() {
+  render(): React.ReactNode {
     const {
       isComplete,
       pieces = [],
@@ -167,8 +219,11 @@ class PuzzleContainerBase extends Component {
       handleTimeoutClose,
       getCompletedImage,
       selectedPuzzle,
-      onReturnToMenu
+      onReturnToMenu,
+      difficulty
     } = this.props;
+
+    const cols = selectedPuzzle?.difficulties?.[difficulty]?.cols || 5; // Default to 5 if not found
 
     return (
       <>
@@ -212,7 +267,10 @@ class PuzzleContainerBase extends Component {
                           onDragStart={handleDragStart}
                           onDragEnd={handleDragEnd}
                           onDrop={handleDrop}
-                          onDragOver={(e) => e.preventDefault()}
+                          onDragOver={(e: React.DragEvent<HTMLDivElement>) => e.preventDefault()}
+                          gridSize={cols}
+                          isComplete={isComplete}
+                          isDragging={piece.isDragging}
                         />
                       ))
                     )}
@@ -227,10 +285,17 @@ class PuzzleContainerBase extends Component {
   }
 }
 
-// HOC para conectar el componente con el contexto y manejar la referencia
-const PuzzleContainer = forwardRef((props, ref) => {
-  const puzzleContext = usePuzzle();
-  const componentRef = React.useRef();
+interface PuzzleContainerRef {
+  completePuzzle: () => void;
+}
+
+interface PuzzleContextType {
+  [key: string]: any; // This is a temporary type, you should replace it with the actual type from your PuzzleContext
+}
+
+const PuzzleContainer = forwardRef<PuzzleContainerRef, Partial<PuzzleContainerBaseProps>>((props, ref) => {
+  const puzzleContext = usePuzzle() as PuzzleContextType;
+  const componentRef = React.useRef<PuzzleContainerBase>(null);
 
   useImperativeHandle(ref, () => ({
     completePuzzle: () => {
@@ -240,7 +305,13 @@ const PuzzleContainer = forwardRef((props, ref) => {
     }
   }));
 
-  return <PuzzleContainerBase ref={componentRef} {...props} {...puzzleContext} />;
+  // Merge props and context, ensuring all required props are present
+  const mergedProps = {
+    ...puzzleContext,
+    ...props,
+  } as PuzzleContainerBaseProps;
+
+  return <PuzzleContainerBase ref={componentRef} {...mergedProps} />;
 });
 
-export default PuzzleContainer;
+export default PuzzleContainer; 

@@ -7,12 +7,14 @@ interface User {
   email: string;
   full_name: string;
   profile_picture?: string;
+  rol: 'CLIENTE' | 'ADMINISTRADOR' | 'INVITADO';
 }
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isGuest: boolean;
+  isAdmin: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; password: string; full_name: string }) => Promise<void>;
   logout: () => void;
@@ -107,7 +109,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const guestUser: User = {
       id: 'guest',
       email: 'guest@guest.com',
-      full_name: 'Guest User'
+      full_name: 'Guest User',
+      rol: 'INVITADO'
     };
     updateUser(guestUser);
     navigate('/');
@@ -117,6 +120,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     user,
     isAuthenticated: !!user && user.id !== 'guest',
     isGuest: !!user && user.id === 'guest',
+    isAdmin: !!user && user.rol === 'ADMINISTRADOR',
     login,
     register: registrar,
     logout,

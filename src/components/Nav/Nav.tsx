@@ -8,7 +8,7 @@ interface NavProps {
 
 export const Nav = ({ id }: NavProps) => {
   const navigate = useNavigate();
-  const { isGuest } = useAuth();
+  const { isGuest, isAdmin } = useAuth();
 
   const accederAPerfil = () => navigate('/profile');
   const accederATips = () => navigate('/tips');
@@ -20,7 +20,6 @@ export const Nav = ({ id }: NavProps) => {
   const accederABiblioteca = () => navigate('/library');
   const accederACine = () => navigate('/cinema');
   const accederAWallet = () => navigate('/wallet');
-
   return (
     <nav id={id}>
       <div className="profile-container">
@@ -44,7 +43,7 @@ export const Nav = ({ id }: NavProps) => {
 
       <div className="routes">
         <div className="routes-left">
-          {!isGuest && <div onClick={accederATips} className="nav-item">TIPS</div>}
+          {isAdmin && <div onClick={accederATips} className="nav-item">TIPS</div>}
           <div onClick={accederAHome} className="nav-item">HOME</div>
           <div onClick={accederAMap} className="nav-item">MAP</div>
           <div id="nav-store" onClick={accederATienda} className="nav-item">STORE</div>
