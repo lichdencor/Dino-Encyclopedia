@@ -128,15 +128,15 @@ export class Album extends Component<{}, AlbumState> {
 
                     <div className={styles["album-section"]}>
                         <div className={styles.navigation}>
+                            <span>
+                                Page {this.state.currentPage + 1} of {this.state.pages.length}
+                            </span>
                             <button
                                 onClick={() => this.controller.handlePageNavigation('previous')}
                                 disabled={this.state.currentPage === 0}
                             >
                                 Previous
                             </button>
-                            <span>
-                                Page {this.state.currentPage + 1} of {this.state.pages.length}
-                            </span>
                             <button
                                 onClick={() => this.controller.handlePageNavigation('next')}
                                 disabled={this.state.currentPage === this.state.pages.length - 1}

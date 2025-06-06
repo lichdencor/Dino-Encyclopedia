@@ -145,13 +145,17 @@
 
 .navigation {
   top: 2%;
-  left: 2%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: black;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2vh;
   z-index: 5;
+  padding: 0.8vh 2vh;
+  border-radius: 5px;
 }
 
 .navigation button {
@@ -172,12 +176,23 @@
   color: #FFD700;
   font-family: 'MedusaGothic', serif;
   font-size: 1.8vh;
+  margin-right: 2vh;
 }
 
 .pagination-controls {
   display: flex;
   align-items: center;
   gap: 2vh;
+}
+
+.page-indicator {
+  color: #FFD700;
+  font-family: 'MedusaGothic', serif;
+  font-size: 2vh;
+  min-width: 5vh;
+  color: white;
+  text-align: center;
+  margin-right: 2vh;
 }
 
 .pagination-button {
@@ -209,19 +224,13 @@
   background-image: url(/assets/img/arrows/arrow-right.png);
 }
 
-.page-indicator {
-  color: #FFD700;
-  font-family: 'MedusaGothic', serif;
-  font-size: 2vh;
-  min-width: 5vh;
-  color: white;
-  text-align: center;
-}
-
 .cheat-button {
-  padding: 8px 16px;
-  margin-left: 16px;
+  padding: 0.5vh 1vh;
+  font-size: 1.5vh;
+  margin-left: 4vh;
   font-weight: bold;
+  border-left: 2px solid #987B45;
+  padding-left: 4vh;
 }
 
 .cheat-button:hover {
