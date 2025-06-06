@@ -172,11 +172,16 @@
   transform: scale(1.05);
 }
 
-.navigation span {
+.text {
   color: #FFD700;
   font-family: 'MedusaGothic', serif;
   font-size: 1.8vh;
-  margin-right: 2vh;
+}
+
+.number {
+  color: white;
+  font-family: 'Black Chancery', serif;
+  font-size: 3vh;
 }
 
 .pagination-controls {
@@ -187,8 +192,8 @@
 
 .page-indicator {
   color: #FFD700;
-  font-family: 'MedusaGothic', serif;
-  font-size: 2vh;
+  font-family: 'Black Chancery', serif;
+  font-size: 3vh;
   min-width: 5vh;
   color: white;
   text-align: center;
