@@ -34,7 +34,6 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
     }
 
     componentDidUpdate(prevProps: LoginProps, prevState: LoginComponentState) {
-        // If error has changed and there is an error, set up timer to clear it
         if (prevState.error !== this.state.error && this.state.error) {
             setTimeout(() => {
                 this.controller.clearError();

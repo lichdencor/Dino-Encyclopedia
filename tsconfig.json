@@ -17,7 +17,8 @@
     "noFallthroughCasesInSwitch": true,
     "allowJs": true,
     "esModuleInterop": true,
-    "types": ["react/jsx-runtime"]
+    "types": ["react/jsx-runtime", "jest", "node"]
   },
   "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
