@@ -197,6 +197,15 @@
     background-color: lightseagreen;
 }
 
+/* Beetle sticker slot */
+.scene .drop-zone-4 {
+    top: 20%;
+    right: 20%;
+    width: 12vh;
+    height: 12vh;
+    background-color: #8B4513;
+}
+
 .slot-id {
     position: absolute;
     top: 5px;

@@ -40,6 +40,7 @@ export class AlbumModel {
             { id: '10', image: "/public/assets/img/album/stickers/sticker-10.png" },
             { id: '11', image: "/public/assets/img/album/stickers/sticker-11.png" },
             // TEMPLATE 2 - Dryosaurus
+            { id: '50', image: "/public/assets/img/album/stickers/sticker-50.png" },
             { id: '51', image: "/public/assets/img/album/stickers/sticker-51.png" },
             { id: '52', image: "/public/assets/img/album/stickers/sticker-52.png" },
             { id: '53', image: "/public/assets/img/album/stickers/sticker-53.png" },
@@ -54,7 +55,11 @@ export class AlbumModel {
             { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" },
             { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" },
             { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" },
-            { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" }
+            { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" },
+            // Segundo hongo
+            { id: '65', image: "/public/assets/img/album/stickers/sticker-56.png" }, // Temporalmente usando la misma imagen
+            // Escarabajo
+            { id: '70', image: "/public/assets/img/album/stickers/sticker-70.png" }
         ];
 
         this.state = {
@@ -92,6 +97,7 @@ export class AlbumModel {
                         { id: 'slot-2-6', occupied: false, correctStickerId: '55' },
                         { id: 'slot-2-7', occupied: false, correctStickerId: '56' },
                         { id: 'slot-2-8', occupied: false, correctStickerId: '57' },
+                        { id: 'slot-2-9', occupied: false, correctStickerId: '65' }
                     ],
                     infoText: "Los dinosaurios carnívoros..."
                 },
@@ -106,6 +112,7 @@ export class AlbumModel {
                         { id: 'slot-3-5', occupied: false, correctStickerId: '62' },
                         { id: 'slot-3-6', occupied: false, correctStickerId: '63' },
                         { id: 'slot-3-7', occupied: false, correctStickerId: '64' },
+                        { id: 'slot-3-8', occupied: false, correctStickerId: '70' }
                     ],
                     infoText: "Los dinosaurios voladores..."
                 }

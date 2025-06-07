@@ -1,8 +1,8 @@
 /* TOP SECTION START */
 
 .top-section {
-    height: 45%;
-    width: 100%;
+    height: 42%;
+    width: 90%;
     z-index: 3;
     position: relative;
     /* background-color: violet; */
@@ -19,7 +19,7 @@
     top: 2%;
     left: 2%;
     z-index: 10;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .individual-sticker-left {
@@ -32,7 +32,7 @@
     left: 0;
     top: 0;
     width: 65%;
-    height: 135%;
+    height: 110%;
     display: flex;
     justify-content: flex-start;
     z-index: 1;
@@ -48,33 +48,36 @@
 
 .info-and-shiny {
     width: 47%;
-    height: 65%;
+    height: 90%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 10;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .info-box {
     width: 50%;
-    height: 100%;
-    background-color: brown;
+    height: 95%;
+    /* background-color: brown; */
 }
 
 .shiny-sticker-container {
-    width: 40%;
-    height: 100%;
+    width: 30%;
+    height: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
     top: 2%;
     left: 2%;
-    background-color: yellowgreen;
+    background-image: url("/assets/img/album/individual-sticker-frame.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-color: yellowgreen; */
 }
 
 .shiny-sticker {
@@ -87,20 +90,22 @@
 /* BOTTOM SECTION START */
 
 .bottom-section {
-    height: 50%;
-    width: 60%;
+    height: 45%;
+    width: 57%;
     position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    margin-right: -33%;
     /* background-color: lightblue; */
 }
 
 .scene-2-container {
-    height: 150%;
-    width: 100%;
+    height: 130%;
+    width: 90%;
     position: absolute;
     bottom: 0;
+    right: -5%;
     z-index: 5;
     /* background-color: orange; */
 }
@@ -110,49 +115,59 @@
     height: 100%;
 }
 
-.individual-sticker-container {
-    position: absolute;
-    width: 20%;
-    height: 45%;
-    top: -35%;
-    right: 45%;
+.individual-stickers-container {
+    position: relative;
+    width: 15%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-content: center;
-    z-index: 20;
+    align-items: center;
     background-color: blue;
+    /* border: 2px solid white; */
 }
 
-.individual-sticker-title {
-    height: 15%;
-    margin: 0;
-    background-color: pink;
-}
-
-.individual-sticker-right-container {
+.individual-sticker-1-container,
+.individual-sticker-2-container {
+    height: 46%;
     width: 100%;
-    height: 80%;
+    aspect-ratio: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    /* background-color: brown; */
 }
 
-.individual-sticker-right {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    background-color: white;
+.individual-sticker-1,
+.individual-sticker-2 {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/img/album/individual-sticker-frame.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* BOTTOM SECTION END */
+.individual-sticker-1 .sticker-image,
+.individual-sticker-2 .sticker-image {
+    position: absolute;
+    height: 100%;
+    width: 70%;
+}
 
 /* DROP ZONES */
 .scene-1-container,
-.scene-2-container,
-.individual-sticker-right-container {
+.scene-2-container {
     position: relative;
+}
+
+.individual-sticker-1-container .drop-zone-1,
+.individual-sticker-2-container .drop-zone-1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 15%;
+    height: auto;
 }
 
 .drop-zone {
@@ -178,6 +193,14 @@
 .drop-zone .placeholder-image {
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    filter: brightness(100) grayscale(1) contrast(10);
+    pointer-events: none;
+}
+
+.drop-zone .placeholder-image-individual {
+    height: 70%;
+    width: 70%;
     object-fit: contain;
     filter: brightness(100) grayscale(1) contrast(10);
     pointer-events: none;
@@ -240,29 +263,6 @@
     width: 20%;
     height: auto;
     /* background-color: red; */
-}
-
-/* Individual sticker container drop zones */
-.individual-sticker-right-container .drop-zone-1 {
-    top: 25%;
-    left: 15%;
-    width: 14vh;
-    height: 9vh;
-}
-
-.individual-sticker-right-container .drop-zone-2 {
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 17vh;
-    height: 11vh;
-}
-
-.individual-sticker-right-container .drop-zone-3 {
-    top: 25%;
-    right: 15%;
-    width: 14vh;
-    height: 9vh;
 }
 
 .sticker-image {

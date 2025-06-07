@@ -175,6 +175,27 @@ export const Template3: React.FC<Template3Props> = ({
               />
             )}
           </div>
+          {/* Beetle sticker slot */}
+          <div
+            className={`${styles["drop-zone"]} ${styles["drop-zone-4"]}`}
+            onMouseUp={() => onDrop(slots[7].id)}
+          >
+            {(!slots[7].occupied || slots[7].stickerId !== slots[7].correctStickerId) && (
+              <img
+                src={getStickerImageById(slots[7].correctStickerId)}
+                alt="Sticker placeholder"
+                className={styles["placeholder-image"]}
+              />
+            )}
+            <span className={styles["slot-id"]}>{slots[7].correctStickerId}</span>
+            {slots[7].occupied && slots[7].stickerId && (
+              <img
+                src={getStickerImageById(slots[7].stickerId)}
+                alt="Sticker en slot"
+                className={styles["sticker-image"]}
+              />
+            )}
+          </div>
         </div>
         <div className={styles["default-sticker-container"]}>
           <div

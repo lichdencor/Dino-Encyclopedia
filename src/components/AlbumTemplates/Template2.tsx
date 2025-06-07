@@ -138,6 +138,53 @@ export const Template2: React.FC<Template2Props> = ({
       </div>
 
       <div className={styles["bottom-section"]}>
+        {/* INDIVIDUAL STICKERS */}
+        <div className={styles["individual-stickers-container"]}>
+          <div className={styles["individual-sticker-1-container"]}>
+            <div
+              className={`${styles["drop-zone"]} ${styles["drop-zone-1"]} ${styles["individual-sticker-1"]}`}
+              onMouseUp={() => onDrop(slots[6].id)}
+            >
+              {(!slots[6].occupied || slots[6].stickerId !== slots[6].correctStickerId) && (
+                <img
+                  src={getStickerImageById(slots[6].correctStickerId)}
+                  alt="Sticker placeholder"
+                  className={styles["placeholder-image-individual"]}
+                />
+              )}
+              <span className={templateStyles["slot-id"]}>{slots[6].correctStickerId}</span>
+              {slots[6].occupied && slots[6].stickerId && (
+                <img
+                  src={getStickerImageById(slots[6].stickerId)}
+                  alt="Sticker en slot"
+                  className={styles["sticker-image"]}
+                />
+              )}
+            </div>
+          </div>
+          <div className={styles["individual-sticker-2-container"]}>
+            <div
+              className={`${styles["drop-zone"]} ${styles["drop-zone-2"]} ${styles["individual-sticker-2"]}`}
+              onMouseUp={() => onDrop(slots[8].id)}
+            >
+              {(!slots[8].occupied || slots[8].stickerId !== slots[8].correctStickerId) && (
+                <img
+                  src={getStickerImageById(slots[8].correctStickerId)}
+                  alt="Sticker placeholder"
+                  className={styles["placeholder-image-individual"]}
+                />
+              )}
+              <span className={templateStyles["slot-id"]}>{slots[8].correctStickerId}</span>
+              {slots[8].occupied && slots[8].stickerId && (
+                <img
+                  src={getStickerImageById(slots[8].stickerId)}
+                  alt="Sticker en slot"
+                  className={styles["sticker-image"]}
+                />
+              )}
+            </div>
+          </div>
+        </div>
         <div className={styles["scene-2-container"]}>
           <img
             src="/public/assets/giph/scenes/template-2-2.gif"
@@ -206,32 +253,7 @@ export const Template2: React.FC<Template2Props> = ({
             )}
           </div>
         </div>
-        <div className={styles["individual-sticker-container"]}>
-          <p className={styles["individual-sticker-title"]}></p>
-          <div className={styles["individual-sticker-right-container"]}>
-            {/* Individual sticker 1 drop zone */}
-            <div
-              className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
-              onMouseUp={() => onDrop(slots[6].id)}
-            >
-              {(!slots[6].occupied || slots[6].stickerId !== slots[6].correctStickerId) && (
-                <img
-                  src={getStickerImageById(slots[6].correctStickerId)}
-                  alt="Sticker placeholder"
-                  className={styles["placeholder-image"]}
-                />
-              )}
-              <span className={templateStyles["slot-id"]}>{slots[6].correctStickerId}</span>
-              {slots[6].occupied && slots[6].stickerId && (
-                <img
-                  src={getStickerImageById(slots[6].stickerId)}
-                  alt="Sticker en slot"
-                  className={styles["sticker-image"]}
-                />
-              )}
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
