@@ -23,4 +23,8 @@ export class RegisterController {
         e.preventDefault();
         await this.model.register();
     };
+
+    public clearError = () => {
+        this.model.clearError();
+    };
 } 

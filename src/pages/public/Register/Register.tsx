@@ -33,6 +33,15 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
         });
     }
 
+    componentDidUpdate(prevProps: RegisterProps, prevState: RegisterComponentState) {
+        // If error has changed and there is an error, set up timer to clear it
+        if (prevState.error !== this.state.error && this.state.error) {
+            setTimeout(() => {
+                this.controller.clearError();
+            }, 2000);
+        }
+    }
+
     componentWillUnmount() {
         if (this.unsubscribe) this.unsubscribe();
     }

@@ -27,4 +27,8 @@ export class LoginController {
     public clearRegistrationSuccess = () => {
         this.model.clearRegistrationSuccess();
     };
+
+    public clearError = () => {
+        this.model.clearError();
+    };
 } 
