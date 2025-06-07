@@ -18,7 +18,7 @@ export const Nav = ({ id }: NavProps) => {
   const accederAlAlbum = () => navigate('/album');
   const accederAMinijuegos = () => navigate('/games');
   const accederABiblioteca = () => navigate('/library');
-  const accederACine = () => navigate('/cinema');
+  // const accederACine = () => navigate('/cinema');
   const accederAWallet = () => navigate('/wallet');
   return (
     <nav id={id}>
@@ -52,7 +52,7 @@ export const Nav = ({ id }: NavProps) => {
           {!isGuest && <div onClick={accederAlAlbum} className="nav-item">ALBUM</div>}
           <div onClick={accederAMinijuegos} className="nav-item">GAMES</div>
           <div onClick={accederABiblioteca} className="nav-item">LIBRARY</div>
-          <div onClick={accederACine} className="nav-item">CINEMA</div>
+          {/* <div onClick={accederACine} className="nav-item">CINEMA</div> */}
         </div>
 
         <div onClick={accederAWallet} className="token-container">
