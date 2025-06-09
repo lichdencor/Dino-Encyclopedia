@@ -35,7 +35,7 @@
     position: relative;
     width: 55%;
     height: 65%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .shiny-sticker {
@@ -94,7 +94,7 @@
 
 .info-box {
     width: 70%;
-    height: 25%;
+    height: 20%;
     z-index: 2;
     color: #1f1e1b;
     font-family: 'MedusaGothic', serif;
@@ -121,7 +121,7 @@
     width: 60%;
     height: auto;
     text-align: center;
-    margin-top: 6%;
+    margin-top: 4%;
     margin-left: -10%;
     letter-spacing: 0.2vw;
     line-height: 2vw;
@@ -255,4 +255,31 @@
     right: 15%;
     width: 25%;
     height: auto;
+}
+
+/* Triceratops en el centro del volcán */
+.scene .drop-zone-4,
+.scene .drop-zone-5,
+.scene .drop-zone-6,
+.scene .drop-zone-7 {
+    width: 12%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scene .drop-zone-4 {
+    bottom: 45%;
+}
+
+.scene .drop-zone-5 {
+    bottom: 35%;
+}
+
+.scene .drop-zone-6 {
+    bottom: 25%;
+}
+
+.scene .drop-zone-7 {
+    bottom: 15%;
 }

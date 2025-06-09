@@ -36,13 +36,13 @@ export class AlbumModel {
         { id: '56', image: "/public/assets/img/album/stickers/sticker-56.png" },
         { id: '57', image: "/public/assets/img/album/stickers/sticker-57.png" },
         // TEMPLATE 3 - Triceratops
-        { id: '58', image: "/public/assets/img/album/stickers/sticker-58.png" },
-        { id: '59', image: "/public/assets/img/album/stickers/sticker-59.png" },
-        { id: '60', image: "/public/assets/img/album/stickers/sticker-60.png" },
-        { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" },
-        { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" },
-        { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" },
-        { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" },
+        { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" }, // Barro (fuera de escena)
+        { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" }, // Triceratops morado (fuera de escena)
+        { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" }, // Triceratops verde (fuera de escena)
+        { id: '69', image: "/public/assets/img/album/stickers/sticker-69.png" }, // Triceratops rojo (fuera de escena)
+        { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" }, // Huella (fuera de escena)
+        { id: '58', image: "/public/assets/img/album/stickers/sticker-58.png" }, // Huevo (en escena)
+        { id: '59', image: "/public/assets/img/album/stickers/sticker-59.png" }, // Triceratops naranja (en escena)
         // Segundo hongo
         { id: '65', image: "/public/assets/img/album/stickers/sticker-56.png" }, // Temporalmente usando la misma imagen
         // Escarabajo
@@ -105,13 +105,13 @@ export class AlbumModel {
                     id: 'page-3',
                     templateType: TemplateType.TEMPLATE_3,
                     slots: [
-                        { id: 'slot-3-1', occupied: false, correctStickerId: '58' },
-                        { id: 'slot-3-2', occupied: false, correctStickerId: '59' },
-                        { id: 'slot-3-3', occupied: false, correctStickerId: '60' },
-                        { id: 'slot-3-4', occupied: false, correctStickerId: '61' },
-                        { id: 'slot-3-5', occupied: false, correctStickerId: '62' },
-                        { id: 'slot-3-6', occupied: false, correctStickerId: '63' },
-                        { id: 'slot-3-7', occupied: false, correctStickerId: '64' }
+                        { id: 'slot-3-1', occupied: false, correctStickerId: '64' }, // Barro (fuera de escena)
+                        { id: 'slot-3-2', occupied: false, correctStickerId: '61' }, // Triceratops morado (fuera de escena)
+                        { id: 'slot-3-3', occupied: false, correctStickerId: '62' }, // Triceratops verde (fuera de escena)
+                        { id: 'slot-3-4', occupied: false, correctStickerId: '69' }, // Triceratops rojo (fuera de escena)
+                        { id: 'slot-3-5', occupied: false, correctStickerId: '63' }, // Huella (fuera de escena)
+                        { id: 'slot-3-6', occupied: false, correctStickerId: '58' }, // Huevo (en escena)
+                        { id: 'slot-3-7', occupied: false, correctStickerId: '59' }, // Triceratops naranja (en escena)
                     ],
                     infoText: "Los dinosaurios voladores..."
                 }
