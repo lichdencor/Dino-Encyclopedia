@@ -114,7 +114,7 @@ export const Template2: React.FC<Template2Props> = ({
           </div>
           <div className={styles["shiny-sticker-container"]}>
             <div
-              className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
+              className={`${styles["drop-zone"]} ${styles["drop-zone-shiny"]}`}
               onMouseUp={() => onDrop(slots[7].id)}
             >
               {(!slots[7].occupied || slots[7].stickerId !== slots[7].correctStickerId) && (

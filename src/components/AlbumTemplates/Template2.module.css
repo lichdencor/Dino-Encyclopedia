@@ -62,6 +62,9 @@
 .info-box {
     width: 50%;
     height: 95%;
+    color: #1f1e1b;
+    border-radius: 15px;
+    font-family: 'MedusaGothic', serif;
     /* background-color: brown; */
 }
 
@@ -81,8 +84,8 @@
 }
 
 .shiny-sticker {
-    width: auto;
-    height: 90%;
+    width: 80%;
+    height: auto;
 }
 
 /* TOP SECTION END */
@@ -172,6 +175,12 @@
 .scene-1-container,
 .scene-2-container {
     position: relative;
+}
+
+.drop-zone-shiny {
+    position: relative;
+    width: 23%;
+    height: auto;
 }
 
 .individual-sticker-1-container .drop-zone-1,
