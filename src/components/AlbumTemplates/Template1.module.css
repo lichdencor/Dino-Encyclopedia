@@ -184,14 +184,13 @@
 
 .scene-1-container .drop-zone-2 {
     bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 39%;
     width: auto;
-    height: 18%;
+    height: 25%;
 }
 
 .scene-1-container .drop-zone-3 {
-    top: 42%;
+    bottom: 18%;
     right: 12%;
     width: 32%;
     height: auto;
