@@ -22,22 +22,18 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
         super(props);
         this.model = new UserSessionModel(props.authService);
         this.controller = new LoginController(this.model);
-        this.state = {
-            ...this.model.getState(),
-        };
+        this.state = this.model.getState();
     }
 
     componentDidMount() {
         this.unsubscribe = this.model.subscribe((state) => {
-            this.setState({ ...state });
+            this.setState(state);
         });
     }
 
     componentDidUpdate(prevProps: LoginProps, prevState: LoginComponentState) {
         if (prevState.error !== this.state.error && this.state.error) {
-            setTimeout(() => {
-                this.controller.clearError();
-            }, 2000);
+            setTimeout(() => this.controller.clearError(), 2000);
         }
     }
 
@@ -48,71 +44,69 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
         this.controller.clearRegistrationSuccess();
     }
 
-    mostrarFormularioLogin() {
-        return <form onSubmit={this.controller.onSubmit} className={styles.form}>
-            <div className={styles.inputGroup}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    value={this.state.formData.email}
-                    onChange={(e) => this.controller.onEmailChange(e.target.value)}
-                    required
-                    placeholder="tu@email.com"
-                />
-            </div>
-
-            <div className={styles.inputGroup}>
-                <label htmlFor="password">Contraseña</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={this.state.formData.password}
-                    onChange={(e) => this.controller.onPasswordChange(e.target.value)}
-                    required
-                    placeholder="Tu contraseña"
-                />
-            </div>
-
-            <button type="submit" className={styles.submitButton}>
-                Login
-            </button>
-
-            <button
-                type="button"
-                onClick={() => this.controller.onGuestLogin()}
-                className={styles.guestButton}
-            >
-                Guest
-            </button>
-        </form>;
-    }
-
     render() {
+        const { formData, registrationSuccess, error } = this.state;
+
         return (
             <div className={styles["login-page"]}>
                 <IntroSequence />
                 <div className={styles["login-container"]}>
                     <div className={`${styles["gold-line"]} ${styles["gold-line1"]}`} />
                     <div className={styles["login-content"]}>
-                        <h1>Iniciar Sesión</h1>
+                        <h1>Login</h1>
 
-                        {this.state.registrationSuccess && (
+                        {registrationSuccess && (
                             <div className={styles.successMessage}>
-                                ¡Registro exitoso! Por favor, inicia sesión con tus credenciales.
+                                Registration successful! Please login with your credentials.
                             </div>
                         )}
 
-                        {this.state.error && <div className={styles.error}>{this.state.error}</div>}
+                        {error && <div className={styles.error}>{error}</div>}
 
-                        {this.mostrarFormularioLogin()}
+                        <form onSubmit={this.controller.onSubmit} className={styles.form}>
+                            <div className={styles["input-group"]}>
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={(e) => this.controller.onEmailChange(e.target.value)}
+                                    required
+                                    placeholder="your@email.com"
+                                />
+                            </div>
+
+                            <div className={styles["input-group"]}>
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    value={formData.password}
+                                    onChange={(e) => this.controller.onPasswordChange(e.target.value)}
+                                    required
+                                    placeholder="Your password"
+                                />
+                            </div>
+
+                            <button type="submit" className={styles["submit-button"]}>
+                                Login
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => this.controller.onGuestLogin()}
+                                className={styles["guest-button"]}
+                            >
+                                Guest
+                            </button>
+                        </form>
 
                         <div className={styles["links-container"]}>
                             <p className={styles["register-link"]}>
-                                ¿No tienes una cuenta? <Link to="/register" className={styles.link}>Regístrate aquí</Link>
+                                Don't have an account? <Link to="/register" className={styles.link}>Register here</Link>
                             </p>
                             <p className={styles["recovery-link"]}>
-                                ¿Olvidaste tu contraseña? <Link to="/recovery-password" className={styles.link}>Recupérala aquí</Link>
+                                Forgot your password? <Link to="/recovery-password" className={styles.link}>Recover it here</Link>
                             </p>
                         </div>
                     </div>

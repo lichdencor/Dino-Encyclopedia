@@ -1,17 +1,26 @@
 import { AuthService } from '../services/AuthService';
 
+/**
+ * Interface for user form data
+ */
 export interface UserFormData {
     email: string;
     password: string;
     full_name?: string;
 }
 
+/**
+ * Interface for user session state
+ */
 export interface UserSessionState {
     formData: UserFormData;
     error: string;
     registrationSuccess: boolean;
 }
 
+/**
+ * Model class for handling user session state and authentication
+ */
 export class UserSessionModel {
     private state: UserSessionState;
     private listeners: ((state: UserSessionState) => void)[] = [];
@@ -19,7 +28,14 @@ export class UserSessionModel {
 
     constructor(authService: AuthService) {
         this.authService = authService;
-        this.state = {
+        this.state = this.getInitialState();
+    }
+
+    /**
+     * Get initial state for the model
+     */
+    private getInitialState(): UserSessionState {
+        return {
             formData: {
                 email: '',
                 password: '',
@@ -30,27 +46,42 @@ export class UserSessionModel {
         };
     }
 
+    /**
+     * Get current state
+     */
     public getState(): UserSessionState {
         return { ...this.state };
     }
 
-    public subscribe(listener: (state: UserSessionState) => void) {
+    /**
+     * Subscribe to state changes
+     */
+    public subscribe(listener: (state: UserSessionState) => void): () => void {
         this.listeners.push(listener);
         return () => {
             this.listeners = this.listeners.filter(l => l !== listener);
         };
     }
 
-    private setState(newState: Partial<UserSessionState>) {
+    /**
+     * Update state and notify listeners
+     */
+    private setState(newState: Partial<UserSessionState>): void {
         this.state = { ...this.state, ...newState };
         this.notifyListeners();
     }
 
-    private notifyListeners() {
+    /**
+     * Notify all listeners of state change
+     */
+    private notifyListeners(): void {
         this.listeners.forEach(listener => listener(this.getState()));
     }
 
-    public updateFormField(field: keyof UserFormData, value: string) {
+    /**
+     * Update a form field value
+     */
+    public updateFormField(field: keyof UserFormData, value: string): void {
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -59,39 +90,64 @@ export class UserSessionModel {
         });
     }
 
+    /**
+     * Validate form data
+     */
     private validateForm(requireFullName: boolean = false): boolean {
+        const { email, password, full_name } = this.state.formData;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
-        if (!emailRegex.test(this.state.formData.email)) {
-            this.setState({ error: 'Error email invalido' });
+        if (!emailRegex.test(email)) {
+            this.setError('Invalid email format');
             return false;
         }
 
-        if (this.state.formData.password.length < 8) {
-            this.setState({ error: 'Error password invalida' });
+        if (password.length < 8) {
+            this.setError('Password must be at least 8 characters long');
             return false;
         }
 
-        if (requireFullName && (!this.state.formData.full_name || this.state.formData.full_name.trim() === '')) {
-            this.setState({ error: 'El nombre completo es requerido' });
+        if (requireFullName && (!full_name || full_name.trim() === '')) {
+            this.setError('Full name is required');
             return false;
         }
 
         return true;
     }
 
-    public async login() {
+    /**
+     * Set error message
+     */
+    private setError(message: string): void {
+        this.setState({ error: message });
+    }
+
+    /**
+     * Handle authentication errors
+     */
+    private handleAuthError(err: unknown): void {
+        const errorMessage = err instanceof Error ? err.message : 'Authentication error';
+        this.setError(errorMessage);
+    }
+
+    /**
+     * Login user
+     */
+    public async login(): Promise<void> {
         if (!this.validateForm()) return;
 
         try {
             await this.authService.login(this.state.formData.email, this.state.formData.password);
             this.clearError();
         } catch (err) {
-            this.setState({ error: err instanceof Error ? err.message : 'Error al iniciar sesión' });
+            this.handleAuthError(err);
         }
     }
 
-    public async register() {
+    /**
+     * Register new user
+     */
+    public async register(): Promise<void> {
         if (!this.validateForm(true)) return;
 
         try {
@@ -103,24 +159,33 @@ export class UserSessionModel {
             this.setState({ registrationSuccess: true });
             this.clearError();
         } catch (err) {
-            this.setState({ error: err instanceof Error ? err.message : 'Error en el registro' });
+            this.handleAuthError(err);
         }
     }
 
-    public loginAsGuest() {
+    /**
+     * Login as guest
+     */
+    public loginAsGuest(): void {
         try {
             this.authService.loginAsGuest();
             this.clearError();
         } catch (err) {
-            this.setState({ error: err instanceof Error ? err.message : 'Error al iniciar sesión como invitado' });
+            this.handleAuthError(err);
         }
     }
 
-    public clearError() {
+    /**
+     * Clear error message
+     */
+    public clearError(): void {
         this.setState({ error: '' });
     }
 
-    public clearRegistrationSuccess() {
+    /**
+     * Clear registration success state
+     */
+    public clearRegistrationSuccess(): void {
         this.setState({ registrationSuccess: false });
         this.authService.clearRegistrationSuccess();
     }

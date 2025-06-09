@@ -123,6 +123,12 @@
   width: 7vw;
   height: 2vw;
   margin-top: 3%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.03);
 }
 
 /* Error & Success */
@@ -162,8 +168,7 @@
   /* background-color: blueviolet; */
 }
 
-.register-link,
-.recovery-link {
+.login-link {
   font-family: "Lato";
   color: rgb(157, 143, 148);
   text-align: center;
@@ -176,10 +181,10 @@
   color: #ffe9c0;
   text-decoration: none;
   font-weight: bold;
+  transition: text-decoration 0.2s ease;
 }
 
-.register-link a:hover,
-.recovery-link a:hover {
+.link:hover {
   text-decoration: underline;
 }
 

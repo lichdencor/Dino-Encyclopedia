@@ -11,7 +11,7 @@ interface RegisterProps {
     authService: AuthService;
 }
 
-interface RegisterComponentState extends UserSessionState { }
+interface RegisterComponentState extends UserSessionState {}
 
 class RegisterComponent extends Component<RegisterProps, RegisterComponentState> {
     private model: UserSessionModel;
@@ -22,98 +22,89 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
         super(props);
         this.model = new UserSessionModel(props.authService);
         this.controller = new RegisterController(this.model);
-        this.state = {
-            ...this.model.getState(),
-        };
+        this.state = this.model.getState();
     }
 
     componentDidMount() {
         this.unsubscribe = this.model.subscribe((state) => {
-            this.setState({ ...state });
+            this.setState(state);
         });
     }
 
     componentDidUpdate(prevProps: RegisterProps, prevState: RegisterComponentState) {
-        // If error has changed and there is an error, set up timer to clear it
         if (prevState.error !== this.state.error && this.state.error) {
-            setTimeout(() => {
-                this.controller.clearError();
-            }, 2000);
+            setTimeout(() => this.controller.clearError(), 2000);
         }
     }
 
     componentWillUnmount() {
-        if (this.unsubscribe) this.unsubscribe();
-    }
-
-    renderRegisterForm() {
-        return (
-            <div className={styles["login-content"]}>
-                <h1>Register</h1>
-                {this.state.error && <div className={styles.error}>{this.state.error}</div>}
-                <form onSubmit={(e) => this.controller.onSubmit(e)} className={styles.form}>
-                    <div className={styles["input-group"]}>
-                        <label htmlFor="full_name">Full Name</label>
-                        <input
-                            type="text"
-                            id="full_name"
-                            name="full_name"
-                            value={this.state.formData.full_name}
-                            onChange={(e) => this.controller.onFullNameChange(e.target.value)}
-                            required
-                            placeholder="Enter your full name"
-                        />
-                    </div>
-
-                    <div className={styles["input-group"]}>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={this.state.formData.email}
-                            onChange={(e) => this.controller.onEmailChange(e.target.value)}
-                            required
-                            placeholder="Enter your email"
-                        />
-                    </div>
-
-                    <div className={styles["input-group"]}>
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={this.state.formData.password}
-                            onChange={(e) => this.controller.onPasswordChange(e.target.value)}
-                            required
-                            placeholder="Enter your password"
-                        />
-                    </div>
-
-                    <button type="submit" className={styles["submit-button"]}>
-                        Sign Up
-                    </button>
-                </form>
-
-                <div className={styles["links-container"]}>
-                    <p className={styles["register-link"]}>
-                        Already have an account?{" "}
-                        <Link to="/login" className={styles.link}>
-                            Log In
-                        </Link>
-                    </p>
-                </div>
-            </div>
-        );
+        if (this.unsubscribe) {
+            this.unsubscribe();
+        }
     }
 
     render() {
+        const { formData, error } = this.state;
+
         return (
             <div className={styles["login-page"]}>
                 <div className={styles["login-container"]}>
                     <div className={`${styles["gold-line"]} ${styles["gold-line1"]}`} />
-                    {this.renderRegisterForm()}
+                    <div className={styles["login-content"]}>
+                        <h1>Register</h1>
+                        {error && <div className={styles.error}>{error}</div>}
+                        
+                        <form onSubmit={this.controller.onSubmit} className={styles.form}>
+                            <div className={styles["input-group"]}>
+                                <label htmlFor="full_name">Full Name</label>
+                                <input
+                                    type="text"
+                                    id="full_name"
+                                    value={formData.full_name}
+                                    onChange={(e) => this.controller.onFullNameChange(e.target.value)}
+                                    required
+                                    placeholder="Enter your full name"
+                                />
+                            </div>
+
+                            <div className={styles["input-group"]}>
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={(e) => this.controller.onEmailChange(e.target.value)}
+                                    required
+                                    placeholder="your@email.com"
+                                />
+                            </div>
+
+                            <div className={styles["input-group"]}>
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    value={formData.password}
+                                    onChange={(e) => this.controller.onPasswordChange(e.target.value)}
+                                    required
+                                    placeholder="Your password"
+                                />
+                            </div>
+
+                            <button type="submit" className={styles["submit-button"]}>
+                                Register
+                            </button>
+                        </form>
+
+                        <div className={styles["links-container"]}>
+                            <p className={styles["login-link"]}>
+                                Already have an account?{" "}
+                                <Link to="/login" className={styles.link}>
+                                    Login here
+                                </Link>
+                            </p>
+                        </div>
+                    </div>
                     <div className={`${styles["gold-line"]} ${styles["gold-line2"]}`} />
                 </div>
             </div>
