@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './DialogoTips.module.css';
-import { getRandomDinoFact } from '../../services/dinosaurService';
+import { getRandomDinoFact } from '../../services/TipsService.ts';
 
 interface TransitionDialogProps {
     onContinue: () => void;
