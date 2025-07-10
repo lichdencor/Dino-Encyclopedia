@@ -23,16 +23,9 @@ type BookProps = {
 };
   
 export const Book = ({ book, onNextPage, onPreviousPage, onFinish }: BookProps) => {
-    const [bookPages, setBookPages] = useState(book.pages);
-    const [currentPage, setCurrentPage] = useState(0);
+    const [bookPages, _] = useState(book.pages);
+    const [__, setCurrentPage] = useState(0);
     const pagesContainerRef = useRef<HTMLDivElement>(null);
-
-    // const returnStyle:any(bookName:any) => {
-    //     if(bookName){
-    //         return 
-    //     }
-    //     return
-    // }
 
     useEffect(() => {
         const container = pagesContainerRef.current;

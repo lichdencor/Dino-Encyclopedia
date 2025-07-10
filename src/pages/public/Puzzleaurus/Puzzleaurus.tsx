@@ -71,7 +71,10 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                                     <PuzzleContainer
                                         ref={this.puzzleContainerRef}
                                         onReturnToMenu={this.controller.handleReturnToMenu}
-                                        selectedPuzzle={selectedPuzzle}
+                                        selectedPuzzle={{
+                                            id: selectedPuzzle.id.toString(),
+                                            difficulties: selectedPuzzle.difficulties
+                                        }}
                                         key={selectedPuzzle.id}
                                     />
                                 </div>

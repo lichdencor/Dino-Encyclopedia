@@ -10,7 +10,7 @@ interface TransitionDialogProps {
 const DialogoTips: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName }) => {
     const [fact, setFact] = useState<string>("");
     const [loading, setLoading] = useState(true);
-
+    console.log(puzzleName);
     useEffect(() => {
         getRandomDinoFact().then(fact => {
             setFact(fact);

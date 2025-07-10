@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import styles from "./Album.module.css";
 import { Template1 } from '../../../components/AlbumTemplates/Template1';
 import { Template2 } from '../../../components/AlbumTemplates/Template2';

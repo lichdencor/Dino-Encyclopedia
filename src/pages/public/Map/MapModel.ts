@@ -3,54 +3,6 @@ import { PeriodModel, SubPeriodModel, DinosaurModel, DinosaurInfo } from "../../
 import galleriesData from "../../../context/data/galleries_data.json";
 import { VirtualAssistantDialogue } from "../../../data";
 
-interface ModalOption {
-    text: string;
-    goesToPageIndex?: number;
-}
-
-interface ModalPage {
-    question: string;
-    options: ModalOption[];
-}
-
-const modalPages: ModalPage[] = [
-    {
-        question: "¿En qué puedo ayudarte?",
-        options: [
-            { text: "¿Cómo navego por el mapa?", goesToPageIndex: 1 },
-            { text: "¿Qué significan los colores de las salas?", goesToPageIndex: 2 },
-            { text: "¿Cómo desbloqueo nuevas salas?", goesToPageIndex: 3 }
-        ]
-    },
-    {
-        question: "Para navegar por el mapa:",
-        options: [
-            { text: "1. Usa los botones de las salas para ver información sobre los dinosaurios" },
-            { text: "2. Haz clic en una sala para entrar y explorar" },
-            { text: "3. Las salas están organizadas por períodos: Triásico, Jurásico y Cretácico" },
-            { text: "Back", goesToPageIndex: 0 }
-        ]
-    },
-    {
-        question: "Los colores de las salas indican:",
-        options: [
-            { text: "Verde: Salas disponibles para explorar" },
-            { text: "Gris: Salas bloqueadas (necesitas desbloquearlas)" },
-            { text: "Dorado: Salas completadas al 100%" },
-            { text: "Back", goesToPageIndex: 0 }
-        ]
-    },
-    {
-        question: "Para desbloquear nuevas salas:",
-        options: [
-            { text: "1. Completa las salas anteriores" },
-            { text: "2. Colecciona todos los dinosaurios de una sala" },
-            { text: "3. Gana puntos de experiencia explorando" },
-            { text: "Back", goesToPageIndex: 0 }
-        ]
-    }
-];
-
 export class DinosaurMapModel {
     private _dinosaur: DinosaurModel;
     private _image: string;
@@ -197,14 +149,14 @@ export class MapModel {
                 const subPeriodName = subPeriod.name.split(" ")[1].toLowerCase();
                 const key = `${periodName}-${subPeriodName}`;
                 
-                subPeriod.dinosaurs.forEach((dino, index) => {
+                subPeriod.dinosaurs.forEach((dino) => {
                     const progress = this.getDinosaurProgress(this.progress, periodName, subPeriodName, dino.info.name);
-                    dino.progress = progress;
-                    dino.discovered = progress === 100;
+                    (dino as DinosaurModel).progress = progress;
+                    (dino as DinosaurModel).discovered = progress === 100;
                 });
 
-                displayNames[key] = subPeriod.dinosaurs.map(dino => dino.discovered ? dino.info.name : "?");
-                discoveredSilhouettes[key] = subPeriod.dinosaurs.map(dino => dino.discovered);
+                displayNames[key] = subPeriod.dinosaurs.map(dino => (dino as DinosaurModel).discovered ? dino.info.name : "?");
+                discoveredSilhouettes[key] = subPeriod.dinosaurs.map(dino => (dino as DinosaurModel).discovered);
                 
                 subPeriod.updateProgress();
             });

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from '../../../components';
 import styles from './Reading.module.css';

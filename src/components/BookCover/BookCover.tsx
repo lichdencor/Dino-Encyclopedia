@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { ProgressBar } from "../ProgressBar/ProgressBar";
 import styles from "./BookCover.module.css";
 import { BookModel } from '../../pages/public/Reading/BookModel';

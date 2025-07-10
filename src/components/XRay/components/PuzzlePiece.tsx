@@ -8,7 +8,7 @@ export const PuzzlePiece: React.FC<PuzzlePieceProps> = ({
   onMouseEnter,
   onMouseLeave
 }) => {
-  const handleMouseLeave = (event: React.MouseEvent) => {
+  const handleMouseLeave = (_: React.MouseEvent) => {
     onMouseLeave();
   };
 

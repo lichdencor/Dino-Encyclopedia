@@ -29,7 +29,7 @@ describe('UserSessionModel', () => {
         it('should successfully login with valid credentials', async () => {
             userSessionModel.updateFormField('email', 'test@example.com');
             userSessionModel.updateFormField('password', 'password123');
-            mockAuthService.login.mockResolvedValueOnce();
+            mockAuthService.login.mockResolvedValueOnce(undefined);
 
             await userSessionModel.login();
 
@@ -74,7 +74,7 @@ describe('UserSessionModel', () => {
             userSessionModel.updateFormField('email', 'test@example.com');
             userSessionModel.updateFormField('password', 'password123');
             userSessionModel.updateFormField('full_name', 'Test User');
-            mockAuthService.register.mockResolvedValueOnce();
+            mockAuthService.register.mockResolvedValueOnce(undefined);
 
             await userSessionModel.register();
 
@@ -127,7 +127,7 @@ describe('UserSessionModel', () => {
             userSessionModel.updateFormField('email', 'test@example.com');
             userSessionModel.updateFormField('password', 'password123');
             userSessionModel.updateFormField('full_name', 'Test User');
-            mockAuthService.register.mockResolvedValueOnce();
+            mockAuthService.register.mockResolvedValueOnce(undefined);
             
             await userSessionModel.register();
             userSessionModel.clearRegistrationSuccess();

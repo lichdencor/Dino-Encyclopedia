@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Store.module.css";
 import { Nav } from "../../../components";
 

@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from "./Profile.module.css";
 import { Nav } from '../../../components';
 import { ProgressBar } from '../../../components/ProgressBar/ProgressBar';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ProfileAchievement } from '../../../components/AchievementProfile/ProfileAchievement';
 
 export const Profile = () => {

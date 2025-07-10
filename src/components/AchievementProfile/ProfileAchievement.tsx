@@ -10,8 +10,6 @@ interface ProfileAchievementProps {
   value: number;
 }
 
-const TIER_NAMES = ["bronze", "silver", "gold"];
-
 export const ProfileAchievement = ({
   name,
   tier,

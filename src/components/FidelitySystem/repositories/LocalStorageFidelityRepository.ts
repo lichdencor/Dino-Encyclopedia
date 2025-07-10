@@ -19,7 +19,7 @@ export class LocalStorageFidelityRepository implements IFidelityRepository {
         return stored ? JSON.parse(stored) : [];
     }
 
-    async saveProgress(userId: string, achievementId: string, value: number, tier: string | null, referral: string): Promise<void> {
+    async saveProgress(userId: string, achievementId: string, _value: number, tier: string | null, referral: string): Promise<void> {
         // Verificar si este referral ya fue usado
         const referrals = await this.getReferrals(userId, achievementId);
         if (referrals.includes(referral)) {

@@ -31,7 +31,7 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
         });
     }
 
-    componentDidUpdate(prevProps: RegisterProps, prevState: RegisterComponentState) {
+    componentDidUpdate(_: RegisterProps, prevState: RegisterComponentState) {
         if (prevState.error !== this.state.error && this.state.error) {
             setTimeout(() => this.controller.clearError(), 2000);
         }

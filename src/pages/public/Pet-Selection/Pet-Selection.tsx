@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import './Pet-Selection.css';
 
 interface Avatar {
@@ -16,7 +16,7 @@ const avatars: Avatar[] = [
 ];
 
 export const PetSelection = () => {
-  const [selectedAvatar, setSelectedAvatar] = useState<Avatar | null>(null);
+  const [_, setSelectedAvatar] = useState<Avatar | null>(null);
   const navigate = useNavigate();
   const handleAvatarSelect = async (e: React.MouseEvent<HTMLDivElement>, avatar: Avatar) => {
     e.preventDefault();

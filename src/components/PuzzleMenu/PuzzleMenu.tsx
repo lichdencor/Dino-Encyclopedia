@@ -2,13 +2,7 @@ import React from 'react';
 import PuzzleCard from '../PuzzleCard/PuzzleCard.tsx';
 import styles from './PuzzleMenu.module.css';
 import {DIFFICULTY_LEVELS, usePuzzle} from '../../context/Puzzle/PuzzleContext';
-
-interface Puzzle {
-  id: number;
-  name: string;
-  logoPuzzle: string;
-  difficultiesLogo: string[];
-}
+import { Puzzle } from '../../pages/public/Puzzleaurus/PuzzleaurusModel';
 
 interface PuzzleMenuProps {
   onPuzzleSelect: (puzzle: Puzzle) => void;
@@ -108,10 +102,11 @@ const puzzles = [
 ];
 
 const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
-  const { handleLevel } = usePuzzle();
+  const puzzleContext = usePuzzle() as any;
+  const { handleLevel } = puzzleContext;
 
   const handlePuzzleAndLevel = (puzzle: Puzzle, difficulty: 'easy' | 'medium' | 'hard') => {
-    if (handleLevel) {
+    if (handleLevel && typeof handleLevel === 'function') {
       handleLevel(puzzle.id, difficulty);
       onPuzzleSelect(puzzle);
     }

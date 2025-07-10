@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { Nav } from "../../../components";
 import { Game } from "../../../components/Game/Game";
 import { useAuth } from "../../../hooks/useAuth";

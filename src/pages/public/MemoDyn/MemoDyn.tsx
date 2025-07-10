@@ -43,7 +43,7 @@ export class MemoDyn extends Component<{}, MemoDynState> {
         window.addEventListener('storage', this.controller.handleStorageChange);
     }
 
-    componentDidUpdate(prevProps: {}, prevState: MemoDynState) {
+    componentDidUpdate(_: {}, prevState: MemoDynState) {
         // Reproducir sonido cuando se encuentra un par
         if (this.state.wins > prevState.wins) {
             playSound('assets/Sounds/Win.wav');

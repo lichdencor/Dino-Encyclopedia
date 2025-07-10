@@ -21,7 +21,7 @@ export const SignIn = () => {
     setLoading(true);
     setError(null);
     try {
-      await register(email, password);
+      await register({ email, password, full_name: "Guest User" });
       navigate("/pet-selection");
     } catch (error) {
       console.error("Error en registro:", error);
