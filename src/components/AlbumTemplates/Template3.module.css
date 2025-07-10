@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/assets/img/album/individual-sticker-frame.png"); 
+    background-image: url("/assets/img/album/individual-sticker-frame.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -201,6 +201,11 @@
     pointer-events: none;
 }
 
+/* Remove filter when sticker is correctly placed */
+.placeholder-placed {
+    filter: none;
+}
+
 .drop-zone .sticker-image {
     position: absolute;
     width: 100%;
@@ -237,23 +242,23 @@
 
 /* Scene drop zones */
 .scene .drop-zone-1 {
-    bottom: 25%;
-    left: 15%;
-    width: 25%;
-    height: auto;
-}
-
-.scene .drop-zone-2 {
-    bottom: 15%;
-    left: 50%;
+    bottom: 35%;
+    left: 20%;
     width: 20%;
     height: auto;
 }
 
+.scene .drop-zone-2 {
+    bottom: 25%;
+    left: 45%;
+    width: 18%;
+    height: auto;
+}
+
 .scene .drop-zone-3 {
-    bottom: 30%;
-    right: 15%;
-    width: 25%;
+    bottom: 40%;
+    right: 20%;
+    width: 20%;
     height: auto;
 }
 
