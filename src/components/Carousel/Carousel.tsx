@@ -6,16 +6,16 @@ interface CarouselProps {
   children: React.ReactNode;
   links: string[];
   accessText: string;
-  width: number;            // en vw
-  height: number;           // en vh
-  itemWidth: number;        // en %
-  itemHeight: number;       // en %
-  transformMain: string;    // ej. "translate(-50%, -37%) scale(1)"
-  transformLeft: string;    // ej. "translate(-163%, -36%) scale(0.9)"
-  transformRight: string;   // ej. "translate(68%, -37%) scale(0.9)"
-  arrowOffset: number;      // en %
-  visitBtnBottom: number;   // en %, puede ser negativo
-  needHoverAnimation: boolean;
+  width?: number;            // en vw
+  height?: number;           // en vh
+  itemWidth?: number;        // en %
+  itemHeight?: number;       // en %
+  transformMain?: string;    // ej. "translate(-50%, -37%) scale(1)"
+  transformLeft?: string;    // ej. "translate(-163%, -36%) scale(0.9)"
+  transformRight?: string;   // ej. "translate(68%, -37%) scale(0.9)"
+  arrowOffset?: number;      // en %
+  visitBtnBottom?: number;   // en %, puede ser negativo
+  needHoverAnimation?: boolean;
 }
 
 export function Carousel({
@@ -38,29 +38,28 @@ export function Carousel({
   const TOTAL_CARDS = React.Children.count(children);
 
   const containerStyle: CSSProperties = {
-    width: `${width}vw`,
-    height: `${height}vh`
+    ...(width && { width: `${width}vw` }),
+    ...(height && { height: `${height}vh` })
   };
   const arrowLeftStyle: CSSProperties = {
-    left: `${arrowOffset}%`
+    ...(arrowOffset && { left: `${arrowOffset}%` })
   };
   const arrowRightStyle: CSSProperties = {
-    right: `${arrowOffset}%`
+    ...(arrowOffset && { right: `${arrowOffset}%` })
   };
 
   const getItemStyle = (idx: number): CSSProperties => {
-    let transform: string;
-    if (idx === currentIndex) transform = transformMain;
-    else if (idx === (currentIndex - 1 + TOTAL_CARDS) % TOTAL_CARDS)
+    let transform: string = '';
+    if (idx === currentIndex && transformMain) transform = transformMain;
+    else if (idx === (currentIndex - 1 + TOTAL_CARDS) % TOTAL_CARDS && transformLeft)
       transform = transformLeft;
-    else if (idx === (currentIndex + 1) % TOTAL_CARDS)
+    else if (idx === (currentIndex + 1) % TOTAL_CARDS && transformRight)
       transform = transformRight;
-    else transform = '';
 
     return {
-      width: `${itemWidth}%`,
-      height: `${itemHeight}%`,
-      transform
+      ...(itemWidth && { width: `${itemWidth}%` }),
+      ...(itemHeight && { height: `${itemHeight}%` }),
+      ...(transform && { transform })
     };
   };
 
@@ -94,7 +93,7 @@ export function Carousel({
             {child}
             <button
               className={styles['carousel__visit-btn']}
-              style={{ bottom: `${visitBtnBottom}%` }}
+              style={visitBtnBottom !== undefined ? { bottom: `${visitBtnBottom}%` } : {}}
               onClick={() => navigate(links[index])}
             >
               {accessText}
