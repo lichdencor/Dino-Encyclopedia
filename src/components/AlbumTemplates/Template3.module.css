@@ -184,7 +184,7 @@
 
 .drop-zone-individual-sticker-1,
 .drop-zone-individual-sticker-2 {
-    width: 70%;
+    width: 50%;
     height: auto;
     position: relative;
     display: flex;
@@ -240,51 +240,34 @@
     overflow: hidden;
 }
 
-/* Scene drop zones */
-.scene .drop-zone-1 {
-    bottom: 35%;
-    left: 20%;
+.drop-zone-1 {
+    width: 10%;
+    height: 15%;
+    bottom: 27%;
+    left: 14%;
+    width: 10%;
+    /* background-color: red; */
+}
+
+.drop-zone-2 {
     width: 20%;
-    height: auto;
-}
-
-.scene .drop-zone-2 {
-    bottom: 25%;
-    left: 45%;
-    width: 18%;
-    height: auto;
-}
-
-.scene .drop-zone-3 {
-    bottom: 40%;
-    right: 20%;
-    width: 20%;
-    height: auto;
-}
-
-/* Triceratops en el centro del volcán */
-.scene .drop-zone-4,
-.scene .drop-zone-5,
-.scene .drop-zone-6,
-.scene .drop-zone-7 {
-    width: 12%;
-    height: auto;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.scene .drop-zone-4 {
-    bottom: 45%;
-}
-
-.scene .drop-zone-5 {
+    height: 22%;
     bottom: 35%;
+    right: 12%;
+    /* background-color: blue; */
 }
 
-.scene .drop-zone-6 {
-    bottom: 25%;
+.drop-zone-3 {
+    right: 32%;
+    bottom: 26%;
+    width: 42%;
+    height: 40%;
+    /* background-color: green; */
 }
 
-.scene .drop-zone-7 {
-    bottom: 15%;
+/* 
+.drop-zone-4 {
+    bottom: 10%;
 }
+
+.drop-zone-5 { */
