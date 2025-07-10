@@ -9,7 +9,7 @@ interface NavProps {
 
 export const Nav = ({ id }: NavProps) => {
   const navigate = useNavigate();
-  const { isGuest, isAdmin } = useAuth();
+  const { isGuest, isAdmin, logout } = useAuth();
   const { trackNavigation } = useAnalyticsTracking();
 
   const accederAPerfil = () => {
@@ -49,6 +49,15 @@ export const Nav = ({ id }: NavProps) => {
     trackNavigation('/wallet', 'nav');
     navigate('/wallet');
   };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   return (
     <nav id={id}>
       <div className="profile-container">
@@ -82,6 +91,7 @@ export const Nav = ({ id }: NavProps) => {
           <div onClick={accederAMinijuegos} className="nav-item">GAMES</div>
           <div onClick={accederABiblioteca} className="nav-item">LIBRARY</div>
           {/* <div onClick={accederACine} className="nav-item">CINEMA</div> */}
+          <div onClick={handleLogout} className="nav-item logout-btn">LOGOUT</div>
         </div>
 
         <div onClick={accederAWallet} className="token-container">
