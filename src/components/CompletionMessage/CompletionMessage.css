@@ -1,117 +1,315 @@
-.completion-message {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #2a2a2a;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  z-index: 1000;
-  border: 2px solid #3a3a3a;
-  color: #fff;
-  min-width: 300px;
-  margin-left: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  transition: background-color 0.3s;
-  align-self: flex-end;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.close-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.completion-message h2 {
-  margin: 0 0 1rem 0;
-  color: #646cff;
-  font-size: 1.8rem;
-  background-color: #2a2a2a;
-}
-
-.button-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-.completion-message button {
-  background-color: #646cff;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.completion-message button:hover {
-  background-color: #535bf2;
-  transform: translateY(-2px);
-}
-
-.completion-message button.next-level {
-  background-color: #4CAF50;
-}
-
-.completion-message button.next-level:hover {
-  background-color: #45a049;
-}
-
+/* Overlay de fondo con efectos mejorados - Centrado perfecto */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.95) 100%);
+  backdrop-filter: blur(10px);
   z-index: 999;
-  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInOverlay 0.5s ease forwards;
 }
 
-.completion-message p {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-}
-
-/* Estilos específicos para el mensaje final */
-.completion-message p:nth-child(3) {
-  color: #4CAF50;
-  font-weight: bold;
-  font-size: 1.4rem;
-  margin: 1rem 0;
-}
-
-@keyframes fadeIn {
+@keyframes fadeInOverlay {
   from {
     opacity: 0;
-    transform: translate(-50%, -60%);
+    backdrop-filter: blur(0px);
   }
+
   to {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
   }
-} 
+}
 
+/* Contenedor principal del mensaje - Centrado perfecto */
+.completion-message {
+  margin: 0 auto;
+  position: relative;
+  max-width: 40vw;
+  min-width: 30vw;
+  height: 40vh;
+  background: linear-gradient(135deg, #987B45 0%, #ECEAD2 50%, #987B45 100%);
+  border: 4px ridge #d6bf8d;
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+  z-index: 1000;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(238, 229, 192, 0.3);
+  animation: completionEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform: scale(0.8);
+  opacity: 0;
+  color: rgb(25, 24, 24);
+  font-family: "MedusaGothic", sans-serif;
+}
+
+@keyframes completionEntrance {
+  0% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.05) rotate(2deg);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Botón de cerrar mejorado */
 .close-button {
-  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(44, 24, 16, 0.8);
+  border: 2px solid rgb(238, 229, 192);
+  color: rgb(25, 25, 23);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 5px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.close-button:hover {
+  background: rgba(44, 24, 16, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Título principal - Tipografía del proyecto */
+.completion-message h2 {
+  margin: 0 0 1.5rem 0;
+  color: rgb(25, 24, 24);
+  font-size: 2.2rem;
+  font-weight: lighter;
+  font-family: "MedusaGothic", sans-serif;
+  letter-spacing: 0.2vw;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(238, 229, 192, 0.5);
+  background: none;
+  position: relative;
+}
+
+.completion-message h2::before {
+  content: '🏆';
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: trophy-bounce 2s ease infinite;
+}
+
+@keyframes trophy-bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Textos del mensaje - Tipografía del proyecto */
+.completion-message p {
+  margin: 0.8rem 0;
+  font-weight: lighter;
+  color: rgb(25, 24, 24);
+  font-family: "MedusaGothic", sans-serif;
+  letter-spacing: 0.15vw;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  line-height: 1.4;
+}
+
+/* Tiempo completado destacado */
+.completion-time {
+  background: rgba(44, 24, 16, 0.8) !important;
+  color: rgb(238, 229, 192) !important;
+  border: 2px solid rgb(238, 229, 192);
+  border-radius: 15px;
+  padding: 0.8rem 1.5rem !important;
+  font-size: 1.2rem !important;
+  font-weight: lighter !important;
+  font-family: "MedusaGothic", sans-serif !important;
+  letter-spacing: 0.2vw !important;
+  margin: 1.5rem 0 !important;
+  text-shadow: none !important;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: timeGlow 2s ease infinite alternate;
+}
+
+@keyframes timeGlow {
+  0% {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(238, 229, 192, 0.4);
+  }
+}
+
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Botones con estilo exacto del proyecto */
+.completion-message button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "MedusaGothic", sans-serif;
+  font-weight: lighter;
+  letter-spacing: 0.2vw;
+  margin: 0 auto;
+  border: 4px ridge #d6bf8d;
+  background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+  transition: all 500ms ease-in-out;
+  filter: brightness(90%);
+  color: rgb(25, 24, 24);
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+.completion-message button:hover {
+  transform: scale(105%);
+  filter: brightness(100%);
+}
+
+.completion-message button:active {
+  filter: brightness(85%);
+}
+
+/* Botón de siguiente nivel con variación de color */
+.completion-message button.next-level {
+  background: linear-gradient(135deg, #8B7D45, #C4B962, #8B7D45);
+  border: 4px ridge #F4E775;
+}
+
+.completion-message button.next-level:hover {
+  transform: scale(105%);
+  filter: brightness(110%);
+}
+
+/* Mensaje para el último nivel completado */
+.completion-message p:nth-child(3) {
+  color: #8B7D45 !important;
+  font-weight: lighter !important;
+  font-size: 1.6rem !important;
+  margin: 1.5rem 0 !important;
+  font-family: "MedusaGothic", sans-serif !important;
+  letter-spacing: 0.2vw !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  animation: masterGlow 3s ease infinite;
+}
+
+@keyframes masterGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  50% {
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(139, 125, 69, 0.6);
+  }
+}
+
+/* Efectos de partículas decorativas */
+.completion-message::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle at 20% 20%, rgba(238, 229, 192, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(238, 229, 192, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 90%, rgba(238, 229, 192, 0.05) 0%, transparent 50%);
+  border-radius: 25px;
+  z-index: -1;
+  animation: sparkle 4s ease infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Responsividad mejorada */
+@media (max-width: 500px) {
+  .completion-message {
+    min-width: 90vw;
+    max-width: 90vw;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .completion-message h2 {
+    font-size: 1.8rem;
+  }
+
+  .completion-message p {
+    font-size: 1.1rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .completion-message button {
+    width: 100%;
+    min-width: auto;
+  }
 }

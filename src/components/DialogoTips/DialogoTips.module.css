@@ -1,16 +1,32 @@
+/* Overlay with transparent backdrop */
 .dialogueOverlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: fadeInOverlay 0.5s ease forwards;
 }
 
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        opacity: 1;
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* Main container with transparent background */
 .dialogueGoldBg {
     border-radius: 16px;
     width: 50%;
@@ -19,50 +35,90 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, #987B45, #ECEAD2, #987B45);
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    animation: slideInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0.8);
+    backdrop-filter: blur(10px);
 }
 
+@keyframes slideInScale {
+    0% {
+        transform: scale(0.8) rotate(-2deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Inner container with transparent background */
 .dialogueContainer {
-    border-radius: 16px;
+    border-radius: 12px;
     width: 98%;
     height: 97%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(19, 11, 0);
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    backdrop-filter: blur(5px);
 }
 
+/* Dialogue box with transparent styling */
 .dialogueBox {
+    position: absolute;
     top: 10%;
     width: 80%;
     height: 20%;
-    border-radius: 28px;
-    margin: 0 auto 0.5rem auto;
-    font-family: "Lato";
-    font-size: 1vw;
-    letter-spacing: 0.15vw;
-    text-align: center;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     z-index: 2;
-    position: absolute;
-    background-color: blue;
-    
+    backdrop-filter: blur(5px);
 }
 
+/* Question text with clean styling */
 .dialogueQuestion {
-    margin-left: 2vw;
-    text-align: start;
-    font-family: "MedusaGothic";
-    font-size: 1.2vw;
+    margin: 0 0 0.5rem 0;
+    font-family: "MedusaGothic", serif;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    color: #333;
+    letter-spacing: 0.1vw;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Dialogue text with clean styling */
 .dialogueText {
-    width: 90%;
-    margin-left: 2vw;
+    width: 95%;
+    margin: 0;
+    font-family: "MedusaGothic", serif;
+    font-weight: lighter;
+    font-size: 1rem;
+    color: #444;
+    letter-spacing: 0.05vw;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-style: italic;
-    /* background-color: red; */
 }
 
+/* Characters row */
 .charactersRow {
     margin-top: 10%;
     width: 80%;
@@ -71,9 +127,9 @@
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
-    /* background-color: pink; */
 }
 
+/* Character containers */
 .character1 {
     width: 50%;
     height: 80%;
@@ -83,7 +139,6 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    /* border: 2px solid black; */
 }
 
 .character2 {
@@ -92,26 +147,106 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    transform: scaleX(-1);
     position: absolute;
     bottom: -2%;
     right: 5%;
-    /* border: 2px solid black; */
+    transform: scaleX(-1);
 }
 
+/* Character images */
 .characterImage {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
+/* Continue button with transparent styling */
 .continueButton {
     width: 50%;
-    border-radius: 16px;
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-family: "MedusaGothic", serif;
+    font-weight: lighter;
+    font-size: 1rem;
+    letter-spacing: 0.1vw;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(123,45,38,0.10);
+    transition: all 300ms ease;
+    margin-top: 1.5rem;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    min-width: 150px;
+    backdrop-filter: blur(5px);
+}
+
+.continueButton:hover {
+    transform: scale(105%);
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.continueButton:active {
+    transform: scale(98%);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dialogueGoldBg {
+        width: 90%;
+        height: 70%;
+    }
+
+    .dialogueQuestion {
+        font-size: 1rem;
+        letter-spacing: 0.05vw;
+    }
+
+    .dialogueText {
+        font-size: 0.9rem;
+        letter-spacing: 0.02vw;
+    }
+
+    .continueButton {
+        width: 70%;
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dialogueGoldBg {
+        width: 95%;
+        height: 75%;
+    }
+
+    .dialogueBox {
+        width: 90%;
+        height: 25%;
+        padding: 1rem;
+    }
+
+    .dialogueQuestion {
+        font-size: 0.9rem;
+    }
+
+    .dialogueText {
+        font-size: 0.8rem;
+    }
+
+    .continueButton {
+        width: 80%;
+        font-size: 0.8rem;
+    }
 }
