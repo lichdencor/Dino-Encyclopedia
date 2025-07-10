@@ -1,4 +1,5 @@
 import { AuthService } from '../services/AuthService';
+import { analyticsService } from '../services/AnalyticsService';
 
 /**
  * Interface for user form data
@@ -139,8 +140,12 @@ export class UserSessionModel {
         try {
             await this.authService.login(this.state.formData.email, this.state.formData.password);
             this.clearError();
+
+            analyticsService.trackLogin('email');
         } catch (err) {
             this.handleAuthError(err);
+
+            analyticsService.trackError('login_error', err instanceof Error ? err.message : 'Unknown login error');
         }
     }
 
@@ -158,8 +163,12 @@ export class UserSessionModel {
             });
             this.setState({ registrationSuccess: true });
             this.clearError();
+
+            analyticsService.trackRegister('email');
         } catch (err) {
             this.handleAuthError(err);
+
+            analyticsService.trackError('registration_error', err instanceof Error ? err.message : 'Unknown registration error');
         }
     }
 
@@ -170,8 +179,15 @@ export class UserSessionModel {
         try {
             this.authService.loginAsGuest();
             this.clearError();
+
+            analyticsService.trackCustomEvent('Guest Login', {
+                login_method: 'guest',
+                timestamp: new Date().toISOString(),
+            });
         } catch (err) {
             this.handleAuthError(err);
+
+            analyticsService.trackError('guest_login_error', err instanceof Error ? err.message : 'Unknown guest login error');
         }
     }
 

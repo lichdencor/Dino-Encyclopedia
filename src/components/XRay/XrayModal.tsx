@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css";
 import styles from "./XrayModal.module.css";
 import { Alert } from "../../components";
@@ -12,6 +12,7 @@ import { updateCursorPosition, checkPuzzlePieceProximity, isPointInRect, getCurr
 import { useProgress } from "../../context/Progress/ProgressProvider";
 import { useFidelityProgress } from "../FidelitySystem/FidelityProgressProvider.tsx";
 import { useAuth } from "../../context";
+import { useXRayTracking } from "../../hooks/useXRayTracking";
 
 type PuzzlePieceStatus = {
   isFound: boolean;
@@ -162,20 +163,49 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         scanProgress: dinosaur?.scanProgress || 0,
         visibleInfo: dinosaur?.visibleInfo || [],
         elapsedTime: dinosaur?.elapsedTime || 0,
-        puzzlePieceFound: isPieceFound
+        puzzlePieceFound: isPieceFound,
+        dinosaurId: dinosaur.id
       };
     }
     return {
       scanProgress: 0,
       visibleInfo: [],
       elapsedTime: 0,
-      puzzlePieceFound: false
+      puzzlePieceFound: false,
+      dinosaurId: ''
     };
   };
 
-  const handleInfoVisibilityChange = (newVisibleInfo: string[]) => {
-    updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), getCurrentDinosaurData().elapsedTime, newVisibleInfo);
-  };
+  const currentDinosaurData = getCurrentDinosaurData();
+  const dinosaurId = currentDinosaurData.dinosaurId || `${era}_${period}_${selectedDinosaur}`;
+
+  const xrayTracking = useXRayTracking({
+    dinosaurId: dinosaurId,
+    dinosaurName: dinosaurInfo.name,
+    era: era,
+    period: period,
+    isSessionActive: isOpen && selectedDinosaur !== null,
+  });
+
+  React.useEffect(() => {
+    if (currentDinosaurData.scanProgress !== undefined) {
+      xrayTracking.setInitialProgress(currentDinosaurData.scanProgress);
+    }
+  }, [currentDinosaurData.scanProgress, xrayTracking]);
+
+  const handleInfoVisibilityChange = useCallback((newVisibleInfo: string[]) => {
+    const currentData = getCurrentDinosaurData();
+    const previousInfoCount = currentData.visibleInfo.length;
+
+    if (newVisibleInfo.length > previousInfoCount) {
+      const newInfoItems = newVisibleInfo.slice(previousInfoCount);
+      newInfoItems.forEach(newInfo => {
+        xrayTracking.trackInfoUnlocked(newInfo, newVisibleInfo.length);
+      });
+    }
+    
+    updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), currentData.elapsedTime, newVisibleInfo);
+  }, [xrayTracking, era, progress, period, selectedDinosaur]);
 
   const handlePuzzlePieceFound = () => {
     const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
@@ -186,6 +216,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     if (periodData && selectedDinosaur !== null) {
       const dinosaur = periodData.dinosaurs[selectedDinosaur];
       savePuzzlePieceFound(dinosaur.id);
+
+      xrayTracking.trackPuzzlePieceFound(scanProgress);
+      
       setShowAlert(true);
       setHasPieceBeenFound(true);
       stopProgressTimer();
@@ -341,6 +374,11 @@ export const XRayModal: React.FC<XRayModalProps> = ({
           setScanProgress((prevProgress: number) => {
             const progressIncrement = 100 / (SCAN_DURATION * (1000 / UPDATE_INTERVAL));
             const newProgress = Math.min(prevProgress + progressIncrement, 100);
+
+            if (Math.floor(newProgress) !== Math.floor(prevProgress)) {
+              xrayTracking.trackProgressUpdate(newProgress);
+            }
+            
             updateDinosaurProgress(newProgress, newElapsedTime, getCurrentDinosaurData().visibleInfo);
             return newProgress;
           });

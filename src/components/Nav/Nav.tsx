@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useAnalyticsTracking } from "../../context/Analytics/AnalyticsProvider";
 import "./Nav.css";
 
 interface NavProps {
@@ -9,17 +10,45 @@ interface NavProps {
 export const Nav = ({ id }: NavProps) => {
   const navigate = useNavigate();
   const { isGuest, isAdmin } = useAuth();
+  const { trackNavigation } = useAnalyticsTracking();
 
-  const accederAPerfil = () => navigate('/profile');
-  const accederATips = () => navigate('/tips');
-  const accederAHome = () => navigate('/');
-  const accederAMap = () => navigate('/map');
-  const accederATienda = () => navigate('/store');
-  const accederAlAlbum = () => navigate('/album');
-  const accederAMinijuegos = () => navigate('/games');
-  const accederABiblioteca = () => navigate('/library');
+  const accederAPerfil = () => {
+    trackNavigation('/profile', 'nav');
+    navigate('/profile');
+  };
+  const accederATips = () => {
+    trackNavigation('/tips', 'nav');
+    navigate('/tips');
+  };
+  const accederAHome = () => {
+    trackNavigation('/', 'nav');
+    navigate('/');
+  };
+  const accederAMap = () => {
+    trackNavigation('/map', 'nav');
+    navigate('/map');
+  };
+  const accederATienda = () => {
+    trackNavigation('/store', 'nav');
+    navigate('/store');
+  };
+  const accederAlAlbum = () => {
+    trackNavigation('/album', 'nav');
+    navigate('/album');
+  };
+  const accederAMinijuegos = () => {
+    trackNavigation('/games', 'nav');
+    navigate('/games');
+  };
+  const accederABiblioteca = () => {
+    trackNavigation('/library', 'nav');
+    navigate('/library');
+  };
   // const accederACine = () => navigate('/cinema');
-  const accederAWallet = () => navigate('/wallet');
+  const accederAWallet = () => {
+    trackNavigation('/wallet', 'nav');
+    navigate('/wallet');
+  };
   return (
     <nav id={id}>
       <div className="profile-container">

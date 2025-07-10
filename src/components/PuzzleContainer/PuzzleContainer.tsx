@@ -7,6 +7,7 @@ import TimerBar from "../TimerBar/TimerBar";
 import TimeoutMessage from "../TimeoutMessage/TimeoutMessage";
 import TimerModel from "../../models/TimerModel";
 import { usePuzzle } from "../../context/Puzzle/PuzzleContext";
+import { analyticsService } from "../../services/AnalyticsService";
 
 interface PuzzlePieceType {
   id: string;
@@ -63,6 +64,8 @@ interface PuzzleContainerBaseState {}
 class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleContainerBaseState> {
   private containerRef: RefObject<HTMLDivElement>;
   private timerModel: TimerModel;
+  private gameStartTime: number = 0;
+  private moveCount: number = 0;
 
   constructor(props: PuzzleContainerBaseProps) {
     super(props);
@@ -89,6 +92,18 @@ class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleCont
   componentDidMount(): void {
     this.props.setSelectedPuzzleId(this.props.selectedPuzzle.id);
     this.initializePuzzle();
+
+    const { selectedPuzzle, difficulty } = this.props;
+    this.gameStartTime = Date.now();
+    this.moveCount = 0;
+    
+    analyticsService.trackGameStart('puzzleaurus', difficulty);
+    analyticsService.trackCustomEvent('Puzzle Started', {
+      puzzle_id: selectedPuzzle.id,
+      difficulty: difficulty,
+      pieces_count: selectedPuzzle?.difficulties?.[difficulty]?.rows * selectedPuzzle?.difficulties?.[difficulty]?.cols,
+      timestamp: new Date().toISOString(),
+    });
   }
 
   componentDidUpdate(prevProps: PuzzleContainerBaseProps): void {
@@ -206,6 +221,20 @@ class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleCont
     });
 
     this.props.setPieces(orderedPieces);
+
+    const completionTime = Date.now() - this.gameStartTime;
+    const timeInSeconds = Math.floor(completionTime / 1000);
+    
+    analyticsService.trackGameEnd('puzzleaurus', 'win', totalPieces * 10, timeInSeconds);
+    analyticsService.trackPuzzleComplete(selectedPuzzle.id, timeInSeconds, this.moveCount);
+    analyticsService.trackCustomEvent('Puzzle Completed', {
+      puzzle_id: selectedPuzzle.id,
+      difficulty: difficulty,
+      pieces_count: totalPieces,
+      completion_time_seconds: timeInSeconds,
+      moves_count: this.moveCount,
+      timestamp: new Date().toISOString(),
+    });
   }
 
   render(): React.ReactNode {
@@ -265,7 +294,10 @@ class PuzzleContainerBase extends Component<PuzzleContainerBaseProps, PuzzleCont
                           key={piece.id}
                           piece={piece}
                           onDragStart={handleDragStart}
-                          onDragEnd={handleDragEnd}
+                          onDragEnd={(e: React.DragEvent, piece: PuzzlePieceType) => {
+                            this.moveCount++;
+                            handleDragEnd(e, piece);
+                          }}
                           onDrop={handleDrop}
                           onDragOver={(e: React.DragEvent<HTMLDivElement>) => e.preventDefault()}
                           gridSize={cols}

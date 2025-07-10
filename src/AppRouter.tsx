@@ -31,14 +31,16 @@ import { PuzzleProvider } from "./context/Puzzle/PuzzleContext";
 import { PublicGuard } from "./guard/PublicGuard";
 import { PrivateGuard } from "./guard/PrivateGuard";
 import Reading from "./pages/public/Reading/Reading.tsx";
+import { usePageTracking } from "./hooks/usePageTracking";
 
 const AppRouter = () => {
   const { isAuthenticated } = useAuth();
 
+  usePageTracking();
+
   return (
     <ErrorBoundary>
       <RoutesWithNotFound>
-        {/* Rutas públicas - solo accesibles si NO está autenticado */}
         <Route path="/login" element={
           <PublicGuard isAuthenticated={isAuthenticated}>
             <Login />
@@ -55,7 +57,6 @@ const AppRouter = () => {
           </PublicGuard>
         } />
 
-        {/* Rutas privadas - solo accesibles si está autenticado */}
         <Route path="/" element={
           <PrivateGuard isAuthenticated={isAuthenticated}>
             <LandingPage />
