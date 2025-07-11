@@ -2,7 +2,7 @@ import { GalleryStyles } from "./types";
 import { DinosaurInfo as PeriodDinosaurInfo, SubPeriodModel } from "../../models/PeriodModel";
 import { DinosaurInfo as XRayDinosaurInfo } from "../XRay/types";
 
-interface GalleryState {
+export interface GalleryState {
     activeDinosaur: number | null;
     isModalOpen: boolean;
     selectedDinosaur: number;

@@ -6,9 +6,9 @@ import { GalleryDinosaurs } from "./GalleryDinosaurs";
 import { XRayModal } from "../XRay/XrayModal";
 import GalleryTitle from "../GalleryTitle/GalleryTitle";
 import { GalleryStyles } from "./types";
-import { DinosaurInfo as XRayDinosaurInfo } from "../XRay/types";
 import { SubPeriodModel } from "../../models/PeriodModel";
-import { GalleryModel } from "./GalleryModel";
+import { GalleryModel, GalleryState } from "./GalleryModel";
+import { GalleryController } from "./GalleryController";
 
 interface GalleryProps {
   subPeriodModel: SubPeriodModel;
@@ -21,23 +21,11 @@ interface GalleryProps {
   period: "Inferior" | "Medium" | "Superior";
 }
 
-interface GalleryState {
-  activeDinosaur: number | null;
-  isModalOpen: boolean;
-  selectedDinosaur: number;
-  customStyles: GalleryStyles;
-  previousPage: string;
-  nextPage: string;
-  dinosaurNames: string[];
-  currentDinosaurInfo: XRayDinosaurInfo;
-  era: "triassic" | "jurassic" | "cretaceous";
-  period: "Inferior" | "Medium" | "Superior";
-  dinosaurImage: string;
-  dinosaurBone: string;
-}
+
 
 export class Gallery extends Component<GalleryProps, GalleryState> {
   private model: GalleryModel;
+  private controller: GalleryController;
   private unsubscribe: (() => void) | null = null;
 
   constructor(props: GalleryProps) {
@@ -63,11 +51,12 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
       era,
       period
     );
-    this.state = this.model.getState();
+    this.controller = new GalleryController(this.model);
+    this.state = this.controller.getState();
   }
 
   componentDidMount() {
-    this.unsubscribe = this.model.subscribe((state) => {
+    this.unsubscribe = this.controller.subscribe((state) => {
       this.setState(state);
     });
   }
@@ -79,15 +68,15 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
   }
 
   handleDinosaurClick = (index: number) => {
-    this.model.handleDinosaurClick(index);
+    this.controller.handleDinosaurClick(index);
   };
 
   closeModal = () => {
-    this.model.closeModal();
+    this.controller.closeModal();
   };
 
   setActiveDinosaur = (dinosaur: number | null) => {
-    this.model.setActiveDinosaur(dinosaur);
+    this.controller.setActiveDinosaur(dinosaur);
   };
 
   render() {
