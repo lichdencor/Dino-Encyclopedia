@@ -20,11 +20,15 @@ export class LandingPageModel {
         isVirtualAssistantOpen: false,
         modalCurrentPage: 0,
         isTutorialOpen: false,
-        galleriesData: json['galleries'],
+        galleriesData: this.loadGalleries(),
         galleries: [],
     };
 
     private listeners: ((state: LandingPageState) => void)[] = [];
+
+    private loadGalleries(): any {
+        return json['galleries'];
+    }
 
     getState(): LandingPageState {
         return { ...this.state };
@@ -37,10 +41,20 @@ export class LandingPageModel {
         };
     }
 
-    getAllGalleries(){
-        const getAllGalleries: Gallery[] = [];
+    getAllGalleries() {
         const eras = ['era_triassic', 'era_jurassic', 'era_cretaceous'];
-        
+        const getAllGalleries: Gallery[] = this.processEras(eras);
+
+        this.setState({ ...this.state, galleries: getAllGalleries });
+        this.notifyListeners();
+    }
+
+    private setState(state: LandingPageState) {
+        this.state = state;
+    }
+
+    private processEras(eras: string[]) {
+        const getAllGalleries: Gallery[] = [];
         eras.forEach(era => {
             const eraData = this.state.galleriesData[0][era];
             if (Array.isArray(eraData)) {
@@ -53,12 +67,10 @@ export class LandingPageModel {
                 });
             }
         });
-
-        this.state.galleries = getAllGalleries;
-        this.notifyListeners();
+        return getAllGalleries;
     }
 
-    getCarouselLinks(){        
+    getCarouselLinks() {
         return this.state.galleries.map((gallery: Gallery) => gallery.link)
     }
 
@@ -67,28 +79,29 @@ export class LandingPageModel {
     }
 
     openModal() {
-        this.state.isVirtualAssistantOpen = true;
+        this.setState({ ...this.state, isVirtualAssistantOpen: true });
         this.notifyListeners();
     }
 
     closeModal() {
-        this.state.isVirtualAssistantOpen = false;
-        this.state.modalCurrentPage = 0;
+        this.setState({ ...this.state, isVirtualAssistantOpen: false, modalCurrentPage: 0 });
         this.notifyListeners();
     }
 
     changeModalPage(page: number) {
-        if (page === -1) {
+        // Alt
+        const openTutorial = page === -1;
+        if (openTutorial) {
             this.closeModal();
-            this.state.isTutorialOpen = true;
+            this.setState({ ...this.state, isTutorialOpen: true });
         } else {
-            this.state.modalCurrentPage = page;
+            this.setState({ ...this.state, modalCurrentPage: page });
         }
         this.notifyListeners();
     }
 
     closeTutorial() {
-        this.state.isTutorialOpen = false;
+        this.setState({ ...this.state, isTutorialOpen: false });
         this.notifyListeners();
     }
 

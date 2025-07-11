@@ -28,19 +28,17 @@ class MapComponent extends Component<MapProps, MapComponentState> {
 
     constructor(props: MapProps) {
         super(props);
-        
+
         this.model = new MapModel(props.progress);
         this.controller = new MapController(this.model, props.navigate);
-        
+
         this.state = {
             state: this.model.getState()
         };
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((newState) => {
-            this.setState({ state: newState });
-        });
+        this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
         this.model.initialize();
     }
 
@@ -50,11 +48,15 @@ class MapComponent extends Component<MapProps, MapComponentState> {
         }
     }
 
+    handleStateChange(newState: MapState) {
+        this.setState({ state: newState });
+    }
+
     render() {
         const { state } = this.state;
         const { isGuest } = this.props;
         const modalPages = this.controller.getModalPages();
-        
+
         return (
             <div className="mapPage">
                 <Nav />
@@ -104,8 +106,8 @@ class MapComponent extends Component<MapProps, MapComponentState> {
 
                     {state.isVirtualAssistantOpen && (
                         <div className="modal-overlay" onClick={() => this.controller.handleCloseModal()}>
-                            <button 
-                                className="dynardModalCloseBtn" 
+                            <button
+                                className="dynardModalCloseBtn"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     this.controller.handleCloseModal();

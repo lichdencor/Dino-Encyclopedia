@@ -1,4 +1,4 @@
-import {ProgressData} from "../../../services/progress/types";
+import { ProgressData } from "../../../services/progress/types";
 import { PeriodModel, SubPeriodModel, DinosaurModel, DinosaurInfo } from "../../../models/PeriodModel";
 import galleriesData from "../../../context/data/galleries_data.json";
 import { VirtualAssistantDialogue } from "../../../data";
@@ -142,13 +142,13 @@ export class MapModel {
 
         const displayNames: MapState['displayNames'] = {};
         const discoveredSilhouettes: MapState['discoveredSilhouettes'] = {};
-        
+
         this.periods.forEach(period => {
             const periodName = period.name.toLowerCase();
             period.subPeriods.forEach(subPeriod => {
                 const subPeriodName = subPeriod.name.split(" ")[1].toLowerCase();
                 const key = `${periodName}-${subPeriodName}`;
-                
+
                 subPeriod.dinosaurs.forEach((dino) => {
                     const progress = this.getDinosaurProgress(this.progress, periodName, subPeriodName, dino.info.name);
                     (dino as DinosaurModel).progress = progress;
@@ -157,17 +157,19 @@ export class MapModel {
 
                 displayNames[key] = subPeriod.dinosaurs.map(dino => (dino as DinosaurModel).discovered ? dino.info.name : "?");
                 discoveredSilhouettes[key] = subPeriod.dinosaurs.map(dino => (dino as DinosaurModel).discovered);
-                
+
                 subPeriod.updateProgress();
             });
-            
+
             period.updateProgress();
         });
 
-        this.state.displayNames = displayNames;
-        this.state.discoveredSilhouettes = discoveredSilhouettes;
-        this.state.periods = this.periods;
+        this.setState({ ...this.state, displayNames: displayNames, discoveredSilhouettes: discoveredSilhouettes, periods: this.periods });
         this.notifyListeners();
+    }
+
+    private setState(state: MapState) {
+        this.state = state;
     }
 
     getState(): MapState {
@@ -197,7 +199,7 @@ export class MapModel {
 
         const eraKey = `era_${era}` as keyof typeof progress.galleries[0];
         const eraData = progress.galleries[0][eraKey];
-        
+
         if (!eraData) {
             return 0;
         }
@@ -251,15 +253,15 @@ export class MapModel {
     }
 
     public toggleVirtualAssistant() {
-        this.state.isVirtualAssistantOpen = !this.state.isVirtualAssistantOpen;
+        this.setState({ ...this.state, isVirtualAssistantOpen: !this.state.isVirtualAssistantOpen });
         if (!this.state.isVirtualAssistantOpen) {
-            this.state.modalCurrentPage = 0;
+            this.setState({ ...this.state, modalCurrentPage: 0 });
         }
         this.notifyListeners();
     }
 
     public setModalPage(pageIndex: number) {
-        this.state.modalCurrentPage = pageIndex;
+        this.setState({ ...this.state, modalCurrentPage: pageIndex });
         this.notifyListeners();
     }
 

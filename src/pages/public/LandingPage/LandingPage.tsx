@@ -34,9 +34,9 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
     handleStateChange(newState: LandingPageState) {
         this.setState(newState);
     }
-    
+
     render() {
-        const modalPages = this.controller.getModalPages();
+        const modalPages = this.controller.getModalPages(); // Al dibujar el componente
         const state = this.state as LandingPageState;
 
         return (
