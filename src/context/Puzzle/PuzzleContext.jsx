@@ -61,7 +61,7 @@ export const PuzzleProvider = ({ children }) => {
 
   // Función para obtener la imagen completada del puzzle
   const getCompletedImage = useCallback((puzzleId) => {
-    return `public/assets/img/puzzles/puzzle-${puzzleId}/puzzle-${puzzleId}.${puzzleId === 2 ? 'jpeg' : 'jpg'}`;
+    return `/assets/img/puzzles/puzzle-${puzzleId}/puzzle-${puzzleId}.${puzzleId === 2 ? 'jpeg' : 'jpg'}`;
   }, []);
 
   // Efecto para el timer

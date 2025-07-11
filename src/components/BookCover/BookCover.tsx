@@ -54,7 +54,7 @@ export class BookCover extends Component<BookCoverProps, BookCoverState> {
                     </div>
                 </div>
                 <div className={styles["container-progress"]}>
-                    <ProgressBar imgSrc="/public/assets/img/achievements/bronze/achievement-reader-bronze.png" progress={progress}></ProgressBar>
+                    <ProgressBar imgSrc="/assets/img/achievements/bronze/achievement-reader-bronze.png" progress={progress}></ProgressBar>
                 </div>
             </div>
         );

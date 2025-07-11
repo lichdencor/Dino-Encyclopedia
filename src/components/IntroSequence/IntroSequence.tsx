@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './IntroSequence.module.css';
 
 const introImages = [
-  '/public/assets/img/intro/intro_01.jpg',
-  '/public/assets/img/intro/intro_02.jpg',
-  '/public/assets/img/intro/intro_03.jpg',
-  '/public/assets/img/intro/intro_04.jpg',
-  '/public/assets/img/intro/intro_05.jpg',
-  '/public/assets/img/intro/intro_06.jpg',
+  "/assets/img/intro/intro_01.jpg",
+  "/assets/img/intro/intro_02.jpg",
+  "/assets/img/intro/intro_03.jpg",
+  "/assets/img/intro/intro_04.jpg",
+  "/assets/img/intro/intro_05.jpg",
+  "/assets/img/intro/intro_06.jpg",
 ];
 
 export const IntroSequence: React.FC = () => {
@@ -31,13 +31,13 @@ export const IntroSequence: React.FC = () => {
 
   return (
     <div className={styles.introSequence}>
-      <div 
+      <div
         className={`${styles.imageContainer} ${isTransitioning ? styles.fadeOut : ''}`}
         style={{
           backgroundImage: `url(${introImages[currentImageIndex]})`,
         }}
       />
-      <div 
+      <div
         className={`${styles.imageContainer} ${styles.nextImage} ${isTransitioning ? styles.fadeIn : ''}`}
         style={{
           backgroundImage: `url(${introImages[nextImageIndex]})`,

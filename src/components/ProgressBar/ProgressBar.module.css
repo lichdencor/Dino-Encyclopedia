@@ -12,7 +12,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-image: url(/public/assets/img/progress/progress-bar.png);
+  background-image: url(/assets/img/progress/progress-bar.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -44,7 +44,7 @@
   align-items: center;
   position: absolute;
   right: 0%;
-  background-image: url(/public/assets/img/progress/achievement-container.png);
+  background-image: url(/assets/img/progress/achievement-container.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

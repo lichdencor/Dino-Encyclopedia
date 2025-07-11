@@ -1,5 +1,11 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import stylesContainer from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css";
+import triassicStyles from "../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css";
+import jurassicInferiorStyles from "../../pages/public/Jurassic-Inferior/Jurassic-Inferior.module.css";
+import jurassicMediumStyles from "../../pages/public/Jurassic-Medium/Jurassic-Medium.module.css";
+import jurassicSuperiorStyles from "../../pages/public/Jurassic-Superior/Jurassic-Superior.module.css";
+import cretaceousInferiorStyles from "../../pages/public/Cretaceous-Inferior/Cretaceous-Inferior.module.css";
+import cretaceousMediumStyles from "../../pages/public/Cretaceous-Medium/Cretaceous-Medium.module.css";
+import cretaceousSuperiorStyles from "../../pages/public/Cretaceous-Superior/Cretaceous-Superior.module.css";
 import styles from "./XrayModal.module.css";
 import { Alert } from "../../components";
 import { XRayModalProps, DinosaurProgress } from "./types";
@@ -33,10 +39,29 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   era,
   period
 }) => {
+  // Get the correct styles based on era and period
+  const getEraStyles = (era: string, period: string) => {
+    if (era === 'triassic') {
+      return triassicStyles;
+    } else if (era === 'jurassic') {
+      if (period === 'Inferior') return jurassicInferiorStyles;
+      if (period === 'Medium') return jurassicMediumStyles;
+      if (period === 'Superior') return jurassicSuperiorStyles;
+      return jurassicInferiorStyles; // fallback
+    } else if (era === 'cretaceous') {
+      if (period === 'Inferior') return cretaceousInferiorStyles;
+      if (period === 'Medium') return cretaceousMediumStyles;
+      if (period === 'Superior') return cretaceousSuperiorStyles;
+      return cretaceousInferiorStyles; // fallback
+    }
+    return triassicStyles; // fallback
+  };
+
+  const stylesContainer = getEraStyles(era, period);
   const { progress, setProgress } = useProgress();
   const { updateProgress: updateFidelityProgress } = useFidelityProgress();
   const { isGuest } = useAuth();
-  
+
   const [showPuzzlePiece, setShowPuzzlePiece] = useState(false);
   const [piecePosition, setPiecePosition] = useState<{ left: number; top: number } | null>(null);
   const [isPuzzlePieceHovered, setIsPuzzlePieceHovered] = useState(false);
@@ -45,7 +70,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const [scanProgress, setScanProgress] = useState<number>(0);
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
-  
+
   const progressTimerRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
   const hoverStartTimeRef = useRef<number | null>(null);
@@ -54,9 +79,9 @@ export const XRayModal: React.FC<XRayModalProps> = ({
   const checkPuzzlePieceStatus = (dinosaurId: string): PuzzlePieceStatus => {
     const foundPieces = progress.minigames.puzzleaurus.foundPieces || [];
     const isPieceFound = foundPieces.some(
-      piece => piece.era === era && 
-              piece.period === period && 
-              piece.dinosaurId === dinosaurId
+      piece => piece.era === era &&
+        piece.period === period &&
+        piece.dinosaurId === dinosaurId
     );
 
     return {
@@ -69,15 +94,15 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
   const savePuzzlePieceFound = (dinosaurId: string) => {
     const currentProgress = { ...progress };
-    
+
     if (!currentProgress.minigames.puzzleaurus.foundPieces) {
       currentProgress.minigames.puzzleaurus.foundPieces = [];
     }
 
     const pieceExists = currentProgress.minigames.puzzleaurus.foundPieces.some(
-      piece => piece.era === era && 
-              piece.period === period && 
-              piece.dinosaurId === dinosaurId
+      piece => piece.era === era &&
+        piece.period === period &&
+        piece.dinosaurId === dinosaurId
     );
 
     if (!pieceExists) {
@@ -114,22 +139,22 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         ...progress,
         galleries: [{
           ...progress.galleries[0],
-          [eraKey]: progress.galleries[0][eraKey].map(p => 
+          [eraKey]: progress.galleries[0][eraKey].map(p =>
             p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
               ? {
-                  ...p,
-                  dinosaurs: p.dinosaurs.map((d, idx) =>
-                    idx === selectedDinosaur
-                      ? { 
-                          ...d, 
-                          discovered: willBeDiscovered,
-                          scanProgress: Math.min(Math.round(currentProgress), 100),
-                          visibleInfo,
-                          elapsedTime: currentElapsedTime
-                        }
-                      : d
-                  )
-                }
+                ...p,
+                dinosaurs: p.dinosaurs.map((d, idx) =>
+                  idx === selectedDinosaur
+                    ? {
+                      ...d,
+                      discovered: willBeDiscovered,
+                      scanProgress: Math.min(Math.round(currentProgress), 100),
+                      visibleInfo,
+                      elapsedTime: currentElapsedTime
+                    }
+                    : d
+                )
+              }
               : p
           )
         }]
@@ -150,15 +175,15 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     const periodData = progress.galleries[0][eraKey].find(
       (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
     );
-    
+
     if (periodData && selectedDinosaur !== null) {
       const dinosaur = periodData.dinosaurs[selectedDinosaur] as DinosaurProgress;
       const isPieceFound = progress.minigames.puzzleaurus.foundPieces?.some(
-        piece => piece.era === era && 
-                piece.period === period && 
-                piece.dinosaurId === dinosaur.id
+        piece => piece.era === era &&
+          piece.period === period &&
+          piece.dinosaurId === dinosaur.id
       ) || false;
-      
+
       return {
         scanProgress: dinosaur?.scanProgress || 0,
         visibleInfo: dinosaur?.visibleInfo || [],
@@ -203,7 +228,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         xrayTracking.trackInfoUnlocked(newInfo, newVisibleInfo.length);
       });
     }
-    
+
     updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), currentData.elapsedTime, newVisibleInfo);
   }, [xrayTracking, era, progress, period, selectedDinosaur]);
 
@@ -218,7 +243,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       savePuzzlePieceFound(dinosaur.id);
 
       xrayTracking.trackPuzzlePieceFound(scanProgress);
-      
+
       setShowAlert(true);
       setHasPieceBeenFound(true);
       stopProgressTimer();
@@ -258,14 +283,14 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     for (let i = 0; i < dinosaurs.length; i++) {
       const dinosaur = dinosaurs[i] as HTMLElement;
       const dRect = dinosaur.getBoundingClientRect();
-      
+
       if (isPointInRect(event.clientX, event.clientY, dRect)) {
         setActiveDinosaur(dinosaurIndex);
         isOverDinosaur = true;
         break;
       }
     }
-    
+
     setIsMouseOver(isOverDinosaur);
     if (!isOverDinosaur) {
       setActiveDinosaur(null);
@@ -283,12 +308,12 @@ export const XRayModal: React.FC<XRayModalProps> = ({
 
     updateCursorPosition(event, rect, container);
     const shouldShowPiece = checkPuzzlePieceProximity(event, rect, piecePosition);
-    
+
     if (!shouldShowPiece && showPuzzlePiece) {
       handlePuzzlePieceLeave();
     }
     setShowPuzzlePiece(shouldShowPiece);
-    
+
     checkDinosaurInteraction(event, container, selectedDinosaur);
   };
 
@@ -304,7 +329,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         }
 
         const hoverDuration = Date.now() - hoverStartTimeRef.current!;
-        if (hoverDuration >= 2000) { 
+        if (hoverDuration >= 2000) {
           handlePuzzlePieceFound();
         }
       };
@@ -335,11 +360,11 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       const periodData = progress.galleries[0][eraKey].find(
         (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
       );
-      
+
       if (periodData) {
         const dinosaur = periodData.dinosaurs[selectedDinosaur];
         const pieceStatus = checkPuzzlePieceStatus(dinosaur.id);
-        
+
         setScanProgress(dinosaur.scanProgress || 0);
         setElapsedTime(dinosaur.elapsedTime || 0);
         setHasPieceBeenFound(pieceStatus.isFound);
@@ -368,7 +393,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         const now = Date.now();
         const delta = (now - lastTimeRef.current) / 1000;
         lastTimeRef.current = now;
-        
+
         setElapsedTime(prev => {
           const newElapsedTime = prev + delta;
           setScanProgress((prevProgress: number) => {
@@ -378,7 +403,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
             if (Math.floor(newProgress) !== Math.floor(prevProgress)) {
               xrayTracking.trackProgressUpdate(newProgress);
             }
-            
+
             updateDinosaurProgress(newProgress, newElapsedTime, getCurrentDinosaurData().visibleInfo);
             return newProgress;
           });
@@ -416,7 +441,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     <div className={stylesContainer["modal-overlay"] + " preview-scan-dino"}>
       <button className={styles.closeBtn} onClick={onClose}>×</button>
       {showAlert && (
-        <Alert 
+        <Alert
           onClose={handleAlertClose}
           imageSrc="/assets/img/puzzles/puzzle-piece.png"
           messageText="¡Felicidades! Has encontrado una pieza de puzzle"
@@ -450,17 +475,16 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                 />
               )}
             </DinosaurViewer>
-            
+
             <div className={styles.informationContainer}>
               <h2 className={styles.xRayNameFrame}>{dinosaurInfo.name}</h2>
-              <div className={`${styles.information} ${
-                  era === 'triassic'
-                    ? styles['information-triassic']
-                    : era === 'jurassic'
-                    ? styles['information-jurassic']
-                    : styles['information-cretaceous']
+              <div className={`${styles.information} ${era === 'triassic'
+                ? styles['information-triassic']
+                : era === 'jurassic'
+                  ? styles['information-jurassic']
+                  : styles['information-cretaceous']
                 }`}>
-                <InfoList 
+                <InfoList
                   dinosaurInfo={dinosaurInfo}
                   elapsedTime={elapsedTime}
                   visibleInfo={[]}

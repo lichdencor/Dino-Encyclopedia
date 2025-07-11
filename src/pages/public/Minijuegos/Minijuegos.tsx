@@ -25,13 +25,13 @@ export const Minijuegos = () => {
 
     const juegos: Juego[] = [{
         nombre: "Puzzleaurus",
-        cuadro: "/public/assets/img/gamesPage/gameAcessFrame1.png",
+        cuadro: "/assets/img/gamesPage/gameAcessFrame1.png",
         imagen: {
-            src: "/public/assets/img/gamesPage/puzzleaurusAccessBg.png",
+            src: "/assets/img/gamesPage/puzzleaurusAccessBg.png",
             alt: "Puzzleaurus"
         },
         simbolo: {
-            src: "/public/assets/img/puzzles/puzzle-piece.png",
+            src: "/assets/img/puzzles/puzzle-piece.png",
             alt: "pieza de puzzle",
             altura: "60%"
         },
@@ -39,13 +39,13 @@ export const Minijuegos = () => {
         isAvailable: !isGuest
     }, {
         nombre: "Memodyn",
-        cuadro: "/public/assets/img/gamesPage/gameAcessFrame2.png",
+        cuadro: "/assets/img/gamesPage/gameAcessFrame2.png",
         imagen: {
-            src: "/public/assets/img/gamesPage/memodynAccessBg.png",
+            src: "/assets/img/gamesPage/memodynAccessBg.png",
             alt: "Memodyn"
         },
         simbolo: {
-            src: "/public/assets/img/cardBase/cardBase.png",
+            src: "/assets/img/cardBase/cardBase.png",
             alt: "cartas",
             altura: "45%"
         },
@@ -64,12 +64,12 @@ export const Minijuegos = () => {
                 <div className={styles.sparkle5}></div>
 
                 {juegos.map((juego) => (
-                    <Game 
+                    <Game
                         key={juego.nombre}
-                        nombre={juego.nombre} 
-                        cuadro={juego.cuadro} 
-                        imagen={juego.imagen} 
-                        simbolo={juego.simbolo} 
+                        nombre={juego.nombre}
+                        cuadro={juego.cuadro}
+                        imagen={juego.imagen}
+                        simbolo={juego.simbolo}
                         link={juego.link}
                         disabled={!juego.isAvailable}
                     />

@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: top;
     position: relative;
-    background-image: url(/public/assets/img/progress/progress-container.png);
+    background-image: url(/assets/img/progress/progress-container.png);
     background-size: 80% 95%;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 .achievement-img-bg {
     width: 30%;
     height: 90%;
-    background-image: url(/public/assets/img/progress/achievement-container.png);
+    background-image: url(/assets/img/progress/achievement-container.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

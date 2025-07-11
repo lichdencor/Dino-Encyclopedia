@@ -61,11 +61,11 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                 <div className="map">
                     {!isGuest && (
                         <div className="progress-container">
-                            <ProgressBar imgSrc="/public/assets/img/achievements/bronze/achievement-periods-explorer-bronze.png" progress={23}></ProgressBar>
+                            <ProgressBar imgSrc="/assets/img/achievements/bronze/achievement-periods-explorer-bronze.png" progress={23}></ProgressBar>
                         </div>
                     )}
                     <div className="periodTitleGoldBg period1Container">
-                        <img src="/public/assets/img/map/period1Paws.png" alt="period level" />
+                        <img src="/assets/img/map/period1Paws.png" alt="period level" />
                         <div className="periodTitleFrame periodTitleFrame1">
                             Triassic
                             <br />
@@ -74,7 +74,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     </div>
 
                     <div className="periodTitleGoldBg period2Container">
-                        <img src="/public/assets/img/map/period2Paws.png" alt="period level" />
+                        <img src="/assets/img/map/period2Paws.png" alt="period level" />
                         <div className="periodTitleFrame periodTitleFrame2">
                             Jurassic
                             <br />
@@ -83,7 +83,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                     </div>
 
                     <div className="periodTitleGoldBg period3Container">
-                        <img src="/public/assets/img/map/period3Paws.png" alt="period level" />
+                        <img src="/assets/img/map/period3Paws.png" alt="period level" />
                         <div className="periodTitleFrame periodTitleFrame3">
                             Cretaceous
                             <br />
@@ -145,7 +145,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
                         </div>
                     )}
                 </div>
-                <img src="/public/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites" />
+                <img src="/assets/img/map/raptor-bites.png" alt="Raptor Bites" className="raptorBites" />
 
                 {/* COMMON ROOMS */}
                 <PeriodsButtonHover stage="main-entrance" label="main entrance" />

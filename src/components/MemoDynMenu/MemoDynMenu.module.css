@@ -16,7 +16,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     position: relative;
     display: inline-block;
-    background-image: url(/public/assets/img/landing-page/title-bg.png);
+    background-image: url(/assets/img/landing-page/title-bg.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

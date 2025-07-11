@@ -32,4 +32,32 @@ function fixPathsInFile(filePath) {
 }
 
 // Start from the src directory
-walkDir('./src', fixPathsInFile); 
+walkDir('./src', fixPathsInFile);
+
+// Also fix JSON files
+const jsonFiles = [
+  'src/context/data/books_data.json',
+  'src/context/data/galleries_data.json',
+  'src/context/data/album_data.json',
+  'src/context/data/books_data_spanish.json',
+  'src/context/data/galleries_data_spanish.json'
+];
+
+jsonFiles.forEach(filePath => {
+  try {
+    let content = readFileSync(filePath, 'utf8');
+    const originalContent = content;
+
+    // Replace all instances of /public/assets/ with /assets/
+    content = content.replace(/\/public\/assets\//g, '/assets/');
+
+    if (content !== originalContent) {
+      writeFileSync(filePath, content, 'utf8');
+      console.log(`Fixed JSON paths in: ${filePath}`);
+    }
+  } catch (error) {
+    console.log(`File not found or error reading: ${filePath}`);
+  }
+});
+
+console.log('Path fixing complete!'); 

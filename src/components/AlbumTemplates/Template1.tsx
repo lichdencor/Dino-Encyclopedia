@@ -19,7 +19,7 @@ export const Template1: React.FC<Template1Props> = ({
     <div className={templateStyles["template-container"]}>
       <div className={styles["top-section"]}>
         <div className={styles["scene-1-container"]}>
-          <img className={styles["scene-1"]} src="/public/assets/giph/scenes/template-1-1.gif" alt="Scene 1" />
+          <img className={styles["scene-1"]} src="/assets/giph/scenes/template-1-1.gif" alt="Scene 1" />
           <div
             className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[0].id)}
@@ -124,7 +124,7 @@ export const Template1: React.FC<Template1Props> = ({
           </div>
         </div>
         <div className={styles["scene-2-container"]}>
-          <img className={styles["scene-2"]} src="/public/assets/giph/scenes/template-1-2.gif" alt="Scene 2" />
+          <img className={styles["scene-2"]} src="/assets/giph/scenes/template-1-2.gif" alt="Scene 2" />
           <div
             className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[3].id)}
@@ -189,7 +189,7 @@ export const Template1: React.FC<Template1Props> = ({
       </div>
       <div className={styles["bottom-section"]}>
         <div className={styles["scene-3-container"]}>
-          <img className={styles["scene-3"]} src="/public/assets/giph/scenes/template-1-3.gif" alt="Scene 3" />
+          <img className={styles["scene-3"]} src="/assets/giph/scenes/template-1-3.gif" alt="Scene 3" />
           <div
             className={`${styles["drop-zone"]} ${styles["drop-zone-1"]}`}
             onMouseUp={() => onDrop(slots[6].id)}
@@ -253,7 +253,7 @@ export const Template1: React.FC<Template1Props> = ({
         </div>
         <div className={`${styles["info-box"]} ${templateStyles["info-box"]}`}>
           <img 
-            src="/public/assets/giph/logo.gif" 
+            src="/assets/giph/logo.gif" 
             alt="Dynard" 
             className={templateStyles["dynard-mascot"]}
           />
@@ -262,7 +262,7 @@ export const Template1: React.FC<Template1Props> = ({
           </div>
           <p>
             <img 
-              src="/public/assets/img/paws/level-paw-complete.png" 
+              src="/assets/img/paws/level-paw-complete.png" 
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />
@@ -270,7 +270,7 @@ export const Template1: React.FC<Template1Props> = ({
           </p>
           <p>
             <img 
-              src="/public/assets/img/paws/level-paw-complete.png" 
+              src="/assets/img/paws/level-paw-complete.png" 
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />
@@ -278,7 +278,7 @@ export const Template1: React.FC<Template1Props> = ({
           </p>
           <p>
             <img 
-              src="/public/assets/img/paws/level-paw-complete.png" 
+              src="/assets/img/paws/level-paw-complete.png" 
               alt="Dinosaur paw" 
               className={templateStyles["fact-icon"]}
             />

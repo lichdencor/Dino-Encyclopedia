@@ -53,7 +53,7 @@ export const PeriodsButtonPremium: React.FC<PeriodsButtonPremiumProps> = ({
                             <div className={styles.galleryInfo}>
                             <div className={styles.alertContainer}>
                                 <div className={styles.alertBg}></div>
-                                <img src="/public/assets/img/lock/lock.png" alt="lock" className={styles.lock} />
+                                <img src="/assets/img/lock/lock.png" alt="lock" className={styles.lock} />
                                 </div>
                                 <p className={styles.alertText}>¡Canjeá tu acceso premium en la tienda!</p>
                             </div>

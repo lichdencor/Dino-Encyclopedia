@@ -19,7 +19,7 @@ export const Template2: React.FC<Template2Props> = ({
       <div className={styles["top-section"]}>
         <div className={styles["scene-1-container"]}>
           <img
-            src="/public/assets/giph/scenes/template-2-1.gif"
+            src="/assets/giph/scenes/template-2-1.gif"
             alt="scene 1"
             className={styles["scene-1"]}
           />
@@ -88,7 +88,7 @@ export const Template2: React.FC<Template2Props> = ({
         <div className={styles["info-and-shiny"]}>
           <div className={`${styles["info-box"]} ${templateStyles["info-box"]}`}>
             <img
-              src="/public/assets/giph/logo.gif"
+              src="/assets/giph/logo.gif"
               alt="Dynard"
               className={templateStyles["dynard-mascot"]}
             />
@@ -97,7 +97,7 @@ export const Template2: React.FC<Template2Props> = ({
             </div>
             <p>
               <img
-                src="/public/assets/img/paws/level-paw-complete.png"
+                src="/assets/img/paws/level-paw-complete.png"
                 alt="Dinosaur paw"
                 className={templateStyles["fact-icon"]}
               />
@@ -105,7 +105,7 @@ export const Template2: React.FC<Template2Props> = ({
             </p>
             <p>
               <img
-                src="/public/assets/img/paws/level-paw-complete.png"
+                src="/assets/img/paws/level-paw-complete.png"
                 alt="Dinosaur paw"
                 className={templateStyles["fact-icon"]}
               />
@@ -181,7 +181,7 @@ export const Template2: React.FC<Template2Props> = ({
         </div>
         <div className={styles["scene-2-container"]}>
           <img
-            src="/public/assets/giph/scenes/template-2-2.gif"
+            src="/assets/giph/scenes/template-2-2.gif"
             alt="scene 2"
             className={styles["scene-2"]}
           />

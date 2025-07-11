@@ -31,14 +31,14 @@ const DialogoTips: React.FC<TransitionDialogProps> = ({ onContinue, puzzleName }
                 <div className={styles.charactersRow}>
                     <div className={styles.character1}>
                         <img 
-                            src="/public/assets/giph/dynard-friend.gif" 
+                            src="/assets/giph/dynard-friend.gif" 
                             alt="character 1" 
                             className={styles.characterImage}
                         />
                     </div>
                     <div className={styles.character2}>
                         <img 
-                            src="/public/assets/giph/logo.gif" 
+                            src="/assets/giph/logo.gif" 
                             alt="character 2" 
                             className={styles.characterImage}
                         />

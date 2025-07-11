@@ -41,7 +41,7 @@ export const Game = ({ nombre, cuadro, imagen, simbolo, link, disabled = false }
                     />
                 )}
             </div>
-            <img src="/public/assets/img/gamesPage/gameNameDivisionLine.png" alt="gold line" className={styles.goldLine} />
+            <img src="/assets/img/gamesPage/gameNameDivisionLine.png" alt="gold line" className={styles.goldLine} />
             <div className={styles.gameNameContainer}>
                 <div className={styles.symbolContainer}>
                     <div className={styles.symbolBg}></div>

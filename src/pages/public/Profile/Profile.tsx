@@ -17,7 +17,7 @@ export const Profile = () => {
                     <div className={styles.petContainer}>
                         <button className={styles["personalize-pet-btn"]}>PERSONALIZE</button>
 
-                        <img src="/public/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg} />
+                        <img src="/assets/img/pets/t-rex/pet-t-rex-1.png" alt="" className={styles.petImg} />
                     </div>
                     <div className={styles["user-data-container"]}>
                         <button className={styles["settings-btn"]}>SETTINGS</button>
@@ -33,7 +33,7 @@ export const Profile = () => {
                         <span className={styles.fidelitySystemTitle}>FIDELITY SYSTEM</span>
                     </div>
                     <div className={styles["progress-bar"]}>
-                        <ProgressBar imgSrc='/public/assets/img/achievements/gold/achievement-final-gold.png' customStyles={{ container: styles["container"], imgContainer: styles["achievement-img-container"] }} progress={23}></ProgressBar>
+                        <ProgressBar imgSrc="/assets/img/achievements/gold/achievement-final-gold.png" customStyles={{ container: styles["container"], imgContainer: styles["achievement-img-container"] }} progress={23}></ProgressBar>
                     </div>
                     <div className={styles.achievementsContainer}>
 

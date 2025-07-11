@@ -59,7 +59,7 @@ export const ProfileAchievement = ({
         <div className={styles["badges-container"]}>
           {badgeTiers.map((badgeTier) => (
             <div key={badgeTier} className={styles["badge-container"]}>
-              <img src="/public/assets/img/alert/alertBorder.png" alt="badge border" className={styles["badge-border"]}/>
+              <img src="/assets/img/alert/alertBorder.png" alt="badge border" className={styles["badge-border"]}/>
               <img
                 src={`/assets/img/achievements/${badgeTier}/achievement-${keyName}-${badgeTier}.png`}
                 alt={`${name} ${badgeTier}`}

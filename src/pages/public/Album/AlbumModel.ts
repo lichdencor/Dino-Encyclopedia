@@ -15,38 +15,38 @@ export class AlbumModel {
     private listeners: ((state: AlbumState) => void)[] = [];
     private initialStickers: Sticker[] = [
         // TEMPLATE 1 - Eggs
-        { id: '01', image: "/public/assets/img/album/stickers/sticker-01.png" },
-        { id: '02', image: "/public/assets/img/album/stickers/sticker-02.png" },
-        { id: '03', image: "/public/assets/img/album/stickers/sticker-03.png" },
-        { id: '04', image: "/public/assets/img/album/stickers/sticker-04.png" },
-        { id: '05', image: "/public/assets/img/album/stickers/sticker-05.png" },
-        { id: '06', image: "/public/assets/img/album/stickers/sticker-06.png" },
-        { id: '07', image: "/public/assets/img/album/stickers/sticker-07.png" },
-        { id: '08', image: "/public/assets/img/album/stickers/sticker-08.png" },
-        { id: '09', image: "/public/assets/img/album/stickers/sticker-09.png" },
-        { id: '10', image: "/public/assets/img/album/stickers/sticker-10.png" },
-        { id: '11', image: "/public/assets/img/album/stickers/sticker-11.png" },
+        { id: '01', image: "/assets/img/album/stickers/sticker-01.png" },
+        { id: '02', image: "/assets/img/album/stickers/sticker-02.png" },
+        { id: '03', image: "/assets/img/album/stickers/sticker-03.png" },
+        { id: '04', image: "/assets/img/album/stickers/sticker-04.png" },
+        { id: '05', image: "/assets/img/album/stickers/sticker-05.png" },
+        { id: '06', image: "/assets/img/album/stickers/sticker-06.png" },
+        { id: '07', image: "/assets/img/album/stickers/sticker-07.png" },
+        { id: '08', image: "/assets/img/album/stickers/sticker-08.png" },
+        { id: '09', image: "/assets/img/album/stickers/sticker-09.png" },
+        { id: '10', image: "/assets/img/album/stickers/sticker-10.png" },
+        { id: '11', image: "/assets/img/album/stickers/sticker-11.png" },
         // TEMPLATE 2 - Dryosaurus
-        { id: '50', image: "/public/assets/img/album/stickers/sticker-50.png" },
-        { id: '51', image: "/public/assets/img/album/stickers/sticker-51.png" },
-        { id: '52', image: "/public/assets/img/album/stickers/sticker-52.png" },
-        { id: '53', image: "/public/assets/img/album/stickers/sticker-53.png" },
-        { id: '54', image: "/public/assets/img/album/stickers/sticker-54.png" },
-        { id: '55', image: "/public/assets/img/album/stickers/sticker-55.png" },
-        { id: '56', image: "/public/assets/img/album/stickers/sticker-56.png" },
-        { id: '57', image: "/public/assets/img/album/stickers/sticker-57.png" },
+        { id: '50', image: "/assets/img/album/stickers/sticker-50.png" },
+        { id: '51', image: "/assets/img/album/stickers/sticker-51.png" },
+        { id: '52', image: "/assets/img/album/stickers/sticker-52.png" },
+        { id: '53', image: "/assets/img/album/stickers/sticker-53.png" },
+        { id: '54', image: "/assets/img/album/stickers/sticker-54.png" },
+        { id: '55', image: "/assets/img/album/stickers/sticker-55.png" },
+        { id: '56', image: "/assets/img/album/stickers/sticker-56.png" },
+        { id: '57', image: "/assets/img/album/stickers/sticker-57.png" },
         // TEMPLATE 3 - Triceratops
-        { id: '64', image: "/public/assets/img/album/stickers/sticker-64.png" }, // Barro (fuera de escena)
-        { id: '61', image: "/public/assets/img/album/stickers/sticker-61.png" }, // Triceratops morado (fuera de escena)
-        { id: '62', image: "/public/assets/img/album/stickers/sticker-62.png" }, // Triceratops verde (fuera de escena)
-        { id: '69', image: "/public/assets/img/album/stickers/sticker-69.png" }, // Triceratops rojo (fuera de escena)
-        { id: '63', image: "/public/assets/img/album/stickers/sticker-63.png" }, // Huella (fuera de escena)
-        { id: '58', image: "/public/assets/img/album/stickers/sticker-58.png" }, // Huevo (en escena)
-        { id: '59', image: "/public/assets/img/album/stickers/sticker-59.png" }, // Triceratops naranja (en escena)
+        { id: '64', image: "/assets/img/album/stickers/sticker-64.png" }, // Barro (fuera de escena)
+        { id: '61', image: "/assets/img/album/stickers/sticker-61.png" }, // Triceratops morado (fuera de escena)
+        { id: '62', image: "/assets/img/album/stickers/sticker-62.png" }, // Triceratops verde (fuera de escena)
+        { id: '69', image: "/assets/img/album/stickers/sticker-69.png" }, // Triceratops rojo (fuera de escena)
+        { id: '63', image: "/assets/img/album/stickers/sticker-63.png" }, // Huella (fuera de escena)
+        { id: '58', image: "/assets/img/album/stickers/sticker-58.png" }, // Huevo (en escena)
+        { id: '59', image: "/assets/img/album/stickers/sticker-59.png" }, // Triceratops naranja (en escena)
         // Segundo hongo
-        { id: '65', image: "/public/assets/img/album/stickers/sticker-56.png" }, // Temporalmente usando la misma imagen
+        { id: '65', image: "/assets/img/album/stickers/sticker-56.png" }, // Temporalmente usando la misma imagen
         // Escarabajo
-        { id: '70', image: "/public/assets/img/album/stickers/sticker-70.png" }
+        { id: '70', image: "/assets/img/album/stickers/sticker-70.png" }
     ];
 
     private shuffleStickers(stickers: Sticker[]): Sticker[] {
@@ -157,7 +157,7 @@ export class AlbumModel {
 
     public isSlotAvailable(slot: Slot | undefined): boolean {
         if (!slot || slot.occupied) return false;
-        
+
         const { draggingSticker } = this.state;
         if (!draggingSticker) return false;
 
@@ -191,7 +191,7 @@ export class AlbumModel {
         }));
 
         // Remover el sticker de la lista de stickers disponibles
-        this.state.stickers = this.state.stickers.filter(sticker => 
+        this.state.stickers = this.state.stickers.filter(sticker =>
             sticker.id !== draggingSticker.id
         );
 
@@ -207,9 +207,9 @@ export class AlbumModel {
 
     public getStickerImageById(id: string): string {
         // Buscar primero en stickers disponibles, luego en stickers iniciales
-        const sticker = this.state.stickers.find(s => s.id === id) || 
-                       this.initialStickers.find(s => s.id === id);
-        return sticker?.image || `/public/assets/img/album/stickers/sticker-${id}.png`;
+        const sticker = this.state.stickers.find(s => s.id === id) ||
+            this.initialStickers.find(s => s.id === id);
+        return sticker?.image || `/assets/img/album/stickers/sticker-${id}.png`;
     }
 
     public getCurrentPageStickers(): Sticker[] {
@@ -224,10 +224,10 @@ export class AlbumModel {
 
     public nextStickerPage() {
         const totalPages = this.getTotalStickerPages();
-        
+
         if (this.state.currentStickerPage < totalPages - 1) {
             const nextPage = this.state.currentStickerPage + 1;
-            
+
             this.state = {
                 ...this.state,
                 currentStickerPage: nextPage
@@ -240,7 +240,7 @@ export class AlbumModel {
     public previousStickerPage() {
         if (this.state.currentStickerPage > 0) {
             const prevPage = this.state.currentStickerPage - 1;
-            
+
             this.state = {
                 ...this.state,
                 currentStickerPage: prevPage

@@ -1,7 +1,7 @@
 .profilePage {
     width: 100vw;
     height: 100vh;
-    background-image: url(/public/assets/img/bg/brown-rock-bg.png);
+    background-image: url(/assets/img/bg/brown-rock-bg.png);
     background-position: bottom;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -68,7 +68,7 @@
     justify-content: space-evenly;
     align-items: flex-start;
     position: relative;
-    background-image: url(/public/assets/img/progress/progress-container.png);
+    background-image: url(/assets/img/progress/progress-container.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -163,7 +163,7 @@
     letter-spacing: 0.3vw;
     text-align: center;
     border-radius: 5px;
-    background-image: url(/public/assets/img/landing-page/title-bg.png);
+    background-image: url(/assets/img/landing-page/title-bg.png);
 }
 
 .achievement-img-container {
@@ -174,7 +174,7 @@
     align-items: center;
     position: absolute;
     right: 0%;
-    background-image: url(/public/assets/img/progress/achievement-container.png);
+    background-image: url(/assets/img/progress/achievement-container.png);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

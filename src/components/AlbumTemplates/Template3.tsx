@@ -89,7 +89,7 @@ export const Template3: React.FC<Template3Props> = ({
       <div className={styles["right-section"]}>
         <div className={`${styles["info-box"]} ${styles["info-box"]}`}>
           <img
-            src="/public/assets/giph/logo.gif"
+            src="/assets/giph/logo.gif"
             alt="Dynard"
             className={styles["dynard-mascot"]}
           />
@@ -98,7 +98,7 @@ export const Template3: React.FC<Template3Props> = ({
           </div>
           <p>
             <img
-              src="/public/assets/img/paws/level-paw-complete.png"
+              src="/assets/img/paws/level-paw-complete.png"
               alt="Dinosaur paw"
               className={styles["fact-icon"]}
             />
@@ -107,7 +107,7 @@ export const Template3: React.FC<Template3Props> = ({
         </div>
         <div className={styles["scene-container"]}>
           <img
-            src="/public/assets/giph/scenes/template-3.gif"
+            src="/assets/giph/scenes/template-3.gif"
             alt="scene"
             className={styles["scene"]}
           />

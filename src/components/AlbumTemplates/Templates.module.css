@@ -15,7 +15,7 @@
 /* .leftSection {
     flex: 2;
     position: relative;
-    background-image: url('/public/assets/img/album-bg.jpg');
+    background-image: url(/assets/img/album-bg.jpg');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -251,8 +251,8 @@
     z-index: 2;
 }
 
-.info-box { 
-    background-image: url("/public/assets/img/album/tip-container.png");
+.info-box {
+    background-image: url("/assets/img/album/tip-container.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;

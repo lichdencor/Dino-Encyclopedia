@@ -16,7 +16,7 @@ export const TemplateImageBottomLeftAndTopRight = ({ className, upperText, image
         <p className={styles.subtitle}>FEEDING</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
             <div className={styles["container-image-bottom-left"]}>
-                <img src="/public/assets/img/books/frame-book-small.png" alt="frame" className={styles["image-frame"]} />
+                <img src="/assets/img/books/frame-book-small.png" alt="frame" className={styles["image-frame"]} />
                 <img src={imageBottomLeftSrc} alt="" className={styles["image-bottom-left"]} />
             </div>
             
@@ -24,7 +24,7 @@ export const TemplateImageBottomLeftAndTopRight = ({ className, upperText, image
             <div className={`${styles.text} ${styles['text-lower']}`}>{lowerText}</div>
 
             <div className={styles["container-image-top-right"]}>
-                <img src="/public/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
+                <img src="/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
                 <img src={imageTopRightSrc} alt="" className={styles["image-top-right"]} />
             </div>
             

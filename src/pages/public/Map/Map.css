@@ -5,7 +5,7 @@ body {
 .mapPage {
   width: 100vw;
   height: 100vh;
-  background-image: url(/public/assets/img/bg/brown-rock-bg.png);
+  background-image: url(/assets/img/bg/brown-rock-bg.png);
   background-position: bottom;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@ body {
   height: 75%;
   margin: 0 auto;
   margin-top: 8%;
-  background-image: url(/public/assets/img/map/map.png);
+  background-image: url(/assets/img/map/map.png);
   background-position: top;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -103,7 +103,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/public/assets/giph/tower.gif);
+  background-image: url(/assets/giph/tower.gif);
   width: 2%;
   height: 12%;
   filter: brightness(100%);
@@ -133,7 +133,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/public/assets/giph/tower.gif);
+  background-image: url(/assets/giph/tower.gif);
   width: 2.8%;
   height: 18%;
 }
@@ -161,7 +161,7 @@ body {
 .kids-room {
   left: 50%;
   bottom: 56%;
-  background-image: url(/public/assets/giph/pinkTower.gif);
+  background-image: url(/assets/giph/pinkTower.gif);
 }
 
 .restroom-1 {
@@ -188,7 +188,7 @@ body {
 .stage-1,
 .stage-2,
 .stage-3 {
-  background-image: url(/public/assets/giph/greenTower.gif);
+  background-image: url(/assets/giph/greenTower.gif);
 }
 
 .stage-1 {
@@ -209,7 +209,7 @@ body {
 .stage-4,
 .stage-5,
 .stage-6 {
-  background-image: url(/public/assets/giph/blueTower.gif);
+  background-image: url(/assets/giph/blueTower.gif);
 }
 
 .stage-4 {
@@ -230,7 +230,7 @@ body {
 .stage-7,
 .stage-8,
 .stage-9 {
-  background-image: url(/public/assets/giph/violetTower.gif);
+  background-image: url(/assets/giph/violetTower.gif);
 }
 
 .stage-7 {
@@ -362,24 +362,24 @@ body {
 }
 
 .main-entrance .info-container {
-  background-image: url(/public/assets/img/building-descriptions/main-entrance.png);
+  background-image: url(/assets/img/building-descriptions/main-entrance.png);
 }
 
 .library .info-container {
-  background-image: url(/public/assets/img/building-descriptions/library.png);
+  background-image: url(/assets/img/building-descriptions/library.png);
   top: 2vw;
 }
 
 .kids-room .info-container {
-  background-image: url(/public/assets/img/building-descriptions/kidsLockedAccess.png);
+  background-image: url(/assets/img/building-descriptions/kidsLockedAccess.png);
 }
 
 .store .info-container {
-  background-image: url(/public/assets/img/building-descriptions/store.png);
+  background-image: url(/assets/img/building-descriptions/store.png);
 }
 
 .entrance .info-container {
-  background-image: url(/public/assets/img/building-descriptions/entrance.png);
+  background-image: url(/assets/img/building-descriptions/entrance.png);
 }
 
 .restroom .info-container {
@@ -397,15 +397,15 @@ body {
 }
 
 .stage-1 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/tri-1.png);
+  background-image: url(/assets/img/building-descriptions/tri-1.png);
 }
 
 .stage-2 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/tri-2.png);
+  background-image: url(/assets/img/building-descriptions/tri-2.png);
 }
 
 .stage-3 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/tri-3.png);
+  background-image: url(/assets/img/building-descriptions/tri-3.png);
   top: 6vw;
 }
 
@@ -414,27 +414,27 @@ body {
 }
 
 .stage-4 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/jur-1.png);
+  background-image: url(/assets/img/building-descriptions/jur-1.png);
 }
 
 .stage-5 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/jur-2.png);
+  background-image: url(/assets/img/building-descriptions/jur-2.png);
 }
 
 .stage-6 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/jur-3.png);
+  background-image: url(/assets/img/building-descriptions/jur-3.png);
 }
 
 .stage-7 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/cre-1.png);
+  background-image: url(/assets/img/building-descriptions/cre-1.png);
 }
 
 .stage-8 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/cre-2.png);
+  background-image: url(/assets/img/building-descriptions/cre-2.png);
 }
 
 .stage-9 .info-container {
-  background-image: url(/public/assets/img/building-descriptions/cre-3.png);
+  background-image: url(/assets/img/building-descriptions/cre-3.png);
 }
 
 .site-description {

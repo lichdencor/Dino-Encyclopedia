@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/public/assets/img/login-bg/form-bg.png);
+  background-image: url(/assets/img/login-bg/form-bg.png);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

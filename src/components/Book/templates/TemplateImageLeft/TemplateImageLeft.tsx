@@ -16,7 +16,7 @@ export const TemplateImageLeft = ({ className, imageLeftSrc, title, subtitle, te
             <p className={styles.title}>{title}</p>
             <p className={styles.subtitle}>{subtitle}</p>
             <div className={styles["container-image"]}>
-                <img src="/public/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
+                <img src="/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
                 <img src={imageLeftSrc} alt="dinosaur" className={styles["image-left"]} />
             </div>
             <div className={styles.text}>{text}</div>

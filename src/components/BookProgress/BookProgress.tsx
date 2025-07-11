@@ -45,7 +45,7 @@ export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress, cur
           }}
         >
           <img
-            src="/public/assets/img/evolutions/profile/profile-t-rex-1-flipped.png"
+            src="/assets/img/evolutions/profile/profile-t-rex-1-flipped.png"
             alt="pet" 
             className={styles["img-pet"]}
           />
@@ -59,8 +59,8 @@ export const BookProgress: React.FC<BookProgressProps> = ({ pages, progress, cur
             ref={el => pawRefs.current[index] = el}
             src={
               index <= progress
-                ? "/public/assets/img/paws/level-paw-complete.png"
-                : "/public/assets/img/paws/level-paw-incomplete.png"
+                ? "/assets/img/paws/level-paw-complete.png"
+                : "/assets/img/paws/level-paw-incomplete.png"
             }
             alt={`progress paw ${index + 1}`}
             className={styles["img-paw"]}

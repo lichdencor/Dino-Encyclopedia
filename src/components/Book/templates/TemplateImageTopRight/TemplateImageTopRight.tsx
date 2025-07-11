@@ -17,7 +17,7 @@ export const TemplateImageBottomRight = ({ className, upperText, imageTopRightSr
             <p className={styles.subtitle}>BEHAVIOUR</p>
             <div className={`${styles.text} ${styles['text-upper']}`}>{upperText}</div>
             <div className={styles["container-image"]}>
-                <img src="/public/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
+                <img src="/assets/img/books/frame-book.png" alt="frame" className={styles["image-frame"]} />
                 <img src={imageTopRightSrc} alt="" className={styles["image-right"]} />
             </div>
             <div className={`${styles.text} ${styles['text-lower']}`}>{lowerText}</div>

@@ -92,7 +92,7 @@
     position: absolute;
     width: 15%;
     height: 125%;
-    background-image: url(/public/assets/img/alert/alertBorder.png);
+    background-image: url(/assets/img/alert/alertBorder.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
