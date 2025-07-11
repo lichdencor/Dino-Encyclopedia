@@ -56,6 +56,7 @@ export interface DinosaurViewerProps {
   children: React.ReactNode;
   dinosaurImage: string;
   dinosaurBone: string;
+  stylesContainer: any; // CSS module object with the era-specific styles
 }
 
 export interface InfoListProps {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../XrayModal.module.css';
-import stylesContainer from '../../../pages/public/Triassic-Inferior/Triassic-Inferior.module.css';
 import { DinosaurViewerProps } from '../types';
 
 export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
@@ -10,7 +9,8 @@ export const DinosaurViewer: React.FC<DinosaurViewerProps> = ({
   onMouseLeave,
   children,
   dinosaurImage,
-  dinosaurBone
+  dinosaurBone,
+  stylesContainer
 }) => {
   return (
     <div className={styles["dinosaur-container"]}>

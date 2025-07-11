@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './IntroSequence.module.css';
 
 const introImages = [
-  "/assets/img/intro/intro_01.jpg",
-  "/assets/img/intro/intro_02.jpg",
-  "/assets/img/intro/intro_03.jpg",
-  "/assets/img/intro/intro_04.jpg",
-  "/assets/img/intro/intro_05.jpg",
-  "/assets/img/intro/intro_06.jpg",
+  "/assets/img/dinosaurs/skeleton/skeleton-cr-3-Tyrannosaurus.png",  // El rey - T-Rex
+  "/assets/img/dinosaurs/skeleton/skeleton-ju-3-Stegosaurus.png",    // Herbívoro icónico
+  "/assets/img/dinosaurs/skeleton/skeleton-cr-2-Spinosaurus.png",    // Depredador acuático
+  "/assets/img/dinosaurs/skeleton/skeleton-ju-3-Brachiosaurus.png",  // Gigante de cuello largo
+  "/assets/img/dinosaurs/skeleton/skeleton-ju-2-Allosaurus.png",     // Depredador jurásico
+  "/assets/img/dinosaurs/skeleton/skeleton-cr-3-Triceratops.png",    // Herbívoro con cuernos
 ];
 
 export const IntroSequence: React.FC = () => {

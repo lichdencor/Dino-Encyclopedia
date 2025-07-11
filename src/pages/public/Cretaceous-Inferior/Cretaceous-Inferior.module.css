@@ -150,7 +150,8 @@
 }
 
 .dinosaur-1 {
-  background-image: url(/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png);
+  height: 50%;
+  background-image: url(/assets/img/dinosaurs/cr-1-Pachycephalosaurus.png) !important;
   animation: breathe 2s infinite ease-in-out;
   background-size: 100% 100%;
 }

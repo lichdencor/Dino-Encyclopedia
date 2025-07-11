@@ -465,6 +465,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
               }}
               dinosaurImage={dinosaurImage}
               dinosaurBone={dinosaurBone}
+              stylesContainer={stylesContainer}
             >
               {!isGuest && !hasPieceBeenFound && showPuzzlePiece && piecePosition && (
                 <PuzzlePiece
