@@ -57,8 +57,8 @@ export const JurassicMedium = () => {
       customStyles={customStyles}
       previousPage="jurassic-inferior"
       nextPage="jurassic-superior"
-      imagePrefix="/assets/img/dinosaurs/jr-2-"
-      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jr-2-"
+      imagePrefix="/assets/img/dinosaurs/ju-2-"
+      skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-ju-2-"
       era="jurassic"
       period="Medium"
     />

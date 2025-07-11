@@ -66,9 +66,9 @@ export const JurassicInferior = () => {
   return (
     <>
       {showTransition && (
-        <TransitionScreen 
+        <TransitionScreen
           eraName="Jurassic Period"
-          onTransitionEnd={() => setShowTransition(false)} 
+          onTransitionEnd={() => setShowTransition(false)}
         />
       )}
       <Gallery
@@ -76,8 +76,8 @@ export const JurassicInferior = () => {
         customStyles={customStyles}
         previousPage="triassic-superior"
         nextPage="jurassic-medium"
-        imagePrefix="/assets/img/dinosaurs/jr-1-"
-        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-jr-1-"
+        imagePrefix="/assets/img/dinosaurs/ju-1-"
+        skeletonPrefix="/assets/img/dinosaurs/skeleton/skeleton-ju-1-"
         era="jurassic"
         period="Inferior"
       />
