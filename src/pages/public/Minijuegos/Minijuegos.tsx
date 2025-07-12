@@ -1,82 +1,102 @@
+import { Component } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Nav } from "../../../components";
 import { Game } from "../../../components/Game/Game";
+import { Alert } from "../../../components/Alert/Alert";
+import { MinijuegosModel, MinijuegosState } from "./MinijuegosModel";
+import { MinijuegosController } from "./MinijuegosController";
 import { useAuth } from "../../../hooks/useAuth";
 import styles from "./Minijuegos.module.css";
 
-interface Juego {
-    nombre: string;
-    cuadro: string;
-    imagen: {
-        src: string;
-        alt: string;
-    };
-    simbolo: {
-        src: string;
-        alt: string;
-        altura: string;
-    };
-    link: string;
-    isAvailable: boolean;
+interface MinijuegosProps {
+    navigate: NavigateFunction;
+    authContext: any;
 }
 
-// Convert class component to functional component to use hooks
-export const Minijuegos = () => {
-    const { isGuest } = useAuth();
+export class MinijuegosComponent extends Component<MinijuegosProps, MinijuegosState> {
+    private model: MinijuegosModel;
+    private controller: MinijuegosController;
+    private unsubscribe: () => void;
 
-    const juegos: Juego[] = [{
-        nombre: "Puzzleaurus",
-        cuadro: "/assets/img/gamesPage/gameAcessFrame1.png",
-        imagen: {
-            src: "/assets/img/gamesPage/puzzleaurusAccessBg.png",
-            alt: "Puzzleaurus"
-        },
-        simbolo: {
-            src: "/assets/img/puzzles/puzzle-piece.png",
-            alt: "pieza de puzzle",
-            altura: "60%"
-        },
-        link: "/puzzleaurus",
-        isAvailable: !isGuest
-    }, {
-        nombre: "Memodyn",
-        cuadro: "/assets/img/gamesPage/gameAcessFrame2.png",
-        imagen: {
-            src: "/assets/img/gamesPage/memodynAccessBg.png",
-            alt: "Memodyn"
-        },
-        simbolo: {
-            src: "/assets/img/cardBase/cardBase.png",
-            alt: "cartas",
-            altura: "45%"
-        },
-        link: "/memodyn",
-        isAvailable: true
-    }];
+    constructor(props: MinijuegosProps) {
+        super(props);
+        this.model = new MinijuegosModel(props.authContext);
+        this.controller = new MinijuegosController(this.model, props.navigate);
+        this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+        this.controller.initializeGames();
+        this.state = this.model.getState();
+    }
 
-    return (
-        <div className={styles.gamesPage}>
-            <Nav />
-            <div className={styles.gamesContainer}>
-                <div className={styles.sparkle1}></div>
-                <div className={styles.sparkle2}></div>
-                <div className={styles.sparkle3}></div>
-                <div className={styles.sparkle4}></div>
-                <div className={styles.sparkle5}></div>
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
 
-                {juegos.map((juego) => (
-                    <Game
-                        key={juego.nombre}
-                        nombre={juego.nombre}
-                        cuadro={juego.cuadro}
-                        imagen={juego.imagen}
-                        simbolo={juego.simbolo}
-                        link={juego.link}
-                        disabled={!juego.isAvailable}
+    handleStateChange(newState: MinijuegosState) {
+        this.setState(newState);
+    }
+
+    render() {
+        const state = this.state as MinijuegosState;
+
+        if (state.isLoading) {
+            return (
+                <div className={styles.gamesPage}>
+                    <Nav />
+                    <div className={styles.gamesContainer}>
+                        <div>Cargando juegos...</div>
+                    </div>
+                </div>
+            );
+        }
+
+        return (
+            <div className={styles.gamesPage}>
+                <Nav />
+                <div className={styles.gamesContainer}>
+                    <div className={styles.sparkle1}></div>
+                    <div className={styles.sparkle2}></div>
+                    <div className={styles.sparkle3}></div>
+                    <div className={styles.sparkle4}></div>
+                    <div className={styles.sparkle5}></div>
+
+                    {state.games.map((game) => (
+                        <Game
+                            key={game.id}
+                            nombre={game.nombre}
+                            cuadro={game.cuadro}
+                            imagen={game.imagen}
+                            simbolo={game.simbolo}
+                            link={game.link}
+                            disabled={!game.isAvailable}
+                            onClick={() => this.controller.handleGameClick(game)}
+                        />
+                    ))}
+                </div>
+
+                {state.error && (
+                    <Alert
+                        messageText={state.error}
+                        onClose={() => this.controller.handleErrorClose()}
                     />
-                ))}
+                )}
             </div>
-        </div>
-    );
+        );
+    }
 }
 
+// HOC para poder usar hooks en class component
+function withNavigate(WrappedComponent: typeof MinijuegosComponent) {
+    return function WithNavigateComponent() {
+        const navigate = useNavigate();
+        const authContext = useAuth();
+        return (
+            <WrappedComponent 
+                navigate={navigate}
+                authContext={authContext}
+            />
+        );
+    };
+}
+
+export const Minijuegos = withNavigate(MinijuegosComponent);
 export default Minijuegos;

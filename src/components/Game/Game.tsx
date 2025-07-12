@@ -19,9 +19,16 @@ type GameProps = {
     simbolo: SimboloProps;
     link: string;
     disabled?: boolean;
+    onClick?: () => void;
 }
 
-export const Game = ({ nombre, cuadro, imagen, simbolo, link, disabled = false }: GameProps) => {
+export const Game = ({ nombre, cuadro, imagen, simbolo, link, disabled = false, onClick }: GameProps) => {
+    const handleClick = () => {
+        if (onClick && !disabled) {
+            onClick();
+        }
+    };
+
     return (
         <div className={`${styles.gameContainer} ${disabled ? styles.disabled : ''}`}>
             <div className={styles.gameImgContainer} style={{ backgroundImage: `url(${cuadro})`}}>
@@ -32,6 +39,15 @@ export const Game = ({ nombre, cuadro, imagen, simbolo, link, disabled = false }
                             backgroundImage: `url(${imagen.src})`,
                             cursor: 'not-allowed'
                         }} 
+                    />
+                ) : onClick ? (
+                    <div
+                        className={styles.gameImg}
+                        style={{ 
+                            backgroundImage: `url(${imagen.src})`,
+                            cursor: 'pointer'
+                        }}
+                        onClick={handleClick}
                     />
                 ) : (
                     <Link
