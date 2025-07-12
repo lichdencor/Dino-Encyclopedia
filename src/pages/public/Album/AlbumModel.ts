@@ -11,7 +11,15 @@ export interface AlbumState {
 }
 
 export class AlbumModel {
-    private state: AlbumState;
+    private state: AlbumState = {
+        currentPage: 0,
+        pages: [],
+        stickers: [],
+        draggingSticker: null,
+        mousePos: { x: 0, y: 0 },
+        currentStickerPage: 0,
+        stickersPerPage: 8
+    };
     private listeners: ((state: AlbumState) => void)[] = [];
     private initialStickers: Sticker[] = [
         // TEMPLATE 1 - Eggs
@@ -61,10 +69,12 @@ export class AlbumModel {
     }
 
     constructor() {
+        this.setUpPagesSlots();
+    }
+
+    private setUpPagesSlots() {
         this.state = {
-            currentPage: 0,
-            currentStickerPage: 0,
-            stickersPerPage: 8,
+            ...this.state,
             pages: [
                 {
                     id: 'page-1',
@@ -141,17 +151,17 @@ export class AlbumModel {
     }
 
     public setMousePosition(x: number, y: number) {
-        this.state.mousePos = { x, y };
+        this.setState({ mousePos: { x, y } });
         this.notifyListeners();
     }
 
     public startDraggingSticker(sticker: Sticker) {
-        this.state.draggingSticker = sticker;
+        this.setState({ draggingSticker: sticker });
         this.notifyListeners();
     }
 
     public stopDraggingSticker() {
-        this.state.draggingSticker = null;
+        this.setState({ draggingSticker: null });
         this.notifyListeners();
     }
 
@@ -191,16 +201,22 @@ export class AlbumModel {
         }));
 
         // Remover el sticker de la lista de stickers disponibles
-        this.state.stickers = this.state.stickers.filter(sticker =>
-            sticker.id !== draggingSticker.id
-        );
+        this.setState({
+            stickers: this.state.stickers.filter(sticker =>
+                sticker.id !== draggingSticker.id
+            )
+        });
 
         this.notifyListeners();
     }
 
+    private setCurrentPage(pageIndex: number) {
+        this.setState({ currentPage: pageIndex });
+    }
+
     public navigateToPage(pageIndex: number) {
         if (pageIndex >= 0 && pageIndex < this.state.pages.length) {
-            this.state.currentPage = pageIndex;
+            this.setCurrentPage(pageIndex);
             this.notifyListeners();
         }
     }
@@ -228,23 +244,24 @@ export class AlbumModel {
         if (this.state.currentStickerPage < totalPages - 1) {
             const nextPage = this.state.currentStickerPage + 1;
 
-            this.state = {
-                ...this.state,
-                currentStickerPage: nextPage
-            };
+            this.setState({ currentStickerPage: nextPage });
 
             this.notifyListeners();
         }
+    }
+
+    private setState(state: Partial<AlbumState>) {
+        this.state = {
+            ...this.state,
+            ...state
+        };
     }
 
     public previousStickerPage() {
         if (this.state.currentStickerPage > 0) {
             const prevPage = this.state.currentStickerPage - 1;
 
-            this.state = {
-                ...this.state,
-                currentStickerPage: prevPage
-            };
+            this.setState({ currentStickerPage: prevPage });
 
             this.notifyListeners();
         }

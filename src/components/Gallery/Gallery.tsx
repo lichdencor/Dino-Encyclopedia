@@ -30,15 +30,15 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
 
   constructor(props: GalleryProps) {
     super(props);
-    const { 
-      subPeriodModel, 
-      customStyles, 
-      previousPage, 
-      nextPage, 
-      imagePrefix, 
-      skeletonPrefix, 
-      era, 
-      period 
+    const {
+      subPeriodModel,
+      customStyles,
+      previousPage,
+      nextPage,
+      imagePrefix,
+      skeletonPrefix,
+      era,
+      period
     } = props;
 
     this.model = new GalleryModel(
@@ -80,9 +80,9 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
   };
 
   render() {
-    const { 
-      activeDinosaur, 
-      isModalOpen, 
+    const {
+      activeDinosaur,
+      isModalOpen,
       selectedDinosaur,
       customStyles,
       previousPage,
@@ -99,26 +99,26 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
       <div>
         <Nav />
         <div className={customStyles.containerClass}>
-          <GalleryCurtains 
+          <GalleryCurtains
             customStyles={customStyles}
             era={era}
             period={period}
           />
-          
+
           <div className={customStyles.backgroundClass} style={{ pointerEvents: "none" }}></div>
 
-          <GalleryArrows 
-            previousPage={previousPage} 
-            nextPage={nextPage} 
+          <GalleryArrows
+            previousPage={previousPage}
+            nextPage={nextPage}
           />
-          
+
           <GalleryDinosaurFrame
             dinosaurs={dinosaurNames}
             era={era}
             period={period}
           />
 
-          <GalleryDinosaurs 
+          <GalleryDinosaurs
             customStyles={customStyles}
             onDinosaurClick={this.handleDinosaurClick}
           />
@@ -130,7 +130,7 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
 
           <XRayModal
             isOpen={isModalOpen}
-            onClose={this.closeModal}
+            onClose={this.closeModal} // mer86
             selectedDinosaur={selectedDinosaur}
             activeDinosaur={activeDinosaur}
             setActiveDinosaur={this.setActiveDinosaur}

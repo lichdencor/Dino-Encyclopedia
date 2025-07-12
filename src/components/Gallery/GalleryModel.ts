@@ -65,7 +65,9 @@ export class GalleryModel {
         };
     }
 
-    private notify() {
+    // dónde está el setState?
+
+    private notifyListeners() {
         this.listeners.forEach(listener => listener(this.state));
     }
 
@@ -96,7 +98,7 @@ export class GalleryModel {
             ...this.state,
             activeDinosaur: dinosaur
         };
-        this.notify();
+        this.notifyListeners();
     }
 
     setIsModalOpen(isOpen: boolean) {
@@ -104,7 +106,7 @@ export class GalleryModel {
             ...this.state,
             isModalOpen: isOpen
         };
-        this.notify();
+        this.notifyListeners();
     }
 
     setSelectedDinosaur(index: number) {
@@ -113,16 +115,18 @@ export class GalleryModel {
             selectedDinosaur: index
         };
         this.updateDinosaurData(index);
-        this.notify();
+        this.notifyListeners();
     }
 
     handleDinosaurClick(index: number) {
         this.setSelectedDinosaur(index);
         this.setIsModalOpen(true);
+        // this.notifyListeners(); // ¿por qué no se llama acá?
     }
 
     closeModal() {
         this.setIsModalOpen(false);
         this.setSelectedDinosaur(0);
+        // this.notifyListeners(); // ¿por qué no se llama acá?
     }
 } 

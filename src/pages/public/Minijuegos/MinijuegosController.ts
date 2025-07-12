@@ -14,11 +14,11 @@ export class MinijuegosController {
         this.model.initializeGames();
     }
 
-    handleGameClick(game: GameData) {
-        const canAccess = this.model.handleGameAccess(game);
-        
+    handleGameClick(game: GameData) { // M4-13/20
+        const canAccess = this.model.handleGameAccess(game); // M4-14/21
+
         if (canAccess) {
-            this.navigate(game.link);
+            this.navigate(game.link); // M4-26
         }
     }
 

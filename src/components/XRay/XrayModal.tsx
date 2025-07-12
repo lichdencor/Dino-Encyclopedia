@@ -120,7 +120,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
         }
       }));
 
-      setProgress(currentProgress);
+      setProgress(currentProgress); // 81
     }
   };
 
@@ -133,7 +133,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
     if (periodData && selectedDinosaur !== null) {
       const currentDinosaur = periodData.dinosaurs[selectedDinosaur];
       const wasDiscovered = currentDinosaur.discovered;
-      const willBeDiscovered = currentProgress >= 100;
+      const isDiscovered = currentProgress >= 100;
 
       const newProgress = {
         ...progress,
@@ -147,7 +147,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
                   idx === selectedDinosaur
                     ? {
                       ...d,
-                      discovered: willBeDiscovered,
+                      discovered: isDiscovered,
                       scanProgress: Math.min(Math.round(currentProgress), 100),
                       visibleInfo,
                       elapsedTime: currentElapsedTime
@@ -159,7 +159,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
           )
         }]
       };
-      if (!wasDiscovered && willBeDiscovered) {
+      if (!wasDiscovered && isDiscovered) {
         const dinoName = dinosaurInfo.name.toLowerCase()
           .replace(/[^a-z0-9]/g, '')
           .replace(/\s+/g, '');
@@ -229,7 +229,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       });
     }
 
-    updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), currentData.elapsedTime, newVisibleInfo);
+    updateDinosaurProgress(getCurrentDinosaurProgress(era, progress, period, selectedDinosaur), currentData.elapsedTime, newVisibleInfo); // 59
   }, [xrayTracking, era, progress, period, selectedDinosaur]);
 
   const handlePuzzlePieceFound = () => {
@@ -360,6 +360,7 @@ export const XRayModal: React.FC<XRayModalProps> = ({
       const periodData = progress.galleries[0][eraKey].find(
         (p) => p.period === `${period} ${era.charAt(0).toUpperCase() + era.slice(1)}`
       );
+
 
       if (periodData) {
         const dinosaur = periodData.dinosaurs[selectedDinosaur];

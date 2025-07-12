@@ -49,16 +49,21 @@ export class MinijuegosModel {
         };
     }
 
+    private setState(state: Partial<MinijuegosState>) {
+        this.state = { ...this.state, ...state };
+        this.notifyListeners();
+    }
+
     private notifyListeners() {
         this.listeners.forEach(listener => listener(this.getState()));
     }
 
     initializeGames() {
-        this.state.isLoading = true;
-        this.notifyListeners();
+        this.setState({ isLoading: true }); // M4-9
+        this.notifyListeners(); // M4-10
 
         try {
-            const isGuest = this.authContext.isGuest;
+            const isGuest = this.authContext.isGuest; // M4-7
 
             const games: GameData[] = [
                 {
@@ -112,23 +117,23 @@ export class MinijuegosModel {
         this.state.selectedGame = null;
 
         try {
-            const isGuest = this.authContext.isGuest;
+            const isGuest = this.authContext.isGuest; // M4-15/16/22/23
 
-            if (game.requiresRegistration && isGuest) {
+            if (game.requiresRegistration && isGuest) { // M4-17
                 this.state.error = 'Acceso denegado para invitados';
                 this.notifyListeners();
                 return false;
             }
 
-            if (game.isAvailable) {
+            if (game.isAvailable) { // M4-24
                 this.state.selectedGame = game;
                 this.notifyListeners();
-                return true;
+                return true; // M4-25
             }
 
             this.state.error = 'Juego no disponible';
             this.notifyListeners();
-            return false;
+            return false; // M4-18
         } catch (error) {
             this.state.error = 'Error al verificar el acceso';
             this.notifyListeners();

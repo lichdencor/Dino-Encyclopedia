@@ -23,7 +23,7 @@ export class LocalStorageProgressService implements IProgressService {
 
   async saveProgress(progress: ProgressData): Promise<void> {
     try {
-      localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+      localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress)); // 83
     } catch (error) {
       console.error("Error saving progress to localStorage:", error);
       throw error;
