@@ -37,9 +37,9 @@ export class PuzzleaurusModel {
         };
     }
 
-    public initialize() {
-        this.setState({
-            showTips: localStorage.getItem(this.PUZZLEAURUS_TIPS_KEY) === 'true'
+    public initialize() { // M4-32
+        this.setState({ // M4-35
+            showTips: localStorage.getItem(this.PUZZLEAURUS_TIPS_KEY) === 'true'// M4-33/34
         });
     }
 
@@ -69,22 +69,22 @@ export class PuzzleaurusModel {
         });
     }
 
-    public selectPuzzle(puzzle: Puzzle) {
+    public selectPuzzle(puzzle: Puzzle) { // M4-46
         this.setState({
             selectedPuzzle: puzzle,
             showTransition: true
         });
     }
 
-    public returnToMenu() {
-        this.setState({
+    public returnToMenu() { // M4-57
+        this.setState({ // M4-58
             selectedPuzzle: null,
             showTransition: false
         });
     }
 
-    public continue() {
-        this.setState({ showTransition: false });
+    public continue() { // M4-51
+        this.setState({ showTransition: false }); // M4-52
     }
 
     public navigateToPuzzle(puzzleId: number, puzzles: Puzzle[]) {

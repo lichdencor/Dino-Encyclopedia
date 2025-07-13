@@ -22,8 +22,4 @@ export class GalleryController {
     getState() {
         return this.model.getState();
     }
-
-    subscribe(listener: (state: GalleryState) => void) {
-        return this.model.subscribe(listener);
-    }
 } 

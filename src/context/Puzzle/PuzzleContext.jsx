@@ -40,12 +40,12 @@ export const PuzzleProvider = ({ children }) => {
   const [time, setTime] = useState(DIFFICULTY_LEVELS['easy'].time);
 
   // Handler para seleccionar nivel y puzzle
-  const handleLevel = useCallback((puzzleId, selectedDifficulty) => {
-    setSelectedPuzzleId(puzzleId);
-    setDifficulty(selectedDifficulty);
-    setTime(DIFFICULTY_LEVELS[selectedDifficulty].time);
-    setIsComplete(false);
-    setShowTimeoutMessage(false);
+  const handleLevel = useCallback((puzzleId, selectedDifficulty) => { // M4-41
+    setSelectedPuzzleId(puzzleId); // M4-42
+    setDifficulty(selectedDifficulty); // M4-43
+    setTime(DIFFICULTY_LEVELS[selectedDifficulty].time); // M4-44
+    setIsComplete(false); 
+    setShowTimeoutMessage(false); 
     setResetCounter(prev => prev + 1);
   }, []);
 

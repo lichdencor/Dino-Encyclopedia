@@ -14,14 +14,14 @@ export class PuzzleaurusController {
     }
 
     public handlePuzzleSelect(puzzle: Puzzle) {
-        this.model.selectPuzzle(puzzle);
+        this.model.selectPuzzle(puzzle); // M4-39
     }
 
-    public handleReturnToMenu() {
+    public handleReturnToMenu() { // M4-56
         this.model.returnToMenu();
     }
 
-    public handleContinue() {
+    public handleContinue() { // M4-50
         this.model.continue();
     }
 

@@ -56,15 +56,17 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
   }
 
   componentDidMount() {
-    this.unsubscribe = this.controller.subscribe((state) => {
-      this.setState(state);
-    });
+    this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
   }
 
   componentWillUnmount() {
     if (this.unsubscribe) {
       this.unsubscribe();
     }
+  }
+
+  listenState(newState: GalleryState) {
+    this.setState(newState); // M2-11
   }
 
   handleDinosaurClick = (index: number) => {

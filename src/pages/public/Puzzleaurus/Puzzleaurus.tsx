@@ -26,9 +26,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((newState) => {
-            this.setState(newState);
-        });
+        this.unsubscribe = this.model.subscribe(this.listenState);  // M4-36/47
         this.model.initialize();
         window.addEventListener('storage', this.controller.handleStorageChange);
     }
@@ -38,6 +36,10 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
             this.unsubscribe();
         }
         window.removeEventListener('storage', this.controller.handleStorageChange);
+    }
+
+    private listenState(newState: PuzzleaurusState) {
+        this.setState(newState); // M4-36
     }
 
     render() {
@@ -57,7 +59,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             ) : (
                                 <div className={styles["puzzle-content"]}>
                                     <div className={styles["puzzle-controls"]}>
-                                        <button 
+                                        <button
                                             className={styles["cheat-button"]}
                                             onClick={() => {
                                                 if (this.puzzleContainerRef?.current) {
@@ -81,7 +83,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             )}
                         </>
                     ) : (
-                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} />
+                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} /> // M4-38
                     )}
                 </div>
             </div>

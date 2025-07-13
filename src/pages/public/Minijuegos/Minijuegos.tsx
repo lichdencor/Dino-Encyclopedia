@@ -22,7 +22,7 @@ export class MinijuegosComponent extends Component<MinijuegosProps, MinijuegosSt
         super(props);
         this.model = new MinijuegosModel(props.authContext);
         this.controller = new MinijuegosController(this.model, props.navigate);
-        this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
         this.controller.initializeGames();
         this.state = this.model.getState();
     }
@@ -31,8 +31,8 @@ export class MinijuegosComponent extends Component<MinijuegosProps, MinijuegosSt
         this.unsubscribe();
     }
 
-    handleStateChange(newState: MinijuegosState) {
-        this.setState(newState);
+    listenState(newState: MinijuegosState) {
+        this.setState(newState); // M3
     }
 
     render() {
@@ -90,7 +90,7 @@ function withNavigate(WrappedComponent: typeof MinijuegosComponent) {
         const navigate = useNavigate();
         const authContext = useAuth();
         return (
-            <WrappedComponent 
+            <WrappedComponent
                 navigate={navigate}
                 authContext={authContext}
             />

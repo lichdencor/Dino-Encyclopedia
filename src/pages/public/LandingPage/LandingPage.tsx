@@ -22,7 +22,7 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
         super(props);
         this.model = new LandingPageModel();
         this.controller = new LandingPageController(this.model, props.navigate);
-        this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
         this.controller.getAllGalleries();
         this.state = this.model.getState();
     }
@@ -31,8 +31,8 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
         this.unsubscribe();
     }
 
-    handleStateChange(newState: LandingPageState) {
-        this.setState(newState);
+    listenState(newState: LandingPageState) {
+        this.setState(newState); // M2-10
     }
 
     render() {

@@ -38,7 +38,7 @@ class MapComponent extends Component<MapProps, MapComponentState> {
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
         this.model.initialize();
     }
 
@@ -48,8 +48,8 @@ class MapComponent extends Component<MapProps, MapComponentState> {
         }
     }
 
-    handleStateChange(newState: MapState) {
-        this.setState({ state: newState });
+    listenState(newState: MapState) {
+        this.setState({ state: newState }); // M3
     }
 
     render() {

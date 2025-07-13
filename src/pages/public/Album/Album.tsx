@@ -20,9 +20,7 @@ export class Album extends Component<{}, AlbumState> {
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((newState: AlbumState) => {
-            this.setState(newState);
-        });
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
         window.addEventListener('mousemove', this.controller.handleMouseMove);
         window.addEventListener('mouseup', this.controller.handleMouseUp);
     }
@@ -33,6 +31,10 @@ export class Album extends Component<{}, AlbumState> {
         }
         window.removeEventListener('mousemove', this.controller.handleMouseMove);
         window.removeEventListener('mouseup', this.controller.handleMouseUp);
+    }
+
+    listenState(newState: AlbumState) {
+        this.setState(newState); // M5
     }
 
     createGhostSticker() {
@@ -132,26 +134,26 @@ export class Album extends Component<{}, AlbumState> {
                                 <span className={styles.text}>Page</span> <span className={styles.number}>{this.state.currentPage + 1}</span> <span className={styles.text}>of</span> <span className={styles.number}>{this.state.pages.length}</span>
                             </div>
                             <div className={styles["navigation-buttons"]}>
-                            <button
-                                onClick={() => this.controller.handlePageNavigation('previous')}
-                                disabled={this.state.currentPage === 0}
-                            >
-                                Previous
-                            </button>
-                            <button
-                                onClick={() => this.controller.handlePageNavigation('next')}
-                                disabled={this.state.currentPage === this.state.pages.length - 1}
-                            >
-                                Next
-                            </button>
+                                <button
+                                    onClick={() => this.controller.handlePageNavigation('previous')}
+                                    disabled={this.state.currentPage === 0}
+                                >
+                                    Previous
+                                </button>
+                                <button
+                                    onClick={() => this.controller.handlePageNavigation('next')}
+                                    disabled={this.state.currentPage === this.state.pages.length - 1}
+                                >
+                                    Next
+                                </button>
                             </div>
                             <div className={styles["navigation-cheat"]}>
-                            <button
-                                onClick={this.controller.handleCheat}
-                                className={styles["cheat-button"]}
-                            >
-                                CHEAT
-                            </button>
+                                <button
+                                    onClick={this.controller.handleCheat}
+                                    className={styles["cheat-button"]}
+                                >
+                                    CHEAT
+                                </button>
                             </div>
                         </div>
 
