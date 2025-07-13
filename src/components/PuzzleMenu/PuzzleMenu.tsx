@@ -1,130 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PuzzleCard from '../PuzzleCard/PuzzleCard.tsx';
 import styles from './PuzzleMenu.module.css';
-import {DIFFICULTY_LEVELS, usePuzzle} from '../../context/Puzzle/PuzzleContext';
+import { usePuzzle } from '../../context/Puzzle/PuzzleContext';
 import { Puzzle } from '../../pages/public/Puzzleaurus/PuzzleaurusModel';
+import { PuzzleMenuModel, PuzzleMenuState } from './PuzzleMenuModel';
+import { PuzzleMenuController } from './PuzzleMenuController';
 
 interface PuzzleMenuProps {
   onPuzzleSelect: (puzzle: Puzzle) => void;
+  puzzleContext: any;
 }
 
-const puzzles = [
-  {
-    id: 1,
-    name: "Tyranosaurus Rex",
-    logoPuzzle: "/assets/img/puzzles/puzzle-1/puzzle-1.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
-  },
-  {
-    id: 2,
-    name: "Spinosaurus",
-    logoPuzzle: "/assets/img/puzzles/puzzle-2/puzzle-2.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
-  },
-  {
-    id: 3,
-    name: "Gigantosaurus",
-    logoPuzzle: "/assets/img/puzzles/puzzle-3/puzzle-3.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
-  },
-  {
-    id: 4,
-    name: "Baryonyx",
-    logoPuzzle: "/assets/img/puzzles/puzzle-4/puzzle-4.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
-  },
-  {
-    id: 5,
-    name: "Allosaurus",
-    logoPuzzle: "/assets/img/puzzles/puzzle-5/puzzle-5.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
-  },
-  {
-    id: 6,
-    name: "Velociraptor",
-    logoPuzzle: "/assets/img/puzzles/puzzle-6/puzzle-6.jpg",
-    difficultiesLogo: [
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png",
-      "/assets/img/puzzles/dificultad/incomplete.png"
-    ],
-    difficulties: {
-      easy: { ...DIFFICULTY_LEVELS.easy },
-      medium: { ...DIFFICULTY_LEVELS.medium },
-      hard: { ...DIFFICULTY_LEVELS.hard }
-    }
+export class PuzzleMenuComponent extends Component<PuzzleMenuProps, PuzzleMenuState> {
+  private model: PuzzleMenuModel;
+  private controller: PuzzleMenuController;
+  private unsubscribe: () => void;
+
+  constructor(props: PuzzleMenuProps) {
+    super(props);
+    this.model = new PuzzleMenuModel();
+    this.controller = new PuzzleMenuController(this.model, props.onPuzzleSelect, props.puzzleContext);
+    this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+    this.state = this.model.getState();
   }
-];
 
-const PuzzleMenu: React.FC<PuzzleMenuProps> = ({ onPuzzleSelect }) => {
-  const puzzleContext = usePuzzle() as any;
-  const { handleLevel } = puzzleContext;
+  componentDidMount(): void {
+    this.controller.initialize();
+  }
 
-  const handlePuzzleAndLevel = (puzzle: Puzzle, difficulty: 'easy' | 'medium' | 'hard') => {
-    if (handleLevel && typeof handleLevel === 'function') {
-      handleLevel(puzzle.id, difficulty);
-      onPuzzleSelect(puzzle);
-    }
-  };
+  componentWillUnmount(): void {
+    this.unsubscribe();
+  }
 
-  return (
-    <div className={styles.puzzleMenu}>
-      
+  handleStateChange(newState: PuzzleMenuState): void {
+    this.setState(newState);
+  }
+
+  render(): React.ReactNode {
+    const { puzzles } = this.state;
+
+    return (
+      <div className={styles.puzzleMenu}>
         {puzzles.map((puzzle) => (
           <PuzzleCard 
             key={puzzle.id} 
             puzzle={puzzle}
-            onClick={(difficulty) => handlePuzzleAndLevel(puzzle, difficulty)}
+            onClick={(difficulty) => this.controller.handlePuzzleSelection(puzzle, difficulty)}
           />
         ))}
       </div>
-   
-  );
-};
+    );
+  }
+}
 
-export default PuzzleMenu; 
+// HOC to inject puzzle context into class component
+function withPuzzleContext(WrappedComponent: typeof PuzzleMenuComponent) {
+  return function WithPuzzleContextComponent(props: Omit<PuzzleMenuProps, 'puzzleContext'>) {
+    const puzzleContext = usePuzzle();
+    return <WrappedComponent {...props} puzzleContext={puzzleContext} />;
+  };
+}
+
+export default withPuzzleContext(PuzzleMenuComponent); 
