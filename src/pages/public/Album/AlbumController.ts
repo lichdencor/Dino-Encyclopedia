@@ -16,23 +16,23 @@ export class AlbumController {
         this.getStickerImageById = this.getStickerImageById.bind(this);
     }
 
-    public handleMouseMove(e: MouseEvent) {
+    public handleMouseMove(e: MouseEvent) { // M5-36
         if (this.model.getState().draggingSticker) {
             this.model.setMousePosition(e.clientX, e.clientY);
         }
     }
 
-    public handleMouseUp() {
+    public handleMouseUp() { // M5-71
         this.model.stopDraggingSticker();
     }
 
-    public handleStickerDragStart(e: React.MouseEvent, sticker: Sticker) {
+    public handleStickerDragStart(e: React.MouseEvent, sticker: Sticker) { // M5-25
         e.preventDefault();
         this.model.startDraggingSticker(sticker);
         this.model.setMousePosition(e.clientX, e.clientY);
     }
 
-    public handleDrop(slotId: string) {
+    public handleDrop(slotId: string) { // M5-43 M5-61
         const { draggingSticker, pages, currentPage } = this.model.getState();
         if (draggingSticker) {
             const slot = pages[currentPage].slots.find(s => s.id === slotId);
@@ -43,7 +43,7 @@ export class AlbumController {
         }
     }
 
-    public handlePageNavigation(direction: 'next' | 'previous') {
+    public handlePageNavigation(direction: 'next' | 'previous') { // M5-11
         const { currentPage } = this.model.getState();
         const newPage = direction === 'next' ? currentPage + 1 : currentPage - 1;
         this.model.navigateToPage(newPage);
@@ -53,7 +53,7 @@ export class AlbumController {
         return this.model.getStickerImageById(id);
     }
 
-    public handleNextStickerPage = () => {
+    public handleNextStickerPage = () => { // M5-18
         this.model.nextStickerPage();
     }
 

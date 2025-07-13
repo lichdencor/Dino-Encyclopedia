@@ -57,7 +57,7 @@ export class AlbumModel {
         { id: '70', image: "/assets/img/album/stickers/sticker-70.png" }
     ];
 
-    private shuffleStickers(stickers: Sticker[]): Sticker[] {
+    private shuffleStickers(stickers: Sticker[]): Sticker[] { // M5-2
         // Crear una copia del array para no mutar el original
         const shuffled = [...stickers];
         // Algoritmo de Fisher-Yates
@@ -72,7 +72,7 @@ export class AlbumModel {
         this.setUpPagesSlots();
     }
 
-    private setUpPagesSlots() {
+    private setUpPagesSlots() { // M5-3
         this.state = {
             ...this.state,
             pages: [
@@ -132,7 +132,7 @@ export class AlbumModel {
         };
     }
 
-    public subscribe(listener: (state: AlbumState) => void): () => void {
+    public subscribe(listener: (state: AlbumState) => void): () => void { // M5-6
         this.listeners.push(listener);
         return () => {
             this.listeners = this.listeners.filter(l => l !== listener);
@@ -150,71 +150,72 @@ export class AlbumModel {
         return { ...this.state };
     }
 
-    public setMousePosition(x: number, y: number) {
+    public setMousePosition(x: number, y: number) { // M5-30 M5-37
         this.setState({ mousePos: { x, y } });
         this.notifyListeners();
     }
 
-    public startDraggingSticker(sticker: Sticker) {
+    public startDraggingSticker(sticker: Sticker) { // M5-26
         this.setState({ draggingSticker: sticker });
         this.notifyListeners();
     }
 
-    public stopDraggingSticker() {
+    public stopDraggingSticker() { // M5-55 M5-65 M5-72
         this.setState({ draggingSticker: null });
         this.notifyListeners();
     }
 
-    public isSlotAvailable(slot: Slot | undefined): boolean {
+    public isSlotAvailable(slot: Slot | undefined): boolean { // M5-44 M5-62
         if (!slot || slot.occupied) return false;
 
         const { draggingSticker } = this.state;
         if (!draggingSticker) return false;
 
-        // Verificar si el sticker corresponde al slot
+        // check if slot and sticker match M5-45 M5-63
         return slot.correctStickerId === draggingSticker.id;
     }
 
-    public putStickerOnSlot(slotId: string) {
+    public putStickerOnSlot(slotId: string) { // M5-47
         const { draggingSticker } = this.state;
         if (!draggingSticker) return;
 
-        // Encontrar el slot
+        // check if slot id is valid M5-48
         const slot = this.state.pages.flatMap(page => page.slots).find(s => s.id === slotId);
         if (!slot) return;
 
-        // Verificar si el sticker corresponde al slot
+        // check if sticker matches slot M5-49
         if (slot.correctStickerId !== draggingSticker.id) {
-            // Si el sticker no corresponde, no hacer nada y dejar que vuelva a la grilla
+            // if it doesn't match, stop dragging and return
             this.stopDraggingSticker();
             return;
         }
-
-        // Si el sticker corresponde, actualizar el estado
-        this.state.pages = this.state.pages.map(page => ({
-            ...page,
-            slots: page.slots.map(slot =>
-                slot.id === slotId
-                    ? { ...slot, occupied: true, stickerId: draggingSticker.id }
-                    : slot
-            )
-        }));
-
-        // Remover el sticker de la lista de stickers disponibles
+        this.updateSlotAsOccupied(slotId, draggingSticker);
         this.setState({
-            stickers: this.state.stickers.filter(sticker =>
-                sticker.id !== draggingSticker.id
-            )
+            stickers: this.removeStickerFromAvailableStickers(draggingSticker)
         });
-
         this.notifyListeners();
     }
 
-    private setCurrentPage(pageIndex: number) {
+    private updateSlotAsOccupied(slotId: string, draggingSticker: Sticker) { // M5-50
+        this.state.pages = this.state.pages.map(page => ({
+            ...page,
+            slots: page.slots.map(slot => slot.id === slotId
+                ? { ...slot, occupied: true, stickerId: draggingSticker.id }
+                : slot
+            )
+        }));
+    }
+
+    private removeStickerFromAvailableStickers(draggingSticker: Sticker): Sticker[] | undefined { // M5-51
+        return this.state.stickers.filter(sticker => sticker.id !== draggingSticker.id
+        );
+    }
+
+    private setCurrentPage(pageIndex: number) { // M5-13
         this.setState({ currentPage: pageIndex });
     }
 
-    public navigateToPage(pageIndex: number) {
+    public navigateToPage(pageIndex: number) { // M5-12
         if (pageIndex >= 0 && pageIndex < this.state.pages.length) {
             this.setCurrentPage(pageIndex);
             this.notifyListeners();
@@ -228,17 +229,25 @@ export class AlbumModel {
         return sticker?.image || `/assets/img/album/stickers/sticker-${id}.png`;
     }
 
-    public getCurrentPageStickers(): Sticker[] {
-        const start = this.state.currentStickerPage * this.state.stickersPerPage;
-        const end = start + this.state.stickersPerPage;
-        return this.state.stickers.slice(start, end);
+    public getCurrentPageStickers(): Sticker[] { // M5-77
+        const start = this.calculateStart();
+        const end = this.calculateEnd(start);
+        return this.state.stickers.slice(start, end); // M5-80
+    }
+
+    private calculateStart() { // M5-78
+        return this.state.currentStickerPage * this.state.stickersPerPage;
+    }
+
+    private calculateEnd(start: number) { // M5-79
+        return start + this.state.stickersPerPage;
     }
 
     public getTotalStickerPages(): number {
         return Math.ceil(this.state.stickers.length / this.state.stickersPerPage);
     }
 
-    public nextStickerPage() {
+    public nextStickerPage() { // M5-19
         const totalPages = this.getTotalStickerPages();
 
         if (this.state.currentStickerPage < totalPages - 1) {
@@ -250,7 +259,7 @@ export class AlbumModel {
         }
     }
 
-    private setState(state: Partial<AlbumState>) {
+    private setState(state: Partial<AlbumState>) { // M5-20 M5-27 M5-31 M5-38 M5-52 M5-56 M5-66 M5-73
         this.state = {
             ...this.state,
             ...state

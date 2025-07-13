@@ -14,8 +14,8 @@ export class Album extends Component<{}, AlbumState> {
 
     constructor(props: {}) {
         super(props);
-        this.model = new AlbumModel();
-        this.controller = new AlbumController(this.model);
+        this.model = new AlbumModel(); // M5-2
+        this.controller = new AlbumController(this.model); // M5-5
         this.state = this.model.getState();
     }
 
@@ -33,8 +33,8 @@ export class Album extends Component<{}, AlbumState> {
         window.removeEventListener('mouseup', this.controller.handleMouseUp);
     }
 
-    listenState(newState: AlbumState) {
-        this.setState(newState); // M5
+    listenState(newState: AlbumState) { // M5-7 M5-14 M5-21 M5-28 M5-32 M5-39 M5-53 M5-57 M5-67 M5-74   
+        this.setState(newState); // M5-8 M5-15 M5-22 M5-29 M5-33 M5-40 M5-54 M5-58 M5-68 M5-75
     }
 
     createGhostSticker() {
