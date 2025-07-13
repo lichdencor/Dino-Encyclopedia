@@ -37,9 +37,9 @@ export class PuzzleaurusModel {
         };
     }
 
-    public initialize() { // M4-32
-        this.setState({ // M4-35
-            showTips: localStorage.getItem(this.PUZZLEAURUS_TIPS_KEY) === 'true'// M4-33/34
+    public initialize() { // M4-5
+        this.setState({ // M4-8
+            showTips: localStorage.getItem(this.PUZZLEAURUS_TIPS_KEY) === 'true' // M4-6/7
         });
     }
 
@@ -54,12 +54,12 @@ export class PuzzleaurusModel {
         };
     }
 
-    private setState(newState: Partial<PuzzleaurusState>) {
+    private setState(newState: Partial<PuzzleaurusState>) { // M4-56 M4-129
         this.state = { ...this.state, ...newState };
         this.notifyListeners();
     }
 
-    private notifyListeners() {
+    private notifyListeners() { // M4-49 M4-57 M4-130
         this.listeners.forEach(listener => listener(this.getState()));
     }
 
@@ -69,22 +69,22 @@ export class PuzzleaurusModel {
         });
     }
 
-    public selectPuzzle(puzzle: Puzzle) { // M4-46
-        this.setState({
+    public selectPuzzle(puzzle: Puzzle) { // M4-47
+        this.setState({ // M4-48
             selectedPuzzle: puzzle,
             showTransition: true
         });
     }
 
-    public returnToMenu() { // M4-57
-        this.setState({ // M4-58
+    public returnToMenu() { // M4-128
+        this.setState({
             selectedPuzzle: null,
             showTransition: false
         });
     }
 
-    public continue() { // M4-51
-        this.setState({ showTransition: false }); // M4-52
+    public continue() { // M4-55
+        this.setState({ showTransition: false });
     }
 
     public navigateToPuzzle(puzzleId: number, puzzles: Puzzle[]) {

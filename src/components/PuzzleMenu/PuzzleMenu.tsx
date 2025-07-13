@@ -18,9 +18,9 @@ export class PuzzleMenuComponent extends Component<PuzzleMenuProps, PuzzleMenuSt
 
   constructor(props: PuzzleMenuProps) {
     super(props);
-    this.model = new PuzzleMenuModel();
-    this.controller = new PuzzleMenuController(this.model, props.onPuzzleSelect, props.puzzleContext);
-    this.unsubscribe = this.model.subscribe(this.handleStateChange.bind(this));
+    this.model = new PuzzleMenuModel(); // M4-13
+    this.controller = new PuzzleMenuController(this.model, props.onPuzzleSelect, props.puzzleContext); // M4-15
+    this.unsubscribe = this.model.subscribe(this.listenState.bind(this)); // M4-16
     this.state = this.model.getState();
   }
 
@@ -32,8 +32,8 @@ export class PuzzleMenuComponent extends Component<PuzzleMenuProps, PuzzleMenuSt
     this.unsubscribe();
   }
 
-  handleStateChange(newState: PuzzleMenuState): void {
-    this.setState(newState);
+  listenState(newState: PuzzleMenuState): void { // M4-20 M4-66 M4-82 M4-94 M4-107 M4-123
+    this.setState(newState); // M4-67 M4-83 M4-90 M4-95 M4-108 M4-124
   }
 
   render(): React.ReactNode {
@@ -42,10 +42,10 @@ export class PuzzleMenuComponent extends Component<PuzzleMenuProps, PuzzleMenuSt
     return (
       <div className={styles.puzzleMenu}>
         {puzzles.map((puzzle) => (
-          <PuzzleCard 
-            key={puzzle.id} 
+          <PuzzleCard
+            key={puzzle.id}
             puzzle={puzzle}
-            onClick={(difficulty) => this.controller.handlePuzzleSelection(puzzle, difficulty)}
+            onClick={(difficulty) => this.controller.handlePuzzleSelection(puzzle, difficulty)} // M4-28
           />
         ))}
       </div>

@@ -38,8 +38,8 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
         window.removeEventListener('storage', this.controller.handleStorageChange);
     }
 
-    private listenState(newState: PuzzleaurusState) {
-        this.setState(newState); // M4-36
+    private listenState(newState: PuzzleaurusState) { // M4-58 M4-131
+        this.setState(newState); // M4-10 M4-59 M4-132
     }
 
     render() {
@@ -83,7 +83,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             )}
                         </>
                     ) : (
-                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} /> // M4-38
+                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} /> // M4-38/45 
                     )}
                 </div>
             </div>

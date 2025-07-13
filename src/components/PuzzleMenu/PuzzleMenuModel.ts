@@ -29,7 +29,7 @@ export class PuzzleMenuModel {
     };
   }
 
-  private initializePuzzles(): Puzzle[] {
+  private initializePuzzles(): Puzzle[] { // M4-14
     return [
       {
         id: 1,
@@ -136,57 +136,57 @@ export class PuzzleMenuModel {
     };
   }
 
-  private setState(newState: Partial<PuzzleMenuState>): void {
+  private setState(newState: Partial<PuzzleMenuState>): void { // M4-64 M4-80 M4-88   M4-92 M4-121
     this.state = { ...this.state, ...newState };
     this.notifyListeners();
   }
 
-  private notifyListeners(): void {
+  private notifyListeners(): void { // M4-42 M4-65 M4-81 M4-89 M4-93 M4-106 M4-122
     this.listeners.forEach(listener => listener(this.getState()));
   }
 
-  public initialize(): void {
+  public initialize(): void { // M4-18
     // Initialize puzzles are already loaded in constructor
-    this.notifyListeners();
+    this.notifyListeners(); // M4-19
   }
 
-  public setContextData(contextData: any): void {
-    this.setState({ contextData });
+  public setContextData(contextData: any): void { // M4-21
+    this.setState({ contextData }); // M4-22
   }
 
   public selectPuzzleWithDifficulty(puzzle: Puzzle, difficulty: 'easy' | 'medium' | 'hard'): void {
     if (this.validatePuzzleAccess(puzzle)) {
-      this.setState({
+      this.setState({ // M4-41
         selectedPuzzle: puzzle,
         selectedDifficulty: difficulty
       });
     }
   }
 
-  public validatePuzzleAccess(puzzle: Puzzle): boolean {
+  public validatePuzzleAccess(puzzle: Puzzle): boolean { // M4-30
     // All puzzles are accessible in the menu
-    return true;
+    return true; // M4-31
   }
 
-  public dragStarted(piece: any): void {
+  public dragStarted(piece: any): void { // M4-63
     this.setState({ draggedPiece: piece });
   }
 
-  public piecesDropped(targetPiece: any, isComplete: boolean): void {
+  public piecesDropped(targetPiece: any, isComplete: boolean): void { // M4-79
     this.setState({
       draggedPiece: null,
       isComplete
     });
   }
 
-  public resetPuzzle(): void {
-    this.setState({
+  public resetPuzzle(): void { // M4-104
+    this.setState({ // M4-105
       isComplete: false,
       resetCounter: this.state.resetCounter + 1
     });
   }
 
-  public advanceToNextLevel(): void {
+  public advanceToNextLevel(): void { // M4-119
     if (this.state.selectedDifficulty) {
       const nextDifficulty = this.getNextDifficulty(this.state.selectedDifficulty);
       this.setState({
@@ -197,13 +197,13 @@ export class PuzzleMenuModel {
     }
   }
 
-  private getNextDifficulty(currentDifficulty: 'easy' | 'medium' | 'hard'): 'easy' | 'medium' | 'hard' {
+  private getNextDifficulty(currentDifficulty: 'easy' | 'medium' | 'hard'): 'easy' | 'medium' | 'hard' { // M4-120
     const difficulties: ('easy' | 'medium' | 'hard')[] = ['easy', 'medium', 'hard'];
     const currentIndex = difficulties.indexOf(currentDifficulty);
     return difficulties[Math.min(currentIndex + 1, difficulties.length - 1)];
   }
 
-  public calculateCompletionStats(elapsedTime: number): void {
+  public calculateCompletionStats(elapsedTime: number): void { // M4-87
     const stats = {
       elapsedTime,
       completedAt: new Date(),
@@ -212,7 +212,7 @@ export class PuzzleMenuModel {
     this.setState({ completionStats: stats });
   }
 
-  public puzzleCompleted(): void {
+  public puzzleCompleted(): void { // M4-91
     this.setState({ isComplete: true });
   }
 } 

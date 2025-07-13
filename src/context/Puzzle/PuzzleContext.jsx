@@ -40,13 +40,13 @@ export const PuzzleProvider = ({ children }) => {
   const [time, setTime] = useState(DIFFICULTY_LEVELS['easy'].time);
 
   // Handler para seleccionar nivel y puzzle
-  const handleLevel = useCallback((puzzleId, selectedDifficulty) => { // M4-41
-    setSelectedPuzzleId(puzzleId); // M4-42
-    setDifficulty(selectedDifficulty); // M4-43
-    setTime(DIFFICULTY_LEVELS[selectedDifficulty].time); // M4-44
-    setIsComplete(false); 
-    setShowTimeoutMessage(false); 
-    setResetCounter(prev => prev + 1);
+  const handleLevel = useCallback((puzzleId, selectedDifficulty) => { // M4-32
+    setSelectedPuzzleId(puzzleId);  // M4-33
+    setDifficulty(selectedDifficulty); // M4-34   
+    setTime(DIFFICULTY_LEVELS[selectedDifficulty].time); // M4-35
+    setIsComplete(false); // M4-36
+    setShowTimeoutMessage(false); // M4-37
+    setResetCounter(prev => prev + 1); // M4-38
   }, []);
 
   // Función para obtener la imagen del puzzle según la dificultad
@@ -103,8 +103,8 @@ export const PuzzleProvider = ({ children }) => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   }, []);
 
-  const handleDragStart = useCallback((e, piece) => {
-    setDraggedPiece(piece);
+  const handleDragStart = useCallback((e, piece) => { // M4-68
+    setDraggedPiece(piece); // M4-69
     setPieces(prevPieces => 
       prevPieces.map(p => p.id === piece.id ? { ...p, isDragging: true } : p)
     );
@@ -115,11 +115,11 @@ export const PuzzleProvider = ({ children }) => {
     setPieces(prevPieces => prevPieces.map(p => ({ ...p, isDragging: false })));
   }, []);
 
-  const handleDrop = useCallback((e, targetPiece) => {
+  const handleDrop = useCallback((e, targetPiece) => { // M4-73
     e.preventDefault();
     if (!draggedPiece || draggedPiece.id === targetPiece.id) return;
 
-    setPieces(prevPieces => {
+    setPieces(prevPieces => { // M4-74
       const newPieces = prevPieces.map(piece => {
         if (piece.id === draggedPiece.id) {
           return {
@@ -140,34 +140,34 @@ export const PuzzleProvider = ({ children }) => {
         return piece;
       });
 
-      // Check if puzzle is complete
+      // Check if puzzle is complete M4-75
       const isPuzzleComplete = newPieces.every(piece => 
         Math.abs(piece.currentX - piece.correctX) < 10 &&
         Math.abs(piece.currentY - piece.correctY) < 10
       );
 
-      setIsComplete(isPuzzleComplete);
-      setDraggedPiece(null);
+      setIsComplete(isPuzzleComplete); // M4-76
+      setDraggedPiece(null); // M4-77
       return newPieces;
     });
   }, [draggedPiece]);
 
-  const handlePlayAgain = useCallback(() => {
-    setTime(DIFFICULTY_LEVELS[difficulty].time);
-    setIsComplete(false);
-    setResetCounter(prev => prev + 1);
+  const handlePlayAgain = useCallback(() => { // M4-99
+    setTime(DIFFICULTY_LEVELS[difficulty].time); // M4-100  
+    setIsComplete(false); // M4-101
+    setResetCounter(prev => prev + 1); // M4-102
   }, [difficulty]);
 
-  const handleNextLevel = useCallback(() => {
+  const handleNextLevel = useCallback(() => { // M4-112
     const DIFFICULTY_ORDER = ['easy', 'medium', 'hard'];
     const currentIndex = DIFFICULTY_ORDER.indexOf(difficulty);
     
-    if (currentIndex < DIFFICULTY_ORDER.length - 1) {
+    if (currentIndex < DIFFICULTY_ORDER.length - 1) { // calculate next difficulty M4-113
       const nextDifficulty = DIFFICULTY_ORDER[currentIndex + 1];
-      setTime(DIFFICULTY_LEVELS[nextDifficulty].time);
-      setIsComplete(false);
-      setDifficulty(nextDifficulty);
-      setResetCounter(prev => prev + 1);
+      setTime(DIFFICULTY_LEVELS[nextDifficulty].time); // M4-114
+      setIsComplete(false); // M4-115
+      setDifficulty(nextDifficulty); // M4-116
+      setResetCounter(prev => prev + 1); // M4-117
     }
   }, [difficulty]);
 

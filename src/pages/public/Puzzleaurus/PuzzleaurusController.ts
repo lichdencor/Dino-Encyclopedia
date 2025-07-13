@@ -13,15 +13,15 @@ export class PuzzleaurusController {
         this.handleStorageChange = this.handleStorageChange.bind(this);
     }
 
-    public handlePuzzleSelect(puzzle: Puzzle) {
-        this.model.selectPuzzle(puzzle); // M4-39
+    public handlePuzzleSelect(puzzle: Puzzle) {// M4-46
+        this.model.selectPuzzle(puzzle);
     }
 
-    public handleReturnToMenu() { // M4-56
+    public handleReturnToMenu() { // M4-127
         this.model.returnToMenu();
     }
 
-    public handleContinue() { // M4-50
+    public handleContinue() { // M4-54
         this.model.continue();
     }
 
