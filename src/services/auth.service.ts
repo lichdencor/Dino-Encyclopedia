@@ -24,7 +24,7 @@ interface ApiError {
   status?: number;
 }
 
-const API_URL = 'https://dino-encyclopedia-backend-production.up.railway.app/api/v1';
+const API_URL = 'https://dino-encyclopedia-backend-production-aa38.up.railway.app/api/v1';
 //const API_URL = 'http://localhost:8000/api/v1';
 
 const getErrorMessage = (error: ApiError): string => {
