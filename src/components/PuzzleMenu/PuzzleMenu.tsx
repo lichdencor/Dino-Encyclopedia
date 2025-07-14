@@ -45,11 +45,15 @@ export class PuzzleMenuComponent extends Component<PuzzleMenuProps, PuzzleMenuSt
           <PuzzleCard
             key={puzzle.id}
             puzzle={puzzle}
-            onClick={(difficulty) => this.controller.handlePuzzleSelection(puzzle, difficulty)} // M4-28
+            onClick={(difficulty) => this.onPuzzleSelect(puzzle, difficulty)}
           />
         ))}
       </div>
     );
+  }
+
+  private onPuzzleSelect(puzzle: Puzzle, difficulty: "easy" | "medium" | "hard") {// M4-28
+    this.controller.handlePuzzleSelection(puzzle, difficulty);
   }
 }
 
