@@ -11,7 +11,7 @@ interface RegisterProps {
     authService: AuthService;
 }
 
-interface RegisterComponentState extends UserSessionState {}
+interface RegisterComponentState extends UserSessionState { }
 
 class RegisterComponent extends Component<RegisterProps, RegisterComponentState> {
     private model: UserSessionModel;
@@ -20,15 +20,13 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
 
     constructor(props: RegisterProps) {
         super(props);
-        this.model = new UserSessionModel(props.authService);
-        this.controller = new RegisterController(this.model);
+        this.model = new UserSessionModel(props.authService); // M1-85
+        this.controller = new RegisterController(this.model); // M1-86
         this.state = this.model.getState();
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((state) => {
-            this.setState(state);
-        });
+        this.unsubscribe = this.model.subscribe(this.listenState);
     }
 
     componentDidUpdate(_: RegisterProps, prevState: RegisterComponentState) {
@@ -43,6 +41,10 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
         }
     }
 
+    listenState(state: UserSessionState) { // M1-91 M1-99 M1-107 M1-115 M1-135 M1-144 M1-159
+        this.setState(state); // M1-92 M1-100 M1-108 M1-116 M1-136 M1-145 M1-160
+    }
+
     render() {
         const { formData, error } = this.state;
 
@@ -53,7 +55,7 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
                     <div className={styles["login-content"]}>
                         <h1>Register</h1>
                         {error && <div className={styles.error}>{error}</div>}
-                        
+
                         <form onSubmit={this.controller.onSubmit} className={styles.form}>
                             <div className={styles["input-group"]}>
                                 <label htmlFor="full_name">Full Name</label>

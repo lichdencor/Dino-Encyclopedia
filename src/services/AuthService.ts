@@ -74,7 +74,7 @@ export class AuthContextService implements AuthService {
         this.authContext?.updateUser?.(null);
     }
 
-    public async login(email: string, password: string): Promise<void> {
+    public async login(email: string, password: string): Promise<void> { // M1-30 M1-58
         if (!this.authContext) {
             throw new Error('Auth context is not available');
         }
@@ -86,7 +86,7 @@ export class AuthContextService implements AuthService {
         }
     }
 
-    public async register(data: { email: string; password: string; full_name: string }): Promise<void> {
+    public async register(data: { email: string; password: string; full_name: string }): Promise<void> { // M1-122 M1-151
         if (!this.authContext) {
             throw new Error('Auth context is not available');
         }
@@ -95,7 +95,7 @@ export class AuthContextService implements AuthService {
         // el usuario necesita hacer login después
     }
 
-    public loginAsGuest(): void {
+    public loginAsGuest(): void { // M1-73
         if (!this.authContext) {
             throw new Error('Auth context is not available');
         }

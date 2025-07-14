@@ -7,19 +7,19 @@ export class RegisterController {
         this.model = model;
     }
 
-    public onEmailChange = (email: string) => {
+    public onEmailChange = (email: string) => { // M1-103
         this.model.updateFormField('email', email);
     };
 
-    public onPasswordChange = (password: string) => {
+    public onPasswordChange = (password: string) => { // M1-111
         this.model.updateFormField('password', password);
     };
 
-    public onFullNameChange = (fullName: string) => {
+    public onFullNameChange = (fullName: string) => { // M1-95
         this.model.updateFormField('full_name', fullName);
     };
 
-    public onSubmit = async (e: React.FormEvent) => {
+    public onSubmit = async (e: React.FormEvent) => { // M1-119 M1-139 M1-148
         e.preventDefault();
         await this.model.register();
     };

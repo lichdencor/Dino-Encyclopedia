@@ -39,11 +39,11 @@ export const useAuth = () => {
 const STORAGE_KEY = 'dino_user';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(() => {
+  const [user, setUser] = useState<User | null>(() => { // M1-75
     try {
       const storedUser = localStorage.getItem(STORAGE_KEY);
       if (!storedUser) return null;
-      
+
       const parsedUser = JSON.parse(storedUser);
       if (parsedUser.rol === 'INVITADO') {
         localStorage.removeItem(STORAGE_KEY);
@@ -57,55 +57,55 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // M1-76
 
-  const updateUser = (newUser: User | null) => {
+  const updateUser = (newUser: User | null) => { // M1-34 M1-126
     setUser(newUser);
     if (newUser && newUser.rol !== 'INVITADO') {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser)); // M1-35
     } else {
       localStorage.removeItem(STORAGE_KEY);
     }
   };
 
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, password: string) => { // M1-31 M1-59
     try {
-      setIsLoading(true);
+      setIsLoading(true); // M1-32 M1-60
       const response = await authService.postLogin({ email, password });
       updateUser(response.profile);
-      navigate('/');
+      navigate('/'); // M1-36 M1-61 
     } catch (error) {
       console.error('Error de login:', error);
       throw error;
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // M1-37 M1-62
     }
   };
 
-  const registrar = async (data: { email: string; password: string; full_name: string }) => {
+  const registrar = async (data: { email: string; password: string; full_name: string }) => { // M1-123 M1-152
     try {
-      setIsLoading(true);
+      setIsLoading(true); // M1-124 M1-153
       const response = await authService.postRegistro(data);
       updateUser(response.profile);
-      setRegistrationSuccess(true);
-      navigate('/login');
+      setRegistrationSuccess(true); // M1-127
+      navigate('/login'); // M1-128
     } catch (error) {
       console.error('Error de registro:', error);
       throw error;
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // M1-129 M1-155
     }
   };
 
-  const recuperarContrasenia = async (email: string) => {
+  const recuperarContrasenia = async (email: string) => { // M1-173 M1-183 M1-193
     try {
-      setIsLoading(true);
+      setIsLoading(true); // M1-174 M1-184 M1-194
       await authService.postRecuperarContrasenia(email);
     } catch (error) {
       console.error('Error al enviar el correo de recuperación:', error);
       throw error;
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // M1-176 M1-186 M1-196
     }
   };
 
@@ -127,7 +127,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setRegistrationSuccess(false);
   };
 
-  const loginAsGuest = () => {
+  const loginAsGuest = () => { // M1-74
     const guestUser: User = {
       id: 'guest',
       email: 'guest@guest.com',

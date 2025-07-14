@@ -108,7 +108,7 @@ export const authService = {
     }
   },
 
-  async postLogin(credentials: LoginCredentials): Promise<LoginResponse> {
+  async postLogin(credentials: LoginCredentials): Promise<LoginResponse> { // M1-33
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
@@ -138,7 +138,7 @@ export const authService = {
     }
   },
 
-  async postRegistro(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> {
+  async postRegistro(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> { // M1-125 M1-154
     try {
 
       console.log(userData);
@@ -194,7 +194,7 @@ export const authService = {
     }
   },
 
-  async postRecuperarContrasenia(email: string): Promise<void> {
+  async postRecuperarContrasenia(email: string): Promise<void> { // M1-175 M1-185 M1-195
     try {
       const response = await fetch(`${API_URL}/auth/reset-password`, {
         method: 'POST',

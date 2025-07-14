@@ -7,20 +7,20 @@ export class LoginController {
         this.model = model;
     }
 
-    public onEmailChange = (email: string) => {
+    public onEmailChange = (email: string) => { // M1-11
         this.model.updateFormField('email', email);
     };
 
-    public onPasswordChange = (password: string) => {
+    public onPasswordChange = (password: string) => { // M1-19
         this.model.updateFormField('password', password);
     };
 
-    public onSubmit = async (e: React.FormEvent) => {
+    public onSubmit = async (e: React.FormEvent) => { // M1-27 M1-46 M1-55
         e.preventDefault();
         await this.model.login();
     };
 
-    public onGuestLogin = () => {
+    public onGuestLogin = () => { // M1-71
         this.model.loginAsGuest();
     };
 

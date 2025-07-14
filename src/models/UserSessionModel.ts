@@ -35,7 +35,7 @@ export class UserSessionModel {
     /**
      * Get initial state for the model
      */
-    private getInitialState(): UserSessionState {
+    private getInitialState(): UserSessionState { // M1-3 M1-90
         return {
             formData: {
                 email: '',
@@ -50,14 +50,14 @@ export class UserSessionModel {
     /**
      * Get current state
      */
-    public getState(): UserSessionState {
+    public getState(): UserSessionState { // M1-88
         return { ...this.state };
     }
 
     /**
      * Subscribe to state changes
      */
-    public subscribe(listener: (state: UserSessionState) => void): () => void {
+    public subscribe(listener: (state: UserSessionState) => void): () => void { // M1-5 M1-87
         this.listeners.push(listener);
         return () => {
             this.listeners = this.listeners.filter(l => l !== listener);
@@ -67,7 +67,7 @@ export class UserSessionModel {
     /**
      * Update state and notify listeners
      */
-    private setState(newState: Partial<UserSessionState>): void {
+    private setState(newState: Partial<UserSessionState>): void { // M1-13 M1-21 M1-97 M1-105 M1-113 M1-132
         this.state = { ...this.state, ...newState };
         this.notifyListeners();
     }
@@ -75,14 +75,14 @@ export class UserSessionModel {
     /**
      * Notify all listeners of state change
      */
-    private notifyListeners(): void {
+    private notifyListeners(): void { // M1-22 M1-41 M1-50 M1-66 M1-80 M1-98 M1-106 M1-114 M1-134 M1-143 M1-159
         this.listeners.forEach(listener => listener(this.getState()));
     }
 
     /**
      * Update a form field value
      */
-    public updateFormField(field: keyof UserFormData, value: string): void {
+    public updateFormField(field: keyof UserFormData, value: string): void { // M1-20 M1-96 M1-104 M1-112
         this.setState({
             formData: {
                 ...this.state.formData,
@@ -94,10 +94,10 @@ export class UserSessionModel {
     /**
      * Validate form data
      */
-    private validateForm(requireFullName: boolean = false): boolean {
+    private validateForm(requireFullName: boolean = false): boolean { // M1-29 M1-48 M1-57 M1-121 M1-141 M1-150
         const { email, password, full_name } = this.state.formData;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
+
         if (!emailRegex.test(email)) {
             this.setError('Invalid email format');
             return false;
@@ -109,7 +109,7 @@ export class UserSessionModel {
         }
 
         if (requireFullName && (!full_name || full_name.trim() === '')) {
-            this.setError('Full name is required');
+            this.setError('Full name is required'); // M1-142
             return false;
         }
 
@@ -119,14 +119,14 @@ export class UserSessionModel {
     /**
      * Set error message
      */
-    private setError(message: string): void {
+    private setError(message: string): void { // M1-49
         this.setState({ error: message });
     }
 
     /**
      * Handle authentication errors
      */
-    private handleAuthError(err: unknown): void {
+    private handleAuthError(err: unknown): void { // M1-65 M1-158
         const errorMessage = err instanceof Error ? err.message : 'Authentication error';
         this.setError(errorMessage);
     }
@@ -134,7 +134,7 @@ export class UserSessionModel {
     /**
      * Login user
      */
-    public async login(): Promise<void> {
+    public async login(): Promise<void> { // M1-28 M1-47 M1-56
         if (!this.validateForm()) return;
 
         try {
@@ -152,8 +152,8 @@ export class UserSessionModel {
     /**
      * Register new user
      */
-    public async register(): Promise<void> {
-        if (!this.validateForm(true)) return;
+    public async register(): Promise<void> { // M1-120 M1-140 M1-150
+        if (!this.validateForm(true)) return; // M1-122
 
         try {
             await this.authService.register({
@@ -175,7 +175,7 @@ export class UserSessionModel {
     /**
      * Login as guest
      */
-    public loginAsGuest(): void {
+    public loginAsGuest(): void { // M1-72
         try {
             this.authService.loginAsGuest();
             this.clearError();
@@ -194,7 +194,7 @@ export class UserSessionModel {
     /**
      * Clear error message
      */
-    public clearError(): void {
+    public clearError(): void { // M1-36 M1-79 M1-133
         this.setState({ error: '' });
     }
 

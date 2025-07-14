@@ -13,31 +13,34 @@ export class RecuperarContrasenia extends Component<{}, RecuperarContraseniaStat
     static contextType = AuthContext;
     declare context: React.ContextType<typeof AuthContext>;
 
-    state: RecuperarContraseniaState = {
-        email: "",
-        error: "",
-        success: false
-    };
+    constructor(props: {}) {
+        super(props);
+        this.setState({
+            email: "",
+            error: "",
+            success: false
+        });
+    }
 
     handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        this.setState({ error: "", success: false });
-        
+        e.preventDefault(); // M1-171 M1-181 M1-191
+        this.setState({ error: "", success: false }); // M1-172 M1-182 M1-192
+
         try {
             if (!this.context) {
                 throw new Error('Auth context is not available');
             }
             await this.context.recuperarContrasenia(this.state.email);
-            this.setState({ success: true, email: "" });
+            this.setState({ success: true, email: "" }); // M1-178
         } catch (err) {
-            this.setState({ 
-                error: err instanceof Error ? err.message : "Error al enviar el correo de recuperación" 
-            });
+            this.setState({
+                error: err instanceof Error ? err.message : "Error al enviar el correo de recuperación"
+            }); // M1-188 M1-198. Está puesto el mismo error para cuando el formato del mail es inválido y cuando no existe una cuenta con ese mail.
         }
     };
 
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({ email: e.target.value });
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { // M1-167
+        this.setState({ email: e.target.value }); // M1-164 M1-168
     };
 
     mostrarFormularioRecuperarContrasenia() {

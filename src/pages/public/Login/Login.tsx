@@ -11,7 +11,7 @@ interface LoginProps {
     authService: AuthService;
 }
 
-interface LoginComponentState extends UserSessionState {}
+interface LoginComponentState extends UserSessionState { }
 
 class LoginComponent extends Component<LoginProps, LoginComponentState> {
     private model: UserSessionModel;
@@ -20,15 +20,13 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
 
     constructor(props: LoginProps) {
         super(props);
-        this.model = new UserSessionModel(props.authService);
-        this.controller = new LoginController(this.model);
-        this.state = this.model.getState();
+        this.model = new UserSessionModel(props.authService); // M1-2
+        this.controller = new LoginController(this.model); // M1-4
+        this.setState(this.model.getState()); // M1-6 M1-8 
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe((state) => {
-            this.setState(state);
-        });
+        this.unsubscribe = this.model.subscribe(this.listenState);
     }
 
     componentDidUpdate(_prevProps: LoginProps, prevState: LoginComponentState) {
@@ -42,6 +40,10 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
             this.unsubscribe();
         }
         this.controller.clearRegistrationSuccess();
+    }
+
+    listenState(state: UserSessionState) { // M1-15 M1-23 M1-42 M1-51 M1-67 M1-81
+        this.setState(state); // M1-16 M1-24 M1-43 M1-52 M1-68 M1-82
     }
 
     render() {
@@ -70,7 +72,7 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
                                     type="email"
                                     id="email"
                                     value={formData.email}
-                                    onChange={(e) => this.controller.onEmailChange(e.target.value)}
+                                    onChange={(e) => this.controller.onEmailChange(e.target.value)} // M1-10
                                     required
                                     placeholder="your@email.com"
                                 />
