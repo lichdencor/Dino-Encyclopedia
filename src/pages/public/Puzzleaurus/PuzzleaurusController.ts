@@ -28,4 +28,8 @@ export class PuzzleaurusController {
     public handleStorageChange() {
         this.model.handleStorageChange();
     }
-} 
+
+    public initialize() {
+        this.model.initialize();
+    }
+}

@@ -86,11 +86,4 @@ export class PuzzleaurusModel {
     public continue() { // M4-55
         this.setState({ showTransition: false });
     }
-
-    public navigateToPuzzle(puzzleId: number, puzzles: Puzzle[]) {
-        const puzzle = puzzles.find(p => p.id === puzzleId);
-        if (puzzle) {
-            this.setState({ selectedPuzzle: puzzle });
-        }
-    }
-} 
+}

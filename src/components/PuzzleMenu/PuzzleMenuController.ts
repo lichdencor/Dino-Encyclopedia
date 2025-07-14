@@ -95,8 +95,4 @@ export class PuzzleMenuController {
     // Mark puzzle as completed
     this.model.puzzleCompleted();
   }
-
-  public getModel(): PuzzleMenuModel {
-    return this.model;
-  }
-} 
+}

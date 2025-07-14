@@ -4,7 +4,7 @@ import PuzzleContainer from "../../../components/PuzzleContainer/PuzzleContainer
 import PuzzleMenu from "../../../components/PuzzleMenu/PuzzleMenu";
 import DialogoTips from "../../../components/DialogoTips/DialogoTips.tsx";
 import styles from "./Puzzleaurus.module.css";
-import { PuzzleaurusModel, PuzzleaurusState } from './PuzzleaurusModel';
+import {Puzzle, PuzzleaurusModel, PuzzleaurusState} from './PuzzleaurusModel';
 import { PuzzleaurusController } from './PuzzleaurusController';
 
 // Define el tipo para la referencia del PuzzleContainer para el Cheat
@@ -27,7 +27,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
 
     componentDidMount() {
         this.unsubscribe = this.model.subscribe(this.listenState);  // M4-36/47
-        this.model.initialize();
+        this.controller.initialize();
         window.addEventListener('storage', this.controller.handleStorageChange);
     }
 
@@ -83,11 +83,15 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             )}
                         </>
                     ) : (
-                        <PuzzleMenu onPuzzleSelect={this.controller.handlePuzzleSelect} /> // M4-38/45 
+                        <PuzzleMenu onPuzzleSelect={this.onPuzzleSelect} /> // M4-38/45
                     )}
                 </div>
             </div>
         );
+    }
+
+    private onPuzzleSelect(puzzle: Puzzle) { //M4-45
+        this.controller.handlePuzzleSelect(puzzle);
     }
 }
 
