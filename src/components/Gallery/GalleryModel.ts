@@ -65,8 +65,6 @@ export class GalleryModel {
         };
     }
 
-    // dónde está el setState?
-
     private notifyListeners() {
         this.listeners.forEach(listener => listener(this.state));
     }
@@ -85,48 +83,48 @@ export class GalleryModel {
     private updateDinosaurData(index: number) {
         const dinosaurs = this.subPeriodModel.dinosaurs;
         const dinosaur = dinosaurs[index];
-        this.state = {
+        this.setState({
             ...this.state,
             dinosaurImage: `${this.imagePrefix}${dinosaur.info.name}.png`,
             dinosaurBone: `${this.skeletonPrefix}${dinosaur.info.name}.png`,
             currentDinosaurInfo: this.adaptDinosaurInfo(dinosaur.info)
-        };
+        });
+    }
+
+    setState(state: GalleryState) {
+        this.state = state;
+        this.notifyListeners();
     }
 
     setActiveDinosaur(dinosaur: number | null) {
-        this.state = {
+        this.setState({
             ...this.state,
             activeDinosaur: dinosaur
-        };
-        this.notifyListeners();
+        });
     }
 
     setIsModalOpen(isOpen: boolean) {
-        this.state = {
+        this.setState({
             ...this.state,
             isModalOpen: isOpen
-        };
-        this.notifyListeners();
+        });
     }
 
     setSelectedDinosaur(index: number) {
-        this.state = {
+        this.updateDinosaurData(index);
+        this.setState({
             ...this.state,
             selectedDinosaur: index
-        };
-        this.updateDinosaurData(index);
-        this.notifyListeners();
+        });
     }
 
     handleDinosaurClick(index: number) {
         this.setSelectedDinosaur(index);
         this.setIsModalOpen(true);
-        // this.notifyListeners(); // ¿por qué no se llama acá?
     }
 
     closeModal() {
         this.setIsModalOpen(false);
         this.setSelectedDinosaur(0);
-        // this.notifyListeners(); // ¿por qué no se llama acá?
     }
 } 
