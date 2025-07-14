@@ -117,28 +117,32 @@ export class MinijuegosModel {
         this.state.selectedGame = null;
 
         try {
-            const isGuest = this.authContext.isGuest; // M4-15/16/22/23
-
-            if (game.requiresRegistration && isGuest) { // M4-17
-                this.state.error = 'Acceso denegado para invitados';
-                this.notifyListeners();
-                return false;
-            }
-
-            if (game.isAvailable) { // M4-24
-                this.state.selectedGame = game;
-                this.notifyListeners();
-                return true; // M4-25
-            }
-
-            this.state.error = 'Juego no disponible';
-            this.notifyListeners();
-            return false; // M4-18
+            return this.validateGameAccess(game);
         } catch (error) {
             this.state.error = 'Error al verificar el acceso';
             this.notifyListeners();
             return false;
         }
+    }
+
+    private validateGameAccess(game: GameData) {
+        const isGuest = this.authContext.isGuest; // M4-15/16/22/23
+
+        if (game.requiresRegistration && isGuest) { // M4-17
+            this.state.error = 'Acceso denegado para invitados';
+            this.notifyListeners();
+            return false;
+        }
+
+        if (game.isAvailable) { // M4-24
+            this.state.selectedGame = game;
+            this.notifyListeners();
+            return true; // M4-25
+        }
+
+        this.state.error = 'Juego no disponible';
+        this.notifyListeners();
+        return false; // M4-18
     }
 
     clearError() {

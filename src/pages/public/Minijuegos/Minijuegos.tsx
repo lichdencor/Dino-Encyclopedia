@@ -99,4 +99,3 @@ function withNavigate(WrappedComponent: typeof MinijuegosComponent) {
 }
 
 export const Minijuegos = withNavigate(MinijuegosComponent);
-export default Minijuegos;

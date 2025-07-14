@@ -18,7 +18,7 @@ export class MinijuegosController {
         const canAccess = this.model.handleGameAccess(game); // M4-14/21
 
         if (canAccess) {
-            this.navigate(game.link); // M4-26
+            this.navigate(game.link); // M4-27
         }
     }
 
