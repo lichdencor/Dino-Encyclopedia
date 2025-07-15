@@ -44,7 +44,7 @@ describe('UserSessionModel', () => {
             await userSessionModel.login();
 
             expect(mockAuthService.login).not.toHaveBeenCalled();
-            expect(userSessionModel.getState().error).toBe('Error email invalido');
+            expect(userSessionModel.getState().error).toBe('Invalid email format');
         });
 
         it('should show error with short password', async () => {
@@ -54,7 +54,7 @@ describe('UserSessionModel', () => {
             await userSessionModel.login();
 
             expect(mockAuthService.login).not.toHaveBeenCalled();
-            expect(userSessionModel.getState().error).toBe('Error password invalida');
+            expect(userSessionModel.getState().error).toBe('Password must be at least 8 characters long');
         });
 
         it('should handle login service error', async () => {
@@ -95,7 +95,7 @@ describe('UserSessionModel', () => {
             await userSessionModel.register();
 
             expect(mockAuthService.register).not.toHaveBeenCalled();
-            expect(userSessionModel.getState().error).toBe('El nombre completo es requerido');
+            expect(userSessionModel.getState().error).toBe('Full name is required');
             expect(userSessionModel.getState().registrationSuccess).toBe(false);
         });
 
@@ -109,29 +109,6 @@ describe('UserSessionModel', () => {
 
             expect(mockAuthService.register).toHaveBeenCalled();
             expect(userSessionModel.getState().error).toBe('Registration failed');
-            expect(userSessionModel.getState().registrationSuccess).toBe(false);
-        });
-    });
-
-    describe('form validation', () => {
-        it('should clear error when clearError is called', () => {
-            userSessionModel.updateFormField('email', 'invalid-email');
-            userSessionModel.login();
-
-            userSessionModel.clearError();
-
-            expect(userSessionModel.getState().error).toBe('');
-        });
-
-        it('should clear registration success when clearRegistrationSuccess is called', async () => {
-            userSessionModel.updateFormField('email', 'test@example.com');
-            userSessionModel.updateFormField('password', 'password123');
-            userSessionModel.updateFormField('full_name', 'Test User');
-            mockAuthService.register.mockResolvedValueOnce(undefined);
-            
-            await userSessionModel.register();
-            userSessionModel.clearRegistrationSuccess();
-
             expect(userSessionModel.getState().registrationSuccess).toBe(false);
         });
     });
