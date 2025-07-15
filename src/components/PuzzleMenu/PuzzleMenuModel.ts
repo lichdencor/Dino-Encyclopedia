@@ -163,7 +163,7 @@ export class PuzzleMenuModel {
     }
   }
 
-  public validatePuzzleAccess(puzzle: Puzzle): boolean { // M4-30
+  public validatePuzzleAccess(_: Puzzle): boolean { // M4-30
     // All puzzles are accessible in the menu
     return true; // M4-31
   }
@@ -172,7 +172,7 @@ export class PuzzleMenuModel {
     this.setState({ draggedPiece: piece });
   }
 
-  public piecesDropped(targetPiece: any, isComplete: boolean): void { // M4-79
+  public piecesDropped(_: any, isComplete: boolean): void { // M4-79
     this.setState({
       draggedPiece: null,
       isComplete

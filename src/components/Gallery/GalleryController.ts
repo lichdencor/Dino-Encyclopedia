@@ -1,4 +1,4 @@
-import { GalleryModel, GalleryState } from './GalleryModel';
+import { GalleryModel } from './GalleryModel';
 
 export class GalleryController {
     private model: GalleryModel;
