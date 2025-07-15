@@ -26,7 +26,7 @@ class RegisterComponent extends Component<RegisterProps, RegisterComponentState>
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe(this.listenState);
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
     }
 
     componentDidUpdate(_: RegisterProps, prevState: RegisterComponentState) {

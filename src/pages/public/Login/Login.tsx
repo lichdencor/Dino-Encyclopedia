@@ -22,11 +22,11 @@ class LoginComponent extends Component<LoginProps, LoginComponentState> {
         super(props);
         this.model = new UserSessionModel(props.authService); // M1-2
         this.controller = new LoginController(this.model); // M1-4
-        this.setState(this.model.getState()); // M1-6 M1-8 
+        this.state = this.model.getState(); // M1-6 M1-8 
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe(this.listenState);
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));
     }
 
     componentDidUpdate(_prevProps: LoginProps, prevState: LoginComponentState) {
