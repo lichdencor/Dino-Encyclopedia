@@ -26,7 +26,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
     }
 
     componentDidMount() {
-        this.unsubscribe = this.model.subscribe(this.listenState);  // M4-36/47
+        this.unsubscribe = this.model.subscribe(this.listenState.bind(this));  // M4-36/47
         this.controller.initialize();
         window.addEventListener('storage', this.controller.handleStorageChange);
     }
@@ -83,7 +83,7 @@ export class Puzzleaurus extends Component<{}, PuzzleaurusState> {
                             )}
                         </>
                     ) : (
-                        <PuzzleMenu onPuzzleSelect={this.onPuzzleSelect} /> // M4-38/45
+                        <PuzzleMenu onPuzzleSelect={this.onPuzzleSelect.bind(this)} /> // M4-38/45
                     )}
                 </div>
             </div>
