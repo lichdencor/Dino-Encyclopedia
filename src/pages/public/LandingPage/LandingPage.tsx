@@ -45,7 +45,7 @@ export class LandingPageComponent extends Component<LandingPageProps, LandingPag
                 <div className="home-container">
 
                     <div className="title-container">
-                        <div className="header-title">Cultured Dino Academy</div>
+                        <div className="header-title">Dino Culture Academy</div>
                         <div className="header-subtitle">Interactive Paleontology Museum</div>
                     </div>
                     <div className="periods-container">
