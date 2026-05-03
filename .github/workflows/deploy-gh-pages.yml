@@ -1,0 +1,43 @@
+# Despliegue a GitHub Pages sin depender de `npm run deploy` en Windows
+# (evita Error: spawn ENAMETOOLONG del paquete gh-pages con muchos archivos).
+#
+# Uso: GitHub → Settings → Pages → Build and deployment → Source: "Deploy from a branch"
+#      Branch: gh-pages / folder: / (root)
+#
+# El valor de `base` en vite.config.ts (build) debe coincidir con el nombre del repo:
+#   base: "/NombreExactoDelRepoEnGitHub/"
+
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Push dist to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

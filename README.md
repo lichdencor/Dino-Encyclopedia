@@ -104,15 +104,31 @@ En `src/services/auth.service.ts`, las llamadas al backend de autenticación pue
 
 ## Despliegue en GitHub Pages
 
-1. Alineá **`base`** en `vite.config.ts` con el nombre del repositorio.
-2. En `package.json` ya existen `predeploy` y `deploy` (gh-pages).
-3. Ejecutá:
+### 1. `base` del build y nombre del repo
+
+En `vite.config.ts`, el `base` **solo en producción** (`vite build`) debe ser `"/<nombre-exacto-del-repo-en-GitHub>/"`. Si el repo se llama `Dino-Encyclopedia` y en el config tenés `Dino-Culture-Academy`, los assets y rutas van a romper: unificá nombres.
+
+### 2. Opción recomendada: GitHub Actions (sin `npm run deploy` local)
+
+En Windows, `npm run deploy` (paquete `gh-pages`) a veces falla con **`Error: spawn ENAMETOOLONG`**: el comando `git` recibe demasiados argumentos (muchos archivos en `dist/`) y supera el límite de longitud de la línea de comandos.
+
+Este repo incluye **`.github/workflows/deploy-gh-pages.yml`**: al hacer push a `main` o `master` (o al ejecutar el workflow a mano en la pestaña *Actions*), se hace `npm ci`, `npm run build` en Ubuntu y se publica la carpeta `dist` en la rama **`gh-pages`**.
+
+En GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch** → rama **`gh-pages`**, carpeta **`/` (root)**.
+
+### 3. Opción local: `npm run deploy`
+
+Si en tu máquina **no** aparece `ENAMETOOLONG`, podés seguir usando:
 
 ```bash
 npm run deploy
 ```
 
-4. En GitHub: **Settings → Pages → Source**: rama `gh-pages` (o la que use tu flujo).
+Si falla, probá clonar el repo en una ruta **corta** (por ejemplo `C:\dev\dino`) y volver a `npm run build` + `npm run deploy`.
+
+### 4. Vite + React
+
+El proyecto declara **`@vitejs/plugin-react-swc`** en `package.json`. En `vite.config.ts` tenés que importar ese plugin, no `@vitejs/plugin-react` (no está instalado y el build fallaría).
 
 ---
 
