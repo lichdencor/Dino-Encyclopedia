@@ -77,13 +77,11 @@ El resto de rutas (`/`, `/map`, `/album`, …) siguen pidiendo sesión o modo in
 
 ### Base path (`vite.config.ts`)
 
-En `vite.config.ts`, `base` debe coincidir con la ruta donde se publica el sitio:
+En desarrollo (`npm run dev`), `base` es **`/`** para que funcione `http://localhost:5173/` sin subcarpeta.
 
-```ts
-base: "/Dino-Culture-Academy/",
-```
+En **build** de producción, `base` apunta al subpath de GitHub Pages (por ejemplo `"/Dino-Culture-Academy/"`). **Renombrá ese valor** si tu repo en GitHub tiene otro nombre: `"/NombreDelRepo/"`. En un dominio propio en la raíz podés usar `"/"` también en el build.
 
-Si el repositorio de GitHub Pages se llama distinto (por ejemplo `Dino-Encyclopedia`), **cambiá `base` al nombre del repo** con barras: `"/NombreDelRepo/"`. Si desplegás en la raíz de un dominio propio, podés usar `"/"`.
+`BrowserRouter` en `src/main.tsx` usa `import.meta.env.BASE_URL` para coincidir con ese `base` en la build publicada.
 
 ### Variables de entorno (opcionales)
 

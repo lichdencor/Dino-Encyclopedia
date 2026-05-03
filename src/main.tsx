@@ -6,9 +6,13 @@ import { AuthProvider } from "./context/";
 import { ProgressProvider } from "./context/Progress/ProgressProvider";
 import { BrowserRouter } from "react-router-dom";
 
+// Alineado con `base` de Vite: en dev es `/`, en build el subpath de GitHub Pages.
+const baseTrim = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+const routerBasename = baseTrim === "/" ? undefined : baseTrim;
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <AuthProvider>
         <ProgressProvider>
           <App />
