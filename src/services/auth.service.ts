@@ -24,8 +24,9 @@ interface ApiError {
   status?: number;
 }
 
-const API_URL = 'https://dino-encyclopedia-backend-production-aa38.up.railway.app/api/v1';
-//const API_URL = 'http://localhost:8000/api/v1';
+// --- Backend Railway (auth): URL comentada — build solo front; descomentá API_URL y los fetch en cada método para reactivar ---
+// const API_URL = 'https://dino-encyclopedia-backend-production-aa38.up.railway.app/api/v1';
+// const API_URL = 'http://localhost:8000/api/v1';
 
 const getErrorMessage = (error: ApiError): string => {
   // Errores específicos de Firebase/Auth
@@ -82,6 +83,9 @@ const getErrorMessage = (error: ApiError): string => {
 
 export const authService = {
   async checkSession(): Promise<User | null> {
+    // Backend deshabilitado (solo front)
+    return null;
+    /*
     try {
       const response = await fetch(`${API_URL}/auth/me`, {
         method: 'GET',
@@ -106,9 +110,19 @@ export const authService = {
       console.error('Error checking session:', error);
       return null;
     }
+    */
   },
 
   async postLogin(credentials: LoginCredentials): Promise<LoginResponse> { // M1-33
+    void credentials;
+    throw new Error(
+      getErrorMessage({
+        detail:
+          'Inicio de sesión contra el servidor deshabilitado en esta build (solo front). Usá acceso como invitado o reactivá auth.service.',
+        status: 503,
+      }),
+    );
+    /*
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
@@ -136,9 +150,18 @@ export const authService = {
       }
       throw new Error(getErrorMessage(error as ApiError));
     }
+    */
   },
 
   async postRegistro(userData: LoginCredentials & { full_name: string }): Promise<LoginResponse> { // M1-125 M1-154
+    void userData;
+    throw new Error(
+      getErrorMessage({
+        detail: 'Registro contra el servidor deshabilitado en esta build (solo front).',
+        status: 503,
+      }),
+    );
+    /*
     try {
 
       console.log(userData);
@@ -169,9 +192,13 @@ export const authService = {
       }
       throw new Error(getErrorMessage(error as ApiError));
     }
+    */
   },
 
   async logout(): Promise<void> {
+    // Sin llamada al backend: el AuthProvider igual limpia usuario local
+    return;
+    /*
     try {
       const response = await fetch(`${API_URL}/auth/logout`, {
         method: 'POST',
@@ -192,9 +219,19 @@ export const authService = {
       }
       throw new Error(getErrorMessage(error as ApiError));
     }
+    */
   },
 
   async postRecuperarContrasenia(email: string): Promise<void> { // M1-175 M1-185 M1-195
+    void email;
+    throw new Error(
+      getErrorMessage({
+        detail:
+          'Recuperación de contraseña vía servidor deshabilitada en esta build (solo front).',
+        status: 503,
+      }),
+    );
+    /*
     try {
       const response = await fetch(`${API_URL}/auth/reset-password`, {
         method: 'POST',
@@ -220,5 +257,6 @@ export const authService = {
       }
       throw new Error(getErrorMessage(error as ApiError));
     }
+    */
   }
 }; 

@@ -59,11 +59,12 @@ export class MinijuegosModel {
     }
 
     initializeGames() {
+        void this.authContext;
         this.setState({ isLoading: true }); // M4-9
         this.notifyListeners(); // M4-10
 
         try {
-            const isGuest = this.authContext.isGuest; // M4-7
+            // const isGuest = this.authContext.isGuest; // M4-7 — antes bloqueaba Puzzleaurus a invitados; deshabilitado (solo front)
 
             const games: GameData[] = [
                 {
@@ -80,8 +81,10 @@ export class MinijuegosModel {
                         altura: '60%'
                     },
                     link: '/puzzleaurus',
-                    isAvailable: !isGuest,
-                    requiresRegistration: true
+                    // isAvailable: !isGuest,
+                    // requiresRegistration: true,
+                    isAvailable: true,
+                    requiresRegistration: false
                 },
                 {
                     id: 'memodyn',
@@ -126,13 +129,12 @@ export class MinijuegosModel {
     }
 
     private validateGameAccess(game: GameData) {
-        const isGuest = this.authContext.isGuest; // M4-15/16/22/23
-
-        if (game.requiresRegistration && isGuest) { // M4-17
-            this.state.error = 'Acceso denegado para invitados';
-            this.notifyListeners();
-            return false;
-        }
+        // const isGuest = this.authContext.isGuest; // M4-15/16/22/23
+        // if (game.requiresRegistration && isGuest) { // M4-17 — regla pensada con backend/cuenta; deshabilitada para acceso siempre local
+        //     this.state.error = 'Acceso denegado para invitados';
+        //     this.notifyListeners();
+        //     return false;
+        // }
 
         if (game.isAvailable) { // M4-24
             this.state.selectedGame = game;

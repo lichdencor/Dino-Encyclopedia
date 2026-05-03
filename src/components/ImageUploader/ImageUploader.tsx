@@ -32,8 +32,15 @@ export const ImageUploader: React.FC = () => {
     setError("");
 
     try {
+      setPredictedLabel(null);
+      void formData;
+      setError(
+        "Predicción vía servidor local deshabilitada (solo front). El POST a 127.0.0.1:5000 quedó comentado.",
+      );
+      /*
       const response = await fetch("http://127.0.0.1:5000/api/predict", {
         method: "POST",
+        body: formData,
       });
 
       if (!response.ok) {
@@ -42,6 +49,7 @@ export const ImageUploader: React.FC = () => {
 
       const result: { predicted_label: string } = await response.json();
       setPredictedLabel(result.predicted_label);
+      */
     } catch (error) {
       setError((error as Error).message);
     } finally {

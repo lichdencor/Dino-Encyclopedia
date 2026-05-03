@@ -63,13 +63,14 @@ const AppRouter = () => {
           </PrivateGuard>
         } />
 
+        {/* PrivateGuard deshabilitado: minijuegos/puzzles accesibles sin login (solo front, sin depender de sesión/back) */}
+        {/* <PrivateGuard isAuthenticated={isAuthenticated}> */}
         <Route path="/games" element={
-          <PrivateGuard isAuthenticated={isAuthenticated}>
-            <PuzzleProvider>
-              <Minijuegos />
-            </PuzzleProvider>
-          </PrivateGuard>
+          <PuzzleProvider>
+            <Minijuegos />
+          </PuzzleProvider>
         } />
+        {/* </PrivateGuard> */}
 
         <Route path="/album" element={
           <PrivateGuard isAuthenticated={isAuthenticated}>
@@ -128,11 +129,9 @@ const AppRouter = () => {
           </PrivateGuard>
         } />
 
-        <Route path="/puzzleaurus" element={
-          <PrivateGuard isAuthenticated={isAuthenticated}>
-            <Puzzleaurus />
-          </PrivateGuard>
-        } />
+        {/* <PrivateGuard isAuthenticated={isAuthenticated}> */}
+        <Route path="/puzzleaurus" element={<Puzzleaurus />} />
+        {/* </PrivateGuard> */}
 
         <Route path="/cretaceous-inferior" element={
           <PrivateGuard isAuthenticated={isAuthenticated}>
